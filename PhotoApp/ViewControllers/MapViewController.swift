@@ -13,7 +13,7 @@ class MapViewController: ViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "ic_center_on_me_selected"), tag: 1)
+        self.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "ic_map"), tag: 1)
     }
 
 }
