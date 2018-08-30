@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: ViewController {
 
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -21,8 +21,14 @@ class LoginViewController: UIViewController {
                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
+            } else {
+                // MARK: Add segue to MapViewController
             }
         }
+    }
+    
+    @IBAction func clickSignUp(_ sender: UIButton) {
+        // Mark: Add segue to SignUpViewController
     }
     
 }

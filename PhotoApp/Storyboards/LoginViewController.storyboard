@@ -50,6 +50,9 @@
                                         <rect key="frame" x="160.5" y="0.0" width="43" height="27"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                         <state key="normal" title="Sign up"/>
+                                        <connections>
+                                            <action selector="clickSignUp:" destination="LXc-YV-5pA" eventType="touchUpInside" id="nLI-t8-VWn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
