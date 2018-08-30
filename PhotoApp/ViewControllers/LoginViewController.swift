@@ -29,7 +29,7 @@ class LoginViewController: ViewController {
     
     @IBAction func clickSignUp(_ sender: UIButton) {
         let signUpVC = SignUpViewController.create(asClass: SignUpViewController.self)
-        present(signUpVC, animated: true, completion: nil)
+        navigationController?.pushViewController(signUpVC, animated: true)
     }
     
 }

@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 
 class FirebaseAppDelegateObserver: AppDelegateObservable {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?, window: UIWindow?) {
         FirebaseApp.configure()
     }
 }

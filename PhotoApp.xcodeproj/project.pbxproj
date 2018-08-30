@@ -17,6 +17,7 @@
 		10D282C42137EAA700274129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C32137EAA700274129 /* ViewController.swift */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
 		10D282C82137EC7C00274129 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282C72137EC7C00274129 /* SignUpViewController.storyboard */; };
+		10D282CA2137F57C00274129 /* LoginVCAppDelegateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C92137F57C00274129 /* LoginVCAppDelegateObserver.swift */; };
 		43EF6D769072B71F5A84E388 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		10D282C32137EAA700274129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10D282C72137EC7C00274129 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
+		10D282C92137F57C00274129 /* LoginVCAppDelegateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCAppDelegateObserver.swift; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				109064872137E20F0033B02B /* FirebaseAppDelegateObserver.swift */,
+				10D282C92137F57C00274129 /* LoginVCAppDelegateObserver.swift */,
 			);
 			path = AppDelegateObservers;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				109064882137E20F0033B02B /* FirebaseAppDelegateObserver.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
+				10D282CA2137F57C00274129 /* LoginVCAppDelegateObserver.swift in Sources */,
 				10D282C42137EAA700274129 /* ViewController.swift in Sources */,
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,

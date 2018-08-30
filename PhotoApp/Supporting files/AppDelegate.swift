@@ -16,13 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     override init() {
-        observers += [FirebaseAppDelegateObserver()]
+        observers += [LoginVCAppDelegateObserver() as AppDelegateObservable, FirebaseAppDelegateObserver() as AppDelegateObservable]        
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
         for observer in observers {
-            observer.application(application, didFinishLaunchingWithOptions: launchOptions)
+            observer.application(application, didFinishLaunchingWithOptions: launchOptions, window: window)
         }
+        assert(window?.rootViewController != nil, "One of the observers must set the rootViewController")
+        window?.makeKeyAndVisible()
         return true
     }
 
@@ -30,5 +33,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 protocol AppDelegateObservable {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?, window: UIWindow?)
 }
