@@ -17,12 +17,10 @@ class LoginViewController: ViewController {
     @IBAction func clickLogin(_ sender: UIButton) {
         Auth.auth().signIn(withEmail: loginTF.text ?? "", password: passwordTF.text ?? "") { [unowned self] (authDataResult, error) in
             if let error = error {
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
+                self.showAlertWithError(message: error.localizedDescription)
             } else {
-                // MARK: Add segue to MapViewController
+                let tabBarVC = TabBarViewController()
+                self.present(tabBarVC, animated: true, completion: nil)
             }
         }
     }

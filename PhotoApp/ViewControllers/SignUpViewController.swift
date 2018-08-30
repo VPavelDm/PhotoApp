@@ -30,7 +30,8 @@ class SignUpViewController: ViewController {
                     self.showAlertWithError(message: error.localizedDescription)
                     return
                 }
-                // MARK: Add segue to MapViewController
+                let tabBarVC = TabBarViewController()
+                self.present(tabBarVC, animated: true, completion: nil)
             }
         }
     }
