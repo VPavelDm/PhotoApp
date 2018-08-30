@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 }
 
 extension UIViewController {
-    func setRootViewController() {
+    func setRootViewController(){
         if let window = UIApplication.shared.keyWindow {
             window.rootViewController = self
             window.makeKeyAndVisible()
