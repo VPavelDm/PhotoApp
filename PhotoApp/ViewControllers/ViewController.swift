@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     static func create<Controller>(asClass: Controller.Type) -> UIViewController {
         let storyboard = UIStoryboard(name: String(describing: Controller.self), bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()
@@ -23,5 +23,14 @@ class ViewController: UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    
+}
 
+extension UIViewController {
+    func setRootViewController() {
+        if let window = UIApplication.shared.keyWindow {
+            window.rootViewController = self
+            window.makeKeyAndVisible()
+        }
+    }
 }
