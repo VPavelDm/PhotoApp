@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSh-FG-F8o">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="PlZ-0a-Kbe">
             <objects>
-                <viewController id="kSh-FG-F8o" sceneMemberID="viewController">
+                <viewController id="kSh-FG-F8o" customClass="SignUpViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ro-3L-oih">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +23,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <connections>
+                                    <action selector="asd:" destination="grg-Kg-HIG" eventType="editingDidEnd" id="Np0-w5-fgc"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-e1-ZkR">
                                 <rect key="frame" x="64" y="265" width="247" height="30"/>
@@ -39,6 +42,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-uh-MHW">
                                 <rect key="frame" x="160" y="357" width="55" height="30"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="asd:" destination="grg-Kg-HIG" eventType="touchUpInside" id="aNG-4h-FZX"/>
+                                    <action selector="clickSignUp:" destination="kSh-FG-F8o" eventType="touchUpInside" id="0uc-fT-hGk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,8 +64,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zov-W8-tGq"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTF" destination="cao-U9-KI8" id="15i-rZ-Cox"/>
+                        <outlet property="loginTF" destination="7Bj-dM-6Lv" id="4Cq-oZ-aWi"/>
+                        <outlet property="passwordTF" destination="YmN-e1-ZkR" id="pJm-Yc-W5E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oiy-L8-ylz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="grg-Kg-HIG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-31.199999999999999" y="178.56071964017991"/>
         </scene>
