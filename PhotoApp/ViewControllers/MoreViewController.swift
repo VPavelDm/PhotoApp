@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MoreViewController: ViewController {
     
@@ -14,5 +15,15 @@ class MoreViewController: ViewController {
         super.init(coder: aDecoder)
         self.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "ic_more"), tag: 3)
     }
+    
+    @IBAction func clickLogOut(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            let signInVC = LoginViewController.create(asClass: LoginViewController.self)
+            let navigation = UINavigationController(rootViewController: signInVC)
+            self.present(navigation, animated: true, completion: nil)
+        } catch let error {
+            self.present(UIAlertController(title: "Sign out is failure", message: error.localizedDescription, preferredStyle: .alert), animated: true)
+        }    }
     
 }
