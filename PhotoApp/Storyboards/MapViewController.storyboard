@@ -20,6 +20,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZWa-Jq-TzA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GO6-fd-xpg" appends="YES" id="JpO-ZT-hnt"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moU-Zt-fZP">
                                 <rect key="frame" x="311" y="60" width="40" height="40"/>
@@ -28,6 +32,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-VZ-GFV">
                                 <rect key="frame" x="239" y="65" width="40" height="31"/>
                                 <state key="normal" image="ic_camera"/>
+                                <connections>
+                                    <action selector="clickCameraBtn:" destination="tn4-0v-tks" eventType="touchUpInside" id="edk-YV-ZrI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-ZW-ju8">
                                 <rect key="frame" x="22" y="68" width="42" height="26"/>
@@ -49,8 +56,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yix-6a-tkY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ZWa-Jq-TzA" id="wAp-kK-xFH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMQ-fG-zEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="GO6-fd-xpg">
+                    <connections>
+                        <action selector="longClickOnMap:" destination="tn4-0v-tks" id="YhA-bT-zZA"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="945" y="248"/>
         </scene>
