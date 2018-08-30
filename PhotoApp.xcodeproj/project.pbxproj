@@ -74,9 +74,9 @@
 		1090646D2137DE770033B02B /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				109064832137DF080033B02B /* Storyboards */,
-				1090647A2137DE780033B02B /* Info.plist */,
 				109064862137E1030033B02B /* ViewControllers */,
 			);
 			path = PhotoApp;

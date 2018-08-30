@@ -34,7 +34,7 @@
                                 <rect key="frame" x="168" y="311" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="clickLogin:" destination="LXc-YV-5pA" eventType="touchUpInside" id="aA1-Ji-Cvx"/>
+                                    <action selector="clickLogin:" destination="LXc-YV-5pA" eventType="touchUpInside" id="Wkc-O6-Nmu"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="41g-QP-r6k">
@@ -70,8 +70,8 @@
                         <viewLayoutGuide key="safeArea" id="fj8-d1-YWO"/>
                     </view>
                     <connections>
-                        <outlet property="PasswordTF" destination="3xR-OT-rZ5" id="FZM-1l-Xsr"/>
-                        <outlet property="loginTF" destination="xVE-Fd-O2h" id="YyZ-ut-hMd"/>
+                        <outlet property="loginTF" destination="xVE-Fd-O2h" id="cMu-eg-2uT"/>
+                        <outlet property="passwordTF" destination="3xR-OT-rZ5" id="6WO-mL-839"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tq-4x-LbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
