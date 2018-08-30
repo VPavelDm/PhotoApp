@@ -28,7 +28,8 @@ class LoginViewController: ViewController {
     }
     
     @IBAction func clickSignUp(_ sender: UIButton) {
-        // Mark: Add segue to SignUpViewController
+        let signUpVC = SignUpViewController.create(asClass: SignUpViewController.self)
+        present(signUpVC, animated: true, completion: nil)
     }
     
 }
