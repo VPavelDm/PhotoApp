@@ -54,14 +54,22 @@
 		1090646D2137DE770033B02B /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
-				1090646E2137DE770033B02B /* AppDelegate.swift */,
+				109064802137DECB0033B02B /* Supporting files */,
 				109064702137DE770033B02B /* ViewController.swift */,
 				109064722137DE770033B02B /* Main.storyboard */,
-				109064752137DE780033B02B /* Assets.xcassets */,
-				109064772137DE780033B02B /* LaunchScreen.storyboard */,
 				1090647A2137DE780033B02B /* Info.plist */,
 			);
 			path = PhotoApp;
+			sourceTree = "<group>";
+		};
+		109064802137DECB0033B02B /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				1090646E2137DE770033B02B /* AppDelegate.swift */,
+				109064752137DE780033B02B /* Assets.xcassets */,
+				109064772137DE780033B02B /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
