@@ -7,22 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    private(set) var observers: [AppDelegateObservable] = []
-    
     var window: UIWindow?
     
-    override init() {
-        observers += [LoginVCAppDelegateObserver() as AppDelegateObservable, FirebaseAppDelegateObserver() as AppDelegateObservable]        
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
-        for observer in observers {
-            observer.application(application, didFinishLaunchingWithOptions: launchOptions, window: window)
+        if Auth.auth().currentUser != nil {
+            let viewController = TabBarViewController()
+            window?.rootViewController = viewController
+        } else {
+            let viewController = LoginViewController.create(asClass: LoginViewController.self)
+            let navigation = UINavigationController(rootViewController: viewController)
+            window?.rootViewController = navigation
         }
         assert(window?.rootViewController != nil, "One of the observers must set the rootViewController")
         window?.makeKeyAndVisible()

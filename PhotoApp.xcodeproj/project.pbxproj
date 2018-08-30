@@ -12,12 +12,10 @@
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
 		109064822137DF040033B02B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064812137DF040033B02B /* LoginViewController.storyboard */; };
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
-		109064882137E20F0033B02B /* FirebaseAppDelegateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064872137E20F0033B02B /* FirebaseAppDelegateObserver.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C42137EAA700274129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C32137EAA700274129 /* ViewController.swift */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
 		10D282C82137EC7C00274129 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282C72137EC7C00274129 /* SignUpViewController.storyboard */; };
-		10D282CA2137F57C00274129 /* LoginVCAppDelegateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C92137F57C00274129 /* LoginVCAppDelegateObserver.swift */; };
 		10D282CC2137FE7800274129 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282CB2137FE7800274129 /* MapViewController.swift */; };
 		10D282CE2137FE8A00274129 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282CD2137FE8A00274129 /* MapViewController.storyboard */; };
 		10D282D2213806AE00274129 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282D1213806AE00274129 /* TimelineViewController.swift */; };
@@ -36,12 +34,10 @@
 		1090647A2137DE780033B02B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		109064812137DF040033B02B /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		109064872137E20F0033B02B /* FirebaseAppDelegateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegateObserver.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C32137EAA700274129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10D282C72137EC7C00274129 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
-		10D282C92137F57C00274129 /* LoginVCAppDelegateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCAppDelegateObserver.swift; sourceTree = "<group>"; };
 		10D282CB2137FE7800274129 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		10D282CD2137FE8A00274129 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		10D282D1213806AE00274129 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +107,6 @@
 				1090646E2137DE770033B02B /* AppDelegate.swift */,
 				109064752137DE780033B02B /* Assets.xcassets */,
 				109064772137DE780033B02B /* LaunchScreen.storyboard */,
-				109064892137E4270033B02B /* AppDelegateObservers */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -140,15 +135,6 @@
 				10D282DD21380DEF00274129 /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		109064892137E4270033B02B /* AppDelegateObservers */ = {
-			isa = PBXGroup;
-			children = (
-				109064872137E20F0033B02B /* FirebaseAppDelegateObserver.swift */,
-				10D282C92137F57C00274129 /* LoginVCAppDelegateObserver.swift */,
-			);
-			path = AppDelegateObservers;
 			sourceTree = "<group>";
 		};
 		4F7AAE8BB7196A34F4532F7F /* Frameworks */ = {
@@ -281,9 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
-				109064882137E20F0033B02B /* FirebaseAppDelegateObserver.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
-				10D282CA2137F57C00274129 /* LoginVCAppDelegateObserver.swift in Sources */,
 				10D282C42137EAA700274129 /* ViewController.swift in Sources */,
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
 				10D282D2213806AE00274129 /* TimelineViewController.swift in Sources */,
