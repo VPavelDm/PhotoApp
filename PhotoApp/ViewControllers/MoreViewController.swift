@@ -21,9 +21,10 @@ class MoreViewController: ViewController {
             try Auth.auth().signOut()
             let signInVC = LoginViewController.create(asClass: LoginViewController.self)
             let navigation = UINavigationController(rootViewController: signInVC)
-            self.present(navigation, animated: true, completion: nil)
+            navigation.setRootViewController()
         } catch let error {
             self.present(UIAlertController(title: "Sign out is failure", message: error.localizedDescription, preferredStyle: .alert), animated: true)
-        }    }
+        }
+    }
     
 }
