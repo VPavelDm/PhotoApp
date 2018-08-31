@@ -25,13 +25,15 @@ class SignUpViewController: ViewController {
                 showAlertWithError(message: "Passwords do not match")
                 return
             }
-            Auth.auth().createUser(withEmail: login, password: password) { [unowned self] (authResult, error) in
-                if let error = error {
-                    self.showAlertWithError(message: error.localizedDescription)
-                    return
+            Auth.auth().createUser(withEmail: login, password: password) { [weak self] (authResult, error) in
+                if let `self` = self {
+                    if let error = error {
+                        self.showAlertWithError(message: error.localizedDescription)
+                        return
+                    }
+                    let tabBarVC = TabBarViewController()
+                    self.present(tabBarVC, animated: true, completion: nil)
                 }
-                let tabBarVC = TabBarViewController()
-                self.present(tabBarVC, animated: true, completion: nil)
             }
         }
     }

@@ -15,12 +15,14 @@ class LoginViewController: ViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     @IBAction func clickLogin(_ sender: UIButton) {
-        Auth.auth().signIn(withEmail: loginTF.text ?? "", password: passwordTF.text ?? "") { [unowned self] (authDataResult, error) in
-            if let error = error {
-                self.showAlertWithError(message: error.localizedDescription)
-            } else {
-                let tabBarVC = TabBarViewController()
-                self.present(tabBarVC, animated: true, completion: nil)
+        Auth.auth().signIn(withEmail: loginTF.text ?? "", password: passwordTF.text ?? "") { [weak self] (authDataResult, error) in
+            if let `self` = self {
+                if let error = error {
+                    self.showAlertWithError(message: error.localizedDescription)
+                } else {
+                    let tabBarVC = TabBarViewController()
+                    self.present(tabBarVC, animated: true, completion: nil)
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ class MapViewController: ViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "ic_map"), tag: 1)
+        tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "ic_map"), tag: 1)
     }
     
     @IBOutlet weak var mapView: MKMapView!
@@ -48,7 +48,7 @@ class MapViewController: ViewController {
         alert.addAction(chooseFromLibraryAction)
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true)
+        present(alert, animated: true)
     }
     
     private class Marker : NSObject, MKAnnotation {

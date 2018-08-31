@@ -13,7 +13,7 @@ class MoreViewController: ViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "ic_more"), tag: 3)
+        tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "ic_more"), tag: 3)
     }
     
     @IBAction func clickLogOut(_ sender: UIButton) {
@@ -23,7 +23,7 @@ class MoreViewController: ViewController {
             let navigation = UINavigationController(rootViewController: signInVC)
             navigation.setRootViewController()
         } catch let error {
-            self.present(UIAlertController(title: "Sign out is failure", message: error.localizedDescription, preferredStyle: .alert), animated: true)
+            present(UIAlertController(title: "Sign out is failure", message: error.localizedDescription, preferredStyle: .alert), animated: true)
         }
     }
     

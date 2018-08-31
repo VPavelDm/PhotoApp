@@ -17,7 +17,7 @@ class TabBarViewController: UITabBarController {
         let timelineVC = TimelineViewController.create(asClass: TimelineViewController.self)
         let moreVC = MoreViewController.create(asClass: MoreViewController.self)
         
-        self.viewControllers = [mapVC, timelineVC, moreVC]
+        viewControllers = [mapVC, timelineVC, moreVC]
     }
 
 }

@@ -12,7 +12,7 @@ class TimelineViewController: ViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.tabBarItem = UITabBarItem(title: "Timeline", image: UIImage(named: "ic_timeline"), tag: 2)
+        tabBarItem = UITabBarItem(title: "Timeline", image: UIImage(named: "ic_timeline"), tag: 2)
     }
     
 }

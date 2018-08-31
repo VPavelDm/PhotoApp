@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
 }
