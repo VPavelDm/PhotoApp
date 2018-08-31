@@ -19,7 +19,7 @@ class SignUpViewController: ViewController {
     
     @IBAction func clickSignUp(_ sender: UIButton) {
         guard let login = loginTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text else {
-            showAlertWithError(message: "Entry login, password or confirm password text field")
+            showAlertWithError(message: NSLocalizedString("Entry login, password or confirm password text field", comment: "Error message"))
             return
         }
         repository.signUp(email: login, password: password, confirmPassword: confirmPassword) { [weak self] (errorMessage) in

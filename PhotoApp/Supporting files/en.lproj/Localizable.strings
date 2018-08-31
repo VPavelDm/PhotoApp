@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  PhotoApp
+
+  Created by mac-089-71 on 8/31/18.
+  Copyright © 2018 VPavelDm. All rights reserved.
+*/
+
+"Error" = "Error";
+"Ok" = "Ok";
+"Map" = "Map";
+"Timeline" = "Timeline";
+"More" = "More";
+"Take a Picture" = "Take a Picture";
+"Choose From Library" = "Choose From Library";
+"Cancel" = "Cancel";
+"Sign out is failure" = "Sign out is failure";
+"Passwords do not match" = "Passwords do not match";
+"Entry login, password or confirm password text field" = "Entry login, password or confirm password text field";

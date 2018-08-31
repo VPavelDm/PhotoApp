@@ -10,23 +10,24 @@
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
-		109064822137DF040033B02B /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064812137DF040033B02B /* LoginViewController.storyboard */; };
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C42137EAA700274129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C32137EAA700274129 /* ViewController.swift */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
-		10D282C82137EC7C00274129 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282C72137EC7C00274129 /* SignUpViewController.storyboard */; };
 		10D282CC2137FE7800274129 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282CB2137FE7800274129 /* MapViewController.swift */; };
-		10D282CE2137FE8A00274129 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282CD2137FE8A00274129 /* MapViewController.storyboard */; };
 		10D282D2213806AE00274129 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282D1213806AE00274129 /* TimelineViewController.swift */; };
-		10D282D4213806BA00274129 /* TimelineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282D3213806BA00274129 /* TimelineViewController.storyboard */; };
-		10D282D821380B4900274129 /* MoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282D721380B4900274129 /* MoreViewController.storyboard */; };
 		10D282DA21380B5600274129 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282D921380B5600274129 /* MoreViewController.swift */; };
 		10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282DD21380DEF00274129 /* TabBarViewController.swift */; };
 		10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CB6213937840096E8DA /* LoginRepository.swift */; };
 		10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */; };
 		10E35CC321394B9A0096E8DA /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CC221394B9A0096E8DA /* Marker.swift */; };
 		10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CCC21394C570096E8DA /* MoreRepository.swift */; };
+		10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D25213971370096E8DA /* LoginViewController.storyboard */; };
+		10E35D2A213971680096E8DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D2C213971680096E8DA /* Localizable.strings */; };
+		10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D31213972250096E8DA /* SignUpViewController.storyboard */; };
+		10E35D36213972660096E8DA /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D38213972660096E8DA /* MapViewController.storyboard */; };
+		10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */; };
+		10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D462139728B0096E8DA /* MoreViewController.storyboard */; };
 		43EF6D769072B71F5A84E388 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,23 +37,36 @@
 		109064752137DE780033B02B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		109064782137DE780033B02B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1090647A2137DE780033B02B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		109064812137DF040033B02B /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C32137EAA700274129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		10D282C72137EC7C00274129 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		10D282CB2137FE7800274129 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		10D282CD2137FE8A00274129 /* MapViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		10D282D1213806AE00274129 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		10D282D3213806BA00274129 /* TimelineViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimelineViewController.storyboard; sourceTree = "<group>"; };
-		10D282D721380B4900274129 /* MoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoreViewController.storyboard; sourceTree = "<group>"; };
 		10D282D921380B5600274129 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		10D282DD21380DEF00274129 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		10E35CB6213937840096E8DA /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		10E35CC221394B9A0096E8DA /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		10E35CCC21394C570096E8DA /* MoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRepository.swift; sourceTree = "<group>"; };
+		10E35D24213971370096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginViewController.storyboard; sourceTree = "<group>"; };
+		10E35D272139713A0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginViewController.strings; sourceTree = "<group>"; };
+		10E35D28213971530096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		10E35D29213971530096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LoginViewController.strings; sourceTree = "<group>"; };
+		10E35D2B213971680096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10E35D2E213971A10096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10E35D30213972250096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUpViewController.storyboard; sourceTree = "<group>"; };
+		10E35D332139722B0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SignUpViewController.strings; sourceTree = "<group>"; };
+		10E35D35213972380096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SignUpViewController.strings; sourceTree = "<group>"; };
+		10E35D37213972660096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MapViewController.storyboard; sourceTree = "<group>"; };
+		10E35D3A2139726A0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MapViewController.strings; sourceTree = "<group>"; };
+		10E35D3C2139726C0096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MapViewController.strings; sourceTree = "<group>"; };
+		10E35D3E2139727B0096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TimelineViewController.storyboard; sourceTree = "<group>"; };
+		10E35D412139727E0096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TimelineViewController.strings; sourceTree = "<group>"; };
+		10E35D432139727E0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TimelineViewController.strings; sourceTree = "<group>"; };
+		10E35D452139728B0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MoreViewController.storyboard; sourceTree = "<group>"; };
+		10E35D482139728D0096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MoreViewController.strings; sourceTree = "<group>"; };
+		10E35D49213972AC0096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MoreViewController.storyboard; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +127,7 @@
 		109064802137DECB0033B02B /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				10E35D2C213971680096E8DA /* Localizable.strings */,
 				10D282BF2137E76F00274129 /* GoogleService-Info.plist */,
 				1090646E2137DE770033B02B /* AppDelegate.swift */,
 				109064752137DE780033B02B /* Assets.xcassets */,
@@ -142,7 +157,7 @@
 		10E35CB42139372A0096E8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				109064812137DF040033B02B /* LoginViewController.storyboard */,
+				10E35D25213971370096E8DA /* LoginViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,7 +191,7 @@
 		10E35CBA21393D2F0096E8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				10D282C72137EC7C00274129 /* SignUpViewController.storyboard */,
+				10E35D31213972250096E8DA /* SignUpViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,7 +225,7 @@
 		10E35CC021394B560096E8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				10D282CD2137FE8A00274129 /* MapViewController.storyboard */,
+				10E35D38213972660096E8DA /* MapViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,7 +259,7 @@
 		10E35CC621394C000096E8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				10D282D3213806BA00274129 /* TimelineViewController.storyboard */,
+				10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,7 +292,7 @@
 		10E35CCA21394C2B0096E8DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				10D282D721380B4900274129 /* MoreViewController.storyboard */,
+				10E35D462139728B0096E8DA /* MoreViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +384,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 109064622137DE770033B02B;
 			productRefGroup = 1090646C2137DE770033B02B /* Products */;
@@ -386,12 +402,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */,
-				10D282C82137EC7C00274129 /* SignUpViewController.storyboard in Resources */,
-				10D282D4213806BA00274129 /* TimelineViewController.storyboard in Resources */,
-				10D282CE2137FE8A00274129 /* MapViewController.storyboard in Resources */,
+				10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */,
+				10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */,
+				10E35D36213972660096E8DA /* MapViewController.storyboard in Resources */,
+				10E35D2A213971680096E8DA /* Localizable.strings in Resources */,
 				10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */,
-				109064822137DF040033B02B /* LoginViewController.storyboard in Resources */,
-				10D282D821380B4900274129 /* MoreViewController.storyboard in Resources */,
+				10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */,
+				10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */,
 				109064762137DE780033B02B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,8 +485,68 @@
 			isa = PBXVariantGroup;
 			children = (
 				109064782137DE780033B02B /* Base */,
+				10E35D28213971530096E8DA /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		10E35D25213971370096E8DA /* LoginViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E35D24213971370096E8DA /* Base */,
+				10E35D272139713A0096E8DA /* en */,
+				10E35D29213971530096E8DA /* ru */,
+			);
+			name = LoginViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		10E35D2C213971680096E8DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E35D2B213971680096E8DA /* en */,
+				10E35D2E213971A10096E8DA /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		10E35D31213972250096E8DA /* SignUpViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E35D30213972250096E8DA /* Base */,
+				10E35D332139722B0096E8DA /* en */,
+				10E35D35213972380096E8DA /* ru */,
+			);
+			name = SignUpViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		10E35D38213972660096E8DA /* MapViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E35D37213972660096E8DA /* Base */,
+				10E35D3A2139726A0096E8DA /* en */,
+				10E35D3C2139726C0096E8DA /* ru */,
+			);
+			name = MapViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E35D3E2139727B0096E8DA /* Base */,
+				10E35D412139727E0096E8DA /* ru */,
+				10E35D432139727E0096E8DA /* en */,
+			);
+			name = TimelineViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		10E35D462139728B0096E8DA /* MoreViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10E35D452139728B0096E8DA /* en */,
+				10E35D482139728D0096E8DA /* ru */,
+				10E35D49213972AC0096E8DA /* Base */,
+			);
+			name = MoreViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -479,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -539,6 +617,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

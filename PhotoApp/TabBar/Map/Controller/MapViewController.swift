@@ -31,13 +31,13 @@ class MapViewController: ViewController {
     private func startActionSheetsToTakeAPicture(at position: CLLocationCoordinate2D){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let takePictureAction = UIAlertAction(title: "Take a Picture", style: .default) { action in
+        let takePictureAction = UIAlertAction(title: NSLocalizedString("Take a Picture", comment: "Take a Picture label"), style: .default) { action in
             // MARK: Run camera, take picture and add annotation to the map with coordinates
         }
-        let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library", style: .default) { action in
+        let chooseFromLibraryAction = UIAlertAction(title: NSLocalizedString("Choose From Library", comment: "Choose From Library label"), style: .default) { action in
             // MARK: Take a picture from the library and add annotation to the map with coordinates
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel label"), style: .cancel, handler: nil)
         
         alert.addAction(takePictureAction)
         alert.addAction(chooseFromLibraryAction)

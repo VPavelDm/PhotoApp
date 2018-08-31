@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "Login"; ObjectID = "7Bj-dM-6Lv"; */
+"7Bj-dM-6Lv.placeholder" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "VpO-uh-MHW"; */
+"VpO-uh-MHW.normalTitle" = "Sign Up";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "YmN-e1-ZkR"; */
+"YmN-e1-ZkR.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Confirm password"; ObjectID = "cao-U9-KI8"; */
+"cao-U9-KI8.placeholder" = "Confirm password";
