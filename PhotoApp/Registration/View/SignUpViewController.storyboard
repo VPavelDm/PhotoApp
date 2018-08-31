@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSh-FG-F8o">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,11 +11,11 @@
             <objects>
                 <viewController id="kSh-FG-F8o" customClass="SignUpViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ro-3L-oih">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Bj-dM-6Lv">
-                                <rect key="frame" x="64" y="219" width="247" height="30"/>
+                                <rect key="frame" x="64" y="185" width="472" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
@@ -28,19 +24,19 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-e1-ZkR">
-                                <rect key="frame" x="64" y="265" width="247" height="30"/>
+                                <rect key="frame" x="64" y="231" width="472" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cao-U9-KI8">
-                                <rect key="frame" x="64" y="311" width="247" height="30"/>
+                                <rect key="frame" x="64" y="277" width="472" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-uh-MHW">
-                                <rect key="frame" x="160" y="357" width="55" height="30"/>
+                                <rect key="frame" x="272.5" y="323" width="55" height="30"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="asd:" destination="grg-Kg-HIG" eventType="touchUpInside" id="aNG-4h-FZX"/>
@@ -65,9 +61,9 @@
                         <viewLayoutGuide key="safeArea" id="Zov-W8-tGq"/>
                     </view>
                     <connections>
-                        <outlet property="confirmPasswordTF" destination="cao-U9-KI8" id="15i-rZ-Cox"/>
-                        <outlet property="loginTF" destination="7Bj-dM-6Lv" id="4Cq-oZ-aWi"/>
-                        <outlet property="passwordTF" destination="YmN-e1-ZkR" id="pJm-Yc-W5E"/>
+                        <outlet property="confirmPasswordTextField" destination="cao-U9-KI8" id="15i-rZ-Cox"/>
+                        <outlet property="loginTextField" destination="7Bj-dM-6Lv" id="4Cq-oZ-aWi"/>
+                        <outlet property="passwordTextField" destination="YmN-e1-ZkR" id="pJm-Yc-W5E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oiy-L8-ylz" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -18,8 +18,8 @@ class MoreViewController: ViewController {
             if let error = errorMessage {
                 self?.present(UIAlertController(title: "Sign out is failure", message: error, preferredStyle: .alert), animated: true)
             } else {
-                let signInVC = LoginViewController.create(asClass: LoginViewController.self)
-                let navigation = UINavigationController(rootViewController: signInVC)
+                let signInViewController = LoginViewController.create(asClass: LoginViewController.self)
+                let navigation = UINavigationController(rootViewController: signInViewController)
                 navigation.setRootViewController()
             }
         }

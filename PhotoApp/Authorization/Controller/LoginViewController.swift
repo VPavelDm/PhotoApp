@@ -11,25 +11,25 @@ import FirebaseAuth
 
 class LoginViewController: ViewController {
     
-    @IBOutlet weak var loginTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     private let repository = LoginRepository()
     
     @IBAction func clickLogin(_ sender: UIButton) {
-        repository.signIn(email: loginTF.text ?? "", password: passwordTF.text ?? "") { [weak self] error in
+        repository.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] error in
             if let error = error {
                 self?.showAlertWithError(message: error)
             } else {
-                let tabBarVC = TabBarViewController()
-                self?.present(tabBarVC, animated: true, completion: nil)
+                let tabBarViewController = TabBarViewController()
+                self?.present(tabBarViewController, animated: true, completion: nil)
             }
         }
     }
     
     @IBAction func clickSignUp(_ sender: UIButton) {
-        let signUpVC = SignUpViewController.create(asClass: SignUpViewController.self)
-        navigationController?.pushViewController(signUpVC, animated: true)
+        let signUpViewController = SignUpViewController.create(asClass: SignUpViewController.self)
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
     
 }
