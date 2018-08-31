@@ -25,6 +25,8 @@
 		10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282DD21380DEF00274129 /* TabBarViewController.swift */; };
 		10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CB6213937840096E8DA /* LoginRepository.swift */; };
 		10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */; };
+		10E35CC321394B9A0096E8DA /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CC221394B9A0096E8DA /* Marker.swift */; };
+		10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CCC21394C570096E8DA /* MoreRepository.swift */; };
 		43EF6D769072B71F5A84E388 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		10D282DD21380DEF00274129 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		10E35CB6213937840096E8DA /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
+		10E35CC221394B9A0096E8DA /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		10E35CCC21394C570096E8DA /* MoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRepository.swift; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,10 +102,10 @@
 			children = (
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
+				10E35CD021394E180096E8DA /* Core */,
+				10E35CCE21394DD60096E8DA /* TabBar */,
 				10E35CB821393D110096E8DA /* Registration */,
 				10E35CB2213936960096E8DA /* Authorization */,
-				109064832137DF080033B02B /* Storyboards */,
-				109064862137E1030033B02B /* ViewControllers */,
 			);
 			path = PhotoApp;
 			sourceTree = "<group>";
@@ -115,28 +119,6 @@
 				109064772137DE780033B02B /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting files";
-			sourceTree = "<group>";
-		};
-		109064832137DF080033B02B /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				10D282CD2137FE8A00274129 /* MapViewController.storyboard */,
-				10D282D3213806BA00274129 /* TimelineViewController.storyboard */,
-				10D282D721380B4900274129 /* MoreViewController.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		109064862137E1030033B02B /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				10D282C32137EAA700274129 /* ViewController.swift */,
-				10D282CB2137FE7800274129 /* MapViewController.swift */,
-				10D282D1213806AE00274129 /* TimelineViewController.swift */,
-				10D282D921380B5600274129 /* MoreViewController.swift */,
-				10D282DD21380DEF00274129 /* TabBarViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
@@ -205,6 +187,134 @@
 				10D282C52137EBB600274129 /* SignUpViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		10E35CBE213940DC0096E8DA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CC121394B5B0096E8DA /* Model */,
+				10E35CC021394B560096E8DA /* View */,
+				10E35CBF21394B4A0096E8DA /* Controller */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		10E35CBF21394B4A0096E8DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10D282CB2137FE7800274129 /* MapViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10E35CC021394B560096E8DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10D282CD2137FE8A00274129 /* MapViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10E35CC121394B5B0096E8DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CC221394B9A0096E8DA /* Marker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10E35CC421394BF20096E8DA /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CC721394C040096E8DA /* Model */,
+				10E35CC621394C000096E8DA /* View */,
+				10E35CC521394BFA0096E8DA /* Controller */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		10E35CC521394BFA0096E8DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10D282D1213806AE00274129 /* TimelineViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10E35CC621394C000096E8DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10D282D3213806BA00274129 /* TimelineViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10E35CC721394C040096E8DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10E35CC821394C1B0096E8DA /* More */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CCB21394C300096E8DA /* Model */,
+				10E35CCA21394C2B0096E8DA /* View */,
+				10E35CC921394C210096E8DA /* Controller */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		10E35CC921394C210096E8DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10D282D921380B5600274129 /* MoreViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10E35CCA21394C2B0096E8DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10D282D721380B4900274129 /* MoreViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10E35CCB21394C300096E8DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CCC21394C570096E8DA /* MoreRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10E35CCE21394DD60096E8DA /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CCF21394E080096E8DA /* Core */,
+				10E35CBE213940DC0096E8DA /* Map */,
+				10E35CC421394BF20096E8DA /* Timeline */,
+				10E35CC821394C1B0096E8DA /* More */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		10E35CCF21394E080096E8DA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				10D282DD21380DEF00274129 /* TabBarViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		10E35CD021394E180096E8DA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				10D282C32137EAA700274129 /* ViewController.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		4F7AAE8BB7196A34F4532F7F /* Frameworks */ = {
@@ -342,7 +452,9 @@
 				10D282C42137EAA700274129 /* ViewController.swift in Sources */,
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
 				10D282D2213806AE00274129 /* TimelineViewController.swift in Sources */,
+				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
+				10E35CC321394B9A0096E8DA /* Marker.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
