@@ -10,12 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class MoreViewController: ViewController {
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        tabBarItem = UITabBarItem(title: "More", image: UIImage(named: "ic_more"), tag: 3)
-    }
-    
+        
     private let repository = MoreRepository()
     
     @IBAction func clickLogOut(_ sender: UIButton) {

@@ -10,9 +10,6 @@ import UIKit
 
 class TimelineViewController: ViewController {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        tabBarItem = UITabBarItem(title: "Timeline", image: UIImage(named: "ic_timeline"), tag: 2)
-    }
+    
     
 }

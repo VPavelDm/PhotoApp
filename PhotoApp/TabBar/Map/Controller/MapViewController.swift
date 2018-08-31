@@ -11,11 +11,6 @@ import MapKit
 
 class MapViewController: ViewController {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        tabBarItem = UITabBarItem(title: "Map", image: UIImage(named: "ic_map"), tag: 1)
-    }
-    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {

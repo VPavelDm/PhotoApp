@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    static func create<Controller>(asClass: Controller.Type) -> UIViewController {
-        let storyboard = UIStoryboard(name: String(describing: Controller.self), bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController()
+    static func create<Controller>(asClass: Controller.Type) -> Controller {
+        let storyboard = UIStoryboard(name: String(describing: asClass), bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController() as? Controller
         assert(viewController != nil, "Each ViewController must be initial")
         return viewController!
     }
