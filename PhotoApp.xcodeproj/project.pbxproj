@@ -23,6 +23,7 @@
 		10D282D821380B4900274129 /* MoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10D282D721380B4900274129 /* MoreViewController.storyboard */; };
 		10D282DA21380B5600274129 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282D921380B5600274129 /* MoreViewController.swift */; };
 		10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282DD21380DEF00274129 /* TabBarViewController.swift */; };
+		10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CB6213937840096E8DA /* LoginRepository.swift */; };
 		43EF6D769072B71F5A84E388 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		10D282D721380B4900274129 /* MoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoreViewController.storyboard; sourceTree = "<group>"; };
 		10D282D921380B5600274129 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		10D282DD21380DEF00274129 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		10E35CB6213937840096E8DA /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
+				10E35CB2213936960096E8DA /* Authorization */,
 				109064832137DF080033B02B /* Storyboards */,
 				109064862137E1030033B02B /* ViewControllers */,
 			);
@@ -114,7 +117,6 @@
 		109064832137DF080033B02B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				109064812137DF040033B02B /* LoginViewController.storyboard */,
 				10D282C72137EC7C00274129 /* SignUpViewController.storyboard */,
 				10D282CD2137FE8A00274129 /* MapViewController.storyboard */,
 				10D282D3213806BA00274129 /* TimelineViewController.storyboard */,
@@ -126,7 +128,6 @@
 		109064862137E1030033B02B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				109064842137E1000033B02B /* LoginViewController.swift */,
 				10D282C32137EAA700274129 /* ViewController.swift */,
 				10D282C52137EBB600274129 /* SignUpViewController.swift */,
 				10D282CB2137FE7800274129 /* MapViewController.swift */,
@@ -135,6 +136,40 @@
 				10D282DD21380DEF00274129 /* TabBarViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		10E35CB2213936960096E8DA /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CB52139375F0096E8DA /* Model */,
+				10E35CB42139372A0096E8DA /* View */,
+				10E35CB32139370C0096E8DA /* Controller */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		10E35CB32139370C0096E8DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				109064842137E1000033B02B /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10E35CB42139372A0096E8DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				109064812137DF040033B02B /* LoginViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10E35CB52139375F0096E8DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10E35CB6213937840096E8DA /* LoginRepository.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4F7AAE8BB7196A34F4532F7F /* Frameworks */ = {
@@ -274,6 +309,7 @@
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
+				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
