@@ -50,13 +50,4 @@ class MapViewController: ViewController {
         
         present(alert, animated: true)
     }
-    
-    private class Marker : NSObject, MKAnnotation {
-        var category: String
-        var coordinate: CLLocationCoordinate2D
-        init(category: String, coordinate position: CLLocationCoordinate2D) {
-            self.category = category
-            self.coordinate = position
-        }
-    }
 }
