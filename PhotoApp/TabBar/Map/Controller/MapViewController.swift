@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: ViewController {
+class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -31,11 +31,11 @@ class MapViewController: ViewController {
     private func startActionSheetsToTakeAPicture(at position: CLLocationCoordinate2D){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let takePictureAction = UIAlertAction(title: NSLocalizedString("Take a Picture", comment: "Take a Picture label"), style: .default) { action in
-            // MARK: Run camera, take picture and add annotation to the map with coordinates
+        let takePictureAction = UIAlertAction(title: NSLocalizedString("Take a Picture", comment: "Take a Picture label"), style: .default) { [weak self] action in
+            self?.showImagePicker(source: .camera)
         }
-        let chooseFromLibraryAction = UIAlertAction(title: NSLocalizedString("Choose From Library", comment: "Choose From Library label"), style: .default) { action in
-            // MARK: Take a picture from the library and add annotation to the map with coordinates
+        let chooseFromLibraryAction = UIAlertAction(title: NSLocalizedString("Choose From Library", comment: "Choose From Library label"), style: .default) { [weak self] action in
+            self?.showImagePicker(source: .photoLibrary)
         }
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel label"), style: .cancel, handler: nil)
         
@@ -44,5 +44,28 @@ class MapViewController: ViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    private func showImagePicker(source: UIImagePickerControllerSourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = source
+            imagePicker.allowsEditing = false
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            showAlertWithError(message: NSLocalizedString("The \(source == .camera ? "Camera" : "PhotoLibrary") is not available on this device", comment: "Message that indicates that source is not available"))
+        }
+    }
+}
+
+extension MapViewController {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("Hello, world!")
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

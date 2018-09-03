@@ -17,3 +17,6 @@
 "Sign out is failure" = "Sign out is failure";
 "Passwords do not match" = "Passwords do not match";
 "Entry login, password or confirm password text field" = "Entry login, password or confirm password text field";
+"The Camera is not available on this device" = "The Camera is not available on this device";
+"The PhotoLibrary is not available on this device" = "The PhotoLibrary is not available on this device";
+

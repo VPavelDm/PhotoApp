@@ -17,3 +17,5 @@
 "Sign out is failure" = "Ошибка при попытке входа";
 "Passwords do not match" = "Пароли не совпадают";
 "Entry login, password or confirm password text field" = "Введите логин, пароль или подтверждение пароля в соответствующее поле";
+"The Camera is not available on this device" = "Камера недоступна на данном устройстве";
+"The PhotoLibrary is not available on this device" = "Галерея недоступна на данном устройстве";
