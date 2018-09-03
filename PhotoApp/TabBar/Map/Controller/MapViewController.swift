@@ -32,10 +32,10 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePictureAction = UIAlertAction(title: NSLocalizedString("Take a Picture", comment: "Take a Picture label"), style: .default) { [weak self] action in
-            self?.showImagePicker(source: .camera)
+            self?.showImagePicker(source: .camera, coordinate: position)
         }
         let chooseFromLibraryAction = UIAlertAction(title: NSLocalizedString("Choose From Library", comment: "Choose From Library label"), style: .default) { [weak self] action in
-            self?.showImagePicker(source: .photoLibrary)
+            self?.showImagePicker(source: .photoLibrary, coordinate: position)
         }
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel label"), style: .cancel, handler: nil)
         
@@ -46,9 +46,10 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
         present(alert, animated: true)
     }
     
-    private func showImagePicker(source: UIImagePickerControllerSourceType) {
+    private func showImagePicker(source: UIImagePickerControllerSourceType, coordinate: CLLocationCoordinate2D) {
         if UIImagePickerController.isSourceTypeAvailable(source) {
-            let imagePicker = UIImagePickerController()
+            let imagePicker = ImagePickerController()
+            imagePicker.coordinate = coordinate
             imagePicker.sourceType = source
             imagePicker.allowsEditing = false
             imagePicker.delegate = self
@@ -62,10 +63,19 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
 extension MapViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("Hello, world!")
+        if let picker = picker as? ImagePickerController, let coordinate = picker.coordinate {
+            mapView.addAnnotation(Marker(category: "Default", coordinate: coordinate))
+        } else {
+            print("I can't get coordinates")
+        }
         picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+private class ImagePickerController: UIImagePickerController {
+    var coordinate: CLLocationCoordinate2D?
 }
