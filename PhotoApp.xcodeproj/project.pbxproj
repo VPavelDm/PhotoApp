@@ -11,6 +11,8 @@
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
+		10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */; };
+		10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C42137EAA700274129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C32137EAA700274129 /* ViewController.swift */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
@@ -38,6 +40,8 @@
 		109064782137DE780033B02B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1090647A2137DE780033B02B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoPopupViewController.storyboard; sourceTree = "<group>"; };
+		10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupViewController.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C32137EAA700274129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				10E35CD021394E180096E8DA /* Core */,
+				10AFE78B213D314100CB652E /* PhotoPopup */,
 				10E35CCE21394DD60096E8DA /* TabBar */,
 				10E35CB821393D110096E8DA /* Registration */,
 				10E35CB2213936960096E8DA /* Authorization */,
@@ -134,6 +139,31 @@
 				109064772137DE780033B02B /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		10AFE78B213D314100CB652E /* PhotoPopup */ = {
+			isa = PBXGroup;
+			children = (
+				10AFE78F213D43B900CB652E /* Controller */,
+				10AFE78C213D314C00CB652E /* View */,
+			);
+			path = PhotoPopup;
+			sourceTree = "<group>";
+		};
+		10AFE78C213D314C00CB652E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		10AFE78F213D43B900CB652E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
@@ -408,6 +438,7 @@
 				10E35D2A213971680096E8DA /* Localizable.strings in Resources */,
 				10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */,
 				10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */,
+				10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */,
 				10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */,
 				109064762137DE780033B02B /* Assets.xcassets in Resources */,
 			);
@@ -464,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
+				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
 				10D282C42137EAA700274129 /* ViewController.swift in Sources */,
