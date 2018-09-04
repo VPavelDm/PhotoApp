@@ -16,16 +16,20 @@ class PhotoPopupViewController: ViewController {
             let currentMonth = "MMMM".formatDate()
             let currentYearAndTime = "yyyy - HH:mm a".formatDate().lowercased()
             dateLabel.text = "\(currentMonth) \(today), \(currentYearAndTime)"
-            dateLabel.layer.addBorder(color: UIColor.black, thickness: 0.7)
+            dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
     @IBOutlet weak var categoryLabel: UILabel! {
         didSet {
-            categoryLabel.layer.addBorder(color: UIColor.black, thickness: 0.7)
+            categoryLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionTextView: UITextView! {
+        didSet {
+            descriptionTextView.layer.addBorder(edge: .all, color: UIColor.black, thickness: 0.7)
+        }
+    }
     
     var image: UIImage?
     
@@ -61,10 +65,20 @@ extension String {
 
 extension CALayer {
     
-    func addBorder(color: UIColor, thickness: CGFloat) {
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         let border = CALayer()
-        border.frame = CGRect(x: 0, y: self.frame.height - thickness, width: self.frame.width, height: thickness)
-        border.backgroundColor = color.cgColor;
-        self.addSublayer(border)
+        switch edge {
+        case .all:
+            borderWidth = thickness
+            borderColor = color.cgColor
+            return
+        case .bottom: border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+        case .top: border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
+        case .right: border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+        case .left: border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
+        default: break
+        }
+        border.backgroundColor = color.cgColor
+        addSublayer(border)
     }
 }
