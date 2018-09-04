@@ -25,11 +25,7 @@ class PhotoPopupViewController: ViewController {
         }
     }
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var descriptionTextView: UITextView! {
-        didSet {
-            descriptionTextView.layer.addBorder(edge: .all, color: UIColor.black, thickness: 0.7)
-        }
-    }
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var image: UIImage?
     
@@ -80,5 +76,15 @@ extension CALayer {
         }
         border.backgroundColor = color.cgColor
         addSublayer(border)
+    }
+    
+    var borderUIColor: UIColor {
+        set {
+            self.borderColor = newValue.cgColor
+        }
+        
+        get {
+            return UIColor(cgColor: self.borderColor!)
+        }
     }
 }
