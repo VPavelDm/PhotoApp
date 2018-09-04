@@ -51,9 +51,6 @@ extension String {
         formatter.dateFormat = self
         return formatter.string(from: date)
     }
-}
-
-extension String {
     func addDaySuffix() -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .ordinal
