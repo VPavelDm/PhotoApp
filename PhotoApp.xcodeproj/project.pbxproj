@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109064752137DE780033B02B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */,
+				106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,

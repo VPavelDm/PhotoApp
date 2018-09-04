@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: ViewController, UITextFieldDelegate {
+class LoginViewController: ViewController {
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -33,6 +33,9 @@ class LoginViewController: ViewController, UITextFieldDelegate {
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
     
+}
+
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case loginTextField:
@@ -44,5 +47,4 @@ class LoginViewController: ViewController, UITextFieldDelegate {
         }
         return true
     }
-    
 }
