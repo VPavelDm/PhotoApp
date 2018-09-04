@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoPopupViewController: ViewController {
+class PhotoPopupViewController: ViewController, UITextViewDelegate {
     
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
@@ -34,15 +34,19 @@ class PhotoPopupViewController: ViewController {
         
         if let image = image {
             imageView.image = image
-        } else {
-            imageView.backgroundColor = UIColor.cyan
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            descriptionTextView.resignFirstResponder()
+        }
+        return true
     }
     
     @IBAction func clickCancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension String {
