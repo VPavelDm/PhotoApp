@@ -9,12 +9,20 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: ViewController {
+class LoginViewController: ViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     private let repository = LoginRepository()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+    }
     
     @IBAction func clickLogin(_ sender: UIButton) {
         repository.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] error in
@@ -30,6 +38,18 @@ class LoginViewController: ViewController {
     @IBAction func clickSignUp(_ sender: UIButton) {
         let signUpViewController = SignUpViewController.create(asClass: SignUpViewController.self)
         navigationController?.pushViewController(signUpViewController, animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case loginTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            loginButton.sendActions(for: .touchUpInside)
+        default:
+            return false
+        }
+        return true
     }
     
 }
