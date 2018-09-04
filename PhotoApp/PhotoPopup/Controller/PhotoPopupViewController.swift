@@ -10,6 +10,9 @@ import UIKit
 
 class PhotoPopupViewController: ViewController, UITextViewDelegate {
     
+    var image: UIImage?
+    private var lastConstraintValue: CGFloat?
+    
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             let today = "dd".formatDate().addDaySuffix()
@@ -26,8 +29,13 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
     }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var centerYConstraint: NSLayoutConstraint!
     
-    var image: UIImage?
+    @IBAction func clickCancelButton(_ sender: UIButton) {
+        descriptionTextView.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +43,8 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
         if let image = image {
             imageView.image = image
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -43,9 +53,41 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
         }
         return true
     }
+}
+
+extension PhotoPopupViewController {
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = notification.keyboardSize, let keyboardAnimationTime = notification.keyboardAnimationTime  {
+            let scrollViewHeight = scrollView.frame.size.height
+            let scrollViewBottomLeftY = scrollView.convert(CGPoint(x: 0, y: scrollViewHeight), to: nil).y
+            let distanceToOffset = scrollViewBottomLeftY - keyboardSize.origin.y
+            if distanceToOffset < 0 {
+                return
+            }
+            lastConstraintValue = self.centerYConstraint.constant
+            self.centerYConstraint.constant -= distanceToOffset
+            UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
+                self?.view.layoutIfNeeded()
+            }
+        }
+    }
     
-    @IBAction func clickCancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @objc func keyboardWillHide(_ notification: Notification) {
+        if let lastConstraintValue = lastConstraintValue, let keyboardAnimationTime = notification.keyboardAnimationTime {
+            self.centerYConstraint.constant = lastConstraintValue
+            UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
+                self?.view.layoutIfNeeded()
+            }
+        }
+    }
+}
+
+extension Notification {
+    var keyboardSize: CGRect? {
+        return (userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+    }
+    var keyboardAnimationTime: Double? {
+        return (userInfo![UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
     }
 }
 

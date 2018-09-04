@@ -119,9 +119,11 @@
                     </view>
                     <connections>
                         <outlet property="categoryLabel" destination="fjA-r9-eZb" id="xc8-op-PhN"/>
+                        <outlet property="centerYConstraint" destination="FgH-UK-aKi" id="6b1-Pr-3RM"/>
                         <outlet property="dateLabel" destination="R2f-eJ-PZt" id="DMV-Oq-29U"/>
                         <outlet property="descriptionTextView" destination="9cx-iM-Auv" id="RME-Em-eCm"/>
                         <outlet property="imageView" destination="n2i-w6-tfA" id="pwf-lv-g7g"/>
+                        <outlet property="scrollView" destination="vpF-wi-p2c" id="Yhu-m8-jbP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2a-91-sa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
