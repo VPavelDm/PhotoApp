@@ -18,14 +18,6 @@ class SignUpViewController: ViewController, UITextFieldDelegate {
     
     private let repository = SignUpRepository()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
-        confirmPasswordTextField.delegate = self
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case loginTextField:

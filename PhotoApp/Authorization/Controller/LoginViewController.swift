@@ -17,13 +17,6 @@ class LoginViewController: ViewController, UITextFieldDelegate {
     
     private let repository = LoginRepository()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        loginTextField.delegate = self
-        passwordTextField.delegate = self
-    }
-    
     @IBAction func clickLogin(_ sender: UIButton) {
         repository.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] error in
             if let error = error {
