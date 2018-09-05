@@ -133,7 +133,7 @@
 				10E35CC421394BF20096E8DA /* Timeline */,
 				10AFE78B213D314100CB652E /* PhotoPopup */,
 				10E35CC821394C1B0096E8DA /* More */,
-				10E35CCE21394DD60096E8DA /* TabBar */,
+				10E35CCE21394DD60096E8DA /* MainScreen */,
 				10E35CB821393D110096E8DA /* Registration */,
 				10E35CB2213936960096E8DA /* Authorization */,
 			);
@@ -358,12 +358,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		10E35CCE21394DD60096E8DA /* TabBar */ = {
+		10E35CCE21394DD60096E8DA /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
 				10E35CCF21394E080096E8DA /* Controller */,
 			);
-			path = TabBar;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		10E35CCF21394E080096E8DA /* Controller */ = {
