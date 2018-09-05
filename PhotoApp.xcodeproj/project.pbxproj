@@ -129,7 +129,10 @@
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				10E35CD021394E180096E8DA /* Core */,
+				10E35CBE213940DC0096E8DA /* Map */,
+				10E35CC421394BF20096E8DA /* Timeline */,
 				10AFE78B213D314100CB652E /* PhotoPopup */,
+				10E35CC821394C1B0096E8DA /* More */,
 				10E35CCE21394DD60096E8DA /* TabBar */,
 				10E35CB821393D110096E8DA /* Registration */,
 				10E35CB2213936960096E8DA /* Authorization */,
@@ -358,20 +361,17 @@
 		10E35CCE21394DD60096E8DA /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				10E35CCF21394E080096E8DA /* Core */,
-				10E35CBE213940DC0096E8DA /* Map */,
-				10E35CC421394BF20096E8DA /* Timeline */,
-				10E35CC821394C1B0096E8DA /* More */,
+				10E35CCF21394E080096E8DA /* Controller */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		10E35CCF21394E080096E8DA /* Core */ = {
+		10E35CCF21394E080096E8DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				10D282DD21380DEF00274129 /* TabBarViewController.swift */,
 			);
-			path = Core;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		10E35CD021394E180096E8DA /* Core */ = {
