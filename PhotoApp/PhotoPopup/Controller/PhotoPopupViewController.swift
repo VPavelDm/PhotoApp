@@ -39,6 +39,7 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
         if let image = image {
             delegate?.savePhoto(image: image)
         }
+        descriptionTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
     
