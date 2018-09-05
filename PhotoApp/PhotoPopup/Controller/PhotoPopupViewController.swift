@@ -16,10 +16,8 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
     
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
-            let today = "dd".formatDate().addDaySuffix()
-            let currentMonth = "MMMM".formatDate()
-            let currentYearAndTime = "yyyy - HH:mm a".formatDate().lowercased()
-            dateLabel.text = "\(currentMonth) \(today), \(currentYearAndTime)"
+            let dateFormatter = DateFormatter()
+            dateLabel.text = dateFormatter.formatTodayDate()
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }

@@ -14,9 +14,10 @@
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
 		10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */; };
 		10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */; };
-		10CFF2A0213FBAB300E338DD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF29F213FBAB300E338DD /* StringExtension.swift */; };
+		10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */; };
 		10CFF2A2213FC44B00E338DD /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A1213FC44B00E338DD /* NotificationExtension.swift */; };
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
+		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C42137EAA700274129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C32137EAA700274129 /* ViewController.swift */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
@@ -47,9 +48,10 @@
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoPopupViewController.storyboard; sourceTree = "<group>"; };
 		10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupViewController.swift; sourceTree = "<group>"; };
-		10CFF29F213FBAB300E338DD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A1213FC44B00E338DD /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C32137EAA700274129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -182,9 +184,10 @@
 		10CFF29E213FBA9800E338DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF29F213FBAB300E338DD /* StringExtension.swift */,
+				10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */,
 				10CFF2A1213FC44B00E338DD /* NotificationExtension.swift */,
 				10CFF2A3213FC46700E338DD /* CALayerExtension.swift */,
+				10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -516,7 +519,7 @@
 			files = (
 				106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
-				10CFF2A0213FBAB300E338DD /* StringExtension.swift in Sources */,
+				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
@@ -529,6 +532,7 @@
 				10E35CC321394B9A0096E8DA /* Marker.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
+				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */,
 			);

@@ -17,8 +17,6 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
         // MARK: get user coordinate and call startActionSheetsToTakeAPicture
-        let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
-        self.present(photoPopupViewController, animated: true, completion: nil)
     }
     
     @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
