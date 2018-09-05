@@ -11,10 +11,14 @@ import MapKit
 
 class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    private var lastKnownCoordinate: CLLocationCoordinate2D?
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
         // MARK: get user coordinate and call startActionSheetsToTakeAPicture
+        let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
+        self.present(photoPopupViewController, animated: true, completion: nil)
     }
     
     @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
@@ -22,20 +26,21 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
         case .began:
             let touchLocation = sender.location(in: mapView)
             let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
-            startActionSheetsToTakeAPicture(at: locationCoordinate)
+            lastKnownCoordinate = locationCoordinate
+            startActionSheetsToTakeAPicture()
         default:
             break
         }
     }
     
-    private func startActionSheetsToTakeAPicture(at position: CLLocationCoordinate2D){
+    private func startActionSheetsToTakeAPicture(){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePictureAction = UIAlertAction(title: NSLocalizedString("Take a Picture", comment: "Take a Picture label"), style: .default) { [weak self] action in
-            self?.showImagePicker(source: .camera, coordinate: position)
+            self?.showImagePicker(source: .camera)
         }
         let chooseFromLibraryAction = UIAlertAction(title: NSLocalizedString("Choose From Library", comment: "Choose From Library label"), style: .default) { [weak self] action in
-            self?.showImagePicker(source: .photoLibrary, coordinate: position)
+            self?.showImagePicker(source: .photoLibrary)
         }
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel label"), style: .cancel, handler: nil)
         
@@ -46,10 +51,9 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
         present(alert, animated: true)
     }
     
-    private func showImagePicker(source: UIImagePickerControllerSourceType, coordinate: CLLocationCoordinate2D) {
+    private func showImagePicker(source: UIImagePickerControllerSourceType) {
         if UIImagePickerController.isSourceTypeAvailable(source) {
-            let imagePicker = ImagePickerController()
-            imagePicker.coordinate = coordinate
+            let imagePicker = UIImagePickerController()
             imagePicker.sourceType = source
             imagePicker.allowsEditing = false
             imagePicker.delegate = self
@@ -62,13 +66,12 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
 
 extension MapViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("Hello, world!")
-        if let picker = picker as? ImagePickerController, let coordinate = picker.coordinate {
-            mapView.addAnnotation(Marker(category: "Default", coordinate: coordinate))
-        } else {
-            print("I can't get coordinates")
-        }
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
+        photoPopupViewController.image = image
+        photoPopupViewController.delegate = self
         picker.dismiss(animated: true, completion: nil)
+        self.present(photoPopupViewController, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -76,6 +79,11 @@ extension MapViewController {
     }
 }
 
-private class ImagePickerController: UIImagePickerController {
-    var coordinate: CLLocationCoordinate2D?
+extension MapViewController: PhotoPopupDelegate {
+    func savePhoto(image: UIImage) {
+        if let coordinate = lastKnownCoordinate {
+            mapView.addAnnotation(Marker(category: "Default", coordinate: coordinate))
+            //MARK: Send image with coordinate to the server
+        }
+    }
 }

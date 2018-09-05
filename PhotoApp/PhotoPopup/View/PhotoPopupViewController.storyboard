@@ -72,6 +72,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V48-a1-40F">
                                                         <rect key="frame" x="75" y="0.0" width="42" height="30"/>
                                                         <state key="normal" title="DONE"/>
+                                                        <connections>
+                                                            <action selector="clickDoneButton:" destination="7bn-7a-2yj" eventType="touchUpInside" id="wnS-wt-hpZ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

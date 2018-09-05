@@ -11,6 +11,7 @@ import UIKit
 class PhotoPopupViewController: ViewController, UITextViewDelegate {
     
     var image: UIImage?
+    var delegate: PhotoPopupDelegate?
     private var lastConstraintValue: CGFloat?
     
     @IBOutlet weak var dateLabel: UILabel! {
@@ -34,6 +35,12 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
     
     @IBAction func clickCancelButton(_ sender: UIButton) {
         descriptionTextView.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func clickDoneButton(_ sender: UIButton) {
+        if let image = image {
+            delegate?.savePhoto(image: image)
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -78,59 +85,6 @@ extension PhotoPopupViewController {
             UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
                 self?.view.layoutIfNeeded()
             }
-        }
-    }
-}
-
-extension Notification {
-    var keyboardSize: CGRect? {
-        return (userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-    }
-    var keyboardAnimationTime: Double? {
-        return (userInfo![UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
-    }
-}
-
-extension String {
-    func formatDate(date: Date = Date()) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = self
-        return formatter.string(from: date)
-    }
-    func addDaySuffix() -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .ordinal
-        numberFormatter.locale = Locale.current
-        return numberFormatter.string(for: Int(self))!
-    }
-}
-
-extension CALayer {
-    
-    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
-        let border = CALayer()
-        switch edge {
-        case .all:
-            borderWidth = thickness
-            borderColor = color.cgColor
-            return
-        case .bottom: border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
-        case .top: border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
-        case .right: border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
-        case .left: border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
-        default: break
-        }
-        border.backgroundColor = color.cgColor
-        addSublayer(border)
-    }
-    
-    var borderUIColor: UIColor {
-        set {
-            self.borderColor = newValue.cgColor
-        }
-        
-        get {
-            return UIColor(cgColor: self.borderColor!)
         }
     }
 }
