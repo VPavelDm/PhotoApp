@@ -20,6 +20,7 @@
 		10CFF2AA213FDB6500E338DD /* KeyboardHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */; };
 		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
 		10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2B8213FF38C00E338DD /* ViewController.swift */; };
+		10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2BB213FF41B00E338DD /* CloudRepository.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
 		10D282CC2137FE7800274129 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282CB2137FE7800274129 /* MapViewController.swift */; };
@@ -55,6 +56,7 @@
 		10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardHandlerViewController.swift; path = PhotoApp/Core/Controller/KeyboardHandlerViewController.swift; sourceTree = SOURCE_ROOT; };
 		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10CFF2B8213FF38C00E338DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10CFF2BB213FF41B00E338DD /* CloudRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudRepository.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10D282CB2137FE7800274129 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
+				10CFF2BA213FF40100E338DD /* cloud */,
 				10E35CD021394E180096E8DA /* Core */,
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
@@ -209,6 +212,14 @@
 				10CFF2B8213FF38C00E338DD /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		10CFF2BA213FF40100E338DD /* cloud */ = {
+			isa = PBXGroup;
+			children = (
+				10CFF2BB213FF41B00E338DD /* CloudRepository.swift */,
+			);
+			path = cloud;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
@@ -498,12 +509,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +560,7 @@
 				10CFF2AA213FDB6500E338DD /* KeyboardHandlerViewController.swift in Sources */,
 				10D282D2213806AE00274129 /* TimelineViewController.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
+				10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
 				10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */,
 				10E35CC321394B9A0096E8DA /* MarkerAnnotation.swift in Sources */,
