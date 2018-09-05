@@ -18,8 +18,8 @@
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
 		10CFF2AA213FDB6500E338DD /* KeyboardHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */; };
-		10CFF2AC213FDBAA00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AB213FDBAA00E338DD /* ViewController.swift */; };
 		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
+		10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2B8213FF38C00E338DD /* ViewController.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
 		10D282CC2137FE7800274129 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282CB2137FE7800274129 /* MapViewController.swift */; };
@@ -53,8 +53,8 @@
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardHandlerViewController.swift; path = PhotoApp/Core/Controller/KeyboardHandlerViewController.swift; sourceTree = SOURCE_ROOT; };
-		10CFF2AB213FDBAA00E338DD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../../../../.Trash/Controller/ViewController.swift; sourceTree = "<group>"; };
 		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		10CFF2B8213FF38C00E338DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10D282CB2137FE7800274129 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -194,22 +194,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		10CFF2A8213FDB2600E338DD /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				10CFF2AB213FDBAA00E338DD /* ViewController.swift */,
-				10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */,
-			);
-			name = Controller;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		10CFF2AD213FE70300E338DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				10CFF2AE213FE71B00E338DD /* Photo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		10CFF2B7213FF37E00E338DD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */,
+				10CFF2B8213FF38C00E338DD /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
@@ -400,7 +399,7 @@
 		10E35CD021394E180096E8DA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF2A8213FDB2600E338DD /* Controller */,
+				10CFF2B7213FF37E00E338DD /* Controller */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -538,7 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */,
-				10CFF2AC213FDBAA00E338DD /* ViewController.swift in Sources */,
+				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
