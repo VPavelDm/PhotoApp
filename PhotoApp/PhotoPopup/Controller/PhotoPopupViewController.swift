@@ -61,8 +61,18 @@ class PhotoPopupViewController: ViewController, UITextViewDelegate {
 }
 
 extension PhotoPopupViewController {
+    private func getKeyboardsize(_ notification: Notification) -> CGRect? {
+        return (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+    }
+    
+    private func getKeyboardAnimationTime(_ notification: Notification) -> Double? {
+        return (notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
+    }
+}
+
+extension PhotoPopupViewController {
     @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardSize = notification.keyboardSize, let keyboardAnimationTime = notification.keyboardAnimationTime  {
+        if let keyboardSize = getKeyboardsize(notification), let keyboardAnimationTime = getKeyboardAnimationTime(notification)  {
             let scrollViewHeight = scrollView.frame.size.height
             let scrollViewBottomLeftY = scrollView.convert(CGPoint(x: 0, y: scrollViewHeight), to: nil).y
             let distanceToOffset = scrollViewBottomLeftY - keyboardSize.origin.y
@@ -78,7 +88,7 @@ extension PhotoPopupViewController {
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        if let lastConstraintValue = lastConstraintValue, let keyboardAnimationTime = notification.keyboardAnimationTime {
+        if let lastConstraintValue = lastConstraintValue, let keyboardAnimationTime = getKeyboardAnimationTime(notification){
             self.centerYConstraint.constant = lastConstraintValue
             UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
                 self?.view.layoutIfNeeded()
