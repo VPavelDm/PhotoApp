@@ -155,7 +155,7 @@
 		10AFE78B213D314100CB652E /* PhotoPopup */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF29E213FBA9800E338DD /* Extensions */,
+				10CFF29E213FBA9800E338DD /* Extension */,
 				10AFE78F213D43B900CB652E /* Controller */,
 				10AFE78C213D314C00CB652E /* View */,
 			);
@@ -179,14 +179,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		10CFF29E213FBA9800E338DD /* Extensions */ = {
+		10CFF29E213FBA9800E338DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				10CFF29F213FBAB300E338DD /* StringExtension.swift */,
 				10CFF2A1213FC44B00E338DD /* NotificationExtension.swift */,
 				10CFF2A3213FC46700E338DD /* CALayerExtension.swift */,
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
