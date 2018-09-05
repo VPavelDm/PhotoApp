@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class Marker : NSObject, MKAnnotation {
+class MarkerAnnotation : NSObject, MKAnnotation {
     var category: String
     var coordinate: CLLocationCoordinate2D
     init(category: String, coordinate position: CLLocationCoordinate2D) {

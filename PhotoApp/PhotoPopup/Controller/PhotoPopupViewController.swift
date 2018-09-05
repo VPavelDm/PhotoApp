@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoPopupViewController: KeyboardHandlerViewController, UITextViewDelegate {
     
-    var image: UIImage?
+    var image: UIImage!
     var delegate: PhotoPopupDelegate?
     
     @IBOutlet weak var dateLabel: UILabel! {
@@ -35,9 +35,8 @@ class PhotoPopupViewController: KeyboardHandlerViewController, UITextViewDelegat
         dismiss(animated: true, completion: nil)
     }
     @IBAction func clickDoneButton(_ sender: UIButton) {
-        if let image = image {
-            delegate?.savePhoto(image: image)
-        }
+        let photo = Photo(description: descriptionTextView.text, category: categoryLabel.text!, date: dateLabel.text!, image: image)
+        delegate?.savePhoto(photo: photo)
         descriptionTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }

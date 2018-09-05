@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 protocol PhotoPopupDelegate {
-    func savePhoto(image: UIImage)
+    func savePhoto(photo: Photo)
 }

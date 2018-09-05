@@ -78,9 +78,9 @@ extension MapViewController {
 }
 
 extension MapViewController: PhotoPopupDelegate {
-    func savePhoto(image: UIImage) {
+    func savePhoto(photo: Photo) {
         if let coordinate = lastKnownCoordinate {
-            mapView.addAnnotation(Marker(category: "Default", coordinate: coordinate))
+            mapView.addAnnotation(MarkerAnnotation(category: photo.category, coordinate: coordinate))
             //MARK: Send image with coordinate to the server
         }
     }

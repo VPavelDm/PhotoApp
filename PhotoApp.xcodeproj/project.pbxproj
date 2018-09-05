@@ -19,6 +19,7 @@
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
 		10CFF2AA213FDB6500E338DD /* KeyboardHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */; };
 		10CFF2AC213FDBAA00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AB213FDBAA00E338DD /* ViewController.swift */; };
+		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
 		10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10D282BF2137E76F00274129 /* GoogleService-Info.plist */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
 		10D282CC2137FE7800274129 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282CB2137FE7800274129 /* MapViewController.swift */; };
@@ -27,7 +28,7 @@
 		10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282DD21380DEF00274129 /* TabBarViewController.swift */; };
 		10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CB6213937840096E8DA /* LoginRepository.swift */; };
 		10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */; };
-		10E35CC321394B9A0096E8DA /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CC221394B9A0096E8DA /* Marker.swift */; };
+		10E35CC321394B9A0096E8DA /* MarkerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CC221394B9A0096E8DA /* MarkerAnnotation.swift */; };
 		10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CCC21394C570096E8DA /* MoreRepository.swift */; };
 		10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D25213971370096E8DA /* LoginViewController.storyboard */; };
 		10E35D2A213971680096E8DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D2C213971680096E8DA /* Localizable.strings */; };
@@ -53,6 +54,7 @@
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardHandlerViewController.swift; path = PhotoApp/Core/Controller/KeyboardHandlerViewController.swift; sourceTree = SOURCE_ROOT; };
 		10CFF2AB213FDBAA00E338DD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../../../../.Trash/Controller/ViewController.swift; sourceTree = "<group>"; };
+		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10D282BF2137E76F00274129 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10D282CB2137FE7800274129 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 		10D282DD21380DEF00274129 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		10E35CB6213937840096E8DA /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
-		10E35CC221394B9A0096E8DA /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		10E35CC221394B9A0096E8DA /* MarkerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerAnnotation.swift; sourceTree = "<group>"; };
 		10E35CCC21394C570096E8DA /* MoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRepository.swift; sourceTree = "<group>"; };
 		10E35D24213971370096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginViewController.storyboard; sourceTree = "<group>"; };
 		10E35D272139713A0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginViewController.strings; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		10AFE78B213D314100CB652E /* PhotoPopup */ = {
 			isa = PBXGroup;
 			children = (
+				10CFF2AD213FE70300E338DD /* Model */,
 				10CFF29E213FBA9800E338DD /* Extension */,
 				10AFE78F213D43B900CB652E /* Controller */,
 				10AFE78C213D314C00CB652E /* View */,
@@ -199,6 +202,14 @@
 			);
 			name = Controller;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		10CFF2AD213FE70300E338DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10CFF2AE213FE71B00E338DD /* Photo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
@@ -298,7 +309,7 @@
 		10E35CC121394B5B0096E8DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10E35CC221394B9A0096E8DA /* Marker.swift */,
+				10E35CC221394B9A0096E8DA /* MarkerAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -538,7 +549,8 @@
 				10D282D2213806AE00274129 /* TimelineViewController.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
-				10E35CC321394B9A0096E8DA /* Marker.swift in Sources */,
+				10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */,
+				10E35CC321394B9A0096E8DA /* MarkerAnnotation.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
 				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
