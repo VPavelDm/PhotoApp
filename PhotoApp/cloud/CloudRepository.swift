@@ -11,46 +11,50 @@ import FirebaseStorage
 import FirebaseDatabase
 
 class CloudRepository {
-    private let storageRef = Storage.storage().reference()
-    private let dbRef = Database.database().reference()
+    
+    private let storageRef = Storage.storage().reference().child(rootReference)
+    private let databaseRef = Database.database().reference().child(rootReference)
     
     func sendPhoto(photo: Photo) {
-        let photoKey = dbRef.child("photos/").childByAutoId().key
-        let photoRef = dbRef.child("photos/").child(photoKey)
-        let photoData = ["category" : photo.category, "date" : photo.date, "description" : photo.description]
-        photoRef.setValue(photoData)
-        let imageRef = storageRef.child("images/\(photo.category)/\(photoKey)")
+        let photoDescriptionRef = databaseRef.childByAutoId()
+        let photoDescriptionData = [category: photo.category, date: photo.date, description: photo.description]
+        photoDescriptionRef.setValue(photoDescriptionData)
+        
+        let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
         guard let imageData = UIImagePNGRepresentation(photo.image) else {
             return
         }
-        imageRef.putData(imageData, metadata: nil) { (_, error) in
-            imageRef.downloadURL(completion: { (url, error) in
-                guard let url = url else {
-                    print("Smth went wrong!")
-                    return
-                }
-                print("url: \(url)")
-            })
-        }
-        
+        imageRef.putData(imageData, metadata: nil)
     }
     
-//    func getPhoto() {
-//        let photosRef = dbRef.child("photos/")
-//        photosRef.observeSingleEvent(of: DataEventType.value) { (snapshot) in
-//            for idSnapshot in snapshot.children {
-//                if let idSnapshot = idSnapshot as? DataSnapshot, let photo = idSnapshot.value as? [String : String] {
-//                    let storageRef = Storage.storage().reference()
-//                    var imageRef = storageRef.child("images/")
-//                    imageRef = imageRef.child(photo["category"]!)
-//                    imageRef = imageRef.child(idSnapshot.key)
-//                    imageRef.downloadURL(completion: { (url, error) in
-//                        if let url = url {
-//                            let image = UIImage(contentsOfFile: url)
-//                        }
-//                    })
-//                }
-//            }
-//        }
-//    }
+    func getPhotos(callback: @escaping ([Photo]) -> ()) {
+        databaseRef.observeSingleEvent(of: DataEventType.value) { [weak self] (snapshot) in
+            var photos: [Photo] = []
+            for idSnapshot in snapshot.children {
+                if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: String] {
+                    guard
+                        let photoCategory = photoDescriptionDictionary[category],
+                        let photoDate = photoDescriptionDictionary[date],
+                        let photoDescription = photoDescriptionDictionary[description] else { return }
+                    let imageRef = self?.storageRef.child(photoCategory).child(idSnapshot.key)
+                    imageRef?.downloadURL(completion: { (url, error) in
+                        if let error = error {
+                            print(error)
+                            return
+                        }
+                        if let imageData = try? Data(contentsOf: url!) {
+                            let photo = Photo(description: photoDescription, category: photoCategory, date: photoDate, image: UIImage(data: imageData)!)
+                            photos.append(photo)
+                            callback(photos)
+                        }
+                    })
+                }
+            }
+        }
+    }
 }
+
+private let rootReference = "photos"
+private let category = "category"
+private let date = "date"
+private let description = "description"

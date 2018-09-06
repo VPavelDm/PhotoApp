@@ -85,8 +85,8 @@ extension MapViewController: PhotoPopupDelegate {
     func savePhoto(photo: Photo) {
         if let coordinate = lastKnownCoordinate {
             mapView.addAnnotation(MarkerAnnotation.createMarker(by: photo, coordinate: coordinate))
-//            let cloud = CloudRepository()
-//            cloud.sendPhoto(photo: photo)
+            let cloud = CloudRepository()
+            cloud.sendPhoto(photo: photo)
         }
     }
 }
