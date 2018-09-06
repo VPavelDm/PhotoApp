@@ -15,6 +15,10 @@ class MapViewController: ViewController, UIImagePickerControllerDelegate, UINavi
     
     @IBOutlet weak var mapView: MKMapView!
     
+    override func viewDidLoad() {
+        mapView.delegate = self
+    }
+    
     @IBAction func clickCameraBtn(_ sender: UIButton) {
         // MARK: get user coordinate and call startActionSheetsToTakeAPicture
     }
@@ -80,9 +84,31 @@ extension MapViewController {
 extension MapViewController: PhotoPopupDelegate {
     func savePhoto(photo: Photo) {
         if let coordinate = lastKnownCoordinate {
-            mapView.addAnnotation(MarkerAnnotation(category: photo.category, coordinate: coordinate))
-            let cloud = CloudRepository()
-            cloud.sendPhoto(photo: photo)
+            mapView.addAnnotation(MarkerAnnotation.createMarker(by: photo, coordinate: coordinate))
+//            let cloud = CloudRepository()
+//            cloud.sendPhoto(photo: photo)
         }
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? MarkerAnnotation else {
+            return nil
+        }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.category)
+        //MARK: Add choosing between different markers
+        annotationView.image = UIImage(named: "marker_nature")
+        annotationView.rightCalloutAccessoryView = UIButton(type: .infoDark)
+        let photoDetail = PhotoDetailView()
+        photoDetail.dateLabel.text = annotation.date
+        photoDetail.descriptionLabel.text = annotation.photoDescription
+        annotationView.detailCalloutAccessoryView = photoDetail
+        let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: annotationView.frame.height + 16, height: annotationView.frame.height + 16))
+        annotationImageView.image = annotation.image!
+        annotationImageView.contentMode = .scaleAspectFill
+        annotationView.leftCalloutAccessoryView = annotationImageView
+        annotationView.canShowCallout = true
+        return annotationView
     }
 }

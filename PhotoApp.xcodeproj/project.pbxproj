@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1019D9EF2140FA4400BF23D1 /* PhotoDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */; };
+		1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */; };
 		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailView.xib; sourceTree = "<group>"; };
+		1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */,
+				1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */,
+				1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */,
 				10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */,
 				10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */,
+				1019D9EF2140FA4400BF23D1 /* PhotoDetailView.xib in Resources */,
 				10E35D36213972660096E8DA /* MapViewController.storyboard in Resources */,
 				10E35D2A213971680096E8DA /* Localizable.strings in Resources */,
 				10D282C02137E76F00274129 /* GoogleService-Info.plist in Resources */,
@@ -551,6 +558,7 @@
 			files = (
 				106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */,
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
+				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
