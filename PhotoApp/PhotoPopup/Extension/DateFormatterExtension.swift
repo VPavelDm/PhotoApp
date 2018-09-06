@@ -9,17 +9,10 @@
 import Foundation
 
 extension DateFormatter {
-    func formatTodayDate() -> String {
-        let numberFormatter = NumberFormatter()
-        let today = numberFormatter.getNumberWithSuffix(number: getDateByFormat(format: "dd"))
-        let currentMonth = getDateByFormat(format: "MMMM")
-        let currentYearAndTime = getDateByFormat(format: "yyyy - HH:mm a").lowercased()
-        return "\(currentMonth) \(today), \(currentYearAndTime)"
-    }
     
-    private func getDateByFormat(format: String) -> String {
+    func getStringRepresentationOfDate(date: Date = Date(), by format: String) -> String {
         dateFormat = format
-        return string(from: Date())
+        return string(from: date)
     }
     
 }

@@ -27,9 +27,8 @@ class CloudRepository {
         imageRef.putData(imageData, metadata: nil)
     }
     
-    func getPhotos(callback: @escaping ([Photo]) -> ()) {
+    func getPhotos(callback: @escaping (Photo) -> ()) {
         databaseRef.observeSingleEvent(of: DataEventType.value) { [weak self] (snapshot) in
-            var photos: [Photo] = []
             for idSnapshot in snapshot.children {
                 if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: String] {
                     guard
@@ -44,8 +43,7 @@ class CloudRepository {
                         }
                         if let imageData = try? Data(contentsOf: url!) {
                             let photo = Photo(description: photoDescription, category: photoCategory, date: photoDate, image: UIImage(data: imageData)!)
-                            photos.append(photo)
-                            callback(photos)
+                            callback(photo)
                         }
                     })
                 }

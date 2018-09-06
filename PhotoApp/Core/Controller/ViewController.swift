@@ -35,3 +35,8 @@ extension UIViewController {
     }
 }
 
+extension UITableViewController {
+    static func create<Controller>(asClass: Controller.Type) -> Controller {
+        return ViewController.create(asClass: asClass)
+    }
+}

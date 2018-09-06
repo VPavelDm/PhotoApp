@@ -16,7 +16,11 @@ class PhotoPopupViewController: KeyboardHandlerViewController, UITextViewDelegat
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
-            dateLabel.text = dateFormatter.formatTodayDate()
+            dateFormatter.dateStyle = .full
+            dateLabel.text = dateFormatter.string(from: Date())
+//            let numberFormatter = NumberFormatter()
+//            let todayWithSuffix = numberFormatter.getNumberWithSuffix(number: dateFormatter.getStringRepresentationOfDate(by: "dd"))
+//            dateLabel.text = dateFormatter.getStringRepresentationOfDate(by: "MMMM dd\(todayWithSuffix), yyyy - HH:mm a")
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
@@ -35,6 +39,9 @@ class PhotoPopupViewController: KeyboardHandlerViewController, UITextViewDelegat
         dismiss(animated: true, completion: nil)
     }
     @IBAction func clickDoneButton(_ sender: UIButton) {
+        let dateFormatter = DateFormatter()
+        //MARK: Add time to date formatter
+        dateFormatter.dateStyle = .full
         let photo = Photo(description: descriptionTextView.text, category: categoryLabel.text!, date: dateLabel.text!, image: image)
         delegate?.savePhoto(photo: photo)
         descriptionTextView.resignFirstResponder()
