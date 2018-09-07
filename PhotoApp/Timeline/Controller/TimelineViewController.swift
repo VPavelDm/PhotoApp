@@ -10,25 +10,22 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
 
-    private let cloud = CloudRepository()
     private var photos: [Photo] = []
     private var uniquePhotoDates: [String] = []
     @IBOutlet var photoTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.cloud.getPhotos { [weak self] (photo) in
-                if let `self` = self {
-                    if !self.photos.contains(where: { (photoToCheck) -> Bool in
-                        return photoToCheck.key == photo.key
-                    }){
-                        self.photos.append(photo)
-                        if !self.uniquePhotoDates.contains(photo.date) {
-                            self.uniquePhotoDates.append(photo.date)
-                        }
-                        DispatchQueue.main.async {
-                            self.photoTableView.reloadData()
-                        }
+        CloudRepository.cloud.getPhotos { [weak self] (photo) in
+            if let `self` = self {
+                if !self.photos.contains(where: { (photoToCheck) -> Bool in
+                    return photoToCheck.key == photo.key
+                }){
+                    self.photos.append(photo)
+                    if !self.uniquePhotoDates.contains(photo.date) {
+                        self.uniquePhotoDates.append(photo.date)
+                    }
+                    DispatchQueue.main.async {
+                        self.photoTableView.reloadData()
                     }
                 }
             }

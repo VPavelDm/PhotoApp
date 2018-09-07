@@ -186,7 +186,7 @@
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				1048DF0021425FCA001CED52 /* Coordination */,
-				10CFF2BA213FF40100E338DD /* cloud */,
+				10CFF2BA213FF40100E338DD /* Cloud */,
 				10E35CD021394E180096E8DA /* Core */,
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
@@ -268,12 +268,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		10CFF2BA213FF40100E338DD /* cloud */ = {
+		10CFF2BA213FF40100E338DD /* Cloud */ = {
 			isa = PBXGroup;
 			children = (
 				10CFF2BB213FF41B00E338DD /* CloudRepository.swift */,
 			);
-			path = cloud;
+			path = Cloud;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {
