@@ -15,12 +15,8 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
-        DispatchQueue.global(qos: .userInitiated).async {
-            CloudRepository.cloud.getPhotos{ (photo) in
-                DispatchQueue.main.async { [weak self] () in
-                    self?.addAnnotation(photo: photo)
-                }
-            }
+        CloudRepository.cloud.getPhotos{ [weak self] (photo) in
+            self?.addAnnotation(photo: photo)
         }
     }
     
