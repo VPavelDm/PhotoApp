@@ -64,7 +64,9 @@ class CloudRepository {
 extension StorageReference {
     func downloadTestURL(completion: @escaping (_ url: URL?, _ error: Error?) -> ()) {
         DispatchQueue.global(qos: .userInitiated).async {
-            completion(URL(string: "https://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/thumbs/thumbs_8-side.jpg"), nil)
+            DispatchQueue.main.async {
+                completion(URL(string: "https://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/thumbs/thumbs_8-side.jpg"), nil)
+            }
         }
     }
 }
