@@ -40,9 +40,8 @@ class TimelineViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as! PhotoTableViewCell
-        // 'Cause all photos are sorted by date, I can calculate index by formula: section * sectionCount + row
-        let index = indexPath.section * uniquePhotoDates.count + indexPath.row
-        let photo = photos[index]
+        let date = uniquePhotoDates[indexPath.section]
+        let photo = photos.filter{ $0.date == date }[indexPath.row]
         cell.photoDateLabel.text = photo.date
         cell.photoDescriptionLabel.text = photo.photoDescription
         cell.photoImageView.image = photo.image
