@@ -16,18 +16,13 @@ class TimelineViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         CloudRepository.cloud.getPhotos { [weak self] (photo) in
-            if let `self` = self {
-                if !self.photos.contains(where: { (photoToCheck) -> Bool in
-                    return photoToCheck.key == photo.key
-                }){
-                    self.photos.append(photo)
-                    if !self.uniquePhotoDates.contains(photo.date) {
-                        self.uniquePhotoDates.append(photo.date)
-                    }
-                    DispatchQueue.main.async {
-                        self.photoTableView.reloadData()
-                    }
+            guard let `self` = self else { return }
+            if !self.photos.contains(where: { $0.key == photo.key }) {
+                self.photos += [photo]
+                if !self.uniquePhotoDates.contains(photo.date) {
+                    self.uniquePhotoDates.append(photo.date)
                 }
+                self.photoTableView.reloadData()
             }
         }
     }
@@ -37,15 +32,20 @@ class TimelineViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photos.count
-//        return photos.filter{ $0.date == uniquePhotoDates[section] }.count
+        let photosByDate = photos.filter({ (photo) -> Bool in
+            photo.date == uniquePhotoDates[section]
+        })
+        return photosByDate.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as! PhotoTableViewCell
-        cell.photoDateLabel.text = photos[indexPath.row].date
-        cell.photoDescriptionLabel.text = photos[indexPath.row].description
-//        cell.photoImageView.image = photos[indexPath.row].image
+        // 'Cause all photos are sorted by date, I can calculate index by formula: section * sectionCount + row
+        let index = indexPath.section * uniquePhotoDates.count + indexPath.row
+        let photo = photos[index]
+        cell.photoDateLabel.text = photo.date
+        cell.photoDescriptionLabel.text = photo.photoDescription
+        cell.photoImageView.image = photo.image
         
         cell.photoImageView.contentMode = .scaleAspectFill
         return cell
