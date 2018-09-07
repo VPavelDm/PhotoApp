@@ -14,8 +14,10 @@ import MapKit
 class CloudRepository {
     
     static let cloud = CloudRepository()
+    
     private let storageRef = Storage.storage().reference().child(rootReference)
     private let databaseRef = Database.database().reference().child(rootReference)
+    private init() {}
     
     func sendPhotoToTheServer(photo: Photo) {
         let photoDescriptionRef = databaseRef.childByAutoId()
