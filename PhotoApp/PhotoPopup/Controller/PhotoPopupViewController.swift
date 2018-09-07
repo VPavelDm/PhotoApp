@@ -42,7 +42,7 @@ class PhotoPopupViewController: KeyboardHandlerViewController, UITextViewDelegat
         let dateFormatter = DateFormatter()
         //MARK: Add time to date formatter
         dateFormatter.dateStyle = .full
-        let photo = Photo(description: descriptionTextView.text, category: categoryLabel.text!, date: dateLabel.text!, image: image)
+        let photo = Photo(key: nil, description: descriptionTextView.text, category: categoryLabel.text!, date: dateLabel.text!, image: image)
         delegate?.savePhoto(photo: photo)
         descriptionTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)

@@ -36,18 +36,28 @@ class CloudRepository {
                         let photoDate = photoDescriptionDictionary[date],
                         let photoDescription = photoDescriptionDictionary[description] else { return }
                     let imageRef = self?.storageRef.child(photoCategory).child(idSnapshot.key)
-                    imageRef?.downloadURL(completion: { (url, error) in
+                    imageRef?.downloadTestURL(completion: { (url, error) in
                         if let error = error {
                             print(error)
                             return
                         }
-                        if let imageData = try? Data(contentsOf: url!) {
-                            let photo = Photo(description: photoDescription, category: photoCategory, date: photoDate, image: UIImage(data: imageData)!)
+                        guard let url = url else { return }
+                        if let imageData = try? Data(contentsOf: url) {
+                            guard let image = UIImage(data: imageData) else { return }
+                            let photo = Photo(key: idSnapshot.key, description: photoDescription, category: photoCategory, date: photoDate, image: image)
                             callback(photo)
                         }
                     })
                 }
             }
+        }
+    }
+}
+
+extension StorageReference {
+    func downloadTestURL(completion: @escaping (_ url: URL?, _ error: Error?) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            completion(URL(string: "https://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/thumbs/thumbs_8-side.jpg"), nil)
         }
     }
 }

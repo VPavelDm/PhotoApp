@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 struct Photo {
+    var key: String?
     var description: String
     var category: String
     var date: String

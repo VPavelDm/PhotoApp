@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,25 +19,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="0EI-CL-baz">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" rowHeight="100" id="0EI-CL-baz" customClass="PhotoTableViewCell" customModule="PhotoApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0EI-CL-baz" id="n6W-wq-wQZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eww-nR-4BM">
-                                            <rect key="frame" x="142" y="11" width="91" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xCn-09-8uI">
+                                            <rect key="frame" x="64" y="29.5" width="295" height="41"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-wp-Ujp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
+                                                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zX-tc-cRt">
+                                                    <rect key="frame" x="0.0" y="20.5" width="295" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yod-HN-27x">
+                                            <rect key="frame" x="16" y="34" width="32" height="32"/>
+                                            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="yod-HN-27x" secondAttribute="height" multiplier="1:1" id="S5u-NK-Wj7"/>
+                                                <constraint firstAttribute="width" constant="32" id="V1p-pU-BAv"/>
+                                                <constraint firstAttribute="height" constant="32" id="V23-Kt-1lM"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="eww-nR-4BM" firstAttribute="centerY" secondItem="n6W-wq-wQZ" secondAttribute="centerY" id="lCv-do-65h"/>
-                                        <constraint firstItem="eww-nR-4BM" firstAttribute="centerX" secondItem="n6W-wq-wQZ" secondAttribute="centerX" id="vpI-SW-LYo"/>
+                                        <constraint firstItem="xCn-09-8uI" firstAttribute="centerY" secondItem="n6W-wq-wQZ" secondAttribute="centerY" id="D16-OQ-AxP"/>
+                                        <constraint firstItem="xCn-09-8uI" firstAttribute="leading" secondItem="yod-HN-27x" secondAttribute="trailing" constant="16" id="GKB-rp-ct1"/>
+                                        <constraint firstItem="yod-HN-27x" firstAttribute="leading" secondItem="n6W-wq-wQZ" secondAttribute="leading" constant="16" id="NqY-JT-1Hw"/>
+                                        <constraint firstAttribute="trailing" secondItem="xCn-09-8uI" secondAttribute="trailing" constant="16" id="gQC-W9-FAl"/>
+                                        <constraint firstItem="yod-HN-27x" firstAttribute="centerY" secondItem="n6W-wq-wQZ" secondAttribute="centerY" id="oTu-IS-nGq"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="photoContentView" destination="n6W-wq-wQZ" id="bNX-mm-8PZ"/>
+                                    <outlet property="photoDateLabel" destination="0zX-tc-cRt" id="GJx-xd-mun"/>
+                                    <outlet property="photoDescriptionLabel" destination="fu5-wp-Ujp" id="i9D-A5-2a1"/>
+                                    <outlet property="photoImageView" destination="yod-HN-27x" id="lQE-gS-5EC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,7 +81,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5A-Am-BHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="-298"/>
+            <point key="canvasLocation" x="437.60000000000002" y="-298.2008995502249"/>
         </scene>
     </scenes>
 </document>

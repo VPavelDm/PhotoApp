@@ -11,6 +11,7 @@
 		1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */; };
 		1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019D9FD2141255B00BF23D1 /* TimelineViewController.swift */; };
 		1019DA012141268C00BF23D1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019DA002141268C00BF23D1 /* ArrayExtension.swift */; };
+		1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */; };
 		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		1019D9FD2141255B00BF23D1 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		1019DA002141268C00BF23D1 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */,
+				1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 			files = (
 				106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */,
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
+				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
