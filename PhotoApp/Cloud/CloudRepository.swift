@@ -9,28 +9,25 @@
 import Foundation
 import FirebaseStorage
 import FirebaseDatabase
+import FirebaseAuth
 import MapKit
 
 class CloudRepository {
     
-    private let latitude = "latitude"
-    private let longitude = "longitude"
-    private let rootReference = "photos"
-    private let category = "category"
-    private let date = "date"
-    private let description = "description"
+    private static let rootReference = "photos"
     
     private let storageRef: StorageReference
     private let databaseRef: DatabaseReference
     
     init() {
-        storageRef = Storage.storage().reference().child(rootReference)
-        databaseRef = Database.database().reference().child(rootReference)
+        let user = Auth.auth().currentUser!
+        storageRef = Storage.storage().reference().child(CloudRepository.rootReference).child(user.uid)
+        databaseRef = Database.database().reference().child(CloudRepository.rootReference).child(user.uid)
     }
     
     func sendPhotoToTheServer(photo: Photo, callback: @escaping (String) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
-        let photoDescriptionData: [String: Any] = [category: photo.category, date: photo.date, description: photo.photoDescription, latitude: photo.latitude, longitude: photo.longitude]
+        let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category, #keyPath(Photo.date): photo.date, #keyPath(Photo.description): photo.photoDescription, #keyPath(Photo.latitude): photo.latitude, #keyPath(Photo.longitude): photo.longitude]
         photoDescriptionRef.setValue(photoDescriptionData)
         
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
@@ -48,8 +45,8 @@ class CloudRepository {
                 if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: Any] {
                     guard
                         let `self` = self,
-                        let photoLatitude = photoDescriptionDictionary[self.latitude] as? Double,
-                        let photoLongitude = photoDescriptionDictionary[self.longitude] as? Double,
+                    let photoLatitude = photoDescriptionDictionary[#keyPath(Photo.latitude)] as? Double,
+                        let photoLongitude = photoDescriptionDictionary[#keyPath(Photo.longitude)] as? Double,
                         let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String,
                         let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
                         let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String else { return }
