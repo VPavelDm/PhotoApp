@@ -25,9 +25,12 @@
                                     <outletCollection property="gestureRecognizers" destination="GO6-fd-xpg" appends="YES" id="JpO-ZT-hnt"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moU-Zt-fZP">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moU-Zt-fZP">
                                 <rect key="frame" x="311" y="60" width="40" height="40"/>
                                 <state key="normal" image="ic_center_on_me_selected"/>
+                                <connections>
+                                    <action selector="clickChangeModeButton:" destination="tn4-0v-tks" eventType="touchUpInside" id="3gZ-6s-IYJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-VZ-GFV">
                                 <rect key="frame" x="239" y="65" width="40" height="31"/>
@@ -58,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="ZWa-Jq-TzA" id="wAp-kK-xFH"/>
+                        <outlet property="modeButton" destination="moU-Zt-fZP" id="mpl-7G-eJU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMQ-fG-zEN" userLabel="First Responder" sceneMemberID="firstResponder"/>

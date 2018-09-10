@@ -11,10 +11,14 @@ import MapKit
 
 class MapViewController: ViewController {
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView! {
+        didSet {
+            mapView.showsUserLocation = true
+        }
+    }
+    @IBOutlet weak var modeButton: UIButton!
     
     private let locationManager = CLLocationManager()
-
     
     var lastKnownCoordinates: CLLocationCoordinate2D? {
         didSet {
@@ -43,6 +47,7 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
+        mapView.userTrackingMode = .followWithHeading
         cloud.getPhotos{ [weak self] (photo) in
             self?.addAnnotation(photo: photo)
         }
@@ -69,6 +74,17 @@ class MapViewController: ViewController {
         default:
             break
         }
+    }
+    
+    @IBAction func clickChangeModeButton(_ sender: UIButton) {
+        // 0 - Not select on me button mode
+        // 1 - Select on me button mode
+        if sender.tag == 1 {
+            mapView.userTrackingMode = .none
+        } else {
+            mapView.userTrackingMode = .followWithHeading
+        }
+        sender.tag = (sender.tag + 1) % 2 // Change button tag to another mode
     }
     
 }

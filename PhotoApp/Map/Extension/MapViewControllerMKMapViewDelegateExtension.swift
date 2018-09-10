@@ -34,4 +34,12 @@ extension MapViewController: MKMapViewDelegate {
         annotationView.canShowCallout = true
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        if mode == .none {
+            modeButton.setImage(UIImage(named: "ic_center_on_me_disable"), for: .normal)
+        } else {
+            modeButton.setImage(UIImage(named: "ic_center_on_me_selected"), for: .normal)
+        }
+    }
 }
