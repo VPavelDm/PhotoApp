@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var lastConstraintValue: CGFloat?
+    
     static func create<Controller>(asClass: Controller.Type) -> Controller {
         let storyboard = UIStoryboard(name: String(describing: asClass), bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as? Controller
@@ -24,19 +26,4 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-}
-
-extension UIViewController {
-    func setRootViewController(){
-        if let window = UIApplication.shared.keyWindow {
-            window.rootViewController = self
-            window.makeKeyAndVisible()
-        }
-    }
-}
-
-extension UITableViewController {
-    static func create<Controller>(asClass: Controller.Type) -> Controller {
-        return ViewController.create(asClass: asClass)
-    }
 }

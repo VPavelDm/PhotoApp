@@ -13,22 +13,33 @@ import MapKit
 
 class CloudRepository {
     
-    static let cloud = CloudRepository()
+    private let latitude = "latitude"
+    private let longitude = "longitude"
+    private let rootReference = "photos"
+    private let category = "category"
+    private let date = "date"
+    private let description = "description"
     
-    private let storageRef = Storage.storage().reference().child(rootReference)
-    private let databaseRef = Database.database().reference().child(rootReference)
-    private init() {}
+    private let storageRef: StorageReference
+    private let databaseRef: DatabaseReference
     
-    func sendPhotoToTheServer(photo: Photo) {
+    init() {
+        storageRef = Storage.storage().reference().child(rootReference)
+        databaseRef = Database.database().reference().child(rootReference)
+    }
+    
+    func sendPhotoToTheServer(photo: Photo, callback: @escaping (String) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
         let photoDescriptionData: [String: Any] = [category: photo.category, date: photo.date, description: photo.photoDescription, latitude: Double(photo.coordinate.latitude), longitude: Double(photo.coordinate.longitude)]
         photoDescriptionRef.setValue(photoDescriptionData)
         
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
-        guard let imageData = UIImagePNGRepresentation(photo.image) else {
-            return
+        guard let imageData = UIImagePNGRepresentation(photo.image) else { return }
+        imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                callback(error.localizedDescription)
+            }
         }
-        imageRef.putData(imageData, metadata: nil)
     }
     
     func getPhotos(callback: @escaping (Photo) -> ()) {
@@ -36,17 +47,14 @@ class CloudRepository {
             for idSnapshot in snapshot.children {
                 if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: Any] {
                     guard
-                        let photoLatitude = photoDescriptionDictionary[latitude] as? Double,
-                        let photoLongitude = photoDescriptionDictionary[longitude] as? Double,
-                        let photoCategory = photoDescriptionDictionary[category] as? String,
-                        let photoDate = photoDescriptionDictionary[date] as? String,
-                        let photoDescription = photoDescriptionDictionary[description] as? String else { return }
-                    let imageRef = self?.storageRef.child(photoCategory).child(idSnapshot.key)
-                    imageRef?.downloadTestURL(completion: { (url, error) in
-                        if let error = error {
-                            print(error)
-                            return
-                        }
+                        let `self` = self,
+                        let photoLatitude = photoDescriptionDictionary[self.latitude] as? Double,
+                        let photoLongitude = photoDescriptionDictionary[self.longitude] as? Double,
+                        let photoCategory = photoDescriptionDictionary[self.category] as? String,
+                        let photoDate = photoDescriptionDictionary[self.date] as? String,
+                        let photoDescription = photoDescriptionDictionary[self.description] as? String else { return }
+                    let imageRef = self.storageRef.child(photoCategory).child(idSnapshot.key)
+                    imageRef.downloadTestURL(completion: { (url, error) in
                         guard let url = url else { return }
                         if let imageData = try? Data(contentsOf: url) {
                             guard let image = UIImage(data: imageData) else { return }
@@ -70,10 +78,3 @@ extension StorageReference {
         }
     }
 }
-
-private let latitude = "latitude"
-private let longitude = "longitude"
-private let rootReference = "photos"
-private let category = "category"
-private let date = "date"
-private let description = "description"

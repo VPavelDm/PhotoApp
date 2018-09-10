@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoPopupViewController: KeyboardHandlerViewController {
+class PhotoPopupViewController: ViewController {
     
     var photo: Photo!
     var delegate: PhotoPopupDelegate?

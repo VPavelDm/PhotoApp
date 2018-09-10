@@ -13,9 +13,11 @@ class MapViewController: ViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    private let cloud = CloudRepository()
+    
     override func viewDidLoad() {
         mapView.delegate = self
-        CloudRepository.cloud.getPhotos{ [weak self] (photo) in
+        cloud.getPhotos{ [weak self] (photo) in
             self?.addAnnotation(photo: photo)
         }
     }

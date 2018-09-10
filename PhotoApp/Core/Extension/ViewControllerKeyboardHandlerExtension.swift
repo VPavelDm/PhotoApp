@@ -1,16 +1,15 @@
 //
-//  KeyboardHandlerViewController.swift
+//  ViewControllerKeyboardHandlerExtension.swift
 //  PhotoApp
 //
-//  Created by mac-089-71 on 9/5/18.
+//  Created by mac-089-71 on 9/10/18.
 //  Copyright © 2018 VPavelDm. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class KeyboardHandlerViewController: ViewController {
-    
-    var lastConstraintValue: CGFloat?
+extension ViewController {
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -52,10 +51,10 @@ class KeyboardHandlerViewController: ViewController {
         }
     }
     
-    func getViewToScroll() -> UIView? {
+    @objc func getViewToScroll() -> UIView? {
         return nil
     }
-    func getBottomConstraint() -> NSLayoutConstraint? {
+    @objc func getBottomConstraint() -> NSLayoutConstraint? {
         return nil
     }
     

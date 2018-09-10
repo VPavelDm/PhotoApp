@@ -12,10 +12,11 @@ class TimelineViewController: UITableViewController {
 
     private var photos: [Photo] = []
     private var uniquePhotoDates: [String] = []
+    private let cloud = CloudRepository()
     @IBOutlet var photoTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
-        CloudRepository.cloud.getPhotos { [weak self] (photo) in
+        cloud.getPhotos { [weak self] (photo) in
             guard let `self` = self else { return }
             if !self.photos.contains(where: { $0.key == photo.key }) {
                 self.photos += [photo]

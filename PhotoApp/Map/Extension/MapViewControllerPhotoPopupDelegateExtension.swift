@@ -11,7 +11,10 @@ import Foundation
 extension MapViewController: PhotoPopupDelegate {
     
     func savePhoto(photo: Photo) {
-        CloudRepository.cloud.sendPhotoToTheServer(photo: photo)
+        let cloud = CloudRepository()
+        cloud.sendPhotoToTheServer(photo: photo) { [weak self] (errorMessage) in
+            self?.showAlertWithError(message: errorMessage)
+        }
         addAnnotation(photo: photo)
     }
     

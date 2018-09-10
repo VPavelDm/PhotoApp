@@ -12,6 +12,9 @@
 		1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019D9FD2141255B00BF23D1 /* TimelineViewController.swift */; };
 		1019DA012141268C00BF23D1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019DA002141268C00BF23D1 /* ArrayExtension.swift */; };
 		1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */; };
+		1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */; };
+		1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816621463D8200434511 /* UIViewControllerExtension.swift */; };
+		1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816821463DA100434511 /* UITableViewControllerExtension.swift */; };
 		1048DEF721425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF621425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift */; };
 		1048DEF921425C52001CED52 /* MapViewControllerImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF821425C52001CED52 /* MapViewControllerImagePickerDelegate.swift */; };
 		1048DEFD21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */; };
@@ -28,7 +31,6 @@
 		10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */; };
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
-		10CFF2AA213FDB6500E338DD /* KeyboardHandlerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */; };
 		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
 		10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2B8213FF38C00E338DD /* ViewController.swift */; };
 		10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2BB213FF41B00E338DD /* CloudRepository.swift */; };
@@ -54,6 +56,9 @@
 		1019D9FD2141255B00BF23D1 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		1019DA002141268C00BF23D1 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeyboardHandlerExtension.swift; sourceTree = "<group>"; };
+		1031816621463D8200434511 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1031816821463DA100434511 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
 		1048DEF621425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerMKMapViewDelegateExtension.swift; sourceTree = "<group>"; };
 		1048DEF821425C52001CED52 /* MapViewControllerImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerImagePickerDelegate.swift; sourceTree = "<group>"; };
 		1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerPhotoPopupDelegateExtension.swift; sourceTree = "<group>"; };
@@ -72,7 +77,6 @@
 		10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
-		10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardHandlerViewController.swift; path = PhotoApp/Core/Controller/KeyboardHandlerViewController.swift; sourceTree = SOURCE_ROOT; };
 		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10CFF2B8213FF38C00E338DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10CFF2BB213FF41B00E338DD /* CloudRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudRepository.swift; sourceTree = "<group>"; };
@@ -131,6 +135,16 @@
 			isa = PBXGroup;
 			children = (
 				1019DA002141268C00BF23D1 /* ArrayExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1031816321463D2700434511 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */,
+				1031816621463D8200434511 /* UIViewControllerExtension.swift */,
+				1031816821463DA100434511 /* UITableViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -262,7 +276,6 @@
 		10CFF2B7213FF37E00E338DD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF2A9213FDB6500E338DD /* KeyboardHandlerViewController.swift */,
 				10CFF2B8213FF38C00E338DD /* ViewController.swift */,
 			);
 			path = Controller;
@@ -466,6 +479,7 @@
 		10E35CD021394E180096E8DA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1031816321463D2700434511 /* Extension */,
 				10CFF2B7213FF37E00E338DD /* Controller */,
 			);
 			path = Core;
@@ -612,6 +626,8 @@
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
+				1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */,
+				1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */,
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
 				1048DEFF21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift in Sources */,
@@ -620,8 +636,8 @@
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
 				1048DF0221425FE1001CED52 /* CoordinationManager.swift in Sources */,
 				1048DEF921425C52001CED52 /* MapViewControllerImagePickerDelegate.swift in Sources */,
+				1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */,
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
-				10CFF2AA213FDB6500E338DD /* KeyboardHandlerViewController.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
 				10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
