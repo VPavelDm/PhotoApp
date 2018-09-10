@@ -77,14 +77,11 @@ class MapViewController: ViewController {
     }
     
     @IBAction func clickChangeModeButton(_ sender: UIButton) {
-        // 0 - Not select on me button mode
-        // 1 - Select on me button mode
-        if sender.tag == 1 {
-            mapView.userTrackingMode = .none
-        } else {
+        if mapView.userTrackingMode == .none {
             mapView.userTrackingMode = .followWithHeading
+        } else {
+            mapView.userTrackingMode = .none
         }
-        sender.tag = (sender.tag + 1) % 2 // Change button tag to another mode
     }
     
 }
