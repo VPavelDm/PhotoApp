@@ -13,6 +13,32 @@ class MapViewController: ViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    private let locationManager = CLLocationManager()
+
+    
+    var lastKnownCoordinates: CLLocationCoordinate2D? {
+        didSet {
+            guard
+                let lastKnownCoordinates = lastKnownCoordinates,
+                let photoImage = photoImage
+                else { return }
+            let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
+            let photo = Photo(coordinate: lastKnownCoordinates, image: photoImage)
+            photoPopupViewController.photo = photo
+            photoPopupViewController.delegate = self
+            self.present(photoPopupViewController, animated: true, completion: nil)
+            self.photoImage = nil
+            self.lastKnownCoordinates = nil
+        }
+    }
+    var photoImage: UIImage? {
+        didSet {
+            if photoImage != nil {
+                (lastKnownCoordinates = lastKnownCoordinates)
+            }
+        }
+    }
+    
     private let cloud = CloudRepository()
     
     override func viewDidLoad() {
@@ -23,21 +49,26 @@ class MapViewController: ViewController {
     }
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
-        // MARK: get user coordinate and call startActionSheetsToTakeAPicture
+
+        if CLLocationManager.locationServicesEnabled() {
+            startActionSheetsToTakeAPicture()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+        }
+        
     }
     
     @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began:
             let touchLocation = sender.location(in: mapView)
-            let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
-            CoordinationManager.manager.sendCoordinate(locationCoordinate)
+            lastKnownCoordinates = mapView.convert(touchLocation, toCoordinateFrom: mapView)
             startActionSheetsToTakeAPicture()
         default:
             break
         }
     }
-    
-    
     
 }

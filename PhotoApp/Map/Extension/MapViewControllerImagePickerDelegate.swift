@@ -24,13 +24,8 @@ extension MapViewController: UIImagePickerControllerDelegate, UINavigationContro
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
-        let photo = Photo(coordinate: CoordinationManager.manager.getLastCoordinate(), image: image)
-        photoPopupViewController.photo = photo
-        photoPopupViewController.delegate = self
         picker.dismiss(animated: true, completion: nil)
-        self.present(photoPopupViewController, animated: true, completion: nil)
+        photoImage = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

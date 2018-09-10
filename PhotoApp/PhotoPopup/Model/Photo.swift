@@ -12,11 +12,18 @@ import MapKit
 
 class Photo: NSObject, MKAnnotation {
     var key: String = ""
-    var photoDescription: String = ""
-    var category: String = ""
-    var date: String = ""
+    @objc var photoDescription: String = ""
+    @objc var category: String = ""
+    @objc var date: String = ""
+    @objc private(set) var latitude: Double = 0
+    @objc private(set) var longitude: Double = 0
     var image: UIImage
-    var coordinate: CLLocationCoordinate2D
+    var coordinate: CLLocationCoordinate2D {
+        didSet {
+            latitude = coordinate.latitude
+            longitude = coordinate.longitude
+        }
+    }
     var subtitle: String? = ""
     var title: String? = ""
 

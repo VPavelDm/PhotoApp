@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension MapViewController {
     func startActionSheetsToTakeAPicture() {
+            
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePictureAction = UIAlertAction(title: NSLocalizedString("Take a Picture", comment: "Take a Picture label"), style: .default) { [weak self] action in
@@ -19,7 +21,9 @@ extension MapViewController {
         let chooseFromLibraryAction = UIAlertAction(title: NSLocalizedString("Choose From Library", comment: "Choose From Library label"), style: .default) { [weak self] action in
             self?.showImagePicker(source: .photoLibrary)
         }
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel label"), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel label"), style: .cancel) { [weak self] (action) in
+            self?.lastKnownCoordinates = nil
+        }
         
         alert.addAction(takePictureAction)
         alert.addAction(chooseFromLibraryAction)

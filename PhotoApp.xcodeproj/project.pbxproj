@@ -15,11 +15,11 @@
 		1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */; };
 		1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816621463D8200434511 /* UIViewControllerExtension.swift */; };
 		1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816821463DA100434511 /* UITableViewControllerExtension.swift */; };
+		1031816B2146418900434511 /* MapViewControllerLocationManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816A2146418900434511 /* MapViewControllerLocationManagerExtension.swift */; };
 		1048DEF721425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF621425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift */; };
 		1048DEF921425C52001CED52 /* MapViewControllerImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF821425C52001CED52 /* MapViewControllerImagePickerDelegate.swift */; };
 		1048DEFD21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */; };
 		1048DEFF21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */; };
-		1048DF0221425FE1001CED52 /* CoordinationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DF0121425FE1001CED52 /* CoordinationManager.swift */; };
 		1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1048DF0421427EC6001CED52 /* GoogleService-Info.plist */; };
 		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
@@ -59,11 +59,11 @@
 		1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeyboardHandlerExtension.swift; sourceTree = "<group>"; };
 		1031816621463D8200434511 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1031816821463DA100434511 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
+		1031816A2146418900434511 /* MapViewControllerLocationManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerLocationManagerExtension.swift; sourceTree = "<group>"; };
 		1048DEF621425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerMKMapViewDelegateExtension.swift; sourceTree = "<group>"; };
 		1048DEF821425C52001CED52 /* MapViewControllerImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerImagePickerDelegate.swift; sourceTree = "<group>"; };
 		1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerPhotoPopupDelegateExtension.swift; sourceTree = "<group>"; };
 		1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerActionSheetsExtension.swift; sourceTree = "<group>"; };
-		1048DF0121425FE1001CED52 /* CoordinationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinationManager.swift; sourceTree = "<group>"; };
 		1048DF0421427EC6001CED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,16 +156,9 @@
 				1048DEF821425C52001CED52 /* MapViewControllerImagePickerDelegate.swift */,
 				1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */,
 				1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */,
+				1031816A2146418900434511 /* MapViewControllerLocationManagerExtension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		1048DF0021425FCA001CED52 /* Coordination */ = {
-			isa = PBXGroup;
-			children = (
-				1048DF0121425FE1001CED52 /* CoordinationManager.swift */,
-			);
-			path = Coordination;
 			sourceTree = "<group>";
 		};
 		1048DF032142657D001CED52 /* Delegate */ = {
@@ -199,7 +192,6 @@
 			children = (
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
-				1048DF0021425FCA001CED52 /* Coordination */,
 				10CFF2BA213FF40100E338DD /* Cloud */,
 				10E35CD021394E180096E8DA /* Core */,
 				10E35CBE213940DC0096E8DA /* Map */,
@@ -634,8 +626,8 @@
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
-				1048DF0221425FE1001CED52 /* CoordinationManager.swift in Sources */,
 				1048DEF921425C52001CED52 /* MapViewControllerImagePickerDelegate.swift in Sources */,
+				1031816B2146418900434511 /* MapViewControllerLocationManagerExtension.swift in Sources */,
 				1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */,
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,

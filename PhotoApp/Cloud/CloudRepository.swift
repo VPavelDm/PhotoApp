@@ -30,7 +30,7 @@ class CloudRepository {
     
     func sendPhotoToTheServer(photo: Photo, callback: @escaping (String) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
-        let photoDescriptionData: [String: Any] = [category: photo.category, date: photo.date, description: photo.photoDescription, latitude: Double(photo.coordinate.latitude), longitude: Double(photo.coordinate.longitude)]
+        let photoDescriptionData: [String: Any] = [category: photo.category, date: photo.date, description: photo.photoDescription, latitude: photo.latitude, longitude: photo.longitude]
         photoDescriptionRef.setValue(photoDescriptionData)
         
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
@@ -50,9 +50,9 @@ class CloudRepository {
                         let `self` = self,
                         let photoLatitude = photoDescriptionDictionary[self.latitude] as? Double,
                         let photoLongitude = photoDescriptionDictionary[self.longitude] as? Double,
-                        let photoCategory = photoDescriptionDictionary[self.category] as? String,
-                        let photoDate = photoDescriptionDictionary[self.date] as? String,
-                        let photoDescription = photoDescriptionDictionary[self.description] as? String else { return }
+                        let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String,
+                        let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
+                        let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String else { return }
                     let imageRef = self.storageRef.child(photoCategory).child(idSnapshot.key)
                     imageRef.downloadTestURL(completion: { (url, error) in
                         guard let url = url else { return }
