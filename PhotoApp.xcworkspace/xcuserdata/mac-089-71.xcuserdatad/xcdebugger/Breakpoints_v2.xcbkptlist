@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "PhotoApp/Map/Controller/MapViewController.swift"
-            timestampString = "558376735.548758"
+            timestampString = "558377811.511601"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -33,25 +33,9 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoApp/Map/Extension/MapViewControllerCategoryDelegateExtension.swift"
-            timestampString = "558376735.548826"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "choosed(categories:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "PhotoApp/Map/Controller/MapViewController.swift"
-            timestampString = "558376866.0928071"
+            timestampString = "558377811.511703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"

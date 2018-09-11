@@ -11,7 +11,23 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
     
     weak var delegate: CategoryDelegate?
-    @IBOutlet var buttons: [CategoryButton]!
+    @IBOutlet var buttons: [CategoryButton]! {
+        didSet {
+            for button in buttons {
+                button.clickedButton()
+            }
+            if selectedCategories.contains("NATURE") {
+                buttons[0].clickedButton()
+            }
+            if selectedCategories.contains("FRIENDS") {
+                buttons[1].clickedButton()
+            }
+            if selectedCategories.contains("DEFAULT") {
+                buttons[2].clickedButton()
+            }
+        }
+    }
+    var selectedCategories: [String] = ["NATURE", "FRIENDS", "DEFAULT"]
     
     @IBAction func clickNatureButton(_ sender: CategoryButton) {
         sender.clickedButton()
