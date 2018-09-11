@@ -16,16 +16,16 @@ class TimelineViewController: UITableViewController {
     @IBOutlet var photoTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
-        cloud.getPhotos { [weak self] (photo) in
-            guard let `self` = self else { return }
-            if !self.photos.contains(where: { $0.key == photo.key }) {
-                self.photos += [photo]
-                if !self.uniquePhotoDates.contains(photo.date) {
-                    self.uniquePhotoDates.append(photo.date)
-                }
-                self.photoTableView.reloadData()
-            }
-        }
+//        cloud.getPhotos(categories: ) { [weak self] (photo) in
+//            guard let `self` = self else { return }
+//            if !self.photos.contains(where: { $0.key == photo.key }) {
+//                self.photos += [photo]
+//                if !self.uniquePhotoDates.contains(photo.date) {
+//                    self.uniquePhotoDates.append(photo.date)
+//                }
+//                self.photoTableView.reloadData()
+//            }
+//        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

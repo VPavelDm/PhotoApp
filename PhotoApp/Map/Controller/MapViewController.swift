@@ -22,6 +22,13 @@ class MapViewController: ViewController {
     private let locationManager = CLLocationManager()
     private let cloud = CloudRepository()
     
+    var categories: [String]! {
+        didSet {
+            cloud.getPhotos(categories: categories){ [weak self] (photo) in
+                self?.addAnnotation(photo: photo)
+            }
+        }
+    }
     var lastKnownCoordinates: CLLocationCoordinate2D? {
         didSet {
             guard
@@ -47,9 +54,7 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
-        cloud.getPhotos{ [weak self] (photo) in
-            self?.addAnnotation(photo: photo)
-        }
+        categories = ["NATURE", "FRIENDS", "DEFAULT"]
     }
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {

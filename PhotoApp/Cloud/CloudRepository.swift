@@ -27,7 +27,11 @@ class CloudRepository {
     
     func sendPhotoToTheServer(photo: Photo, callback: @escaping (String) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
-        let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category, #keyPath(Photo.date): photo.date, #keyPath(Photo.description): photo.photoDescription, #keyPath(Photo.latitude): photo.latitude, #keyPath(Photo.longitude): photo.longitude]
+        let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
+                                                   #keyPath(Photo.date): photo.date,
+                                                   #keyPath(Photo.description): photo.photoDescription,
+                                                   #keyPath(Photo.latitude): photo.latitude,
+                                                   #keyPath(Photo.longitude): photo.longitude]
         photoDescriptionRef.setValue(photoDescriptionData)
         
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
@@ -39,27 +43,30 @@ class CloudRepository {
         }
     }
     
-    func getPhotos(callback: @escaping (Photo) -> ()) {
+    func getPhotos(categories: [String], callback: @escaping (Photo) -> ()) {
         databaseRef.observeSingleEvent(of: DataEventType.value) { [weak self] (snapshot) in
             for idSnapshot in snapshot.children {
                 if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: Any] {
                     guard
                         let `self` = self,
-                    let photoLatitude = photoDescriptionDictionary[#keyPath(Photo.latitude)] as? Double,
+                        let photoLatitude = photoDescriptionDictionary[#keyPath(Photo.latitude)] as? Double,
                         let photoLongitude = photoDescriptionDictionary[#keyPath(Photo.longitude)] as? Double,
                         let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String,
                         let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
                         let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String else { return }
-                    let imageRef = self.storageRef.child(photoCategory).child(idSnapshot.key)
-                    imageRef.downloadTestURL(completion: { (url, error) in
-                        guard let url = url else { return }
-                        if let imageData = try? Data(contentsOf: url) {
-                            guard let image = UIImage(data: imageData) else { return }
-                            let coordinate = CLLocationCoordinate2D(latitude: photoLatitude, longitude: photoLongitude)
-                            let photo = Photo(key: idSnapshot.key, description: photoDescription, category: photoCategory, date: photoDate, image: image, coordinate: coordinate)
-                            callback(photo)
-                        }
-                    })
+                    
+                    if categories.contains(photoCategory) {
+                        let imageRef = self.storageRef.child(photoCategory).child(idSnapshot.key)
+                        imageRef.downloadTestURL(completion: { (url, error) in
+                            guard let url = url else { return }
+                            if let imageData = try? Data(contentsOf: url) {
+                                guard let image = UIImage(data: imageData) else { return }
+                                let coordinate = CLLocationCoordinate2D(latitude: photoLatitude, longitude: photoLongitude)
+                                let photo = Photo(key: idSnapshot.key, description: photoDescription, category: photoCategory, date: photoDate, image: image, coordinate: coordinate)
+                                callback(photo)
+                            }
+                        })
+                    }
                 }
             }
         }

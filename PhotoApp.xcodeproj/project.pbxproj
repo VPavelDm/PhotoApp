@@ -25,6 +25,8 @@
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
 		1061A2132147FD3A006942D7 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2122147FD3A006942D7 /* UINavigationController.swift */; };
+		1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A21521480312006942D7 /* CategoryDelegate.swift */; };
+		1061A218214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */; };
 		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		1061A2122147FD3A006942D7 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		1061A21521480312006942D7 /* CategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDelegate.swift; sourceTree = "<group>"; };
+		1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerCategoryDelegateExtension.swift; sourceTree = "<group>"; };
 		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */,
 				1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */,
 				1031816A2146418900434511 /* MapViewControllerLocationManagerExtension.swift */,
+				1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 		1061A1FD2147AC27006942D7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				1061A214214802F8006942D7 /* Delegate */,
 				1061A2062147AC5E006942D7 /* View */,
 				1061A2032147AC45006942D7 /* Controller */,
 				1061A2112147F369006942D7 /* Cell */,
@@ -212,6 +218,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1061A214214802F8006942D7 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				1061A21521480312006942D7 /* CategoryDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		109064622137DE770033B02B = {
 			isa = PBXGroup;
 			children = (
@@ -233,10 +247,10 @@
 		1090646D2137DE770033B02B /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
-				1061A1FD2147AC27006942D7 /* Category */,
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				10CFF2BA213FF40100E338DD /* Cloud */,
+				1061A1FD2147AC27006942D7 /* Category */,
 				10E35CD021394E180096E8DA /* Core */,
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
@@ -397,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				1048DEF321425A76001CED52 /* Extension */,
-				10E35CC121394B5B0096E8DA /* Model */,
 				10E35CC021394B560096E8DA /* View */,
 				10E35CBF21394B4A0096E8DA /* Controller */,
 			);
@@ -418,13 +431,6 @@
 				10E35D38213972660096E8DA /* MapViewController.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		10E35CC121394B5B0096E8DA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		10E35CC421394BF20096E8DA /* Timeline */ = {
@@ -661,6 +667,7 @@
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				1048DEF721425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
+				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
 				1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */,
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
@@ -670,6 +677,7 @@
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
 				1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */,
+				1061A218214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift in Sources */,
 				1048DEFF21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift in Sources */,
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,

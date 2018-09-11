@@ -143,6 +143,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outletCollection property="buttons" destination="p0n-nS-Gtk" collectionClass="NSMutableArray" id="aMM-hc-iDr"/>
+                        <outletCollection property="buttons" destination="4pN-V6-3C6" collectionClass="NSMutableArray" id="mct-Ak-Mfv"/>
+                        <outletCollection property="buttons" destination="CO2-uZ-3nI" collectionClass="NSMutableArray" id="Iol-Iy-8Fe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaX-er-5UX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
