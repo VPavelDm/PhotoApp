@@ -24,6 +24,8 @@ class MapViewController: ViewController {
     
     var categories: [String]! {
         didSet {
+            mapView.removeAnnotations(annotations)
+            annotations = []
             cloud.getPhotos(categories: categories){ [weak self] (photo) in
                 self?.addAnnotation(photo: photo)
             }
@@ -51,6 +53,7 @@ class MapViewController: ViewController {
             }
         }
     }
+    var annotations: [MKAnnotation] = []
     
     override func viewDidLoad() {
         mapView.delegate = self
@@ -90,6 +93,7 @@ class MapViewController: ViewController {
     
     @IBAction func clickCategoryButton(_ sender: UIButton) {
         let categoryViewController = CategoryTableViewController.create(asClass: CategoryTableViewController.self)
+        categoryViewController.delegate = self
         let navigationViewController = UINavigationController(rootViewController: categoryViewController)
         present(navigationViewController, animated: true)
     }
