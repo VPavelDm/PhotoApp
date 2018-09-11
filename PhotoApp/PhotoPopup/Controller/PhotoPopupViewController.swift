@@ -37,6 +37,10 @@ class PhotoPopupViewController: ViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    @IBAction func clickChooseCategory(_ sender: Any) {
+        let pickerViewController = PickerViewController.create(asClass: PickerViewController.self)
+        present(pickerViewController, animated: true)
+    }
     @IBAction func clickCancelButton(_ sender: UIButton) {
         descriptionLabel.resignFirstResponder()
         dismiss(animated: true, completion: nil)

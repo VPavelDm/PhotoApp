@@ -27,6 +27,8 @@
 		1061A2132147FD3A006942D7 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2122147FD3A006942D7 /* UINavigationController.swift */; };
 		1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A21521480312006942D7 /* CategoryDelegate.swift */; };
 		1061A218214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */; };
+		1061A2212148122E006942D7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2202148122E006942D7 /* PickerViewController.swift */; };
+		1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A22321481245006942D7 /* PickerViewController.storyboard */; };
 		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		1061A2122147FD3A006942D7 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		1061A21521480312006942D7 /* CategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDelegate.swift; sourceTree = "<group>"; };
 		1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerCategoryDelegateExtension.swift; sourceTree = "<group>"; };
+		1061A2202148122E006942D7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		1061A22321481245006942D7 /* PickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickerViewController.storyboard; sourceTree = "<group>"; };
 		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +230,31 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		1061A21C214811CD006942D7 /* CategoryPickViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1061A22221481231006942D7 /* View */,
+				1061A21F21481222006942D7 /* Controller */,
+			);
+			path = CategoryPickViewController;
+			sourceTree = "<group>";
+		};
+		1061A21F21481222006942D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1061A2202148122E006942D7 /* PickerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1061A22221481231006942D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1061A22321481245006942D7 /* PickerViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		109064622137DE770033B02B = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +283,7 @@
 				10E35CD021394E180096E8DA /* Core */,
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
+				1061A21C214811CD006942D7 /* CategoryPickViewController */,
 				10AFE78B213D314100CB652E /* PhotoPopup */,
 				10E35CC821394C1B0096E8DA /* More */,
 				10E35CCE21394DD60096E8DA /* MainScreen */,
@@ -598,6 +628,7 @@
 			files = (
 				109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */,
 				10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */,
+				1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */,
 				10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */,
 				1019D9EF2140FA4400BF23D1 /* PhotoDetailView.xib in Resources */,
 				1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */,
@@ -668,6 +699,7 @@
 				1048DEF721425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
+				1061A2212148122E006942D7 /* PickerViewController.swift in Sources */,
 				1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */,
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
