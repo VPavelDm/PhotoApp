@@ -42,6 +42,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-ZW-ju8">
                                 <rect key="frame" x="22" y="68" width="42" height="26"/>
                                 <state key="normal" image="ic_categories"/>
+                                <connections>
+                                    <action selector="clickCategoryButton:" destination="tn4-0v-tks" eventType="touchUpInside" id="BQX-IA-Xv3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

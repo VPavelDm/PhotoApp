@@ -14,11 +14,13 @@ class MapViewController: ViewController {
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
             mapView.showsUserLocation = true
+            mapView.userTrackingMode = .followWithHeading
         }
     }
     @IBOutlet weak var modeButton: UIButton!
     
     private let locationManager = CLLocationManager()
+    private let cloud = CloudRepository()
     
     var lastKnownCoordinates: CLLocationCoordinate2D? {
         didSet {
@@ -43,11 +45,8 @@ class MapViewController: ViewController {
         }
     }
     
-    private let cloud = CloudRepository()
-    
     override func viewDidLoad() {
         mapView.delegate = self
-        mapView.userTrackingMode = .followWithHeading
         cloud.getPhotos{ [weak self] (photo) in
             self?.addAnnotation(photo: photo)
         }
@@ -82,6 +81,11 @@ class MapViewController: ViewController {
         } else {
             mapView.userTrackingMode = .none
         }
+    }
+    
+    @IBAction func clickCategoryButton(_ sender: UIButton) {
+        let categoryViewController = CategoryTableViewController.create(asClass: CategoryTableViewController.self)
+        present(categoryViewController, animated: true)
     }
     
 }
