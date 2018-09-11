@@ -27,11 +27,13 @@ class PhotoPopupViewController: ViewController {
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
-    @IBOutlet weak var categoryLabel: UILabel! {
+    @IBOutlet weak var categoryButton: UIButton! {
         didSet {
-            categoryLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
+            categoryButton.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
+    
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -39,6 +41,7 @@ class PhotoPopupViewController: ViewController {
     
     @IBAction func clickChooseCategory(_ sender: Any) {
         let pickerViewController = PickerViewController.create(asClass: PickerViewController.self)
+        pickerViewController.delegate = self
         present(pickerViewController, animated: true)
     }
     @IBAction func clickCancelButton(_ sender: UIButton) {
@@ -46,7 +49,7 @@ class PhotoPopupViewController: ViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func clickDoneButton(_ sender: UIButton) {
-        photo.category = categoryLabel.text!
+        photo.category = (categoryButton.titleLabel?.text)!
         photo.date = dateLabel.text!
         photo.photoDescription = descriptionLabel.text
         delegate?.savePhoto(photo: photo)

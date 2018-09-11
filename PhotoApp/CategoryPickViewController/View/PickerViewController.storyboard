@@ -37,6 +37,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoF-yi-fDJ">
                                         <rect key="frame" x="74" y="100" width="52" height="30"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="clickChooseCategory:" destination="Jzu-dj-ea9" eventType="touchUpInside" id="8Qd-2W-AzE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,6 +61,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8PO-xn-JPq"/>
                     </view>
+                    <connections>
+                        <outlet property="picker" destination="RUq-th-djr" id="huu-m8-L7D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xem-3d-UAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

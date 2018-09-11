@@ -11,6 +11,9 @@ import UIKit
 class PickerViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let categories = ["NATURE", "FRIENDS", "DEFAULT"]
+    weak var delegate: PickerDelegate?
+    
+    @IBOutlet weak var picker: UIPickerView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -23,5 +26,11 @@ class PickerViewController: ViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categories[row]
     }
-
+    
+    @IBAction func clickChooseCategory(_ sender: Any) {
+        let category = categories[picker.selectedRow(inComponent: 0)]
+        delegate?.chooseCategory(category: category)
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

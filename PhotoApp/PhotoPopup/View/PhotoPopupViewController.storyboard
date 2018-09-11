@@ -74,7 +74,7 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-qt-fCj">
                                                 <rect key="frame" x="8" y="163" width="231" height="30"/>
-                                                <state key="normal" title="Category"/>
+                                                <state key="normal" title="DEFAULT"/>
                                                 <connections>
                                                     <action selector="clickChooseCategory:" destination="7bn-7a-2yj" eventType="touchUpInside" id="M4S-xn-92L"/>
                                                 </connections>
@@ -123,6 +123,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstraint" destination="FgH-UK-aKi" id="3ym-wI-QAP"/>
+                        <outlet property="categoryButton" destination="CR5-qt-fCj" id="iCu-js-VF7"/>
                         <outlet property="dateLabel" destination="R2f-eJ-PZt" id="DMV-Oq-29U"/>
                         <outlet property="descriptionLabel" destination="9cx-iM-Auv" id="RME-Em-eCm"/>
                         <outlet property="imageView" destination="n2i-w6-tfA" id="pwf-lv-g7g"/>

@@ -29,6 +29,8 @@
 		1061A218214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */; };
 		1061A2212148122E006942D7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2202148122E006942D7 /* PickerViewController.swift */; };
 		1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A22321481245006942D7 /* PickerViewController.storyboard */; };
+		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
+		1061A22921481F8A006942D7 /* PhotoPopupViewControllerPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22821481F8A006942D7 /* PhotoPopupViewControllerPickerExtension.swift */; };
 		106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
@@ -81,6 +83,8 @@
 		1061A217214803F6006942D7 /* MapViewControllerCategoryDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerCategoryDelegateExtension.swift; sourceTree = "<group>"; };
 		1061A2202148122E006942D7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		1061A22321481245006942D7 /* PickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickerViewController.storyboard; sourceTree = "<group>"; };
+		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
+		1061A22821481F8A006942D7 /* PhotoPopupViewControllerPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupViewControllerPickerExtension.swift; sourceTree = "<group>"; };
 		106D5C86213EF39B009E2B72 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 		1061A21C214811CD006942D7 /* CategoryPickViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1061A22521481E11006942D7 /* Delegate */,
 				1061A22221481231006942D7 /* View */,
 				1061A21F21481222006942D7 /* Controller */,
 			);
@@ -253,6 +258,14 @@
 				1061A22321481245006942D7 /* PickerViewController.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1061A22521481E11006942D7 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				1061A22621481E23006942D7 /* PickerDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		109064622137DE770033B02B = {
@@ -341,6 +354,7 @@
 				10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */,
 				10CFF2A3213FC46700E338DD /* CALayerExtension.swift */,
 				10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */,
+				1061A22821481F8A006942D7 /* PhotoPopupViewControllerPickerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -718,9 +732,11 @@
 				1031816B2146418900434511 /* MapViewControllerLocationManagerExtension.swift in Sources */,
 				1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */,
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
+				1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
 				10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
+				1061A22921481F8A006942D7 /* PhotoPopupViewControllerPickerExtension.swift in Sources */,
 				10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
