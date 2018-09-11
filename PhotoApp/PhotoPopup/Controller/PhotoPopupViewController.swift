@@ -11,7 +11,7 @@ import UIKit
 class PhotoPopupViewController: ViewController {
     
     var photo: Photo!
-    var delegate: PhotoPopupDelegate?
+    weak var delegate: PhotoPopupDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

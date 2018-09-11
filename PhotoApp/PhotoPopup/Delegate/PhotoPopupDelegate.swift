@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-protocol PhotoPopupDelegate {
+protocol PhotoPopupDelegate: NSObjectProtocol {
     func savePhoto(photo: Photo)
 }
