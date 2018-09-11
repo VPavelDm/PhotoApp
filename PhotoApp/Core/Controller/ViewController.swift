@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     
     static func create<Controller>(asClass: Controller.Type) -> Controller {
         let storyboard = UIStoryboard(name: String(describing: asClass), bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController() as? Controller
-        assert(viewController != nil, "Each ViewController must be initial")
+        var viewController = storyboard.instantiateInitialViewController() as? Controller
+        if viewController == nil {
+            viewController = storyboard.instantiateViewController(withIdentifier: "categoryTableViewController") as? Controller
+        }
+        assert(viewController != nil, "Each ViewController must be initial or has identifier")
         return viewController!
     }
     

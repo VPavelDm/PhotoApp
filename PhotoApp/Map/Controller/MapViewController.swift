@@ -85,7 +85,8 @@ class MapViewController: ViewController {
     
     @IBAction func clickCategoryButton(_ sender: UIButton) {
         let categoryViewController = CategoryTableViewController.create(asClass: CategoryTableViewController.self)
-        present(categoryViewController, animated: true)
+        let navigationViewController = UINavigationController(rootViewController: categoryViewController)
+        present(navigationViewController, animated: true)
     }
     
 }
