@@ -43,6 +43,10 @@ class TimelineViewController: UITableViewController {
         super.viewWillAppear(animated)
         photoTableView.reloadData()
     }
+    
+    override func viewDidLoad() {
+        createSearchBarWithCategoryButton()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return uniquePhotoDates.count
@@ -74,6 +78,28 @@ class TimelineViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    private func createSearchBarWithCategoryButton() {
+        let searchBar = UISearchBar()
+        searchBar.showsCancelButton = false
+        searchBar.placeholder = "Search"
+        searchBar.delegate = self
+        
+        let categoryButton = UIBarButtonItem(title: "Category", style: .done, target: self, action: #selector(clickCategory))
+        self.navigationItem.rightBarButtonItem = categoryButton
+        
+        self.navigationItem.titleView = searchBar
+    }
+    
+    @objc private func clickCategory(_ sender: UIButton) {
+        let categoryViewController = CategoryTableViewController.create(storyboardId: "categoryTableViewController", asClass: CategoryTableViewController.self)
+        categoryViewController.delegate = self
+        categoryViewController.selectedCategories = categories
+        let navigationViewController = UINavigationController(rootViewController: categoryViewController)
+        let textAttributes = [NSAttributedStringKey.foregroundColor: view.tintColor!]
+        navigationViewController.navigationBar.titleTextAttributes = textAttributes
+        present(navigationViewController, animated: true)
     }
 
 }

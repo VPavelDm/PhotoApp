@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UITableViewController {
-    static func create<Controller>(asClass: Controller.Type) -> Controller {
-        return ViewController.create(asClass: asClass)
+    static func create<Controller>(storyboardId: String? = nil, asClass: Controller.Type) -> Controller {
+        return ViewController.create(storyboardId: storyboardId, asClass: asClass)
     }
 }

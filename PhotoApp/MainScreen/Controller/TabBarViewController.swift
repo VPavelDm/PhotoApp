@@ -15,21 +15,26 @@ class TabBarViewController: UITabBarController {
 
         let mapViewController = MapViewController.create(asClass: MapViewController.self)
         mapViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Map", comment: "Map label"), image: UIImage(named: "ic_map"), tag: 1)
-        let timelineViewController = TimelineViewController.create(asClass: TimelineViewController.self)
+        let timelineViewController = TimelineViewController.create(storyboardId: "timelineViewController", asClass: TimelineViewController.self)
         timelineViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Timeline", comment: "Timeline label"), image: UIImage(named: "ic_timeline"), tag: 2)
+        let navigationViewController = UINavigationController(rootViewController: timelineViewController)
         let moreViewController = MoreViewController.create(asClass: MoreViewController.self)
         moreViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("More", comment: "More label"), image: UIImage(named: "ic_more"), tag: 3)
         
-        viewControllers = [mapViewController, timelineViewController, moreViewController]
+        viewControllers = [mapViewController, navigationViewController, moreViewController]
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         for viewController in viewControllers! {
-            if let timelineViewController = viewController as? TimelineViewController {
-                if timelineViewController.tabBarItem.title == item.title {
-                    for viewController in viewControllers! {
-                        if let mapViewController = viewController as? MapViewController {
-                            timelineViewController.categories = mapViewController.categories
+            if let navigationController = viewController as? UINavigationController {
+                for viewController in navigationController.viewControllers {
+                    if let timelineViewController = viewController as? TimelineViewController {
+                        if timelineViewController.tabBarItem.title == item.title {
+                            for viewController in viewControllers! {
+                                if let mapViewController = viewController as? MapViewController {
+                                    timelineViewController.categories = mapViewController.categories
+                                }
+                            }
                         }
                     }
                 }
