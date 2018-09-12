@@ -18,10 +18,25 @@ class TimelineViewController: UITableViewController {
                     uniquePhotoDates.append(photo.date)
                 }
             }
+            photoTableView?.reloadData()
+        }
+    }
+    var categories: [Category]! {
+        didSet {
+            photos = []
+            cloud.getPhotos(categories: categories){ [weak self] (photo) in
+                self?.photos += [photo]
+            }
         }
     }
     private var uniquePhotoDates: [String] = []
     private let cloud = CloudRepository()
+    
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Category"
+        }
+    }
     @IBOutlet var photoTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {

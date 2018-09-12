@@ -22,6 +22,8 @@
 		1048DEFF21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */; };
 		1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1048DF0421427EC6001CED52 /* GoogleService-Info.plist */; };
 		104DB2832148DEE30024DAC6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2822148DEE30024DAC6 /* Category.swift */; };
+		104DB2862148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2852148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift */; };
+		104DB2882148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2872148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift */; };
 		1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */; };
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
@@ -77,6 +79,8 @@
 		1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerActionSheetsExtension.swift; sourceTree = "<group>"; };
 		1048DF0421427EC6001CED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		104DB2822148DEE30024DAC6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		104DB2852148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewControllerSearchBarExtension.swift; sourceTree = "<group>"; };
+		104DB2872148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewControllerCategoryExtension.swift; sourceTree = "<group>"; };
 		1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				1019DA002141268C00BF23D1 /* ArrayExtension.swift */,
+				104DB2852148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift */,
+				104DB2872148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -752,11 +758,13 @@
 				10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
+				104DB2882148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift in Sources */,
 				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */,
 				1048DEFD21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift in Sources */,
 				1019DA012141268C00BF23D1 /* ArrayExtension.swift in Sources */,
+				104DB2862148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

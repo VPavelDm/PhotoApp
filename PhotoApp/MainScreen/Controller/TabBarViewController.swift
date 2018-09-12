@@ -29,7 +29,7 @@ class TabBarViewController: UITabBarController {
                 if timelineViewController.tabBarItem.title == item.title {
                     for viewController in viewControllers! {
                         if let mapViewController = viewController as? MapViewController {
-                            timelineViewController.photos = mapViewController.annotations
+                            timelineViewController.categories = mapViewController.categories
                         }
                     }
                 }
