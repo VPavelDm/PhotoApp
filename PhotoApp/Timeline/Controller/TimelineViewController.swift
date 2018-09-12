@@ -63,7 +63,9 @@ class TimelineViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as! PhotoTableViewCell
         let date = uniquePhotoDates[indexPath.section]
         let photo = photos.filter{ $0.date == date }[indexPath.row]
-        cell.photoDateLabel.text = photo.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        cell.photoDateLabel.text = dateFormatter.convertDate(date: photo.date, by: "MM-dd-yyyy")
         cell.photoDescriptionLabel.text = photo.photoDescription
         cell.photoImageView.image = photo.image
         
