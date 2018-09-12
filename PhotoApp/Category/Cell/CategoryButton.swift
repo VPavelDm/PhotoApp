@@ -15,11 +15,12 @@ class CategoryButton: UIButton {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        layer.borderWidth = 2
-        let radius = frame.size.height / 2 - 3
+        layer.borderWidth = 3
+        let radius = frame.size.height / 2
         layer.cornerRadius = radius
         layer.borderColor = layer.backgroundColor
         backgroundButtonColor = layer.backgroundColor
+        tintColor = UIColor.clear
     }
     
     func clickedButton() {
