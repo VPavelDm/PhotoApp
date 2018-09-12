@@ -41,39 +41,38 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xCn-09-8uI">
-                                            <rect key="frame" x="64" y="29.5" width="295" height="41"/>
+                                            <rect key="frame" x="91.5" y="32" width="275.5" height="35.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-wp-Ujp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="295" height="20.5"/>
-                                                    <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="275.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zX-tc-cRt">
-                                                    <rect key="frame" x="0.0" y="20.5" width="295" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zX-tc-cRt">
+                                                    <rect key="frame" x="0.0" y="20.5" width="275.5" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yod-HN-27x">
-                                            <rect key="frame" x="16" y="34" width="32" height="32"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yod-HN-27x">
+                                            <rect key="frame" x="16" y="16" width="67.5" height="67.5"/>
                                             <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="yod-HN-27x" secondAttribute="height" multiplier="1:1" id="S5u-NK-Wj7"/>
-                                                <constraint firstAttribute="width" constant="32" id="V1p-pU-BAv"/>
-                                                <constraint firstAttribute="height" constant="32" id="V23-Kt-1lM"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="xCn-09-8uI" firstAttribute="centerY" secondItem="n6W-wq-wQZ" secondAttribute="centerY" id="D16-OQ-AxP"/>
-                                        <constraint firstItem="xCn-09-8uI" firstAttribute="leading" secondItem="yod-HN-27x" secondAttribute="trailing" constant="16" id="GKB-rp-ct1"/>
-                                        <constraint firstItem="yod-HN-27x" firstAttribute="leading" secondItem="n6W-wq-wQZ" secondAttribute="leading" constant="16" id="NqY-JT-1Hw"/>
-                                        <constraint firstAttribute="trailing" secondItem="xCn-09-8uI" secondAttribute="trailing" constant="16" id="gQC-W9-FAl"/>
-                                        <constraint firstItem="yod-HN-27x" firstAttribute="centerY" secondItem="n6W-wq-wQZ" secondAttribute="centerY" id="oTu-IS-nGq"/>
+                                        <constraint firstItem="xCn-09-8uI" firstAttribute="top" secondItem="n6W-wq-wQZ" secondAttribute="top" constant="32" id="4Iw-bE-C3Q"/>
+                                        <constraint firstItem="yod-HN-27x" firstAttribute="leading" secondItem="n6W-wq-wQZ" secondAttribute="leading" constant="16" id="F81-wz-gYk"/>
+                                        <constraint firstItem="xCn-09-8uI" firstAttribute="leading" secondItem="yod-HN-27x" secondAttribute="trailing" constant="8" id="HTz-q0-fIZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="xCn-09-8uI" secondAttribute="trailing" constant="8" id="MqZ-Sl-3SP"/>
+                                        <constraint firstAttribute="bottom" secondItem="yod-HN-27x" secondAttribute="bottom" constant="16" id="Yhk-J6-SbB"/>
+                                        <constraint firstAttribute="bottom" secondItem="xCn-09-8uI" secondAttribute="bottom" constant="32" id="cqa-o7-m7b"/>
+                                        <constraint firstItem="yod-HN-27x" firstAttribute="top" secondItem="n6W-wq-wQZ" secondAttribute="top" constant="16" id="qE1-ut-Lw3"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

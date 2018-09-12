@@ -67,8 +67,11 @@ class TimelineViewController: UITableViewController {
         cell.photoDescriptionLabel.text = photo.photoDescription
         cell.photoImageView.image = photo.image
         
-        cell.photoImageView.contentMode = .scaleAspectFill
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 
 }
