@@ -43,7 +43,7 @@ class CloudRepository {
         }
     }
     
-    func getPhotos(categories: [String], callback: @escaping (Photo) -> ()) {
+    func getPhotos(categories: [Category], callback: @escaping (Photo) -> ()) {
         databaseRef.observeSingleEvent(of: DataEventType.value) { [weak self] (snapshot) in
             for idSnapshot in snapshot.children {
                 if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: Any] {
@@ -55,7 +55,7 @@ class CloudRepository {
                         let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
                         let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String else { return }
                     
-                    if categories.contains(photoCategory) {
+                    if categories.contains(Category(rawValue: photoCategory)!) {
                         let imageRef = self.storageRef.child(photoCategory).child(idSnapshot.key)
                         imageRef.downloadTestURL(completion: { (url, error) in
                             guard let url = url else { return }

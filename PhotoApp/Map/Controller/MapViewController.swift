@@ -22,7 +22,7 @@ class MapViewController: ViewController {
     private let locationManager = CLLocationManager()
     private let cloud = CloudRepository()
     
-    var categories: [String]! {
+    var categories: [Category]! {
         didSet {
             mapView.removeAnnotations(annotations)
             annotations = []
@@ -57,7 +57,7 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
-        categories = ["NATURE", "FRIENDS", "DEFAULT"]
+        categories = [.NATURE, .FRIENDS, .DEFAULT]
     }
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {

@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "PhotoApp/Map/Controller/MapViewController.swift"
-            timestampString = "558377811.511601"
+            timestampString = "558424245.128235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
@@ -35,13 +35,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "PhotoApp/Map/Controller/MapViewController.swift"
-            timestampString = "558377811.511703"
+            timestampString = "558424245.12833"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "categories"
+            landmarkType = "24">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">

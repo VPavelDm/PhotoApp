@@ -9,7 +9,7 @@
 import Foundation
 
 extension MapViewController: CategoryDelegate {
-    func choosed(categories: [String]) {
+    func choosed(categories: [Category]) {
         self.categories = categories
     }
 }

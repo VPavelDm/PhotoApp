@@ -21,6 +21,7 @@
 		1048DEFD21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */; };
 		1048DEFF21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */; };
 		1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1048DF0421427EC6001CED52 /* GoogleService-Info.plist */; };
+		104DB2832148DEE30024DAC6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2822148DEE30024DAC6 /* Category.swift */; };
 		1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */; };
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
@@ -75,6 +76,7 @@
 		1048DEFC21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerPhotoPopupDelegateExtension.swift; sourceTree = "<group>"; };
 		1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerActionSheetsExtension.swift; sourceTree = "<group>"; };
 		1048DF0421427EC6001CED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		104DB2822148DEE30024DAC6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
@@ -191,9 +193,18 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		104DB2812148DE860024DAC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				104DB2822148DEE30024DAC6 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1061A1FD2147AC27006942D7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				104DB2812148DE860024DAC6 /* Model */,
 				1061A214214802F8006942D7 /* Delegate */,
 				1061A2062147AC5E006942D7 /* View */,
 				1061A2032147AC45006942D7 /* Controller */,
@@ -729,6 +740,7 @@
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
 				1048DEF921425C52001CED52 /* MapViewControllerImagePickerDelegate.swift in Sources */,
+				104DB2832148DEE30024DAC6 /* Category.swift in Sources */,
 				1031816B2146418900434511 /* MapViewControllerLocationManagerExtension.swift in Sources */,
 				1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */,
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,

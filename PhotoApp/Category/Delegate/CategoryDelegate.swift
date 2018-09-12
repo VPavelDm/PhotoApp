@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CategoryDelegate: NSObjectProtocol {
-    func choosed(categories: [String])
+    func choosed(categories: [Category])
 }
