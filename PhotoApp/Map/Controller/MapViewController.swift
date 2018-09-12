@@ -53,7 +53,7 @@ class MapViewController: ViewController {
             }
         }
     }
-    var annotations: [MKAnnotation] = []
+    var annotations: [Photo] = []
     
     override func viewDidLoad() {
         mapView.delegate = self

@@ -22,5 +22,19 @@ class TabBarViewController: UITabBarController {
         
         viewControllers = [mapViewController, timelineViewController, moreViewController]
     }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        for viewController in viewControllers! {
+            if let timelineViewController = viewController as? TimelineViewController {
+                if timelineViewController.tabBarItem.title == item.title {
+                    for viewController in viewControllers! {
+                        if let mapViewController = viewController as? MapViewController {
+                            timelineViewController.photos = mapViewController.annotations
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

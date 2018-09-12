@@ -10,22 +10,23 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
 
-    private var photos: [Photo] = []
+    var photos: [Photo] = [] {
+        didSet {
+            uniquePhotoDates = []
+            for photo in photos {
+                if !uniquePhotoDates.contains(photo.date) {
+                    uniquePhotoDates.append(photo.date)
+                }
+            }
+        }
+    }
     private var uniquePhotoDates: [String] = []
     private let cloud = CloudRepository()
     @IBOutlet var photoTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
-//        cloud.getPhotos(categories: ) { [weak self] (photo) in
-//            guard let `self` = self else { return }
-//            if !self.photos.contains(where: { $0.key == photo.key }) {
-//                self.photos += [photo]
-//                if !self.uniquePhotoDates.contains(photo.date) {
-//                    self.uniquePhotoDates.append(photo.date)
-//                }
-//                self.photoTableView.reloadData()
-//            }
-//        }
+        super.viewWillAppear(animated)
+        photoTableView.reloadData()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
