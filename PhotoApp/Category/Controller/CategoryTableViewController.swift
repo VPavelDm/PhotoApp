@@ -11,6 +11,8 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
     
     weak var delegate: CategoryDelegate?
+    var selectedCategories: [Category] = [.NATURE, .FRIENDS, .DEFAULT]
+
     @IBOutlet var buttons: [CategoryButton]! {
         didSet {
             for button in buttons {
@@ -27,13 +29,12 @@ class CategoryTableViewController: UITableViewController {
             }
         }
     }
-    var selectedCategories: [Category] = [.NATURE, .FRIENDS, .DEFAULT]
     
     @IBAction func clickNatureButton(_ sender: CategoryButton) {
         sender.clickedButton()
     }
     
-    @IBAction func clickDoneButton(_ sender: UIBarButtonItem) {
+    @objc func clickDoneButton(_ sender: UIBarButtonItem) {
         var answer: [Category] = []
         for (index, button) in buttons.enumerated() {
             if !button.isSelected {
@@ -42,6 +43,11 @@ class CategoryTableViewController: UITableViewController {
         }
         delegate?.choosed(categories: answer)
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initNavigationBar()
     }
     
 }

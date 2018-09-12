@@ -12,6 +12,4 @@ extension TimelineViewController: CategoryDelegate {
     func choosed(categories: [Category]) {
         self.categories = categories
     }
-    
-    
 }

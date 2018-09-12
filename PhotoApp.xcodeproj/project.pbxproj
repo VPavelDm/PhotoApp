@@ -10,7 +10,6 @@
 		1019D9EF2140FA4400BF23D1 /* PhotoDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */; };
 		1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */; };
 		1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019D9FD2141255B00BF23D1 /* TimelineViewController.swift */; };
-		1019DA012141268C00BF23D1 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019DA002141268C00BF23D1 /* ArrayExtension.swift */; };
 		1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */; };
 		1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */; };
 		1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816621463D8200434511 /* UIViewControllerExtension.swift */; };
@@ -22,8 +21,10 @@
 		1048DEFF21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */; };
 		1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1048DF0421427EC6001CED52 /* GoogleService-Info.plist */; };
 		104DB2832148DEE30024DAC6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2822148DEE30024DAC6 /* Category.swift */; };
-		104DB2862148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2852148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift */; };
 		104DB2882148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2872148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift */; };
+		104DB28C21496B430024DAC6 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB28B21496B430024DAC6 /* PhotoManager.swift */; };
+		104DB292214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB291214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift */; };
+		104DB2942149778B0024DAC6 /* TimelineCategoryButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2932149778B0024DAC6 /* TimelineCategoryButtonHandler.swift */; };
 		1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */; };
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
@@ -67,7 +68,6 @@
 		1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailView.xib; sourceTree = "<group>"; };
 		1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		1019D9FD2141255B00BF23D1 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		1019DA002141268C00BF23D1 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeyboardHandlerExtension.swift; sourceTree = "<group>"; };
 		1031816621463D8200434511 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -79,8 +79,10 @@
 		1048DEFE21425D1A001CED52 /* MapViewControllerActionSheetsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerActionSheetsExtension.swift; sourceTree = "<group>"; };
 		1048DF0421427EC6001CED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		104DB2822148DEE30024DAC6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		104DB2852148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewControllerSearchBarExtension.swift; sourceTree = "<group>"; };
 		104DB2872148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewControllerCategoryExtension.swift; sourceTree = "<group>"; };
+		104DB28B21496B430024DAC6 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
+		104DB291214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewControllerExtension.swift; sourceTree = "<group>"; };
+		104DB2932149778B0024DAC6 /* TimelineCategoryButtonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCategoryButtonHandler.swift; sourceTree = "<group>"; };
 		1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
@@ -160,9 +162,8 @@
 		1019D9FF2141267F00BF23D1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1019DA002141268C00BF23D1 /* ArrayExtension.swift */,
-				104DB2852148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift */,
 				104DB2872148EBDA0024DAC6 /* TimelineViewControllerCategoryExtension.swift */,
+				104DB2932149778B0024DAC6 /* TimelineCategoryButtonHandler.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -207,9 +208,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		104DB2902149729D0024DAC6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				104DB291214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		1061A1FD2147AC27006942D7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				104DB2902149729D0024DAC6 /* Extension */,
 				104DB2812148DE860024DAC6 /* Model */,
 				1061A214214802F8006942D7 /* Delegate */,
 				1061A2062147AC5E006942D7 /* View */,
@@ -525,6 +535,7 @@
 		10E35CC721394C040096E8DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				104DB28B21496B430024DAC6 /* PhotoManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -726,8 +737,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				106D5C87213EF39B009E2B72 /* PhotoPopupDelegate.swift in Sources */,
+				104DB292214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift in Sources */,
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				1048DEF721425BEF001CED52 /* MapViewControllerMKMapViewDelegateExtension.swift in Sources */,
+				104DB28C21496B430024DAC6 /* PhotoManager.swift in Sources */,
+				104DB2942149778B0024DAC6 /* TimelineCategoryButtonHandler.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
 				1061A2212148122E006942D7 /* PickerViewController.swift in Sources */,
@@ -763,8 +777,6 @@
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */,
 				1048DEFD21425C8E001CED52 /* MapViewControllerPhotoPopupDelegateExtension.swift in Sources */,
-				1019DA012141268C00BF23D1 /* ArrayExtension.swift in Sources */,
-				104DB2862148EB670024DAC6 /* TimelineViewControllerSearchBarExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  TimelineViewControllerSearchBarExtension.swift
+//  TimelineCategoryButtonHandler.swift
 //  PhotoApp
 //
 //  Created by mac-089-71 on 9/12/18.
@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-extension TimelineViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+extension TimelineViewController {
+    @objc func clickCategory(_ sender: UIButton) {
         let categoryViewController = CategoryTableViewController.create(asClass: CategoryTableViewController.self)
         categoryViewController.delegate = self
         categoryViewController.selectedCategories = categories

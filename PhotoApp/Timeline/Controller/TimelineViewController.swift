@@ -9,67 +9,47 @@
 import UIKit
 
 class TimelineViewController: UITableViewController {
-
-    var photos: [Photo] = [] {
-        didSet {
-            uniquePhotoDates = []
-            for photo in photos {
-                if !uniquePhotoDates.contains(photo.date) {
-                    uniquePhotoDates.append(photo.date)
-                }
-            }
-            photoTableView?.reloadData()
-        }
-    }
-    var categories: [Category]! {
-        didSet {
-            photos = []
-            cloud.getPhotos(categories: categories){ [weak self] (photo) in
-                self?.photos += [photo]
-            }
-        }
-    }
-    private var uniquePhotoDates: [String] = []
-    private let cloud = CloudRepository()
     
-    @IBOutlet weak var searchBar: UISearchBar! {
-        didSet {
-            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Category"
-        }
-    }
+    private let photoManager: PhotoManager = PhotoManager()
+    private var photos: [Photo] = []
+    
+    var categories: [Category]!
+    
     @IBOutlet var photoTableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) { //to check
         super.viewWillAppear(animated)
         photoTableView.reloadData()
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad() { //to check
+        photoManager.getPhotos { [weak self] (photos) in
+            self?.photos = photos
+        }
         createSearchBarWithCategoryButton()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return uniquePhotoDates.count
+        return photoManager.getMonthAndYearCount()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let photosByDate = photos.filter({ (photo) -> Bool in
-            photo.date == uniquePhotoDates[section]
-        })
-        return photosByDate.count
+        let month = photoManager.getMonthAndYear(index: section)
+        return photoManager.getPhotoCount(by: month)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return uniquePhotoDates[section]
+        return photoManager.getMonthAndYear(index: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as! PhotoTableViewCell
-        let date = uniquePhotoDates[indexPath.section]
-        let photo = photos.filter{ $0.date == date }[indexPath.row]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
-        cell.photoDateLabel.text = dateFormatter.convertDate(date: photo.date, by: "MM-dd-yyyy")
+        
+        let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
+        let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
+        let date = photo.date
+        
+        cell.photoDateLabel.text = date
         cell.photoDescriptionLabel.text = photo.photoDescription
         cell.photoImageView.image = photo.image
         
@@ -77,29 +57,20 @@ class TimelineViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return CGFloat(TimelineViewController.cellRowHeight)
     }
     
     private func createSearchBarWithCategoryButton() {
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
-        searchBar.placeholder = "Search"
-        searchBar.delegate = self
+        searchBar.placeholder = NSLocalizedString("Search", comment: "Searcch bar's Placeholder ")
         
-        let categoryButton = UIBarButtonItem(title: "Category", style: .done, target: self, action: #selector(clickCategory))
+        let categoryButton = UIBarButtonItem(title: NSLocalizedString("Category", comment: "Category button title"), style: .done, target: self, action: #selector(clickCategory))
         self.navigationItem.rightBarButtonItem = categoryButton
         
         self.navigationItem.titleView = searchBar
     }
     
-    @objc private func clickCategory(_ sender: UIButton) {
-        let categoryViewController = CategoryTableViewController.create(storyboardId: "categoryTableViewController", asClass: CategoryTableViewController.self)
-        categoryViewController.delegate = self
-        categoryViewController.selectedCategories = categories
-        let navigationViewController = UINavigationController(rootViewController: categoryViewController)
-        let textAttributes = [NSAttributedStringKey.foregroundColor: view.tintColor!]
-        navigationViewController.navigationBar.titleTextAttributes = textAttributes
-        present(navigationViewController, animated: true)
-    }
+    private static let cellRowHeight = 100
 
 }

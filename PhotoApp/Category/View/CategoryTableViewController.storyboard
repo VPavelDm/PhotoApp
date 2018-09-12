@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3nP-Zy-FDk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ve6-04-UZY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories-->
+        <!--Category Table View Controller-->
         <scene sceneID="hBr-V8-Phi">
             <objects>
                 <tableViewController storyboardIdentifier="categoryTableViewController" id="ve6-04-UZY" customClass="CategoryTableViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,13 +135,6 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Categories" id="oTI-VF-VFg">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="rgO-oU-WSy">
-                            <connections>
-                                <action selector="clickDoneButton:" destination="ve6-04-UZY" id="UNf-fg-ax0"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outletCollection property="buttons" destination="p0n-nS-Gtk" collectionClass="NSMutableArray" id="aMM-hc-iDr"/>
@@ -152,24 +145,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaX-er-5UX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1592.8" y="-45.42728635682159"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="HeB-Xh-ihH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3nP-Zy-FDk" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0ES-E6-SGf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ve6-04-UZY" kind="relationship" relationship="rootViewController" id="gSd-8J-nBa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kso-7k-vNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="653.60000000000002" y="-45.42728635682159"/>
         </scene>
     </scenes>
 </document>
