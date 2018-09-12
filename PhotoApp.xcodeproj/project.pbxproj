@@ -234,14 +234,14 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		1061A21C214811CD006942D7 /* CategoryPickViewController */ = {
+		1061A21C214811CD006942D7 /* CategoryPicker */ = {
 			isa = PBXGroup;
 			children = (
 				1061A22521481E11006942D7 /* Delegate */,
 				1061A22221481231006942D7 /* View */,
 				1061A21F21481222006942D7 /* Controller */,
 			);
-			path = CategoryPickViewController;
+			path = CategoryPicker;
 			sourceTree = "<group>";
 		};
 		1061A21F21481222006942D7 /* Controller */ = {
@@ -296,7 +296,7 @@
 				10E35CD021394E180096E8DA /* Core */,
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
-				1061A21C214811CD006942D7 /* CategoryPickViewController */,
+				1061A21C214811CD006942D7 /* CategoryPicker */,
 				10AFE78B213D314100CB652E /* PhotoPopup */,
 				10E35CC821394C1B0096E8DA /* More */,
 				10E35CCE21394DD60096E8DA /* MainScreen */,
