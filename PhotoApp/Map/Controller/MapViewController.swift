@@ -96,6 +96,8 @@ class MapViewController: ViewController {
         categoryViewController.delegate = self
         categoryViewController.selectedCategories = categories
         let navigationViewController = UINavigationController(rootViewController: categoryViewController)
+        let textAttributes = [NSAttributedStringKey.foregroundColor: sender.tintColor!]
+        navigationViewController.navigationBar.titleTextAttributes = textAttributes
         present(navigationViewController, animated: true)
     }
     
