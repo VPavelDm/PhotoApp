@@ -15,7 +15,9 @@ extension MapViewController: PhotoPopupDelegate {
         cloud.sendPhotoToTheServer(photo: photo) { [weak self] (errorMessage) in
             self?.showAlertWithError(message: errorMessage)
         }
-        addAnnotation(photo: photo)
+        if categories.contains(Category(rawValue: photo.category)!){
+            addAnnotation(photo: photo)
+        }
     }
     
 }
