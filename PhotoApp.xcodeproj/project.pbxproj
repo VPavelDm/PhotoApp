@@ -339,6 +339,7 @@
 		1090646D2137DE770033B02B /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				10D72CE1214A83CE0020B255 /* Marker */,
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				10CFF2BA213FF40100E338DD /* Cloud */,
@@ -392,8 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */,
-				1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */,
-				1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +447,23 @@
 				10D72CDF214A7E060020B255 /* MapPhotoDataProvider.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		10D72CE1214A83CE0020B255 /* Marker */ = {
+			isa = PBXGroup;
+			children = (
+				10D72CE2214A83DB0020B255 /* View */,
+			);
+			path = Marker;
+			sourceTree = "<group>";
+		};
+		10D72CE2214A83DB0020B255 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1019D9F02140FADC00BF23D1 /* PhotoDetailView.swift */,
+				1019D9EE2140FA4400BF23D1 /* PhotoDetailView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		10E35CB2213936960096E8DA /* Authorization */ = {

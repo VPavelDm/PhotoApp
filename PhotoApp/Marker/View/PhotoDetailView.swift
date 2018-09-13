@@ -11,6 +11,7 @@ import UIKit
 class PhotoDetailView: UIView {
     
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var rightArrowImage: UIImageView!
     @IBOutlet weak var detailStack: UIStackView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -27,7 +28,11 @@ class PhotoDetailView: UIView {
     
     override var intrinsicContentSize: CGSize {
         get {
-            return detailStack.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+            let stackX = detailStack.frame.minX
+            let imageRidhtX = rightArrowImage.frame.minX + rightArrowImage.frame.width + 16
+            let width = imageRidhtX - stackX
+            let size = CGSize(width: width, height: detailStack.frame.height)
+            return size
         }
     }
     

@@ -22,7 +22,6 @@ extension MapViewController: MKMapViewDelegate {
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.category)
         //MARK: Add choosing between different markers
         annotationView.image = UIImage(named: "marker_nature")
-        annotationView.rightCalloutAccessoryView = UIButton(type: .infoDark)
         let photoDetail = PhotoDetailView()
         photoDetail.dateLabel.text = annotation.date
         photoDetail.descriptionLabel.text = annotation.photoDescription
