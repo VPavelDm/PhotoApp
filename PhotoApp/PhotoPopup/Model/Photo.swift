@@ -17,7 +17,7 @@ class Photo: NSObject, MKAnnotation {
     @objc var date: String = ""
     @objc private(set) var latitude: Double = 0
     @objc private(set) var longitude: Double = 0
-    var image: UIImage
+    @objc var image: UIImage
     var coordinate: CLLocationCoordinate2D 
     var subtitle: String? = ""
     var title: String? = ""

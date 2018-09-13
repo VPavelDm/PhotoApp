@@ -14,6 +14,8 @@ import MapKit
 
 class CloudRepository {
     
+    weak var delegate: CloudRepositoryDelegate?
+    
     private static let rootReference = "photos"
     
     private let storageRef: StorageReference
@@ -25,51 +27,69 @@ class CloudRepository {
         databaseRef = Database.database().reference().child(CloudRepository.rootReference).child(user.uid)
     }
     
-    func sendPhotoToTheServer(photo: Photo, callback: @escaping (String) -> ()) {
+    func sendPhotoToTheServer(photo: Photo) {
         let photoDescriptionRef = databaseRef.childByAutoId()
         let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
                                                    #keyPath(Photo.date): photo.date,
                                                    #keyPath(Photo.description): photo.photoDescription,
                                                    #keyPath(Photo.latitude): photo.latitude,
                                                    #keyPath(Photo.longitude): photo.longitude]
-        photoDescriptionRef.setValue(photoDescriptionData)
         
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
         guard let imageData = UIImagePNGRepresentation(photo.image) else { return }
-        imageRef.putData(imageData, metadata: nil) { (metadata, error) in
+        imageRef.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
             if let error = error {
-                callback(error.localizedDescription)
+                self?.delegate?.error(message: error.localizedDescription)
+            } else {
+                photoDescriptionRef.setValue(photoDescriptionData)
             }
         }
     }
     
-    func getPhotos(categories: [Category], callback: @escaping (Photo) -> ()) {
-        databaseRef.observeSingleEvent(of: DataEventType.value) { [weak self] (snapshot) in
-            for idSnapshot in snapshot.children {
-                if let idSnapshot = idSnapshot as? DataSnapshot, let photoDescriptionDictionary = idSnapshot.value as? [String: Any] {
-                    guard
-                        let `self` = self,
-                        let photoLatitude = photoDescriptionDictionary[#keyPath(Photo.latitude)] as? Double,
-                        let photoLongitude = photoDescriptionDictionary[#keyPath(Photo.longitude)] as? Double,
-                        let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String,
-                        let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
-                        let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String else { return }
-                    
-                    if categories.contains(Category(rawValue: photoCategory)!) {
-                        let imageRef = self.storageRef.child(photoCategory).child(idSnapshot.key)
-                        imageRef.downloadTestURL(completion: { (url, error) in
-                            guard let url = url else { return }
-                            if let imageData = try? Data(contentsOf: url) {
-                                guard let image = UIImage(data: imageData) else { return }
-                                let coordinate = CLLocationCoordinate2D(latitude: photoLatitude, longitude: photoLongitude)
-                                let photo = Photo(key: idSnapshot.key, description: photoDescription, category: photoCategory, date: photoDate, image: image, coordinate: coordinate)
-                                callback(photo)
-                            }
-                        })
-                    }
+    func subscribeToUpdatePhotos(categories: [Category]) {
+        databaseRef.observe(DataEventType.childAdded) { [weak self] (snapshot) in
+            self?.responseHandling(snapshot, categories: categories)
+        }
+    }
+    
+    private func responseHandling(_ snapshot: DataSnapshot, categories: [Category]) {
+        if var photoDescriptionDictionary = snapshot.value as? [String: Any] {
+            guard let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String else { return }
+            photoDescriptionDictionary["key"] = snapshot.key
+            
+            if categories.contains(Category(rawValue: photoCategory)!) {
+                let imageRef = self.storageRef.child(photoCategory).child(snapshot.key)
+                self.downloadImage(reference: imageRef) { [weak self] image in
+                    photoDescriptionDictionary[#keyPath(Photo.image)] = image
+                    guard let photo = self?.createPhotoByDescriptionMap(map: photoDescriptionDictionary) else { return }
+                    self?.delegate?.photo(photo: photo)
                 }
             }
         }
+    }
+    
+    private func createPhotoByDescriptionMap(map photoDescriptionDictionary: [String: Any]) -> Photo? {
+        guard
+            let photoLatitude = photoDescriptionDictionary[#keyPath(Photo.latitude)] as? Double,
+            let photoLongitude = photoDescriptionDictionary[#keyPath(Photo.longitude)] as? Double,
+            let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String,
+            let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
+            let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String,
+            let image = photoDescriptionDictionary[#keyPath(Photo.image)] as? UIImage,
+            let key = photoDescriptionDictionary["key"] as? String
+            else { return nil }
+        let coordinate = CLLocationCoordinate2D(latitude: photoLatitude, longitude: photoLongitude)
+        return Photo(key: key, description: photoDescription, category: photoCategory, date: photoDate, image: image, coordinate: coordinate)
+    }
+    
+    private func downloadImage(reference imageRef: StorageReference, callback: @escaping (UIImage) -> ()) {
+        imageRef.downloadTestURL(completion: { (url, error) in
+            guard let url = url else { return }
+            if let imageData = try? Data(contentsOf: url) {
+                guard let image = UIImage(data: imageData) else { return }
+                callback(image)
+            }
+        })
     }
 }
 

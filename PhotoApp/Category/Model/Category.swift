@@ -23,4 +23,8 @@ enum Category: String {
             return .DEFAULT
         }
     }
+    
+    static func getAll() -> [Category] {
+        return [.NATURE, .FRIENDS, .DEFAULT]
+    }
 }

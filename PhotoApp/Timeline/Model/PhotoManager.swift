@@ -8,27 +8,49 @@
 
 import Foundation
 
-class PhotoManager {
+class PhotoManager: NSObject, CloudRepositoryDelegate {
+    // Contain photos by month and year. String - date representation
+    private var photosMap: [String: [Photo]] = [:]
+    private let cloud = CloudRepository()
+    private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
-    private var photos: [Photo] = []
+    var categories: [Category] = Category.getAll()
     
-    func getPhotos(callback: @escaping ([Photo]) -> ()) {
-        
+    override init() {
+        super.init()
+        cloud.delegate = self
+        cloud.subscribeToUpdatePhotos(categories: categories)
     }
     
     func getMonthAndYearCount() -> Int {
-        return 0
+        return photosMap.keys.count
     }
     
     func getMonthAndYear(index: Int) -> String {
-        return ""
+        let dateFormatter = DateFormatter()
+        var dates: [Date] = []
+        for photo in photosMap {
+            dates += [dateFormatter.convertDate(string: photo.key, by: PhotoManager.MONTH_AND_YEAR_FORMAT)]
+        }
+        let dateToReturn = dates.sorted()[index]
+        return dateFormatter.convertDate(date: dateToReturn, by: PhotoManager.MONTH_AND_YEAR_FORMAT)
     }
     
     func getPhotoCount(by month: String) -> Int {
-        return 0
+        return photosMap[month]!.count
     }
     
     func getPhoto(monthAndYear: String, index: Int) -> Photo {
-        return photos.first!
+        return photosMap[monthAndYear]![index]
+    }
+    
+    func photo(photo: Photo) {
+        let dateFormatter = DateFormatter()
+        let date = dateFormatter.convertString(string: photo.date, by: PhotoManager.MONTH_AND_YEAR_FORMAT)
+        (photosMap[date] == nil) ? (photosMap[date] = [photo]) : (photosMap[date]! += [photo])
+    }
+    
+    func error(message error: String) {
+        print(error)
     }
 }

@@ -12,9 +12,7 @@ extension MapViewController: PhotoPopupDelegate {
     
     func savePhoto(photo: Photo) {
         let cloud = CloudRepository()
-        cloud.sendPhotoToTheServer(photo: photo) { [weak self] (errorMessage) in
-            self?.showAlertWithError(message: errorMessage)
-        }
+        cloud.sendPhotoToTheServer(photo: photo)
         if categories.contains(Category(rawValue: photo.category)!){
             addAnnotation(photo: photo)
         }

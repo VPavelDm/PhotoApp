@@ -9,7 +9,14 @@
 import UIKit
 import MapKit
 
-class MapViewController: ViewController {
+class MapViewController: ViewController, CloudRepositoryDelegate {
+    func photo(photo: Photo) {
+        addAnnotation(photo: photo)
+    }
+    
+    func error(message error: String) {
+        showAlertWithError(message: error)
+    }
     
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
@@ -26,9 +33,7 @@ class MapViewController: ViewController {
         didSet {
             mapView.removeAnnotations(annotations)
             annotations = []
-            cloud.getPhotos(categories: categories){ [weak self] (photo) in
-                self?.addAnnotation(photo: photo)
-            }
+            cloud.subscribeToUpdatePhotos(categories: categories)
         }
     }
     var lastKnownCoordinates: CLLocationCoordinate2D? {
@@ -57,7 +62,7 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         mapView.delegate = self
-        categories = [.NATURE, .FRIENDS, .DEFAULT]
+        categories = Category.getAll()
     }
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {

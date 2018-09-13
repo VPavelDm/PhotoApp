@@ -15,11 +15,21 @@ extension DateFormatter {
         return string(from: date)
     }
     
-    func convertDate(date: String, by format: String) -> String {
+    func convertString(string dateToConvert: String, by format: String) -> String {
         dateStyle = .full
-        let date = self.date(from: date)!
+        let dateToReturn = date(from: dateToConvert)!
         dateFormat = format
-        return string(from: date)
+        return string(from: dateToReturn)
+    }
+    
+    func convertDate(string dateToConvert: String, by format: String) -> Date {
+        dateFormat = format
+        return date(from: dateToConvert)!
+    }
+    
+    func convertDate(date dateToConvert: Date, by format: String) -> String {
+        dateFormat = format
+        return string(from: dateToConvert)
     }
     
 }

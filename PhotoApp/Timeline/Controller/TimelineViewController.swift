@@ -11,21 +11,17 @@ import UIKit
 class TimelineViewController: UITableViewController {
     
     private let photoManager: PhotoManager = PhotoManager()
-    private var photos: [Photo] = []
     
     var categories: [Category]!
     
     @IBOutlet var photoTableView: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) { //to check
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         photoTableView.reloadData()
     }
     
-    override func viewDidLoad() { //to check
-        photoManager.getPhotos { [weak self] (photos) in
-            self?.photos = photos
-        }
+    override func viewDidLoad() {
         createSearchBarWithCategoryButton()
     }
 
