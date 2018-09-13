@@ -14,12 +14,17 @@ class PhotoManager: NSObject, CloudRepositoryDelegate {
     private let cloud = CloudRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
-    var categories: [Category] = Category.getAll()
+    weak var delegate: PhotoManagerDelegate?
+    
+    var categories: [Category] = Category.getAll() {
+        didSet {
+            cloud.subscribeToUpdatePhotos(categories: categories)
+        }
+    }
     
     override init() {
         super.init()
         cloud.delegate = self
-        cloud.subscribeToUpdatePhotos(categories: categories)
     }
     
     func getMonthAndYearCount() -> Int {
@@ -44,13 +49,30 @@ class PhotoManager: NSObject, CloudRepositoryDelegate {
         return photosMap[monthAndYear]![index]
     }
     
+    func getPhotos(monthAndYear: String?) -> [Photo] {
+        if let monthAndYear = monthAndYear {
+            return photosMap[monthAndYear]!
+        } else {
+            var resultPhotos: [Photo] = []
+            for photos in photosMap.values {
+                resultPhotos += photos
+            }
+            return resultPhotos
+        }
+    }
+    
+    func savePhoto(photo: Photo) {
+        cloud.sendPhotoToTheServer(photo: photo)
+    }
+    
     func photo(photo: Photo) {
         let dateFormatter = DateFormatter()
         let date = dateFormatter.convertString(string: photo.date, by: PhotoManager.MONTH_AND_YEAR_FORMAT)
         (photosMap[date] == nil) ? (photosMap[date] = [photo]) : (photosMap[date]! += [photo])
+        delegate?.photoChanged(photo: photo)
     }
     
     func error(message error: String) {
-        print(error)
+        delegate?.error(message: error)
     }
 }

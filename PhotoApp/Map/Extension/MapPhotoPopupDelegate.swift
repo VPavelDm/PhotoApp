@@ -11,11 +11,7 @@ import Foundation
 extension MapViewController: PhotoPopupDelegate {
     
     func savePhoto(photo: Photo) {
-        let cloud = CloudRepository()
-        cloud.sendPhotoToTheServer(photo: photo)
-        if categories.contains(Category(rawValue: photo.category)!){
-            addAnnotation(photo: photo)
-        }
+        photoManager.savePhoto(photo: photo)
     }
     
 }

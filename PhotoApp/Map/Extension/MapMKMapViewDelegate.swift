@@ -13,7 +13,6 @@ extension MapViewController: MKMapViewDelegate {
     
     func addAnnotation(photo: Photo) {
         mapView.addAnnotation(photo)
-        annotations += [photo]
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

@@ -47,6 +47,7 @@ class CloudRepository {
     }
     
     func subscribeToUpdatePhotos(categories: [Category]) {
+        databaseRef.removeAllObservers()
         databaseRef.observe(DataEventType.childAdded) { [weak self] (snapshot) in
             self?.responseHandling(snapshot, categories: categories)
         }
