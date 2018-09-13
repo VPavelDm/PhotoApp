@@ -21,7 +21,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.category)
         //MARK: Add choosing between different markers
-        annotationView.image = UIImage(named: "marker_nature")
+        annotationView.image = getMarkerPin(by: Category(rawValue: annotation.category)!)
         let photoDetail = PhotoDetailView()
         let dateFormatter = DateFormatter()
         photoDetail.dateLabel.text = dateFormatter.convertString(string: annotation.date, by: "MM-dd-yyyy")
@@ -38,5 +38,18 @@ extension MapViewController: MKMapViewDelegate {
         } else {
             modeButton.setImage(UIImage(named: "ic_center_on_me_selected"), for: .normal)
         }
+    }
+    
+    private func getMarkerPin(by category: Category) -> UIImage {
+        let imageName: String
+        switch category {
+        case .NATURE:
+            imageName = "marker_nature"
+        case .FRIENDS:
+            imageName = "marker_friends"
+        case .DEFAULT:
+            imageName = "marker_default"
+        }
+        return UIImage(named: imageName)!
     }
 }
