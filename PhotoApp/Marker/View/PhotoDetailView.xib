@@ -14,56 +14,60 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoDetailView" customModule="PhotoApp" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="iN0-l3-epB" id="t9T-mp-a8k"/>
-                <outlet property="dateLabel" destination="Hli-m1-08M" id="4iR-Jv-voG"/>
-                <outlet property="descriptionLabel" destination="A4F-cM-FyR" id="EFr-fx-UDo"/>
-                <outlet property="detailStack" destination="eMY-7y-DEi" id="SFs-z5-KpR"/>
-                <outlet property="rightArrowImage" destination="gF1-16-VJx" id="aGI-VN-9ks"/>
+                <outlet property="arrowImage" destination="BoO-9k-Px0" id="4Su-U2-RbN"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="u2b-ZA-MjN"/>
+                <outlet property="dateLabel" destination="eIQ-2T-9VM" id="iVE-tZ-4RO"/>
+                <outlet property="descriptionLabel" destination="9AI-4T-wFw" id="egI-XG-7op"/>
+                <outlet property="photoImage" destination="A97-XZ-juc" id="ryl-k8-9BL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" restorationIdentifier="PhotoDetailView.self" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eMY-7y-DEi">
-                    <rect key="frame" x="137" y="305.5" width="100" height="56"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A97-XZ-juc" userLabel="Photo">
+                    <rect key="frame" x="0.0" y="303.5" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="QAe-0g-8I9"/>
+                        <constraint firstAttribute="width" secondItem="A97-XZ-juc" secondAttribute="height" multiplier="1:1" id="nqf-s7-60G"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-32" translatesAutoresizingMaskIntoConstraints="NO" id="3hQ-pT-GHG" userLabel="Info">
+                    <rect key="frame" x="88" y="304" width="259" height="80"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4F-cM-FyR">
-                            <rect key="frame" x="0.0" y="0.0" width="100" height="28"/>
-                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AI-4T-wFw">
+                            <rect key="frame" x="0.0" y="0.0" width="88" height="56"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hli-m1-08M">
-                            <rect key="frame" x="0.0" y="28" width="100" height="28"/>
-                            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIQ-2T-9VM">
+                            <rect key="frame" x="0.0" y="24" width="26.5" height="56"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="eMY-7y-DEi" secondAttribute="height" multiplier="16:9" id="GDv-fa-wWg"/>
-                        <constraint firstItem="Hli-m1-08M" firstAttribute="width" secondItem="eMY-7y-DEi" secondAttribute="width" id="Zv4-3D-Z8g"/>
-                        <constraint firstAttribute="width" constant="100" id="aqk-zU-QXR"/>
-                        <constraint firstItem="A4F-cM-FyR" firstAttribute="width" secondItem="eMY-7y-DEi" secondAttribute="width" id="fic-7a-bn0"/>
-                    </constraints>
                 </stackView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="gF1-16-VJx">
-                    <rect key="frame" x="245" y="319" width="14" height="28"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="BoO-9k-Px0" userLabel="Arrow">
+                    <rect key="frame" x="355" y="324" width="20" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="gF1-16-VJx" secondAttribute="height" multiplier="1:2" id="Ukk-x5-Zmx"/>
+                        <constraint firstAttribute="width" secondItem="BoO-9k-Px0" secondAttribute="height" multiplier="1:2" id="JxN-n8-W6b"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="gF1-16-VJx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TYq-DC-UTZ"/>
-                <constraint firstItem="eMY-7y-DEi" firstAttribute="height" secondItem="gF1-16-VJx" secondAttribute="height" multiplier="2" id="WwX-qT-vjq"/>
-                <constraint firstItem="gF1-16-VJx" firstAttribute="leading" secondItem="eMY-7y-DEi" secondAttribute="trailing" constant="8" id="e9S-eD-ui9"/>
-                <constraint firstItem="eMY-7y-DEi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sQk-6h-z7W"/>
-                <constraint firstItem="eMY-7y-DEi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="w6e-Pz-R5K"/>
+                <constraint firstItem="BoO-9k-Px0" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="BOF-I2-Qdb"/>
+                <constraint firstItem="3hQ-pT-GHG" firstAttribute="height" secondItem="BoO-9k-Px0" secondAttribute="height" multiplier="2" id="Geh-hH-NNJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BoO-9k-Px0" secondAttribute="trailing" id="Mes-1M-o2U"/>
+                <constraint firstItem="A97-XZ-juc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ojn-RG-Fxv"/>
+                <constraint firstItem="3hQ-pT-GHG" firstAttribute="height" secondItem="A97-XZ-juc" secondAttribute="height" id="Xu6-oh-ltf"/>
+                <constraint firstItem="A97-XZ-juc" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="sT1-xU-Xcn"/>
+                <constraint firstItem="BoO-9k-Px0" firstAttribute="leading" secondItem="3hQ-pT-GHG" secondAttribute="trailing" constant="8" id="vd8-x1-56b"/>
+                <constraint firstItem="3hQ-pT-GHG" firstAttribute="leading" secondItem="A97-XZ-juc" secondAttribute="trailing" constant="8" id="y5d-Xp-jDv"/>
+                <constraint firstItem="3hQ-pT-GHG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zfZ-0Y-2k6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="25.5" y="51.5"/>

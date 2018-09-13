@@ -98,7 +98,7 @@ extension StorageReference {
     func downloadTestURL(completion: @escaping (_ url: URL?, _ error: Error?) -> ()) {
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
-                completion(URL(string: "https://cdn1-www.dogtime.com/assets/uploads/gallery/shiba-inu-dog-breed-picutres/thumbs/thumbs_8-side.jpg"), nil)
+                completion(URL(string: "https://sobaki.guru/wp-content/uploads/2018/01/siba_inu_29_19121837.jpg"), nil)
             }
         }
     }

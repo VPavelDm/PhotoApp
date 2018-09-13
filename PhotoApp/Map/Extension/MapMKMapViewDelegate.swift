@@ -23,13 +23,11 @@ extension MapViewController: MKMapViewDelegate {
         //MARK: Add choosing between different markers
         annotationView.image = UIImage(named: "marker_nature")
         let photoDetail = PhotoDetailView()
-        photoDetail.dateLabel.text = annotation.date
+        let dateFormatter = DateFormatter()
+        photoDetail.dateLabel.text = dateFormatter.convertString(string: annotation.date, by: "MM-dd-yyyy")
         photoDetail.descriptionLabel.text = annotation.photoDescription
+        photoDetail.photoImage.image = annotation.image
         annotationView.detailCalloutAccessoryView = photoDetail
-        let annotationImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: annotationView.frame.height + 16, height: annotationView.frame.height + 16))
-        annotationImageView.image = annotation.image
-        annotationImageView.contentMode = .scaleAspectFill
-        annotationView.leftCalloutAccessoryView = annotationImageView
         annotationView.canShowCallout = true
         return annotationView
     }

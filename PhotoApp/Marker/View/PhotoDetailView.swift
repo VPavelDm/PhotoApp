@@ -11,10 +11,10 @@ import UIKit
 class PhotoDetailView: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var rightArrowImage: UIImageView!
-    @IBOutlet weak var detailStack: UIStackView!
+    @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var photoImage: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,21 +26,21 @@ class PhotoDetailView: UIView {
         commonInit()
     }
     
-    override var intrinsicContentSize: CGSize {
-        get {
-            let stackX = detailStack.frame.minX
-            let imageRidhtX = rightArrowImage.frame.minX + rightArrowImage.frame.width + 16
-            let width = imageRidhtX - stackX
-            let size = CGSize(width: width, height: detailStack.frame.height)
-            return size
-        }
-    }
-    
     private func commonInit(){
         Bundle.main.loadNibNamed(String(describing: PhotoDetailView.self), owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        get {
+            let x = photoImage.frame.minX
+            let rightX = arrowImage.frame.minX + arrowImage.frame.width
+            let width = rightX - x - 16*2
+            let size = CGSize(width: width, height: photoImage.frame.height)
+            return size
+        }
     }
 
 }
