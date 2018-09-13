@@ -20,12 +20,14 @@ class SignUpViewController: ViewController {
     
     @IBAction func clickSignUp(_ sender: UIButton) {
         guard let login = loginTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text else {
-            showAlertWithError(message: NSLocalizedString("Entry login, password or confirm password text field", comment: "Error message"))
+            let alert = UIAlertController(message: NSLocalizedString("Entry login, password or confirm password text field", comment: "Error message"))
+            present(alert, animated: true)
             return
         }
         repository.signUp(email: login, password: password, confirmPassword: confirmPassword) { [weak self] (errorMessage) in
             if let error = errorMessage {
-                self?.showAlertWithError(message: error)
+                let alert = UIAlertController(message: error)
+                self?.present(alert, animated: true)
             } else {
                 let tabBarViewController = TabBarViewController()
                 self?.present(tabBarViewController, animated: true, completion: nil)

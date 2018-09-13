@@ -20,7 +20,8 @@ class LoginViewController: ViewController {
     @IBAction func clickLogin(_ sender: UIButton) {
         repository.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] error in
             if let error = error {
-                self?.showAlertWithError(message: error)
+                let alert = UIAlertController(message: error)
+                self?.present(alert, animated: true, completion: nil)
             } else {
                 let tabBarViewController = TabBarViewController()
                 self?.present(tabBarViewController, animated: true, completion: nil)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension MapViewController: PhotoManagerDelegate {
     func photoChanged(photo: Photo) {
@@ -14,7 +15,8 @@ extension MapViewController: PhotoManagerDelegate {
     }
     
     func error(message error: String) {
-        showAlertWithError(message: error)
+        let alert = UIAlertController(message: error)
+        present(alert, animated: true)
     }
     
     

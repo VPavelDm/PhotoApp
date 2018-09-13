@@ -13,22 +13,14 @@ class MapViewController: ViewController {
     
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
-            mapView.showsUserLocation = true
             mapView.userTrackingMode = .followWithHeading
         }
     }
     @IBOutlet weak var modeButton: UIButton!
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
-
-        if CLLocationManager.locationServicesEnabled() {
-            startActionSheetsToTakeAPicture()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestLocation()
-            locationManager.startUpdatingLocation()
-        }
-        
+        lastKnownCoordinates = locationManager.location?.coordinate
+        startActionSheetsToTakeAPicture()
     }
     
     @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
@@ -63,10 +55,10 @@ class MapViewController: ViewController {
         mapView.delegate = self
         photoManager.delegate = self
         categories = Category.getAll()
+        checkLocationServicies()
     }
     
-    private let locationManager = CLLocationManager()
-    
+    let locationManager = CLLocationManager()
     let photoManager = PhotoManager()
     var categories: [Category]! {
         didSet {
@@ -74,28 +66,24 @@ class MapViewController: ViewController {
             photoManager.categories = categories
         }
     }
-    var lastKnownCoordinates: CLLocationCoordinate2D? {
+    var lastKnownCoordinates: CLLocationCoordinate2D!
+    var photoImage: UIImage? {
         didSet {
             guard
                 let coordinates = lastKnownCoordinates,
-                let image = photoImage
-                else { return }
+                let image = photoImage else {
+                    let alert = UIAlertController(message: NSLocalizedString("Application can't get user location coordinates, try to turn on location permission or add photo by long press on map", comment: "Error message"))
+                    present(alert, animated: true)
+                    return
+            }
             let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
             let photo = Photo(coordinate: coordinates, image: image)
             photoPopupViewController.photo = photo
             photoPopupViewController.delegate = self
             
             present(photoPopupViewController, animated: true, completion: nil)
-            
-            photoImage = nil
             lastKnownCoordinates = nil
-        }
-    }
-    var photoImage: UIImage? {
-        didSet {
-            if photoImage != nil {
-                (lastKnownCoordinates = lastKnownCoordinates)
-            }
+            photoImage = nil
         }
     }
     

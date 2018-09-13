@@ -24,11 +24,4 @@ class ViewController: UIViewController {
         return viewController!
     }
     
-    func showAlertWithError(message: String) {
-        let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error label"), message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok label"), style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
-    
 }

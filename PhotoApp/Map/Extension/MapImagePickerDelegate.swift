@@ -19,7 +19,8 @@ extension MapViewController: UIImagePickerControllerDelegate, UINavigationContro
             imagePicker.delegate = self
             present(imagePicker, animated: true, completion: nil)
         } else {
-            showAlertWithError(message: NSLocalizedString("The \(source == .camera ? "Camera" : "PhotoLibrary") is not available on this device", comment: "Message that indicates that source is not available"))
+            let alert = UIAlertController(message: NSLocalizedString("The \(source == .camera ? "Camera" : "PhotoLibrary") is not available on this device", comment: "Message that indicates that source is not available"))
+            present(alert, animated: true)
         }
     }
     
