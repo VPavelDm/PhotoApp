@@ -59,10 +59,10 @@ class MapViewController: ViewController {
     }
     
     let locationManager = CLLocationManager()
-    let photoManager = PhotoManager()
+    let photoManager = MapPhotoDataProvider()
     var categories: [Category]! {
         didSet {
-            mapView.removeAnnotations(photoManager.getPhotos(monthAndYear: nil))
+            mapView.removeAnnotations(photoManager.getPhotos())
             photoManager.categories = categories
         }
     }

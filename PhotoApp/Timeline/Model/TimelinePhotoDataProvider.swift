@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PhotoManager: NSObject, CloudRepositoryDelegate {
+class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     // Contain photos by month and year. String - date representation
     private var photosMap: [String: [Photo]] = [:]
     private let cloud = CloudRepository()
@@ -35,10 +35,10 @@ class PhotoManager: NSObject, CloudRepositoryDelegate {
         let dateFormatter = DateFormatter()
         var dates: [Date] = []
         for photo in photosMap {
-            dates += [dateFormatter.convertDate(string: photo.key, by: PhotoManager.MONTH_AND_YEAR_FORMAT)]
+            dates += [dateFormatter.convertDate(string: photo.key, by: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)]
         }
         let dateToReturn = dates.sorted()[index]
-        return dateFormatter.convertDate(date: dateToReturn, by: PhotoManager.MONTH_AND_YEAR_FORMAT)
+        return dateFormatter.convertDate(date: dateToReturn, by: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
     }
     
     func getPhotoCount(by month: String) -> Int {
@@ -67,7 +67,7 @@ class PhotoManager: NSObject, CloudRepositoryDelegate {
     
     func photo(photo: Photo) {
         let dateFormatter = DateFormatter()
-        let date = dateFormatter.convertString(string: photo.date, by: PhotoManager.MONTH_AND_YEAR_FORMAT)
+        let date = dateFormatter.convertString(string: photo.date, by: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
         (photosMap[date] == nil) ? (photosMap[date] = [photo]) : (photosMap[date]! += [photo])
         delegate?.photoChanged(photo: photo)
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
     
-    private let photoManager: PhotoManager = PhotoManager()
+    private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
     
     var categories: [Category]! {
         didSet {
