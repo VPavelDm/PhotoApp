@@ -42,6 +42,10 @@ class CategoryTableViewController: UITableViewController {
             }
         }
         delegate?.choosed(categories: answer)
+        
+        let defaults = UserDefaults.standard
+        defaults.set(Category.convert(categories: answer), forKey: String(describing: Category.self))
+        
         dismiss(animated: true, completion: nil)
     }
     

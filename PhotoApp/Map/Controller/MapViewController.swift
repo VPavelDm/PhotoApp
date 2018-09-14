@@ -53,7 +53,8 @@ class MapViewController: ViewController {
         super.viewDidLoad()
         mapView.delegate = self
         photoDataProvider.delegate = self
-        categories = Category.getAll()
+        let defaults = UserDefaults.standard
+        categories = Category.convert(categories: defaults.array(forKey: String(describing: Category.self)) as? [String]) ?? Category.getAll()
     }
     
     let locationManager = CLLocationManager()

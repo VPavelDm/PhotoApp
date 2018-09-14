@@ -27,4 +27,21 @@ enum Category: String {
     static func getAll() -> [Category] {
         return [.NATURE, .FRIENDS, .DEFAULT]
     }
+    
+    static func convert(categories: [String]?) -> [Category]? {
+        guard let categories = categories else { return nil }
+        var result: [Category] = []
+        for category in categories {
+            result += [Category(rawValue: category)!]
+        }
+        return result
+    }
+    
+    static func convert(categories: [Category]) -> [String] {
+        var result: [String] = []
+        for category in categories {
+            result += [category.rawValue]
+        }
+        return result
+    }
 }
