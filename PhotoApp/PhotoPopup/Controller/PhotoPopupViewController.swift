@@ -13,29 +13,31 @@ class PhotoPopupViewController: ViewController {
     var photo: Photo!
     weak var delegate: PhotoPopupDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        imageView.image = photo.image
-    }
-    
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .full
-            dateLabel.text = dateFormatter.string(from: Date())
+            let date = photo.date.isEmpty ? Date() : dateFormatter.convertDate(string: photo.date, by: .full)
+            dateLabel.text = dateFormatter.convertDate(date: date, by: "MMMM dd, yyyy - hh:mm a")
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
     @IBOutlet weak var categoryButton: UIButton! {
         didSet {
+            categoryButton.setTitle(photo.category.isEmpty ? Category.DEFAULT.rawValue : photo.category, for: .normal)
             categoryButton.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
+    }    
+    
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.image = photo.image
+        }
     }
-    
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UITextView!
+    @IBOutlet weak var descriptionLabel: UITextView! {
+        didSet {
+            descriptionLabel.text = photo.photoDescription
+        }
+    }
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     

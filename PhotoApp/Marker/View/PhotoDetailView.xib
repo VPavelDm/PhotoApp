@@ -58,6 +58,7 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="BoO-9k-Px0" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="BOF-I2-Qdb"/>
                 <constraint firstItem="3hQ-pT-GHG" firstAttribute="height" secondItem="BoO-9k-Px0" secondAttribute="height" multiplier="2" id="Geh-hH-NNJ"/>
@@ -70,8 +71,16 @@
                 <constraint firstItem="3hQ-pT-GHG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="zfZ-0Y-2k6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="4qA-Kc-Rei" appends="YES" id="e2s-GD-BoS"/>
+            </connections>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
+        <tapGestureRecognizer id="4qA-Kc-Rei">
+            <connections>
+                <action selector="clickMarker:" destination="-1" id="1eU-kq-sJv"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="ic_arrow_right" width="25" height="40"/>

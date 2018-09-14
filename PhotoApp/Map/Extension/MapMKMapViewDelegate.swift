@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-extension MapViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     
     func addAnnotation(photo: Photo) {
         mapView.addAnnotation(photo)
@@ -20,16 +20,22 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.category)
-        //MARK: Add choosing between different markers
         annotationView.image = getMarkerPin(by: Category(rawValue: annotation.category)!)
         let photoDetail = PhotoDetailView()
-        let dateFormatter = DateFormatter()
-        photoDetail.dateLabel.text = dateFormatter.convertString(string: annotation.date, by: "MM-dd-yyyy")
-        photoDetail.descriptionLabel.text = annotation.photoDescription
-        photoDetail.photoImage.image = annotation.image
+        photoDetail.photo = annotation
+        photoDetail.delegate = self
         annotationView.detailCalloutAccessoryView = photoDetail
         annotationView.canShowCallout = true
         return annotationView
+    }
+    
+    func clickedMarker(photo: Photo) {
+        let viewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
+        viewController.photo = photo
+        for annotation in mapView.selectedAnnotations {
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
+        present(viewController, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
