@@ -10,31 +10,35 @@ import Foundation
 
 extension DateFormatter {
     
-    func getStringRepresentationOfDate(date: Date = Date(), by format: String) -> String {
+    func convertToString(string dateToConvert: String, to format: String, from style: Style) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = style
+        let date = dateFormatter.date(from: dateToConvert)!
         dateFormat = format
         return string(from: date)
     }
     
-    func convertString(string dateToConvert: String, by format: String) -> String {
-        dateStyle = .full
-        let dateToReturn = date(from: dateToConvert)!
-        dateFormat = format
-        return string(from: dateToReturn)
+    func convertToDate(string dateToConvert: String, from style: Style) -> Date {
+        dateStyle = style
+        return date(from: dateToConvert)!
     }
     
-    func convertDate(string dateToConvert: String, by format: String) -> Date {
+    func convertToDate(string dateToConvert: String, from format: String) -> Date {
         dateFormat = format
         return date(from: dateToConvert)!
     }
     
-    func convertDate(date dateToConvert: Date, by format: String) -> String {
+    func convertToString(date dateToConvert: Date, to format: String) -> String {
         dateFormat = format
         return string(from: dateToConvert)
     }
     
-    func convertDate(string dateToConvert: String, by style: Style) -> Date {
+    func convertToString(string dateToConvert: String, to style: Style, from format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: dateToConvert)!
         dateStyle = style
-        return date(from: dateToConvert)!
+        return string(from: date)
     }
     
 }

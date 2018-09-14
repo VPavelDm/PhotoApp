@@ -32,6 +32,8 @@ extension MapViewController: CLLocationManagerDelegate {
             mapView.showsUserLocation = true
             centerViewOnUserLocation()
             trackUserLocation(true)
+            lastKnownCoordinates = locationManager.location?.coordinate
+            startActionSheetsToTakeAPicture()
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         default:

@@ -9,8 +9,8 @@
 import Foundation
 
 class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
-    // Contain photos by month and year. String - date representation
-    private var photosMap: [String: [Photo]] = [:]
+    // Contain photos by month and year.
+    private var photosMap: [Date: [Photo]] = [:]
     private let cloud = CloudRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
@@ -35,44 +35,39 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
         let dateFormatter = DateFormatter()
         var dates: [Date] = []
         for photo in photosMap {
-            dates += [dateFormatter.convertDate(string: photo.key, by: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)]
+            dates += [photo.key]
         }
         let dateToReturn = dates.sorted()[index]
-        return dateFormatter.convertDate(date: dateToReturn, by: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
+        return dateFormatter.convertToString(date: dateToReturn, to: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
     }
     
-    func getPhotoCount(by month: String) -> Int {
-        return photosMap[month]!.count
+    func getPhotoCount(by monthAndYear: String) -> Int {
+        let dateFormatter = DateFormatter()
+        let monthAndYear = dateFormatter.convertToDate(string: monthAndYear, from: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
+        return photosMap[monthAndYear]!.count
     }
     
     func getPhoto(monthAndYear: String, index: Int) -> Photo {
+        let dateFormatter = DateFormatter()
+        let monthAndYear = dateFormatter.convertToDate(string: monthAndYear, from: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
         return photosMap[monthAndYear]![index]
     }
     
-    func getPhotos(monthAndYear: String?) -> [Photo] {
-        if let monthAndYear = monthAndYear {
-            return photosMap[monthAndYear]!
-        } else {
-            var resultPhotos: [Photo] = []
-            for photos in photosMap.values {
-                resultPhotos += photos
-            }
-            return resultPhotos
-        }
-    }
-    
-    func savePhoto(photo: Photo) {
-        cloud.sendPhotoToTheServer(photo: photo)
-    }
-    
-    func photo(photo: Photo) {
+    func didPhotoReceived(photo: Photo) {
         let dateFormatter = DateFormatter()
-        let date = dateFormatter.convertString(string: photo.date, by: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
-        (photosMap[date] == nil) ? (photosMap[date] = [photo]) : (photosMap[date]! += [photo])
+        let date = dateFormatter.convertToDate(string: photo.date, from: .full)
+        if photosMap[date] == nil {
+            photosMap[date] = [photo]
+        } else {
+            guard let photos = photosMap[date] else { return }
+            if !photos.contains(photo) {
+                photosMap[date]! += [photo]
+            }
+        }
         delegate?.photoChanged(photo: photo)
     }
     
-    func error(message error: String) {
+    func didErrorReceived(message error: String) {
         delegate?.error(message: error)
     }
 }

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol CloudRepositoryDelegate: NSObjectProtocol {
-    func photo(photo: Photo)
-    func error(message error: String)
+    func didPhotoReceived(photo: Photo)
+    func didErrorReceived(message error: String)
 }

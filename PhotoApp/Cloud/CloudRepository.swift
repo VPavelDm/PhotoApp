@@ -39,7 +39,7 @@ class CloudRepository {
         guard let imageData = UIImagePNGRepresentation(photo.image) else { return }
         imageRef.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
             if let error = error {
-                self?.delegate?.error(message: error.localizedDescription)
+                self?.delegate?.didErrorReceived(message: error.localizedDescription)
             } else {
                 photoDescriptionRef.setValue(photoDescriptionData)
             }
@@ -63,7 +63,7 @@ class CloudRepository {
                 self.downloadImage(reference: imageRef) { [weak self] image in
                     photoDescriptionDictionary[#keyPath(Photo.image)] = image
                     guard let photo = self?.createPhotoByDescriptionMap(map: photoDescriptionDictionary) else { return }
-                    self?.delegate?.photo(photo: photo)
+                    self?.delegate?.didPhotoReceived(photo: photo)
                 }
             }
         }

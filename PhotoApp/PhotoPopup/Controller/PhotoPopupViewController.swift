@@ -11,13 +11,14 @@ import UIKit
 class PhotoPopupViewController: ViewController {
     
     var photo: Photo!
-    weak var delegate: PhotoPopupDelegate?
+    
+    private let dataProvider = PhotoPopupDataProvider()
     
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
-            let date = photo.date.isEmpty ? Date() : dateFormatter.convertDate(string: photo.date, by: .full)
-            dateLabel.text = dateFormatter.convertDate(date: date, by: "MMMM dd, yyyy - hh:mm a")
+            let date = photo.date.isEmpty ? Date() : dateFormatter.convertToDate(string: photo.date, from: .full)
+            dateLabel.text = dateFormatter.convertToString(date: date, to: PhotoPopupViewController.PHOTO_POPUP_DATE_FORMATTER)
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
@@ -51,11 +52,11 @@ class PhotoPopupViewController: ViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func clickDoneButton(_ sender: UIButton) {
+        let dateFormatter = DateFormatter()
         photo.category = (categoryButton.titleLabel?.text)!
-        photo.date = dateLabel.text!
+        photo.date = dateFormatter.convertToString(string: dateLabel.text!, to: .full, from: PhotoPopupViewController.PHOTO_POPUP_DATE_FORMATTER)
         photo.photoDescription = descriptionLabel.text
-        //MARK: Add choosing between save and update
-        delegate?.savePhoto(photo: photo)
+        dataProvider.sendPhotoToTheServer(photo: photo)
         
         descriptionLabel.resignFirstResponder()
         dismiss(animated: true, completion: nil)
@@ -68,6 +69,8 @@ class PhotoPopupViewController: ViewController {
     override func getBottomConstraint() -> NSLayoutConstraint? {
         return bottomConstraint
     }
+    
+    private static let PHOTO_POPUP_DATE_FORMATTER = "MMMM dd, yyyy - hh:mm a"
     
 }
 

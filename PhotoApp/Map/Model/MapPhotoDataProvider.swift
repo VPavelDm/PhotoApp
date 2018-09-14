@@ -29,16 +29,12 @@ class MapPhotoDataProvider: NSObject, CloudRepositoryDelegate {
         return photos
     }
     
-    func savePhoto(photo: Photo) {
-        cloud.sendPhotoToTheServer(photo: photo)
-    }
-    
-    func photo(photo: Photo) {
+    func didPhotoReceived(photo: Photo) {
         photos += [photo]
         delegate?.photoChanged(photo: photo)
     }
     
-    func error(message error: String) {
+    func didErrorReceived(message error: String) {
         delegate?.error(message: error)
     }
     

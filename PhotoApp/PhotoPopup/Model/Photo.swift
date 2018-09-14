@@ -42,4 +42,9 @@ class Photo: NSObject, MKAnnotation {
         
         super.init()
     }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let photo = object as? Photo else { return false }
+        return photo.key == key && !key.isEmpty
+    }
 }

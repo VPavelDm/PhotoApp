@@ -19,8 +19,7 @@ class MapViewController: ViewController {
     @IBOutlet weak var modeButton: UIButton!
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
-        lastKnownCoordinates = locationManager.location?.coordinate
-        startActionSheetsToTakeAPicture()
+        checkLocationServicies()
     }
     
     @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
@@ -53,17 +52,16 @@ class MapViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        photoManager.delegate = self
+        photoDataProvider.delegate = self
         categories = Category.getAll()
-        checkLocationServicies()
     }
     
     let locationManager = CLLocationManager()
-    let photoManager = MapPhotoDataProvider()
+    let photoDataProvider = MapPhotoDataProvider()
     var categories: [Category]! {
         didSet {
-            mapView.removeAnnotations(photoManager.getPhotos())
-            photoManager.categories = categories
+            mapView.removeAnnotations(photoDataProvider.getPhotos())
+            photoDataProvider.categories = categories
         }
     }
     var lastKnownCoordinates: CLLocationCoordinate2D!
@@ -79,7 +77,6 @@ class MapViewController: ViewController {
             let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
             let photo = Photo(coordinate: coordinates, image: image)
             photoPopupViewController.photo = photo
-            photoPopupViewController.delegate = self
             
             present(photoPopupViewController, animated: true, completion: nil)
             lastKnownCoordinates = nil

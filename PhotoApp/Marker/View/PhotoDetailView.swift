@@ -40,7 +40,7 @@ class PhotoDetailView: UIView {
     
     private func initFields() {
         let dateFormatter = DateFormatter()
-        dateLabel.text = dateFormatter.convertString(string: photo.date, by: "MM-dd-yyyy")
+        dateLabel.text = dateFormatter.convertToString(string: photo.date, to: "MM-dd-yyyy", from: .full)
         descriptionLabel.text = photo.photoDescription
         photoImage.image = photo.image
     }
