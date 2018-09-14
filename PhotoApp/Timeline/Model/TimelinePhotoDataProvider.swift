@@ -14,7 +14,7 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     private let cloud = CloudRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
-    weak var delegate: PhotoManagerDelegate?
+    weak var delegate: TimelinePhotoProviderDelegate?
     
     var categories: [Category] = Category.getAll() {
         didSet {
@@ -65,7 +65,7 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
                 photosMap[date]! += [photo]
             }
         }
-        delegate?.photoChanged(photo: photo)
+        delegate?.photoReceived(photo: photo)
     }
     
     func didErrorReceived(message error: String) {

@@ -28,27 +28,38 @@ class CloudRepository {
     }
     
     func sendPhotoToTheServer(photo: Photo) {
-        let photoDescriptionRef = databaseRef.childByAutoId()
+        let photoDescriptionRef: DatabaseReference
+        if photo.key.isEmpty {
+            photoDescriptionRef = databaseRef.childByAutoId()
+        } else {
+            photoDescriptionRef = databaseRef.child(photo.key)
+        }
         let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
                                                    #keyPath(Photo.date): photo.date,
                                                    #keyPath(Photo.description): photo.photoDescription,
                                                    #keyPath(Photo.latitude): photo.latitude,
                                                    #keyPath(Photo.longitude): photo.longitude]
-        
-        let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
-        guard let imageData = UIImagePNGRepresentation(photo.image) else { return }
-        imageRef.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
-            if let error = error {
-                self?.delegate?.didErrorReceived(message: error.localizedDescription)
-            } else {
-                photoDescriptionRef.setValue(photoDescriptionData)
+        if photo.key.isEmpty {
+            let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
+            guard let imageData = UIImagePNGRepresentation(photo.image) else { return }
+            imageRef.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
+                if let error = error {
+                    self?.delegate?.didErrorReceived(message: error.localizedDescription)
+                } else {
+                    photoDescriptionRef.setValue(photoDescriptionData)
+                }
             }
+        } else {
+            photoDescriptionRef.setValue(photoDescriptionData)
         }
     }
     
     func subscribeToUpdatePhotos(categories: [Category]) {
         databaseRef.removeAllObservers()
         databaseRef.observe(DataEventType.childAdded) { [weak self] (snapshot) in
+            self?.responseHandling(snapshot, categories: categories)
+        }
+        databaseRef.observe(DataEventType.childChanged) { [weak self] (snapshot) in
             self?.responseHandling(snapshot, categories: categories)
         }
     }

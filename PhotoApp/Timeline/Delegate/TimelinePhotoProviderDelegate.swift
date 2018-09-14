@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PhotoManagerDelegate: NSObjectProtocol {
-    func photoChanged(photo: Photo)
+protocol TimelinePhotoProviderDelegate: NSObjectProtocol {
+    func photoReceived(photo: Photo)
     func error(message error: String)
 }

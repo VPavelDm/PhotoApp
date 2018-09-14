@@ -9,12 +9,24 @@
 import Foundation
 import UIKit
 
-extension MapViewController: PhotoManagerDelegate {
-    func photoChanged(photo: Photo) {
+extension MapViewController: MapPhotoDataProviderDelegate {
+    
+    func photoAdded(photo: Photo) {
         addAnnotation(photo: photo)
     }
     
-    func error(message error: String) {
+    func photoChanged(photo: Photo) {
+        for annotation in mapView.annotations {
+            guard let annotation = annotation as? Photo else { continue }
+            if annotation == photo {
+                mapView.removeAnnotation(annotation)
+                break
+            }
+        }
+        photoAdded(photo: photo)
+    }
+    
+    func didReceivedError(message error: String) {
         let alert = UIAlertController(message: error)
         present(alert, animated: true)
     }

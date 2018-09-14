@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension TimelineViewController: PhotoManagerDelegate {
-    func photoChanged(photo: Photo) {
+extension TimelineViewController: TimelinePhotoProviderDelegate {
+    func photoReceived(photo: Photo) {
         tableView.reloadData()
     }
     

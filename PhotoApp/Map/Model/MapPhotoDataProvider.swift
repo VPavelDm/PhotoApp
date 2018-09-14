@@ -23,19 +23,23 @@ class MapPhotoDataProvider: NSObject, CloudRepositoryDelegate {
             cloud.subscribeToUpdatePhotos(categories: categories)
         }
     }
-    weak var delegate: PhotoManagerDelegate?
+    weak var delegate: MapPhotoDataProviderDelegate?
     
     func getPhotos() -> [Photo] {
         return photos
     }
     
     func didPhotoReceived(photo: Photo) {
-        photos += [photo]
-        delegate?.photoChanged(photo: photo)
+        if !photos.contains(photo) {
+            photos += [photo]
+            delegate?.photoAdded(photo: photo)
+        } else {
+            delegate?.photoChanged(photo: photo)
+        }
     }
     
     func didErrorReceived(message error: String) {
-        delegate?.error(message: error)
+        delegate?.didReceivedError(message: error)
     }
     
     
