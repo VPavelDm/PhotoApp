@@ -9,7 +9,7 @@
 import Foundation
 
 extension TimelineViewController: TimelinePhotoProviderDelegate {
-    func photoReceived(photo: Photo) {
+    func photoReceived() {
         tableView.reloadData()
     }
     

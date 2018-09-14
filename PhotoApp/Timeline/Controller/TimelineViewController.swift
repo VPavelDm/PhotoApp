@@ -10,7 +10,7 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
     
-    private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
+    let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
     
     var categories: [Category]! {
         didSet {
@@ -60,6 +60,8 @@ class TimelineViewController: UITableViewController {
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
         searchBar.placeholder = NSLocalizedString("Search", comment: "Searcch bar's Placeholder ")
+        searchBar.delegate = self
+        searchBar.enablesReturnKeyAutomatically = false
         
         let categoryButton = UIBarButtonItem(title: NSLocalizedString("Category", comment: "Category button title"), style: .done, target: self, action: #selector(clickCategory))
         self.navigationItem.rightBarButtonItem = categoryButton

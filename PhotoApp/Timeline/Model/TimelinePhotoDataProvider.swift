@@ -11,6 +11,7 @@ import Foundation
 class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     // Contain photos by month and year.
     private var photosMap: [Date: [Photo]] = [:]
+    private var filteredPhotosMap: [Date: [Photo]]?
     private let cloud = CloudRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
@@ -29,13 +30,13 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     }
     
     func getMonthAndYearCount() -> Int {
-        return photosMap.keys.count
+        return filteredPhotosMap?.count ?? photosMap.keys.count
     }
     
     func getMonthAndYear(index: Int) -> String {
         let dateFormatter = DateFormatter()
         var dates: [Date] = []
-        for photo in photosMap {
+        for photo in filteredPhotosMap ?? photosMap {
             dates += [photo.key]
         }
         let dateToReturn = dates.sorted()[index]
@@ -45,13 +46,34 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     func getPhotoCount(by monthAndYear: String) -> Int {
         let dateFormatter = DateFormatter()
         let monthAndYear = dateFormatter.convertToDate(string: monthAndYear, from: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
-        return photosMap[monthAndYear]!.count
+        return filteredPhotosMap?[monthAndYear]!.count ?? photosMap[monthAndYear]!.count
     }
     
     func getPhoto(monthAndYear: String, index: Int) -> Photo {
         let dateFormatter = DateFormatter()
         let monthAndYear = dateFormatter.convertToDate(string: monthAndYear, from: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
-        return photosMap[monthAndYear]![index]
+        return filteredPhotosMap?[monthAndYear]![index] ?? photosMap[monthAndYear]![index]
+    }
+    
+    func filterByHashtag(_ hashtag: String) {
+        if hashtag.isEmpty {
+            filteredPhotosMap = nil
+        } else {
+            var resultMap: [Date: [Photo]] = [:]
+            for (date, photos) in photosMap {
+                var resultPhotos: [Photo] = []
+                for photo in photos {
+                    if photo.photoDescription.lowercased().contains(hashtag.lowercased()) {
+                        resultPhotos += [photo]
+                    }
+                }
+                if resultPhotos.count > 0 {
+                    resultMap[date] = resultPhotos
+                }
+            }
+            filteredPhotosMap = resultMap
+        }
+        delegate?.photoReceived()
     }
     
     func didPhotoReceived(photo: Photo) {
@@ -66,7 +88,7 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
                     photosMap[date]! += [photo]
                 }
             }
-            delegate?.photoReceived(photo: photo)
+            delegate?.photoReceived()
         }
     }
     
