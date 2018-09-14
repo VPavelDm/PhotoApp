@@ -32,4 +32,9 @@ extension DateFormatter {
         return string(from: dateToConvert)
     }
     
+    func convertDate(string dateToConvert: String, by style: Style) -> Date {
+        dateStyle = style
+        return date(from: dateToConvert)!
+    }
+    
 }

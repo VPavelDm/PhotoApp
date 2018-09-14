@@ -16,6 +16,18 @@ class PhotoDetailView: UIView {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var photoImage: UIImageView!
     
+    var photo: Photo! {
+        didSet {
+            initFields()
+        }
+    }
+    
+    weak var delegate: PhotoDetailDelegate?
+    
+    @IBAction func clickMarker(_ sender: Any) {
+        delegate?.clickedMarker(photo: photo)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -24,6 +36,13 @@ class PhotoDetailView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    private func initFields() {
+        let dateFormatter = DateFormatter()
+        dateLabel.text = dateFormatter.convertString(string: photo.date, by: "MM-dd-yyyy")
+        descriptionLabel.text = photo.photoDescription
+        photoImage.image = photo.image
     }
     
     private func commonInit(){
@@ -43,4 +62,8 @@ class PhotoDetailView: UIView {
         }
     }
 
+}
+
+protocol PhotoDetailDelegate: NSObjectProtocol {
+    func clickedMarker(photo: Photo)
 }

@@ -10,6 +10,6 @@ import Foundation
 
 extension PhotoPopupViewController: PickerDelegate {
     func chooseCategory(category: String) {
-        categoryButton.titleLabel?.text = category
+        categoryButton.setTitle(category, for: .normal)
     }
 }
