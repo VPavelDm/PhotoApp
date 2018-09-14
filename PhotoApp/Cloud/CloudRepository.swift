@@ -54,28 +54,25 @@ class CloudRepository {
         }
     }
     
-    func subscribeToUpdatePhotos(categories: [Category]) {
+    func subscribeToUpdatePhotos() {
         databaseRef.removeAllObservers()
         databaseRef.observe(DataEventType.childAdded) { [weak self] (snapshot) in
-            self?.responseHandling(snapshot, categories: categories)
+            self?.responseHandling(snapshot)
         }
         databaseRef.observe(DataEventType.childChanged) { [weak self] (snapshot) in
-            self?.responseHandling(snapshot, categories: categories)
+            self?.responseHandling(snapshot)
         }
     }
     
-    private func responseHandling(_ snapshot: DataSnapshot, categories: [Category]) {
+    private func responseHandling(_ snapshot: DataSnapshot) {
         if var photoDescriptionDictionary = snapshot.value as? [String: Any] {
             guard let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String else { return }
             photoDescriptionDictionary["key"] = snapshot.key
-            
-            if categories.contains(Category(rawValue: photoCategory)!) {
-                let imageRef = self.storageRef.child(photoCategory).child(snapshot.key)
-                self.downloadImage(reference: imageRef) { [weak self] image in
-                    photoDescriptionDictionary[#keyPath(Photo.image)] = image
-                    guard let photo = self?.createPhotoByDescriptionMap(map: photoDescriptionDictionary) else { return }
-                    self?.delegate?.didPhotoReceived(photo: photo)
-                }
+            let imageRef = self.storageRef.child(photoCategory).child(snapshot.key)
+            self.downloadImage(reference: imageRef) { [weak self] image in
+                photoDescriptionDictionary[#keyPath(Photo.image)] = image
+                guard let photo = self?.createPhotoByDescriptionMap(map: photoDescriptionDictionary) else { return }
+                self?.delegate?.didPhotoReceived(photo: photo)
             }
         }
     }
