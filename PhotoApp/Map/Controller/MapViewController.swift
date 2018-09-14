@@ -60,7 +60,7 @@ class MapViewController: ViewController {
     let photoDataProvider = MapPhotoDataProvider()
     var categories: [Category]! {
         didSet {
-            mapView.removeAnnotations(photoDataProvider.getPhotos())
+            mapView.removeAnnotations(mapView.annotations)
             photoDataProvider.categories = categories
         }
     }

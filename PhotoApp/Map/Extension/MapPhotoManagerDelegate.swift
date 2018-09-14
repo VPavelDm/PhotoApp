@@ -12,7 +12,9 @@ import UIKit
 extension MapViewController: MapPhotoDataProviderDelegate {
     
     func photoAdded(photo: Photo) {
-        addAnnotation(photo: photo)
+        if categories.contains(Category(rawValue: photo.category)!){
+            addAnnotation(photo: photo)
+        }
     }
     
     func photoChanged(photo: Photo) {

@@ -19,7 +19,7 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     var categories: [Category] = Category.getAll() {
         didSet {
             photosMap = [:]
-            cloud.subscribeToUpdatePhotos(categories: categories)
+            cloud.subscribeToUpdatePhotos()
         }
     }
     
@@ -56,16 +56,18 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     
     func didPhotoReceived(photo: Photo) {
         let dateFormatter = DateFormatter()
-        let date = dateFormatter.convertToDate(string: photo.date, from: .full)
-        if photosMap[date] == nil {
-            photosMap[date] = [photo]
-        } else {
-            guard let photos = photosMap[date] else { return }
-            if !photos.contains(photo) {
-                photosMap[date]! += [photo]
+        if categories.contains(Category(rawValue: photo.category)!){
+            let date = dateFormatter.convertToDate(string: photo.date, from: .full)
+            if photosMap[date] == nil {
+                photosMap[date] = [photo]
+            } else {
+                guard let photos = photosMap[date] else { return }
+                if !photos.contains(photo) {
+                    photosMap[date]! += [photo]
+                }
             }
+            delegate?.photoReceived(photo: photo)
         }
-        delegate?.photoReceived(photo: photo)
     }
     
     func didErrorReceived(message error: String) {

@@ -20,7 +20,8 @@ class MapPhotoDataProvider: NSObject, CloudRepositoryDelegate {
     
     var categories: [Category] = Category.getAll() {
         didSet {
-            cloud.subscribeToUpdatePhotos(categories: categories)
+            photos = []
+            cloud.subscribeToUpdatePhotos()
         }
     }
     weak var delegate: MapPhotoDataProviderDelegate?
@@ -31,8 +32,10 @@ class MapPhotoDataProvider: NSObject, CloudRepositoryDelegate {
     
     func didPhotoReceived(photo: Photo) {
         if !photos.contains(photo) {
-            photos += [photo]
-            delegate?.photoAdded(photo: photo)
+            if categories.contains(Category(rawValue: photo.category)!){
+                photos += [photo]
+                delegate?.photoAdded(photo: photo)
+            }
         } else {
             delegate?.photoChanged(photo: photo)
         }
