@@ -553,6 +553,7 @@
 		10E35CC421394BF20096E8DA /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				109306F2214A4FAE00E73996 /* Delegate */,
 				1019D9FF2141267F00BF23D1 /* Extension */,
 				10E35CC721394C040096E8DA /* Model */,
 				10E35CC621394C000096E8DA /* View */,
@@ -581,7 +582,6 @@
 		10E35CC721394C040096E8DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				109306F2214A4FAE00E73996 /* Delegate */,
 				104DB28B21496B430024DAC6 /* TimelinePhotoDataProvider.swift */,
 			);
 			path = Model;

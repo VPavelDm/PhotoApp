@@ -18,6 +18,7 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     
     var categories: [Category] = Category.getAll() {
         didSet {
+            photosMap = [:]
             cloud.subscribeToUpdatePhotos(categories: categories)
         }
     }
