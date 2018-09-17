@@ -94,9 +94,13 @@ class CloudRepository {
     private func downloadImage(reference imageRef: StorageReference, callback: @escaping (UIImage) -> ()) {
         imageRef.downloadTestURL(completion: { (url, error) in
             guard let url = url else { return }
-            if let imageData = try? Data(contentsOf: url) {
-                guard let image = UIImage(data: imageData) else { return }
-                callback(image)
+            DispatchQueue.global(qos: .userInitiated).async {
+                if let imageData = try? Data(contentsOf: url) {
+                    guard let image = UIImage(data: imageData) else { return }
+                    DispatchQueue.main.async {
+                        callback(image)
+                    }
+                }
             }
         })
     }
