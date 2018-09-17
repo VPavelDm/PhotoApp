@@ -24,13 +24,20 @@ class FullPhotoViewController: ViewController {
         }
     }
     
-    var image: UIImage!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    @IBAction func doubleTabOnPhoto(_ sender: Any) {
+        let newZoomScale = scrollView.zoomScale + 0.5 > scrollView.maximumZoomScale ? 2.0 : scrollView.zoomScale + 0.5
+        scrollView.setZoomScale(newZoomScale, animated: true)
     }
     
+    @IBAction func clickBackButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    var image: UIImage!
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
 
 }
