@@ -16,6 +16,9 @@
 		1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */; };
 		1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816621463D8200434511 /* UIViewControllerExtension.swift */; };
 		1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816821463DA100434511 /* UITableViewControllerExtension.swift */; };
+		103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */; };
+		103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */; };
+		103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */; };
 		1048DEF721425BEF001CED52 /* MapMKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF621425BEF001CED52 /* MapMKMapViewDelegate.swift */; };
 		1048DEF921425C52001CED52 /* MapImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF821425C52001CED52 /* MapImagePickerDelegate.swift */; };
 		1048DEFF21425D1A001CED52 /* MapActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFE21425D1A001CED52 /* MapActionSheets.swift */; };
@@ -81,6 +84,9 @@
 		1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeyboardHandlerExtension.swift; sourceTree = "<group>"; };
 		1031816621463D8200434511 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1031816821463DA100434511 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
+		103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullPhotoViewController.storyboard; sourceTree = "<group>"; };
+		103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
+		103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoZoomExtension.swift; sourceTree = "<group>"; };
 		1048DEF621425BEF001CED52 /* MapMKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMKMapViewDelegate.swift; sourceTree = "<group>"; };
 		1048DEF821425C52001CED52 /* MapImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImagePickerDelegate.swift; sourceTree = "<group>"; };
 		1048DEFE21425D1A001CED52 /* MapActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActionSheets.swift; sourceTree = "<group>"; };
@@ -200,6 +206,40 @@
 				1031816821463DA100434511 /* UITableViewControllerExtension.swift */,
 				1061A2122147FD3A006942D7 /* UINavigationController.swift */,
 				109306FB214A6B9B00E73996 /* AlertExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		103EE026214F73930073C8C5 /* FullPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				103EE02D214F86AD0073C8C5 /* Extension */,
+				103EE02A214F7A950073C8C5 /* Controller */,
+				103EE027214F7A300073C8C5 /* View */,
+			);
+			path = FullPhoto;
+			sourceTree = "<group>";
+		};
+		103EE027214F7A300073C8C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		103EE02A214F7A950073C8C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		103EE02D214F86AD0073C8C5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -346,6 +386,7 @@
 				10CFF2BA213FF40100E338DD /* Cloud */,
 				1061A1FD2147AC27006942D7 /* Category */,
 				10E35CD021394E180096E8DA /* Core */,
+				103EE026214F73930073C8C5 /* FullPhoto */,
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
 				1061A21C214811CD006942D7 /* CategoryPicker */,
@@ -730,6 +771,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */,
+				103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */,
 				10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */,
 				1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */,
 				10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */,
@@ -803,6 +845,7 @@
 				104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */,
 				104DB2942149778B0024DAC6 /* TimelineCategoryButtonHandler.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
+				103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */,
 				101C827A214BA17F00F344D5 /* PhotoPopupDataProvider.swift in Sources */,
 				10D72CE0214A7E060020B255 /* MapPhotoDataProvider.swift in Sources */,
 				101C827D214BC24F00F344D5 /* MapPhotoDataProviderDelegate.swift in Sources */,
@@ -844,6 +887,7 @@
 				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */,
+				103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */,
 				1087319D214BE816009DF270 /* TimelineSearchDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

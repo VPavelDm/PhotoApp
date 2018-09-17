@@ -56,6 +56,13 @@ class TimelineViewController: UITableViewController {
         return CGFloat(TimelineViewController.cellRowHeight)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = FullPhotoViewController.create(asClass: FullPhotoViewController.self)
+        let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
+        viewController.image = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row).image
+        present(viewController, animated: true)
+    }
+    
     private func createSearchBarWithCategoryButton() {
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
