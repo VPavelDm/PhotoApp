@@ -44,7 +44,7 @@ class FullPhotoViewController: ViewController {
     @IBOutlet weak var footer: UIView!
     
     @IBAction func doubleTabOnPhoto(_ sender: Any) {
-        let newZoomScale = scrollView.zoomScale + 0.5 > scrollView.maximumZoomScale ? 2.0 : scrollView.zoomScale + 0.5
+        let newZoomScale = scrollView.zoomScale == scrollView.minimumZoomScale  ? scrollView.maximumZoomScale : scrollView.minimumZoomScale
         scrollView.setZoomScale(newZoomScale, animated: true)
     }
     
