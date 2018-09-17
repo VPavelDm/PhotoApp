@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "PhotoApp/FullPhoto/Controller/FullPhotoViewController.swift"
-            timestampString = "558866517.1239769"
+            timestampString = "558867481.501933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "doubleTabOnPhoto(_:)"
             landmarkType = "7">
             <Actions>

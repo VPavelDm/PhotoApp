@@ -20,7 +20,18 @@ class FullPhotoViewController: ViewController {
     }
     @IBOutlet weak var photoImageView: UIImageView! {
         didSet {
-            photoImageView.image = image
+            photoImageView.image = photo.image
+        }
+    }
+    @IBOutlet weak var descriptionLabel: UILabel! {
+        didSet {
+            descriptionLabel.text = photo.photoDescription
+        }
+    }
+    @IBOutlet weak var dateLabel: UILabel! {
+        didSet {
+            let dateFormatter = DateFormatter()
+            dateLabel.text = dateFormatter.convertToString(string: photo.date, to: FullPhotoViewController.DATE_FORMATTER, from: .full)
         }
     }
     
@@ -33,11 +44,12 @@ class FullPhotoViewController: ViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var image: UIImage!
+    var photo: Photo!
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    private static let DATE_FORMATTER = "MMMM dd, yyyy at hh:mm a"
 
 }
