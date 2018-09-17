@@ -35,6 +35,9 @@
                                     <constraint firstAttribute="trailing" secondItem="4Sa-fd-nxH" secondAttribute="trailing" id="kbu-kA-skM"/>
                                     <constraint firstItem="4Sa-fd-nxH" firstAttribute="leading" secondItem="OCr-ZI-j6p" secondAttribute="leading" id="z0f-e8-Edf"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Krn-sG-eoQ" appends="YES" id="j3Q-8R-U01"/>
+                                </connections>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4W-8k-ziZ" userLabel="Header">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
@@ -102,11 +105,20 @@
                     <connections>
                         <outlet property="dateLabel" destination="sYF-gf-2Rf" id="ltg-P7-IjQ"/>
                         <outlet property="descriptionLabel" destination="41p-VJ-zXB" id="t6u-Vv-suN"/>
+                        <outlet property="doubleTapRecognizer" destination="Ous-Zh-T6S" id="DY9-7L-LqK"/>
+                        <outlet property="footer" destination="0D7-o4-ssy" id="Aw1-Xd-6OF"/>
+                        <outlet property="header" destination="G4W-8k-ziZ" id="Jn8-8X-qoQ"/>
                         <outlet property="photoImageView" destination="4Sa-fd-nxH" id="hKh-iy-8fh"/>
                         <outlet property="scrollView" destination="OCr-ZI-j6p" id="TxD-93-WhQ"/>
+                        <outlet property="signleTapRecognizer" destination="Krn-sG-eoQ" id="PVR-ds-N8r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8Q-6N-c4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer delaysTouchesEnded="NO" id="Krn-sG-eoQ" userLabel="Single tap gesture recognizer">
+                    <connections>
+                        <action selector="singleTapOnView:" destination="7IB-y3-AYR" id="p0F-iV-Xaj"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer numberOfTapsRequired="2" id="Ous-Zh-T6S" userLabel="Double tap gesture recognizer">
                     <connections>
                         <action selector="doubleTabOnPhoto:" destination="7IB-y3-AYR" id="WfH-DH-y2i"/>

@@ -34,6 +34,14 @@ class FullPhotoViewController: ViewController {
             dateLabel.text = dateFormatter.convertToString(string: photo.date, to: FullPhotoViewController.DATE_FORMATTER, from: .full)
         }
     }
+    @IBOutlet var signleTapRecognizer: UITapGestureRecognizer! {
+        didSet {
+            signleTapRecognizer.require(toFail: doubleTapRecognizer)
+        }
+    }
+    @IBOutlet var doubleTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet weak var header: UIView!
+    @IBOutlet weak var footer: UIView!
     
     @IBAction func doubleTabOnPhoto(_ sender: Any) {
         let newZoomScale = scrollView.zoomScale + 0.5 > scrollView.maximumZoomScale ? 2.0 : scrollView.zoomScale + 0.5
@@ -44,11 +52,16 @@ class FullPhotoViewController: ViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    var photo: Photo!
+    @IBAction func singleTapOnView(_ sender: Any) {
+        header.isHidden = !header.isHidden
+        footer.isHidden = !footer.isHidden
+    }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    var photo: Photo!
     
     private static let DATE_FORMATTER = "MMMM dd, yyyy at hh:mm a"
 
