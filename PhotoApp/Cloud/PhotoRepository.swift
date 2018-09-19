@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import MapKit
 
-class CloudRepository {
+class PhotoRepository {
     
     private static let rootReference = "photos"
     
@@ -21,8 +21,8 @@ class CloudRepository {
     
     init() {
         let user = Auth.auth().currentUser!
-        storageRef = Storage.storage().reference().child(CloudRepository.rootReference).child(user.uid)
-        databaseRef = Database.database().reference().child(CloudRepository.rootReference).child(user.uid)
+        storageRef = Storage.storage().reference().child(PhotoRepository.rootReference).child(user.uid)
+        databaseRef = Database.database().reference().child(PhotoRepository.rootReference).child(user.uid)
     }
 
     func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {

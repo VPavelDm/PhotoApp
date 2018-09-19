@@ -58,7 +58,7 @@
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
 		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
 		10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2B8213FF38C00E338DD /* ViewController.swift */; };
-		10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2BB213FF41B00E338DD /* CloudRepository.swift */; };
+		10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */; };
 		10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282C52137EBB600274129 /* SignUpViewController.swift */; };
 		10D282CC2137FE7800274129 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282CB2137FE7800274129 /* MapViewController.swift */; };
 		10D282DA21380B5600274129 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282D921380B5600274129 /* MoreViewController.swift */; };
@@ -130,7 +130,7 @@
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10CFF2B8213FF38C00E338DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		10CFF2BB213FF41B00E338DD /* CloudRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudRepository.swift; sourceTree = "<group>"; };
+		10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		10D282C52137EBB600274129 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10D282CB2137FE7800274129 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		10D282D921380B5600274129 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 		10CFF2BA213FF40100E338DD /* Cloud */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF2BB213FF41B00E338DD /* CloudRepository.swift */,
+				10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */,
 			);
 			path = Cloud;
 			sourceTree = "<group>";
@@ -891,7 +891,7 @@
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
 				1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
-				10CFF2BC213FF41B00E338DD /* CloudRepository.swift in Sources */,
+				10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */,
 				109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */,
 				10C50DD021524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,

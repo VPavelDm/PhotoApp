@@ -12,7 +12,7 @@ class TimelinePhotoDataProvider: NSObject {
     // Contain photos by month and year.
     private var photosMap: [Date: [Photo]] = [:]
     private var filteredPhotosMap: [Date: [Photo]]?
-    private let cloud = CloudRepository()
+    private let cloud = PhotoRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
     weak var delegate: TimelinePhotoProviderDelegate?

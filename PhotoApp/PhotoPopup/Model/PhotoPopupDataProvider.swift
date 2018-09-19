@@ -9,7 +9,7 @@
 import Foundation
 
 class PhotoPopupDataProvider {
-    private let cloud = CloudRepository()
+    private let cloud = PhotoRepository()
     
     func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         cloud.create(photo: photo, callback: callback)

@@ -10,7 +10,7 @@ import Foundation
 
 class MapPhotoDataProvider: NSObject {
     
-    private let cloud = CloudRepository()
+    private let cloud = PhotoRepository()
     
     weak var delegate: MapPhotoDataProviderDelegate?
     
