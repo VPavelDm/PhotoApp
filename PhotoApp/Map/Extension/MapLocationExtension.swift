@@ -55,7 +55,7 @@ extension MapViewController: CLLocationManagerDelegate {
     
     private func centerViewOnUserLocation() {
         if let location = locationManager.location?.coordinate {
-            let region = MKCoordinateRegionMakeWithDistance(location, 1000, 1000)
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
             mapView.setRegion(region, animated: true)
         }
     }

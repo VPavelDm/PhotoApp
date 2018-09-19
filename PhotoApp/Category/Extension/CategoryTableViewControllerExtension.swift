@@ -14,7 +14,7 @@ extension CategoryTableViewController {
     func initNavigationBar() {
         navigationItem.title = NSLocalizedString("Categories", comment: "Category navigation item title")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(clickDoneButton))
-        let textAttributes = [NSAttributedStringKey.foregroundColor: view.tintColor!]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: view.tintColor!]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     

@@ -41,7 +41,7 @@ class CloudRepository {
                                                    #keyPath(Photo.longitude): photo.longitude]
         if photo.key.isEmpty {
             let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
-            guard let imageData = UIImagePNGRepresentation(photo.image) else { return }
+            guard let imageData = photo.image.pngData() else { return }
             imageRef.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
                 if let error = error {
                     self?.delegate?.didErrorReceived(message: error.localizedDescription)
