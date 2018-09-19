@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension PhotoPopupViewController: PickerDelegate {
+extension PhotoModificationViewController: PickerDelegate {
     func chooseCategory(category: String) {
         categoryButton.setTitle(category, for: .normal)
     }

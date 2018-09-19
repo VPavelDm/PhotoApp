@@ -99,7 +99,7 @@ class MapViewController: ViewController {
                     present(alert, animated: true)
                     return
             }
-            let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
+            let photoPopupViewController = PhotoModificationViewController.create(asClass: PhotoModificationViewController.self)
             photoPopupViewController.delegate = self
             let photo = Photo(coordinate: coordinates, image: image)
             photoPopupViewController.photo = photo

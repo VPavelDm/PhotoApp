@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoPopupViewController: ViewController {
+class PhotoModificationViewController: ViewController {
     
     var photo: Photo!
     
@@ -20,7 +20,7 @@ class PhotoPopupViewController: ViewController {
         didSet {
             let dateFormatter = DateFormatter()
             let date = photo.date.isEmpty ? Date() : dateFormatter.convertToDate(string: photo.date, from: .full)
-            dateLabel.text = dateFormatter.convertToString(date: date, to: PhotoPopupViewController.PHOTO_POPUP_DATE_FORMATTER)
+            dateLabel.text = dateFormatter.convertToString(date: date, to: PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER)
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
@@ -56,7 +56,7 @@ class PhotoPopupViewController: ViewController {
     @IBAction func clickDoneButton(_ sender: UIButton) {
         let dateFormatter = DateFormatter()
         photo.category = (categoryButton.titleLabel?.text)!
-        photo.date = dateFormatter.convertToString(string: dateLabel.text!, to: .full, from: PhotoPopupViewController.PHOTO_POPUP_DATE_FORMATTER)
+        photo.date = dateFormatter.convertToString(string: dateLabel.text!, to: .full, from: PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER)
         photo.photoDescription = descriptionLabel.text
         if photo.key.isEmpty {
             dataProvider.create(photo: photo) { [weak self] (photo, error) in
@@ -93,7 +93,7 @@ class PhotoPopupViewController: ViewController {
     
 }
 
-extension PhotoPopupViewController: UITextViewDelegate {
+extension PhotoModificationViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             descriptionLabel.resignFirstResponder()

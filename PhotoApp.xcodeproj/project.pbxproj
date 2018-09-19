@@ -45,7 +45,7 @@
 		109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */; };
 		109306FC214A6B9B00E73996 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306FB214A6B9B00E73996 /* AlertExtension.swift */; };
 		10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */; };
-		10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */; };
+		10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */; };
 		10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */; };
 		10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */; };
 		10C50DCB215243E8001C8918 /* MapPhotoDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */; };
@@ -117,7 +117,7 @@
 		109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePhotoProviderDelegate.swift; sourceTree = "<group>"; };
 		109306FB214A6B9B00E73996 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
 		10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoPopupViewController.storyboard; sourceTree = "<group>"; };
-		10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupViewController.swift; sourceTree = "<group>"; };
+		10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationViewController.swift; sourceTree = "<group>"; };
 		10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoPopupDelegateExtension.swift; sourceTree = "<group>"; };
 		10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProvider.swift; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 				10E35CBE213940DC0096E8DA /* Map */,
 				10E35CC421394BF20096E8DA /* Timeline */,
 				1061A21C214811CD006942D7 /* CategoryPicker */,
-				10AFE78B213D314100CB652E /* PhotoPopup */,
+				10AFE78B213D314100CB652E /* PhotoModification */,
 				10D72CE1214A83CE0020B255 /* Marker */,
 				10E35CC821394C1B0096E8DA /* More */,
 				10E35CCE21394DD60096E8DA /* MainScreen */,
@@ -408,7 +408,7 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		10AFE78B213D314100CB652E /* PhotoPopup */ = {
+		10AFE78B213D314100CB652E /* PhotoModification */ = {
 			isa = PBXGroup;
 			children = (
 				10C50DC421523F89001C8918 /* Delegate */,
@@ -417,7 +417,7 @@
 				10AFE78F213D43B900CB652E /* Controller */,
 				10AFE78C213D314C00CB652E /* View */,
 			);
-			path = PhotoPopup;
+			path = PhotoModification;
 			sourceTree = "<group>";
 		};
 		10AFE78C213D314C00CB652E /* View */ = {
@@ -431,7 +431,7 @@
 		10AFE78F213D43B900CB652E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */,
+				10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -872,7 +872,7 @@
 				1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */,
 				1061A2132147FD3A006942D7 /* UINavigationController.swift in Sources */,
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
-				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
+				10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */,
 				10D72CDD214A791B0020B255 /* TimelinePhotoManagerDelegate.swift in Sources */,
 				10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */,
 				1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */,
