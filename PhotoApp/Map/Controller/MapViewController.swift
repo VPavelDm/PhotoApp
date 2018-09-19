@@ -11,15 +11,23 @@ import MapKit
 
 class MapViewController: ViewController {
     
-    @IBOutlet weak var mapView: MKMapView! {
-        didSet {
-            mapView.userTrackingMode = .followWithHeading
-        }
-    }
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var modeButton: UIButton!
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
-        checkLocationServicies()
+        locationManager.checkLocationService { [weak self] (status) in
+            guard let `self` = self else { return }
+            switch status {
+            case .authorized:
+                self.lastKnownCoordinates = self.locationManager.coordinate
+                self.startActionSheetsToTakeAPicture()
+            case .denied:
+                self.presentLocationSettings()
+            case .error:
+                let alert = UIAlertController(message: NSLocalizedString("Location servicies are not enabled", comment: ""))
+                self.present(alert, animated: true)
+            }
+        }
     }
     
     @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
@@ -57,7 +65,23 @@ class MapViewController: ViewController {
         categories = Category.convert(categories: defaults.array(forKey: String(describing: Category.self)) as? [String]) ?? Category.getAll()
     }
     
-    let locationManager = CLLocationManager()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationManager.checkLocationService { [weak self] (status) in
+            switch status {
+            case .authorized:
+                self?.mapView.userTrackingMode = .followWithHeading
+            case .denied:
+                self?.mapView.userTrackingMode = .none
+                self?.presentLocationSettings()
+            case .error:
+                let alert = UIAlertController(message: NSLocalizedString("Location servicies are not enabled", comment: ""))
+                self?.present(alert, animated: true)
+            }
+        }
+    }
+    
+    let locationManager = LocationService()
     let photoDataProvider = MapPhotoDataProvider()
     var categories: [Category]! {
         didSet {
@@ -84,6 +108,18 @@ class MapViewController: ViewController {
             lastKnownCoordinates = nil
             photoImage = nil
         }
+    }
+    
+    private func presentLocationSettings() {
+        let alertController = UIAlertController(title: "Error",
+                                                message: "Location access is denied",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+            UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+        })
+        
+        present(alertController, animated: true)
     }
     
 }

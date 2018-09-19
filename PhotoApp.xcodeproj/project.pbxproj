@@ -44,7 +44,6 @@
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
 		109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */; };
 		109306FC214A6B9B00E73996 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306FB214A6B9B00E73996 /* AlertExtension.swift */; };
-		109306FE214A6F2600E73996 /* MapLocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306FD214A6F2600E73996 /* MapLocationExtension.swift */; };
 		10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */; };
 		10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */; };
 		10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */; };
@@ -52,6 +51,8 @@
 		10C50DCB215243E8001C8918 /* MapPhotoDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */; };
 		10C50DCE215249BF001C8918 /* MapPhotoDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */; };
 		10C50DD021524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */; };
+		10C50DD4215281B5001C8918 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DD3215281B5001C8918 /* LocationService.swift */; };
+		10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDC2152936F001C8918 /* LocationStatus.swift */; };
 		10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */; };
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
@@ -115,7 +116,6 @@
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePhotoProviderDelegate.swift; sourceTree = "<group>"; };
 		109306FB214A6B9B00E73996 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
-		109306FD214A6F2600E73996 /* MapLocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationExtension.swift; sourceTree = "<group>"; };
 		10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoPopupViewController.storyboard; sourceTree = "<group>"; };
 		10AFE790213D43DC00CB652E /* PhotoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupViewController.swift; sourceTree = "<group>"; };
 		10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +123,8 @@
 		10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProvider.swift; sourceTree = "<group>"; };
 		10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProviderDelegate.swift; sourceTree = "<group>"; };
 		10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProviderDelegateExtension.swift; sourceTree = "<group>"; };
+		10C50DD3215281B5001C8918 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		10C50DDC2152936F001C8918 /* LocationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatus.swift; sourceTree = "<group>"; };
 		10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
@@ -245,7 +247,6 @@
 				1048DEF821425C52001CED52 /* MapImagePickerDelegate.swift */,
 				1048DEFE21425D1A001CED52 /* MapActionSheets.swift */,
 				1061A217214803F6006942D7 /* MapCategoryDelegate.swift */,
-				109306FD214A6F2600E73996 /* MapLocationExtension.swift */,
 				10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */,
 				10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */,
 			);
@@ -458,6 +459,15 @@
 				10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		10C50DD22152819C001C8918 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				10C50DD3215281B5001C8918 /* LocationService.swift */,
+				10C50DDC2152936F001C8918 /* LocationStatus.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		10CFF29E213FBA9800E338DD /* Extension */ = {
@@ -698,6 +708,7 @@
 		10E35CD021394E180096E8DA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				10C50DD22152819C001C8918 /* Location */,
 				1031816321463D2700434511 /* Extension */,
 				10CFF2B7213FF37E00E338DD /* Controller */,
 			);
@@ -853,7 +864,6 @@
 				10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */,
 				101C827A214BA17F00F344D5 /* PhotoPopupDataProvider.swift in Sources */,
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
-				109306FE214A6F2600E73996 /* MapLocationExtension.swift in Sources */,
 				1061A2212148122E006942D7 /* PickerViewController.swift in Sources */,
 				1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */,
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
@@ -864,7 +874,9 @@
 				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoPopupViewController.swift in Sources */,
 				10D72CDD214A791B0020B255 /* TimelinePhotoManagerDelegate.swift in Sources */,
+				10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */,
 				1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */,
+				10C50DD4215281B5001C8918 /* LocationService.swift in Sources */,
 				1061A218214803F6006942D7 /* MapCategoryDelegate.swift in Sources */,
 				10C50DCB215243E8001C8918 /* MapPhotoDataProvider.swift in Sources */,
 				10C50DCE215249BF001C8918 /* MapPhotoDataProviderDelegate.swift in Sources */,
