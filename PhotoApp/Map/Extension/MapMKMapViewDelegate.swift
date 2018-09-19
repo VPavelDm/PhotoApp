@@ -12,7 +12,9 @@ import MapKit
 extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     
     func addAnnotation(photo: Photo) {
-        mapView.addAnnotation(photo)
+        if categories.contains(Category(rawValue: photo.category)!){
+            mapView.addAnnotation(photo)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
