@@ -12,6 +12,8 @@ class PhotoPopupViewController: ViewController {
     
     var photo: Photo!
     
+    weak var delegate: PhotoPopupDelegate?
+    
     private let dataProvider = PhotoPopupDataProvider()
     
     @IBOutlet weak var dateLabel: UILabel! {
@@ -56,10 +58,27 @@ class PhotoPopupViewController: ViewController {
         photo.category = (categoryButton.titleLabel?.text)!
         photo.date = dateFormatter.convertToString(string: dateLabel.text!, to: .full, from: PhotoPopupViewController.PHOTO_POPUP_DATE_FORMATTER)
         photo.photoDescription = descriptionLabel.text
-        dataProvider.sendPhotoToTheServer(photo: photo)
-        
+        if photo.key.isEmpty {
+            dataProvider.create(photo: photo) { [weak self] (photo, error) in
+                if let error = error {
+                    self?.delegate?.didReceivedError(error: error)
+                } else {
+                    self?.delegate?.photoAdded(photo: photo!)
+                }
+                self?.dismiss(animated: true, completion: nil)
+            }
+        } else {
+            dataProvider.update(photo: photo) { [weak self] (photo, error) in
+                if let error = error {
+                    self?.delegate?.didReceivedError(error: error)
+                } else {
+                    self?.delegate?.photoUpdated(photo: photo!)
+                }
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
+        view.isUserInteractionEnabled = false
         descriptionLabel.resignFirstResponder()
-        dismiss(animated: true, completion: nil)
     }
     
     override func getViewToScroll() -> UIView? {

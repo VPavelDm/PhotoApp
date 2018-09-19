@@ -76,6 +76,7 @@ class MapViewController: ViewController {
                     return
             }
             let photoPopupViewController = PhotoPopupViewController.create(asClass: PhotoPopupViewController.self)
+            photoPopupViewController.delegate = self
             let photo = Photo(coordinate: coordinates, image: image)
             photoPopupViewController.photo = photo
             

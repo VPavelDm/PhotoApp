@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 
 class Photo: NSObject, MKAnnotation {
-    var key: String = ""
+    @objc var key: String = ""
     @objc var photoDescription: String = ""
     @objc var category: String = ""
     @objc var date: String = ""
