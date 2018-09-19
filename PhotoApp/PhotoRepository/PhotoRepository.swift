@@ -73,7 +73,7 @@ class PhotoRepository {
             for photoSnapshot in snapshot.children {
                 if let photoSnapshot = photoSnapshot as? DataSnapshot, var photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
                     guard let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String else { return }
-                    photoDescriptionDictionary["key"] = photoSnapshot.key
+                    photoDescriptionDictionary[#keyPath(DataSnapshot.key)] = photoSnapshot.key
                     let imageRef = self.storageRef.child(photoCategory).child(photoSnapshot.key)
                     self.downloadImage(reference: imageRef) { [weak self] image in
                         photoDescriptionDictionary[#keyPath(Photo.image)] = image
@@ -96,7 +96,7 @@ class PhotoRepository {
             let photoDate = photoDescriptionDictionary[#keyPath(Photo.date)] as? String,
             let photoDescription = photoDescriptionDictionary[#keyPath(Photo.description)] as? String,
             let image = photoDescriptionDictionary[#keyPath(Photo.image)] as? UIImage,
-            let key = photoDescriptionDictionary["key"] as? String
+            let key = photoDescriptionDictionary[#keyPath(DataSnapshot.key)] as? String
             else { return nil }
         let coordinate = CLLocationCoordinate2D(latitude: photoLatitude, longitude: photoLongitude)
         return Photo(key: key, description: photoDescription, category: photoCategory, date: photoDate, image: image, coordinate: coordinate)

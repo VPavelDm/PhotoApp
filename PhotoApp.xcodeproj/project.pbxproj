@@ -53,6 +53,7 @@
 		10C50DD021524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */; };
 		10C50DD4215281B5001C8918 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DD3215281B5001C8918 /* LocationService.swift */; };
 		10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDC2152936F001C8918 /* LocationStatus.swift */; };
+		10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDE2152A256001C8918 /* StringExtension.swift */; };
 		10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */; };
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
@@ -125,6 +126,7 @@
 		10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProviderDelegateExtension.swift; sourceTree = "<group>"; };
 		10C50DD3215281B5001C8918 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		10C50DDC2152936F001C8918 /* LocationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatus.swift; sourceTree = "<group>"; };
+		10C50DDE2152A256001C8918 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				1031816821463DA100434511 /* UITableViewControllerExtension.swift */,
 				1061A2122147FD3A006942D7 /* UINavigationController.swift */,
 				109306FB214A6B9B00E73996 /* AlertExtension.swift */,
+				10C50DDE2152A256001C8918 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -902,6 +905,7 @@
 				104DB2882148EBDA0024DAC6 /* TimelineCategoryDelegate.swift in Sources */,
 				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
 				10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */,
+				10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */,
 				103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */,
