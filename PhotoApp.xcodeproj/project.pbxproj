@@ -371,7 +371,7 @@
 			children = (
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
-				10CFF2BA213FF40100E338DD /* Cloud */,
+				10CFF2BA213FF40100E338DD /* PhotoRepository */,
 				1061A1FD2147AC27006942D7 /* Category */,
 				10E35CD021394E180096E8DA /* Core */,
 				103EE026214F73930073C8C5 /* FullPhoto */,
@@ -498,12 +498,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		10CFF2BA213FF40100E338DD /* Cloud */ = {
+		10CFF2BA213FF40100E338DD /* PhotoRepository */ = {
 			isa = PBXGroup;
 			children = (
 				10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */,
 			);
-			path = Cloud;
+			path = PhotoRepository;
 			sourceTree = "<group>";
 		};
 		10D72CE1214A83CE0020B255 /* Marker */ = {
