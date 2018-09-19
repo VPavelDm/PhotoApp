@@ -269,7 +269,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		1061A1FD2147AC27006942D7 /* Category */ = {
+		1061A1FD2147AC27006942D7 /* CategoryFilter */ = {
 			isa = PBXGroup;
 			children = (
 				104DB2902149729D0024DAC6 /* Extension */,
@@ -279,7 +279,7 @@
 				1061A2032147AC45006942D7 /* Controller */,
 				1061A2112147F369006942D7 /* Cell */,
 			);
-			path = Category;
+			path = CategoryFilter;
 			sourceTree = "<group>";
 		};
 		1061A2032147AC45006942D7 /* Controller */ = {
@@ -372,7 +372,7 @@
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				10CFF2BA213FF40100E338DD /* PhotoRepository */,
-				1061A1FD2147AC27006942D7 /* Category */,
+				1061A1FD2147AC27006942D7 /* CategoryFilter */,
 				10E35CD021394E180096E8DA /* Core */,
 				103EE026214F73930073C8C5 /* FullPhoto */,
 				10E35CBE213940DC0096E8DA /* Map */,
