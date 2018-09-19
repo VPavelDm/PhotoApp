@@ -14,8 +14,6 @@ import MapKit
 
 class CloudRepository {
     
-    weak var delegate: CloudRepositoryDelegate?
-    
     private static let rootReference = "photos"
     
     private let storageRef: StorageReference
@@ -86,56 +84,6 @@ class CloudRepository {
                         }
                     }
                 }
-            }
-        }
-    }
-    
-    func sendPhotoToTheServer(photo: Photo) {
-        let photoDescriptionRef: DatabaseReference
-        if photo.key.isEmpty {
-            photoDescriptionRef = databaseRef.childByAutoId()
-        } else {
-            photoDescriptionRef = databaseRef.child(photo.key)
-        }
-        let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
-                                                   #keyPath(Photo.date): photo.date,
-                                                   #keyPath(Photo.description): photo.photoDescription,
-                                                   #keyPath(Photo.latitude): photo.latitude,
-                                                   #keyPath(Photo.longitude): photo.longitude]
-        if photo.key.isEmpty {
-            let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
-            guard let imageData = photo.image.pngData() else { return }
-            imageRef.putData(imageData, metadata: nil) { [weak self] (metadata, error) in
-                if let error = error {
-                    self?.delegate?.didErrorReceived(message: error.localizedDescription)
-                } else {
-                    photoDescriptionRef.setValue(photoDescriptionData)
-                }
-            }
-        } else {
-            photoDescriptionRef.setValue(photoDescriptionData)
-        }
-    }
-    
-    func subscribeToUpdatePhotos() {
-        databaseRef.removeAllObservers()
-        databaseRef.observe(DataEventType.childAdded) { [weak self] (snapshot) in
-            self?.responseHandling(snapshot)
-        }
-        databaseRef.observe(DataEventType.childChanged) { [weak self] (snapshot) in
-            self?.responseHandling(snapshot)
-        }
-    }
-    
-    private func responseHandling(_ snapshot: DataSnapshot) {
-        if var photoDescriptionDictionary = snapshot.value as? [String: Any] {
-            guard let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String else { return }
-            photoDescriptionDictionary["key"] = snapshot.key
-            let imageRef = self.storageRef.child(photoCategory).child(snapshot.key)
-            self.downloadImage(reference: imageRef) { [weak self] image in
-                photoDescriptionDictionary[#keyPath(Photo.image)] = image
-                guard let photo = self?.createPhotoByDescriptionMap(map: photoDescriptionDictionary) else { return }
-                self?.delegate?.didPhotoReceived(photo: photo)
             }
         }
     }

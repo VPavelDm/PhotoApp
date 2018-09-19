@@ -9,6 +9,6 @@
 import Foundation
 
 protocol TimelinePhotoProviderDelegate: NSObjectProtocol {
-    func photoReceived()
-    func error(message error: String)
+    func didReceivedPhotos()
+    func didReceivedError(message error: String)
 }

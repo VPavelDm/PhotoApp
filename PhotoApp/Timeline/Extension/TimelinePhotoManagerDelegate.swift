@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 extension TimelineViewController: TimelinePhotoProviderDelegate {
-    func photoReceived() {
+    func didReceivedPhotos() {
         tableView.reloadData()
     }
     
-    func error(message error: String) {
-        
+    func didReceivedError(message error: String) {
+        let alert = UIAlertController(message: error)
+        present(alert, animated: true)
     }
 }

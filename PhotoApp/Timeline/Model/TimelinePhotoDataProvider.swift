@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
+class TimelinePhotoDataProvider: NSObject {
     // Contain photos by month and year.
     private var photosMap: [Date: [Photo]] = [:]
     private var filteredPhotosMap: [Date: [Photo]]?
@@ -20,13 +20,26 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
     var categories: [Category] = Category.getAll() {
         didSet {
             photosMap = [:]
-            cloud.subscribeToUpdatePhotos()
+            cloud.getPhotos { [weak self] (photos, error) in
+                if let error = error {
+                    self?.delegate?.didReceivedError(message: error.localizedDescription)
+                } else {
+                    guard let `self` = self else { return }
+                    let dateFormatter = DateFormatter()
+                    for photo in photos! {
+                        if self.categories.contains(Category(rawValue: photo.category)!) {
+                            let date = dateFormatter.convertToDate(string: photo.date, from: .full)
+                            if self.photosMap[date] == nil {
+                                self.photosMap[date] = [photo]
+                            } else {
+                                self.photosMap[date]! += [photo]
+                            }
+                        }
+                    }
+                    self.delegate?.didReceivedPhotos()
+                }
+            }
         }
-    }
-    
-    override init() {
-        super.init()
-        cloud.delegate = self
     }
     
     func getMonthAndYearCount() -> Int {
@@ -73,26 +86,6 @@ class TimelinePhotoDataProvider: NSObject, CloudRepositoryDelegate {
             }
             filteredPhotosMap = resultMap
         }
-        delegate?.photoReceived()
-    }
-    
-    func didPhotoReceived(photo: Photo) {
-        let dateFormatter = DateFormatter()
-        if categories.contains(Category(rawValue: photo.category)!){
-            let date = dateFormatter.convertToDate(string: photo.date, from: .full)
-            if photosMap[date] == nil {
-                photosMap[date] = [photo]
-            } else {
-                guard let photos = photosMap[date] else { return }
-                if !photos.contains(photo) {
-                    photosMap[date]! += [photo]
-                }
-            }
-            delegate?.photoReceived()
-        }
-    }
-    
-    func didErrorReceived(message error: String) {
-        delegate?.error(message: error)
+        delegate?.didReceivedPhotos()
     }
 }
