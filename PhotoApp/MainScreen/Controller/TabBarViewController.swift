@@ -10,9 +10,9 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    private let map = NSLocalizedString("Map", comment: "Map label")
-    private let timeline = NSLocalizedString("Timeline", comment: "Timeline label")
-    private let more = NSLocalizedString("More", comment: "More label")
+    private let map = "Map".localized()
+    private let timeline = "Timeline".localized()
+    private let more = "More".localized()
 
     override func viewDidLoad() {
         super.viewDidLoad()

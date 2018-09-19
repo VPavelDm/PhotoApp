@@ -44,7 +44,7 @@
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
 		109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */; };
 		109306FC214A6B9B00E73996 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306FB214A6B9B00E73996 /* AlertExtension.swift */; };
-		10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */; };
+		10AFE78E213D316300CB652E /* PhotoModificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */; };
 		10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */; };
 		10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */; };
 		10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */; };
@@ -117,7 +117,7 @@
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePhotoProviderDelegate.swift; sourceTree = "<group>"; };
 		109306FB214A6B9B00E73996 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
-		10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoPopupViewController.storyboard; sourceTree = "<group>"; };
+		10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoModificationViewController.storyboard; sourceTree = "<group>"; };
 		10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationViewController.swift; sourceTree = "<group>"; };
 		10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
 		10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoPopupDelegateExtension.swift; sourceTree = "<group>"; };
@@ -426,7 +426,7 @@
 		10AFE78C213D314C00CB652E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				10AFE78D213D316300CB652E /* PhotoPopupViewController.storyboard */,
+				10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				10E35D36213972660096E8DA /* MapViewController.storyboard in Resources */,
 				10E35D2A213971680096E8DA /* Localizable.strings in Resources */,
 				10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */,
-				10AFE78E213D316300CB652E /* PhotoPopupViewController.storyboard in Resources */,
+				10AFE78E213D316300CB652E /* PhotoModificationViewController.storyboard in Resources */,
 				1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */,
 				10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */,
 				109064762137DE780033B02B /* Assets.xcassets in Resources */,

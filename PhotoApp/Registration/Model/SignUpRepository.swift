@@ -13,7 +13,7 @@ class SignUpRepository {
     
     func signUp(email login: String, password: String, confirmPassword: String, callback: @escaping (String?) -> Void) {
         if password != confirmPassword {
-            callback(NSLocalizedString("Passwords do not match", comment: "Error message"))
+            callback("Passwords do not match".localized())
             return
         }
         Auth.auth().createUser(withEmail: login, password: password) { (authResult, error) in

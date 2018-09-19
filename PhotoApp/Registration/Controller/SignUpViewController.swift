@@ -20,7 +20,7 @@ class SignUpViewController: ViewController {
     
     @IBAction func clickSignUp(_ sender: UIButton) {
         guard let login = loginTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text else {
-            let alert = UIAlertController(message: NSLocalizedString("Entry login, password or confirm password text field", comment: "Error message"))
+            let alert = UIAlertController(message: "Entry login, password or confirm password text field".localized())
             present(alert, animated: true)
             return
         }

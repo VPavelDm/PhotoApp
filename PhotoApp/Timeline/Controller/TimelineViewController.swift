@@ -66,11 +66,11 @@ class TimelineViewController: UITableViewController {
     private func createSearchBarWithCategoryButton() {
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = false
-        searchBar.placeholder = NSLocalizedString("Search", comment: "Searcch bar's Placeholder ")
+        searchBar.placeholder = "Search".localized()
         searchBar.delegate = self
         searchBar.enablesReturnKeyAutomatically = false
         
-        let categoryButton = UIBarButtonItem(title: NSLocalizedString("Category", comment: "Category button title"), style: .done, target: self, action: #selector(clickCategory))
+        let categoryButton = UIBarButtonItem(title: "Category".localized(), style: .done, target: self, action: #selector(clickCategory))
         self.navigationItem.rightBarButtonItem = categoryButton
         
         self.navigationItem.titleView = searchBar

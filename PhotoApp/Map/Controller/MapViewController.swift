@@ -24,7 +24,7 @@ class MapViewController: ViewController {
             case .denied:
                 self.presentLocationSettings()
             case .error:
-                let alert = UIAlertController(message: NSLocalizedString("Location servicies are not enabled", comment: ""))
+                let alert = UIAlertController(message: "Location servicies are not enabled".localized())
                 self.present(alert, animated: true)
             }
         }
@@ -75,7 +75,7 @@ class MapViewController: ViewController {
                 self?.mapView.userTrackingMode = .none
                 self?.presentLocationSettings()
             case .error:
-                let alert = UIAlertController(message: NSLocalizedString("Location servicies are not enabled", comment: ""))
+                let alert = UIAlertController(message: "Location servicies are not enabled".localized())
                 self?.present(alert, animated: true)
             }
         }
@@ -95,7 +95,7 @@ class MapViewController: ViewController {
             guard
                 let coordinates = lastKnownCoordinates,
                 let image = photoImage else {
-                    let alert = UIAlertController(message: NSLocalizedString("Application can't get user location coordinates, try to turn on location permission or add photo by long press on map", comment: "Error message"))
+                    let alert = UIAlertController(message: "Application can't get user location coordinates, try to turn on location permission or add photo by long press on map".localized())
                     present(alert, animated: true)
                     return
             }
@@ -111,11 +111,11 @@ class MapViewController: ViewController {
     }
     
     private func presentLocationSettings() {
-        let alertController = UIAlertController(title: "Error",
-                                                message: "Location access is denied",
+        let alertController = UIAlertController(title: "Error".localized(),
+                                                message: "Location access is denied".localized(),
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
-        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+        alertController.addAction(UIAlertAction(title: "Cancel".localized(), style: .default))
+        alertController.addAction(UIAlertAction(title: "Settings".localized(), style: .cancel) { _ in
             UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
         })
         

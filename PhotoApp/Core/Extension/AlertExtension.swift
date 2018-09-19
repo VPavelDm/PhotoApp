@@ -11,8 +11,8 @@ import UIKit
 
 extension UIAlertController {
     convenience init(message: String) {
-        self.init(title: NSLocalizedString("Error", comment: "Error label"), message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok label"), style: .default, handler: nil)
+        self.init(title: "Error".localized(), message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok".localized(), style: .default, handler: nil)
         addAction(action)
     }
 }

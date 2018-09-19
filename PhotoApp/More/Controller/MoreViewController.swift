@@ -16,7 +16,7 @@ class MoreViewController: ViewController {
     @IBAction func clickLogOut(_ sender: UIButton) {
         repository.signOut { [weak self] (errorMessage) in
             if let error = errorMessage {
-                self?.present(UIAlertController(title: NSLocalizedString("Sign out is failure", comment: "Error message"), message: error, preferredStyle: .alert), animated: true)
+                self?.present(UIAlertController(title: "Sign out is failure".localized(), message: error, preferredStyle: .alert), animated: true)
             } else {
                 let signInViewController = LoginViewController.create(asClass: LoginViewController.self)
                 let navigation = UINavigationController(rootViewController: signInViewController)
