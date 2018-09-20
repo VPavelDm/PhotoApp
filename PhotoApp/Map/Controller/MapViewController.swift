@@ -11,7 +11,11 @@ import MapKit
 
 class MapViewController: ViewController {
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView! {
+        didSet {
+            mapView.delegate = self
+        }
+    }
     @IBOutlet weak var modeButton: UIButton!
     
     @IBAction func clickCameraBtn(_ sender: UIButton) {
@@ -59,8 +63,6 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        photoDataProvider.delegate = self
         let defaults = UserDefaults.standard
         categories = Category.convert(categories: defaults.array(forKey: String(describing: Category.self)) as? [String]) ?? Category.getAll()
     }
@@ -70,6 +72,7 @@ class MapViewController: ViewController {
         locationManager.checkLocationService { [weak self] (status) in
             switch status {
             case .authorized:
+                self?.mapView.showsUserLocation = true
                 self?.mapView.userTrackingMode = .followWithHeading
             case .denied:
                 self?.mapView.userTrackingMode = .none
@@ -86,6 +89,7 @@ class MapViewController: ViewController {
     var categories: [Category]! {
         didSet {
             mapView.removeAnnotations(mapView.annotations)
+            photoDataProvider.delegate = self
             photoDataProvider.categories = categories
         }
     }
