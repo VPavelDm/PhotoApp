@@ -27,13 +27,7 @@ class PhotoRepository {
 
     func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
-        photo.key = photoDescriptionRef.key
-        let photoDescriptionData: [String: Any] = [#keyPath(Photo.key): photo.key,
-                                                   #keyPath(Photo.category): photo.category,
-                                                   #keyPath(Photo.date): photo.date,
-                                                   #keyPath(Photo.description): photo.photoDescription,
-                                                   #keyPath(Photo.latitude): photo.latitude,
-                                                   #keyPath(Photo.longitude): photo.longitude]
+        let photoDescriptionData = photo.toMap(key: photoDescriptionRef.key)
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
         DispatchQueue.global(qos: .userInitiated).async {
             guard let imageData = photo.image.pngData() else { return }
@@ -59,11 +53,7 @@ class PhotoRepository {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let `self` = self else { return }
             let photoDescriptionRef = self.databaseRef.child(photo.key)
-            let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
-                                                       #keyPath(Photo.date): photo.date,
-                                                       #keyPath(Photo.description): photo.photoDescription,
-                                                       #keyPath(Photo.latitude): photo.latitude,
-                                                       #keyPath(Photo.longitude): photo.longitude]
+            let photoDescriptionData: [String: Any] = photo.toMap(key: photo.key)
             photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
                 DispatchQueue.main.async {
                     if let error = error {

@@ -48,3 +48,16 @@ class Photo: NSObject, MKAnnotation {
         return photo.key == key && !key.isEmpty
     }
 }
+
+extension Photo {
+    func toMap(key: String) -> [String: Any] {
+        self.key = key
+        let photoDescriptionData: [String: Any] = [#keyPath(Photo.key): self.key,
+                                                   #keyPath(Photo.category): category,
+                                                   #keyPath(Photo.date): date,
+                                                   #keyPath(Photo.description): photoDescription,
+                                                   #keyPath(Photo.latitude): latitude,
+                                                   #keyPath(Photo.longitude): longitude]
+        return photoDescriptionData
+    }
+}
