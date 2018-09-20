@@ -43,7 +43,7 @@ class TimelinePhotoDataProvider: NSObject {
     }
     
     func getMonthAndYearCount() -> Int {
-        return filteredPhotosMap?.count ?? photosMap.keys.count
+        return filteredPhotosMap?.keys.count ?? photosMap.keys.count
     }
     
     func getMonthAndYear(index: Int) -> String {
