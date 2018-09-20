@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tn4-0v-tks">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tn4-0v-tks">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,19 +33,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-VZ-GFV">
-                                <rect key="frame" x="239" y="65" width="40" height="31"/>
+                                <rect key="frame" x="239" y="64.666666666666671" width="40" height="31"/>
                                 <state key="normal" image="ic_camera"/>
                                 <connections>
                                     <action selector="clickCameraBtn:" destination="tn4-0v-tks" eventType="touchUpInside" id="edk-YV-ZrI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-ZW-ju8">
-                                <rect key="frame" x="22" y="68" width="42" height="26"/>
+                                <rect key="frame" x="22" y="67" width="42" height="26"/>
                                 <state key="normal" image="ic_categories"/>
                                 <connections>
                                     <action selector="clickCategoryButton:" destination="tn4-0v-tks" eventType="touchUpInside" id="BQX-IA-Xv3"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wYi-MO-fzm">
+                                <rect key="frame" x="177.66666666666666" y="396" width="20" height="20"/>
+                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -55,6 +59,8 @@
                             <constraint firstItem="1ka-ZW-ju8" firstAttribute="centerY" secondItem="3Kc-VZ-GFV" secondAttribute="centerY" id="RsN-LA-W1G"/>
                             <constraint firstItem="ZWa-Jq-TzA" firstAttribute="leading" secondItem="JVK-En-viF" secondAttribute="leading" id="cdS-Rc-3Hu"/>
                             <constraint firstItem="moU-Zt-fZP" firstAttribute="leading" secondItem="3Kc-VZ-GFV" secondAttribute="trailing" constant="32" id="jnL-14-WbV"/>
+                            <constraint firstItem="wYi-MO-fzm" firstAttribute="centerY" secondItem="JVK-En-viF" secondAttribute="centerY" id="tF9-Rr-kSi"/>
+                            <constraint firstItem="wYi-MO-fzm" firstAttribute="centerX" secondItem="JVK-En-viF" secondAttribute="centerX" id="uXt-aQ-Z7p"/>
                             <constraint firstAttribute="trailing" secondItem="ZWa-Jq-TzA" secondAttribute="trailing" id="ueD-bw-4WC"/>
                             <constraint firstAttribute="bottom" secondItem="ZWa-Jq-TzA" secondAttribute="bottom" id="vAh-xh-qL5"/>
                             <constraint firstItem="ZWa-Jq-TzA" firstAttribute="top" secondItem="JVK-En-viF" secondAttribute="top" id="vYZ-Gw-1W6"/>
@@ -63,6 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="yix-6a-tkY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="wYi-MO-fzm" id="un8-Vd-ktx"/>
                         <outlet property="mapView" destination="ZWa-Jq-TzA" id="wAp-kK-xFH"/>
                         <outlet property="modeButton" destination="moU-Zt-fZP" id="mpl-7G-eJU"/>
                     </connections>

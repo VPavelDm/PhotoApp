@@ -63,6 +63,7 @@ class MapViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         let defaults = UserDefaults.standard
         categories = Category.convert(categories: defaults.array(forKey: String(describing: Category.self)) as? [String]) ?? Category.getAll()
     }
@@ -88,6 +89,7 @@ class MapViewController: ViewController {
     let photoDataProvider = MapPhotoDataProvider()
     var categories: [Category]! {
         didSet {
+            activityIndicator?.startAnimating()
             mapView.removeAnnotations(mapView.annotations)
             photoDataProvider.delegate = self
             photoDataProvider.categories = categories

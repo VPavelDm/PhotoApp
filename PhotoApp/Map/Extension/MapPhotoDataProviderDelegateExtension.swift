@@ -10,6 +10,7 @@ import Foundation
 
 extension MapViewController: MapPhotoDataProviderDelegate {
     func didReceivedPhotos(photos: [Photo]) {
+        activityIndicator.stopAnimating()
         mapView.removeAnnotations(mapView.annotations)
         for photo in photos {
             addAnnotation(photo: photo)
