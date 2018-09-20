@@ -14,6 +14,7 @@ class TimelineViewController: UITableViewController {
     
     var categories: [Category]! {
         didSet {
+            photoManager.delegate = self
             photoManager.categories = categories
         }
     }
@@ -21,8 +22,8 @@ class TimelineViewController: UITableViewController {
     @IBOutlet var photoTableView: UITableView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         createSearchBarWithCategoryButton()
-        photoManager.delegate = self
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

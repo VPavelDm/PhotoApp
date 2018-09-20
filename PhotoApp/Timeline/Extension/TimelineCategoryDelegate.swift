@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 extension TimelineViewController: CategoryDelegate {
+    
+    @objc func clickCategory(_ sender: UIButton) {
+        let categoryViewController = CategoryTableViewController.create(asClass: CategoryTableViewController.self)
+        categoryViewController.delegate = self
+        categoryViewController.selectedCategories = categories
+        let navigationViewController = UINavigationController(rootViewController: categoryViewController)
+        present(navigationViewController, animated: true)
+    }
+    
     func choosed(categories: [Category]) {
         self.categories = categories
     }

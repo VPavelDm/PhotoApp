@@ -26,7 +26,6 @@
 		104DB2882148EBDA0024DAC6 /* TimelineCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */; };
 		104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB28B21496B430024DAC6 /* TimelinePhotoDataProvider.swift */; };
 		104DB292214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB291214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift */; };
-		104DB2942149778B0024DAC6 /* TimelineCategoryButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2932149778B0024DAC6 /* TimelineCategoryButtonHandler.swift */; };
 		1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */; };
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
@@ -97,7 +96,6 @@
 		104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCategoryDelegate.swift; sourceTree = "<group>"; };
 		104DB28B21496B430024DAC6 /* TimelinePhotoDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePhotoDataProvider.swift; sourceTree = "<group>"; };
 		104DB291214972AF0024DAC6 /* CategoryTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewControllerExtension.swift; sourceTree = "<group>"; };
-		104DB2932149778B0024DAC6 /* TimelineCategoryButtonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCategoryButtonHandler.swift; sourceTree = "<group>"; };
 		1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */,
-				104DB2932149778B0024DAC6 /* TimelineCategoryButtonHandler.swift */,
 				10D72CDC214A791B0020B255 /* TimelinePhotoManagerDelegate.swift */,
 				1087319C214BE816009DF270 /* TimelineSearchDelegate.swift */,
 			);
@@ -861,7 +858,6 @@
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				1048DEF721425BEF001CED52 /* MapMKMapViewDelegate.swift in Sources */,
 				104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */,
-				104DB2942149778B0024DAC6 /* TimelineCategoryButtonHandler.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */,
 				10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */,
