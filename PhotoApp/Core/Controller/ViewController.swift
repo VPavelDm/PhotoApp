@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var lastConstraintValue: CGFloat?
     
     static func create<Controller>(storyboardId: String? = nil, asClass: Controller.Type) -> Controller {

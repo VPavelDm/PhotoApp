@@ -54,6 +54,7 @@ class PhotoModificationViewController: ViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func clickDoneButton(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         let dateFormatter = DateFormatter()
         photo.category = (categoryButton.titleLabel?.text)!
         photo.date = dateFormatter.convertToString(string: dateLabel.text!, to: .full, from: PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER)
@@ -65,6 +66,7 @@ class PhotoModificationViewController: ViewController {
                 } else {
                     self?.delegate?.photoAdded(photo: photo!)
                 }
+                self?.activityIndicator.stopAnimating()
                 self?.dismiss(animated: true, completion: nil)
             }
         } else {
@@ -74,6 +76,7 @@ class PhotoModificationViewController: ViewController {
                 } else {
                     self?.delegate?.photoUpdated(photo: photo!)
                 }
+                self?.activityIndicator.stopAnimating()
                 self?.dismiss(animated: true, completion: nil)
             }
         }

@@ -35,34 +35,43 @@ class PhotoRepository {
                                                    #keyPath(Photo.latitude): photo.latitude,
                                                    #keyPath(Photo.longitude): photo.longitude]
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
-        guard let imageData = photo.image.pngData() else { return }
-        imageRef.putData(imageData, metadata: nil) { (metadata, error) in
-            if let error = error {
-                callback(nil, error)
-            } else {
-                photoDescriptionRef.setValue(photoDescriptionData, withCompletionBlock: { (error, dbRef) in
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let imageData = photo.image.pngData() else { return }
+            DispatchQueue.main.async {
+                imageRef.putData(imageData, metadata: nil) { (metadata, error) in
                     if let error = error {
                         callback(nil, error)
                     } else {
-                        callback(photo, error)
+                        photoDescriptionRef.setValue(photoDescriptionData, withCompletionBlock: { (error, dbRef) in
+                            if let error = error {
+                                callback(nil, error)
+                            } else {
+                                callback(photo, error)
+                            }
+                        })
                     }
-                })
+                }
             }
         }
     }
     
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
-        let photoDescriptionRef = databaseRef.child(photo.key)
-        let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
-                                                   #keyPath(Photo.date): photo.date,
-                                                   #keyPath(Photo.description): photo.photoDescription,
-                                                   #keyPath(Photo.latitude): photo.latitude,
-                                                   #keyPath(Photo.longitude): photo.longitude]
-        photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
-            if let error = error {
-                callback(nil, error)
-            } else {
-                callback(photo, error)
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let `self` = self else { return }
+            let photoDescriptionRef = self.databaseRef.child(photo.key)
+            let photoDescriptionData: [String: Any] = [#keyPath(Photo.category): photo.category,
+                                                       #keyPath(Photo.date): photo.date,
+                                                       #keyPath(Photo.description): photo.photoDescription,
+                                                       #keyPath(Photo.latitude): photo.latitude,
+                                                       #keyPath(Photo.longitude): photo.longitude]
+            photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        callback(nil, error)
+                    } else {
+                        callback(photo, error)
+                    }
+                }
             }
         }
     }
@@ -71,6 +80,7 @@ class PhotoRepository {
         var photos: [Photo] = []
         databaseRef.observeSingleEvent(of: .value) { (snapshot) in
             for photoSnapshot in snapshot.children {
+                //MARK: refactor
                 if let photoSnapshot = photoSnapshot as? DataSnapshot, var photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
                     guard let photoCategory = photoDescriptionDictionary[#keyPath(Photo.category)] as? String else { return }
                     photoDescriptionDictionary[#keyPath(DataSnapshot.key)] = photoSnapshot.key
