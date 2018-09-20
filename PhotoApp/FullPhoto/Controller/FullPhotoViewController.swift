@@ -31,7 +31,8 @@ class FullPhotoViewController: ViewController {
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
-            dateLabel.text = dateFormatter.convertToString(string: photo.date, to: FullPhotoViewController.DATE_FORMATTER, from: .full)
+            dateFormatter.dateFormat = "MMMM dd, yyyy at hh:mm a"
+            dateLabel.text = dateFormatter.string(from: photo.date)
         }
     }
     @IBOutlet var signleTapRecognizer: UITapGestureRecognizer! {

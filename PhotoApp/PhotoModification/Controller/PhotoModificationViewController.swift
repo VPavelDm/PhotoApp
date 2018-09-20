@@ -19,8 +19,8 @@ class PhotoModificationViewController: ViewController {
     @IBOutlet weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
-            let date = photo.date.isEmpty ? Date() : dateFormatter.convertToDate(string: photo.date, from: .full)
-            dateLabel.text = dateFormatter.convertToString(date: date, to: PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER)
+            dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
+            dateLabel.text = dateFormatter.string(from: photo.date ?? Date())
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
@@ -56,8 +56,9 @@ class PhotoModificationViewController: ViewController {
     @IBAction func clickDoneButton(_ sender: UIButton) {
         activityIndicator.startAnimating()
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
         photo.category = (categoryButton.titleLabel?.text)!
-        photo.date = dateFormatter.convertToString(string: dateLabel.text!, to: .full, from: PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER)
+        photo.date = dateFormatter.date(from: dateLabel.text!)
         photo.photoDescription = descriptionLabel.text
         if photo.key.isEmpty {
             dataProvider.create(photo: photo) { [weak self] (photo, error) in

@@ -16,10 +16,10 @@ extension Dictionary where Key == String, Value == Any {
         let photoLatitude = self[#keyPath(Photo.latitude)]! as! Double
         let photoLongitude = self[#keyPath(Photo.longitude)]! as! Double
         let photoCategory = self[#keyPath(Photo.category)] as! String
-        let photoDate = self[#keyPath(Photo.date)] as! String
+        let photoDate = TimeInterval(truncating: self[#keyPath(Photo.date)] as! NSNumber)
         let photoDescription = self[#keyPath(Photo.description)] as! String
         let key = self[#keyPath(DataSnapshot.key)] as! String
         let coordinate = CLLocationCoordinate2D(latitude: photoLatitude, longitude: photoLongitude)
-        return Photo(key: key, description: photoDescription, category: photoCategory, date: photoDate, image: image, coordinate: coordinate)
+        return Photo(key: key, description: photoDescription, category: photoCategory, date: Date(timeIntervalSince1970: photoDate), image: image, coordinate: coordinate)
     }
 }

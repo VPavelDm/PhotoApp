@@ -15,7 +15,7 @@ class Photo: NSObject, MKAnnotation {
     @objc var key: String = ""
     @objc var photoDescription: String = ""
     @objc var category: String = ""
-    @objc var date: String = ""
+    @objc var date: Date!
     @objc private(set) var latitude: Double = 0
     @objc private(set) var longitude: Double = 0
     @objc var image: UIImage
@@ -31,7 +31,7 @@ class Photo: NSObject, MKAnnotation {
         super.init()
     }
     
-    init(key: String, description: String, category: String, date: String, image: UIImage, coordinate: CLLocationCoordinate2D) {
+    init(key: String, description: String, category: String, date: Date, image: UIImage, coordinate: CLLocationCoordinate2D) {
         self.key = key
         self.photoDescription = description
         self.category = category
@@ -56,7 +56,7 @@ extension Photo {
         let photoDescriptionData: [String: Any] = [#keyPath(User.uid): Auth.auth().currentUser!.uid,
                                                    #keyPath(Photo.key): self.key,
                                                    #keyPath(Photo.category): category,
-                                                   #keyPath(Photo.date): date,
+                                                   #keyPath(Photo.date): date.timeIntervalSince1970 as NSNumber,
                                                    #keyPath(Photo.description): photoDescription,
                                                    #keyPath(Photo.latitude): latitude,
                                                    #keyPath(Photo.longitude): longitude]

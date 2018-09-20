@@ -9,9 +9,9 @@
 import Foundation
 
 class TimelinePhotoDataProvider: NSObject {
-    // Contain photos by month and year.
-    private var photosMap: [Date: [Photo]] = [:]
-    private var filteredPhotosMap: [Date: [Photo]]?
+    // Contain photos by month and year. String - date representation
+    private var photosMap: [String: [Photo]] = [:]
+    private var filteredPhotosMap: [String: [Photo]]?
     private let cloud = PhotoRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
@@ -26,9 +26,10 @@ class TimelinePhotoDataProvider: NSObject {
                 } else {
                     guard let `self` = self else { return }
                     let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
                     for photo in photos! {
                         if self.categories.contains(Category(rawValue: photo.category)!) {
-                            let date = dateFormatter.convertToDate(string: photo.date, from: .full)
+                            let date = dateFormatter.string(from: photo.date)
                             if self.photosMap[date] == nil {
                                 self.photosMap[date] = [photo]
                             } else {
@@ -48,23 +49,21 @@ class TimelinePhotoDataProvider: NSObject {
     
     func getMonthAndYear(index: Int) -> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
         var dates: [Date] = []
         for photo in filteredPhotosMap ?? photosMap {
-            dates += [photo.key]
+            let date = dateFormatter.date(from: photo.key)!
+            dates += [date]
         }
         let dateToReturn = dates.sorted()[index]
-        return dateFormatter.convertToString(date: dateToReturn, to: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
+        return dateFormatter.string(from: dateToReturn)
     }
     
     func getPhotoCount(by monthAndYear: String) -> Int {
-        let dateFormatter = DateFormatter()
-        let monthAndYear = dateFormatter.convertToDate(string: monthAndYear, from: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
         return filteredPhotosMap?[monthAndYear]!.count ?? photosMap[monthAndYear]!.count
     }
     
     func getPhoto(monthAndYear: String, index: Int) -> Photo {
-        let dateFormatter = DateFormatter()
-        let monthAndYear = dateFormatter.convertToDate(string: monthAndYear, from: TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT)
         return filteredPhotosMap?[monthAndYear]![index] ?? photosMap[monthAndYear]![index]
     }
     
@@ -72,7 +71,7 @@ class TimelinePhotoDataProvider: NSObject {
         if hashtag.isEmpty {
             filteredPhotosMap = nil
         } else {
-            var resultMap: [Date: [Photo]] = [:]
+            var resultMap: [String: [Photo]] = [:]
             for (date, photos) in photosMap {
                 var resultPhotos: [Photo] = []
                 for photo in photos {

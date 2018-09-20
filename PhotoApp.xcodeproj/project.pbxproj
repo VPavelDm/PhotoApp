@@ -54,7 +54,6 @@
 		10C50DD4215281B5001C8918 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DD3215281B5001C8918 /* LocationService.swift */; };
 		10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDC2152936F001C8918 /* LocationStatus.swift */; };
 		10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDE2152A256001C8918 /* StringExtension.swift */; };
-		10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */; };
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
 		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
 		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
@@ -127,7 +126,6 @@
 		10C50DD3215281B5001C8918 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		10C50DDC2152936F001C8918 /* LocationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatus.swift; sourceTree = "<group>"; };
 		10C50DDE2152A256001C8918 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
@@ -476,7 +474,6 @@
 		10CFF29E213FBA9800E338DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF29F213FBAB300E338DD /* DateFormatterExtension.swift */,
 				10CFF2A3213FC46700E338DD /* CALayerExtension.swift */,
 				10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */,
 				1061A22821481F8A006942D7 /* PhotoModificationPickerExtension.swift */,
@@ -874,7 +871,6 @@
 				1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */,
 				1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */,
 				1061A2132147FD3A006942D7 /* UINavigationController.swift in Sources */,
-				10CFF2A0213FBAB300E338DD /* DateFormatterExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */,
 				10D72CDD214A791B0020B255 /* TimelinePhotoManagerDelegate.swift in Sources */,
 				10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */,
