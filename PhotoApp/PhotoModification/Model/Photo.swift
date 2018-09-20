@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import FirebaseAuth
 
 class Photo: NSObject, MKAnnotation {
     @objc var key: String = ""
@@ -52,7 +53,8 @@ class Photo: NSObject, MKAnnotation {
 extension Photo {
     func toMap(key: String) -> [String: Any] {
         self.key = key
-        let photoDescriptionData: [String: Any] = [#keyPath(Photo.key): self.key,
+        let photoDescriptionData: [String: Any] = [#keyPath(User.uid): Auth.auth().currentUser!.uid,
+                                                   #keyPath(Photo.key): self.key,
                                                    #keyPath(Photo.category): category,
                                                    #keyPath(Photo.date): date,
                                                    #keyPath(Photo.description): photoDescription,

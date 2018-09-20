@@ -20,9 +20,8 @@ class PhotoRepository {
     private let databaseRef: DatabaseReference
     
     init() {
-        let user = Auth.auth().currentUser!
-        storageRef = Storage.storage().reference().child(PhotoRepository.rootReference).child(user.uid)
-        databaseRef = Database.database().reference().child(PhotoRepository.rootReference).child(user.uid)
+        storageRef = Storage.storage().reference().child(PhotoRepository.rootReference)
+        databaseRef = Database.database().reference().child(PhotoRepository.rootReference)
     }
 
     func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
@@ -68,7 +67,7 @@ class PhotoRepository {
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
         var photos: [Photo] = []
-        databaseRef.observeSingleEvent(of: .value) { [weak self] (snapshot) in
+        databaseRef.queryOrdered(byChild: #keyPath(User.uid)).queryEqual(toValue: Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { [weak self] (snapshot) in
             if snapshot.childrenCount == 0 {
                 callback(photos, nil)
             }
