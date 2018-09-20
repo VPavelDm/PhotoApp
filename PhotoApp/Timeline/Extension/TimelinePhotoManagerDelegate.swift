@@ -12,6 +12,7 @@ import UIKit
 extension TimelineViewController: TimelinePhotoProviderDelegate {
     func didReceivedPhotos() {
         tableView.reloadData()
+        searchBar.text = ""
         activityIndicator.stopAnimating()
     }
     

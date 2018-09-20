@@ -10,7 +10,11 @@ import Foundation
 
 class TimelinePhotoDataProvider: NSObject {
     // Contain photos by month and year. String - date representation
-    private var photosMap: [String: [Photo]] = [:]
+    private var photosMap: [String: [Photo]] = [:] {
+        didSet {
+            filteredPhotosMap = nil
+        }
+    }
     private var filteredPhotosMap: [String: [Photo]]?
     private let cloud = PhotoRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"

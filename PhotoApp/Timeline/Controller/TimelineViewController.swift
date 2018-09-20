@@ -11,6 +11,7 @@ import UIKit
 class TimelineViewController: UITableViewController {
     
     let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
+    var searchBar: UISearchBar!
     var activityIndicator: UIActivityIndicatorView!
     
     var categories: [Category]! {
@@ -75,7 +76,7 @@ class TimelineViewController: UITableViewController {
     }
     
     private func createSearchBarWithCategoryButton() {
-        let searchBar = UISearchBar()
+        searchBar = UISearchBar()
         searchBar.showsCancelButton = false
         searchBar.placeholder = "Search".localized()
         searchBar.delegate = self
