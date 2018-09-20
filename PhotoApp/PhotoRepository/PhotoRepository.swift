@@ -79,6 +79,9 @@ class PhotoRepository {
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
         var photos: [Photo] = []
         databaseRef.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.childrenCount == 0 {
+                callback(photos, nil)                
+            }
             for photoSnapshot in snapshot.children {
                 //MARK: refactor
                 if let photoSnapshot = photoSnapshot as? DataSnapshot, var photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {

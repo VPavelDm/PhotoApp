@@ -12,6 +12,7 @@ import UIKit
 extension TimelineViewController: TimelinePhotoProviderDelegate {
     func didReceivedPhotos() {
         tableView.reloadData()
+        activityIndicator.stopAnimating()
     }
     
     func didReceivedError(message error: String) {

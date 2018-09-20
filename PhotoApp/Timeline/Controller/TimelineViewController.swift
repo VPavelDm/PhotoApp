@@ -11,9 +11,11 @@ import UIKit
 class TimelineViewController: UITableViewController {
     
     let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
+    var activityIndicator: UIActivityIndicatorView!
     
     var categories: [Category]! {
         didSet {
+            activityIndicator?.startAnimating()
             photoManager.delegate = self
             photoManager.categories = categories
         }
@@ -24,6 +26,7 @@ class TimelineViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBarWithCategoryButton()
+        createActivityIndicator()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,6 +65,13 @@ class TimelineViewController: UITableViewController {
         let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
         viewController.photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
         present(viewController, animated: true)
+    }
+    
+    private func createActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.color = UIColor.red
+        activityIndicator.startAnimating()
+        tableView.backgroundView = activityIndicator
     }
     
     private func createSearchBarWithCategoryButton() {
