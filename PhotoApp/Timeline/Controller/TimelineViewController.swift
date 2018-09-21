@@ -19,6 +19,7 @@ class TimelineViewController: UITableViewController {
             activityIndicator?.startAnimating()
             photoManager.delegate = self
             photoManager.categories = categories
+            tableView.reloadData()
         }
     }
     
