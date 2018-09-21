@@ -29,7 +29,8 @@ class PhotoRepository {
         let photoDescriptionData = photo.toMap(key: photoDescriptionRef.key)
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let imageData = photo.image.pngData() else { return }
+            guard let imageData = photo.image.compress(), let fullImageData = photo.image.pngData() else { return }
+            print("comressed: \(imageData.count),\nnot compressed: \(fullImageData.count)")
             DispatchQueue.main.async {
                 imageRef.putData(imageData, metadata: nil) { (metadata, error) in
                     if let error = error {
@@ -94,7 +95,7 @@ class PhotoRepository {
     }
     
     private func downloadImage(reference imageRef: StorageReference, callback: @escaping (UIImage) -> ()) {
-        imageRef.downloadTestURL(completion: { (url, error) in
+        imageRef.downloadURL(completion: { (url, error) in
             guard let url = url else { return }
             DispatchQueue.global(qos: .userInitiated).async {
                 if let imageData = try? Data(contentsOf: url) {
