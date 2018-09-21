@@ -12,7 +12,7 @@ class FullPhotoViewController: ViewController {
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
-            scrollView.minimumZoomScale = 0.5
+            scrollView.minimumZoomScale = 0.1
             scrollView.maximumZoomScale = 2.0
             scrollView.delegate = self
             
