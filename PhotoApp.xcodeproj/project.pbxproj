@@ -257,6 +257,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		104A60DB215A837600E4CAA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10CFF2BA213FF40100E338DD /* PhotoRepository */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		104DB2812148DE860024DAC6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,7 +383,6 @@
 			children = (
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
-				10CFF2BA213FF40100E338DD /* PhotoRepository */,
 				1061A1FD2147AC27006942D7 /* CategoryFilter */,
 				10E35CD021394E180096E8DA /* Core */,
 				103EE026214F73930073C8C5 /* FullPhoto */,
@@ -387,7 +394,7 @@
 				10E35CC821394C1B0096E8DA /* More */,
 				10E35CCE21394DD60096E8DA /* MainScreen */,
 				10E35CB821393D110096E8DA /* Registration */,
-				10E35CB2213936960096E8DA /* Authorization */,
+				10E35CB2213936960096E8DA /* Logging */,
 			);
 			path = PhotoApp;
 			sourceTree = "<group>";
@@ -465,13 +472,13 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		10C50DD22152819C001C8918 /* Location */ = {
+		10C50DD22152819C001C8918 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				10C50DD3215281B5001C8918 /* LocationService.swift */,
 				10C50DDC2152936F001C8918 /* LocationStatus.swift */,
 			);
-			path = Location;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		10CFF29E213FBA9800E338DD /* Extension */ = {
@@ -526,14 +533,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		10E35CB2213936960096E8DA /* Authorization */ = {
+		10E35CB2213936960096E8DA /* Logging */ = {
 			isa = PBXGroup;
 			children = (
 				10E35CB52139375F0096E8DA /* Model */,
 				10E35CB42139372A0096E8DA /* View */,
 				10E35CB32139370C0096E8DA /* Controller */,
 			);
-			path = Authorization;
+			path = Logging;
 			sourceTree = "<group>";
 		};
 		10E35CB32139370C0096E8DA /* Controller */ = {
@@ -711,7 +718,8 @@
 		10E35CD021394E180096E8DA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				10C50DD22152819C001C8918 /* Location */,
+				104A60DB215A837600E4CAA8 /* Model */,
+				10C50DD22152819C001C8918 /* Service */,
 				1031816321463D2700434511 /* Extension */,
 				10CFF2B7213FF37E00E338DD /* Controller */,
 			);
