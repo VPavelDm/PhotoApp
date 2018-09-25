@@ -458,18 +458,10 @@
 		10C50DC9215243DA001C8918 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10C50DCC215249AA001C8918 /* Delegate */,
+				10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */,
 				10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		10C50DCC215249AA001C8918 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 		10C50DD22152819C001C8918 /* Service */ = {
