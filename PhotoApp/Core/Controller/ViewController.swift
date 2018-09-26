@@ -25,4 +25,11 @@ class ViewController: UIViewController {
         return viewController!
     }
     
+    func getViewToScroll() -> UIView? {
+        return nil
+    }
+    func getBottomConstraint() -> NSLayoutConstraint? {
+        return nil
+    }
+    
 }

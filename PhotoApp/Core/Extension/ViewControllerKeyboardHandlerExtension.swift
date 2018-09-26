@@ -28,34 +28,26 @@ extension ViewController {
         let viewHeight = view.frame.size.height
         let viewBottomLeftY = view.convert(CGPoint(x: 0, y: viewHeight), to: nil).y
         let distanceToOffset = viewBottomLeftY - keyboardSize.origin.y
-        if distanceToOffset < 0 {
-            return
-        }
-        lastConstraintValue = constraint.constant
-        constraint.constant -= distanceToOffset
-        UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
-            self?.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc func keyboardWillHide(_ notification: Notification) {
-        guard
-            let keyboardAnimationTime = getKeyboardAnimationTime(notification),
-            let constraint = getBottomConstraint()
-            else { return }
-        if let lastConstraintValue = lastConstraintValue {
-            constraint.constant = lastConstraintValue
+        if distanceToOffset >= 0 {
+            lastConstraintValue = constraint.constant
+            constraint.constant -= distanceToOffset
             UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
                 self?.view.layoutIfNeeded()
             }
         }
     }
     
-    @objc func getViewToScroll() -> UIView? {
-        return nil
-    }
-    @objc func getBottomConstraint() -> NSLayoutConstraint? {
-        return nil
+    @objc func keyboardWillHide(_ notification: Notification) {
+        guard
+            let keyboardAnimationTime = getKeyboardAnimationTime(notification),
+            let constraint = getBottomConstraint(),
+            let lastConstraintValue = lastConstraintValue
+            else { return }        
+        constraint.constant = lastConstraintValue
+        UIView.animate(withDuration: keyboardAnimationTime) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+        
     }
     
     private func getKeyboardsize(_ notification: Notification) -> CGRect? {
