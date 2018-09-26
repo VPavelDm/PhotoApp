@@ -28,23 +28,42 @@ class PhotoRepository {
         let photoDescriptionRef = databaseRef.childByAutoId()
         photo.key = photoDescriptionRef.key
         let photoDescriptionData = photo.toMap()
-        let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let imageData = photo.image.compress(), let fullImageData = photo.image.pngData() else { return }
-            print("comressed: \(imageData.count),\nnot compressed: \(fullImageData.count)")
-            DispatchQueue.main.async {
-                imageRef.putData(imageData, metadata: nil) { (metadata, error) in
-                    if let error = error {
-                        callback(nil, error)
-                    } else {
-                        photoDescriptionRef.setValue(photoDescriptionData, withCompletionBlock: { (error, dbRef) in
-                            if let error = error {
-                                callback(nil, error)
-                            } else {
-                                callback(photo, error)
-                            }
-                        })
+        compressImage(image: photo.image) { [weak self] imageData in
+            self?.sendPhotoImage(description: photoDescriptionData, data: imageData) { [weak self] error in
+                if let error = error {
+                    callback(nil, error)
+                } else {
+                    self?.sendPhotoDescription(description: photoDescriptionData) { error in
+                        if let error = error {
+                            callback(nil, error)
+                        } else {
+                            callback(photo, error)
+                        }
                     }
+                }
+            }
+        }
+    }
+    
+    private func sendPhotoImage(description: [String: Any], data: Data, callback: @escaping (Error?) -> ()) {
+        let imageRef = storageRef.child(description[#keyPath(Photo.category)] as! String).child(description[#keyPath(Photo.key)] as! String)
+        imageRef.putData(data, metadata: nil) { metadata, error in
+            callback(error)
+        }
+    }
+    
+    private func sendPhotoDescription(description: [String: Any], callback: @escaping (Error?) -> ()) {
+        let photoDescriptionRef = databaseRef.child(description[#keyPath(Photo.key)] as! String)
+        photoDescriptionRef.setValue(description, withCompletionBlock: { (error, dbRef) in
+            callback(error)
+        })
+    }
+    
+    private func compressImage(image: UIImage, callback: @escaping (Data) -> ()) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let imageData = image.compress() {
+                DispatchQueue.main.async {
+                    callback(imageData)
                 }
             }
         }
@@ -69,20 +88,23 @@ class PhotoRepository {
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
         var photos: [Photo] = []
-        databaseRef.queryOrdered(byChild: #keyPath(User.uid)).queryEqual(toValue: Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { [weak self] (snapshot) in
-            if snapshot.childrenCount == 0 {
-                callback(photos, nil)
-            }
-            for photoSnapshot in snapshot.children {
-                if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
-                    self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
-                        photos += [photo]
-                        if photos.count == snapshot.childrenCount {
-                            callback(photos, nil)
-                        }
-                    })
+        databaseRef
+            .queryOrdered(byChild: #keyPath(User.uid))
+            .queryEqual(toValue: Auth.auth().currentUser!.uid)
+            .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                if snapshot.childrenCount == 0 {
+                    callback(photos, nil)
                 }
-            }
+                for photoSnapshot in snapshot.children {
+                    if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
+                        self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
+                            photos += [photo]
+                            if photos.count == snapshot.childrenCount {
+                                callback(photos, nil)
+                            }
+                        })
+                    }
+                }
         }
     }
     
@@ -96,25 +118,23 @@ class PhotoRepository {
     }
     
     private func downloadImage(reference imageRef: StorageReference, callback: @escaping (UIImage) -> ()) {
-        imageRef.downloadURL(completion: { (url, error) in
-            guard let url = url else { return }
-            DispatchQueue.global(qos: .userInitiated).async {
-                if let imageData = try? Data(contentsOf: url) {
-                    guard let image = UIImage(data: imageData) else { return }
-                    DispatchQueue.main.async {
+        imageRef.downloadURL(completion: { [weak self] (url, error) in
+            if let url = url {
+                self?.getData(by: url) { data in
+                    if let image = UIImage(data: data) {
                         callback(image)
                     }
                 }
             }
         })
     }
-}
-
-extension StorageReference {
-    func downloadTestURL(completion: @escaping (_ url: URL?, _ error: Error?) -> ()) {
+    
+    private func getData(by url: URL, callback: @escaping (Data) -> ()) {
         DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                completion(URL(string: "https://sobaki.guru/wp-content/uploads/2018/01/siba_inu_29_19121837.jpg"), nil)
+            if let imageData = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    callback(imageData)
+                }
             }
         }
     }
