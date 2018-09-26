@@ -52,11 +52,11 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     private func getMarkerPin(by category: Category) -> UIImage {
         let imageName: String
         switch category {
-        case .NATURE:
+        case .nature:
             imageName = "marker_nature"
-        case .FRIENDS:
+        case .friends:
             imageName = "marker_friends"
-        case .DEFAULT:
+        case .default_category:
             imageName = "marker_default"
         }
         return UIImage(named: imageName)!

@@ -9,23 +9,23 @@
 import Foundation
 
 enum Category: String {
-    case NATURE
-    case FRIENDS
-    case DEFAULT
+    case nature = "NATURE"
+    case friends = "FRIENDS"
+    case default_category = "DEFAULT"
     
     static func category(index: Int) -> Category {
         switch index {
         case 0:
-            return .NATURE
+            return .nature
         case 1:
-            return .FRIENDS
+            return .friends
         default:
-            return .DEFAULT
+            return .default_category
         }
     }
     
     static func getAll() -> [Category] {
-        return [.NATURE, .FRIENDS, .DEFAULT]
+        return [.nature, .friends, .default_category]
     }
     
     static func convert(categories: [String]?) -> [Category]? {

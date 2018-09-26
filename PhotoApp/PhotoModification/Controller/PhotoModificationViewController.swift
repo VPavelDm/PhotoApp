@@ -26,7 +26,7 @@ class PhotoModificationViewController: ViewController {
     }
     @IBOutlet weak var categoryButton: UIButton! {
         didSet {
-            categoryButton.setTitle(photo.category.isEmpty ? Category.DEFAULT.rawValue : photo.category, for: .normal)
+            categoryButton.setTitle(photo.category.isEmpty ? Category.default_category.rawValue : photo.category, for: .normal)
             categoryButton.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }

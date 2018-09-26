@@ -11,20 +11,20 @@ import UIKit
 class CategoryTableViewController: UITableViewController {
     
     weak var delegate: CategoryDelegate?
-    var selectedCategories: [Category] = [.NATURE, .FRIENDS, .DEFAULT]
+    var selectedCategories: [Category] = [.nature, .friends, .default_category]
 
     @IBOutlet var buttons: [CategoryButton]! {
         didSet {
             for button in buttons {
                 button.clickedButton()
             }
-            if selectedCategories.contains(.NATURE) {
+            if selectedCategories.contains(.nature) {
                 buttons[0].clickedButton()
             }
-            if selectedCategories.contains(.FRIENDS) {
+            if selectedCategories.contains(.friends) {
                 buttons[1].clickedButton()
             }
-            if selectedCategories.contains(.DEFAULT) {
+            if selectedCategories.contains(.default_category) {
                 buttons[2].clickedButton()
             }
         }
