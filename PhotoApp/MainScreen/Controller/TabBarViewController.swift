@@ -17,14 +17,14 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let mapViewController = MapViewController.create(asClass: MapViewController.self)
+        let mapViewController = MapViewController.createController(asClass: MapViewController.self)
         mapViewController.tabBarItem = UITabBarItem(title: map, image: UIImage(named: "ic_map"), tag: 1)
         
-        let timelineViewController = TimelineViewController.create(asClass: TimelineViewController.self)
+        let timelineViewController = TimelineViewController.createController(asClass: TimelineViewController.self)
         timelineViewController.tabBarItem = UITabBarItem(title: timeline, image: UIImage(named: "ic_timeline"), tag: 2)
         let navigationViewController = UINavigationController(rootViewController: timelineViewController)
         
-        let moreViewController = MoreViewController.create(asClass: MoreViewController.self)
+        let moreViewController = MoreViewController.createController(asClass: MoreViewController.self)
         moreViewController.tabBarItem = UITabBarItem(title: more, image: UIImage(named: "ic_more"), tag: 3)
         
         viewControllers = [mapViewController, navigationViewController, moreViewController]

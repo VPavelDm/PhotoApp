@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let viewController = TabBarViewController()
             window?.rootViewController = viewController
         } else {
-            let viewController = LoginViewController.create(asClass: LoginViewController.self)
+            let viewController = LoginViewController.createController(asClass: LoginViewController.self)
             let navigation = UINavigationController(rootViewController: viewController)
             window?.rootViewController = navigation
         }

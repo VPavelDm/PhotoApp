@@ -18,7 +18,7 @@ class MoreViewController: ViewController {
             if let error = errorMessage {
                 self?.present(UIAlertController(title: "Sign out is failure".localized(), message: error, preferredStyle: .alert), animated: true)
             } else {
-                let signInViewController = LoginViewController.create(asClass: LoginViewController.self)
+                let signInViewController = LoginViewController.createController(asClass: LoginViewController.self)
                 let navigation = UINavigationController(rootViewController: signInViewController)
                 navigation.setRootViewController()
             }

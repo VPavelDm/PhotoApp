@@ -14,7 +14,6 @@
 		101C827A214BA17F00F344D5 /* PhotoPopupDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101C8279214BA17F00F344D5 /* PhotoPopupDataProvider.swift */; };
 		1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */; };
 		1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816621463D8200434511 /* UIViewControllerExtension.swift */; };
-		1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816821463DA100434511 /* UITableViewControllerExtension.swift */; };
 		103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */; };
 		103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */; };
 		103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */; };
@@ -28,7 +27,6 @@
 		1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */; };
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
-		1061A2132147FD3A006942D7 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2122147FD3A006942D7 /* UINavigationController.swift */; };
 		1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A21521480312006942D7 /* CategoryDelegate.swift */; };
 		1061A218214803F6006942D7 /* MapCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A217214803F6006942D7 /* MapCategoryDelegate.swift */; };
 		1061A2212148122E006942D7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2202148122E006942D7 /* PickerViewController.swift */; };
@@ -42,6 +40,7 @@
 		109064852137E1000033B02B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109064842137E1000033B02B /* LoginViewController.swift */; };
 		109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */; };
 		109306FC214A6B9B00E73996 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306FB214A6B9B00E73996 /* AlertExtension.swift */; };
+		109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B4870215B6D3C00B5B11E /* UIViewController.swift */; };
 		10AFE78E213D316300CB652E /* PhotoModificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */; };
 		10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */; };
 		10B3CCCB2154D34F00EA77AA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */; };
@@ -83,7 +82,6 @@
 		101C8279214BA17F00F344D5 /* PhotoPopupDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDataProvider.swift; sourceTree = "<group>"; };
 		1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerKeyboardHandlerExtension.swift; sourceTree = "<group>"; };
 		1031816621463D8200434511 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		1031816821463DA100434511 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
 		103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullPhotoViewController.storyboard; sourceTree = "<group>"; };
 		103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoZoomExtension.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		1061A2042147AC5B006942D7 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
-		1061A2122147FD3A006942D7 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		1061A21521480312006942D7 /* CategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDelegate.swift; sourceTree = "<group>"; };
 		1061A217214803F6006942D7 /* MapCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCategoryDelegate.swift; sourceTree = "<group>"; };
 		1061A2202148122E006942D7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +110,7 @@
 		109064842137E1000033B02B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		109306F3214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePhotoProviderDelegate.swift; sourceTree = "<group>"; };
 		109306FB214A6B9B00E73996 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
+		109B4870215B6D3C00B5B11E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoModificationViewController.storyboard; sourceTree = "<group>"; };
 		10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationViewController.swift; sourceTree = "<group>"; };
 		10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -196,11 +194,10 @@
 			children = (
 				1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */,
 				1031816621463D8200434511 /* UIViewControllerExtension.swift */,
-				1031816821463DA100434511 /* UITableViewControllerExtension.swift */,
-				1061A2122147FD3A006942D7 /* UINavigationController.swift */,
 				109306FB214A6B9B00E73996 /* AlertExtension.swift */,
 				10C50DDE2152A256001C8918 /* StringExtension.swift */,
 				10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */,
+				109B4870215B6D3C00B5B11E /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -856,8 +853,6 @@
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
 				1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */,
-				1031816921463DA100434511 /* UITableViewControllerExtension.swift in Sources */,
-				1061A2132147FD3A006942D7 /* UINavigationController.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */,
 				10D72CDD214A791B0020B255 /* TimelinePhotoManagerDelegate.swift in Sources */,
 				10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */,
@@ -889,6 +884,7 @@
 				104DB2882148EBDA0024DAC6 /* TimelineCategoryDelegate.swift in Sources */,
 				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
 				10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */,
+				109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */,
 				10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */,

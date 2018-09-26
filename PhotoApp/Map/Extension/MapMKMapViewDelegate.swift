@@ -32,7 +32,7 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     }
     
     func clickedMarker(photo: Photo) {
-        let viewController = PhotoModificationViewController.create(asClass: PhotoModificationViewController.self)
+        let viewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
         viewController.delegate = self
         viewController.photo = photo
         for annotation in mapView.selectedAnnotations {

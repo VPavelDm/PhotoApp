@@ -54,7 +54,7 @@ class MapViewController: ViewController {
     }
     
     @IBAction func clickCategoryButton(_ sender: UIButton) {
-        let categoryViewController = CategoryTableViewController.create(storyboardId: "categoryTableViewController", asClass: CategoryTableViewController.self)
+        let categoryViewController = CategoryTableViewController.createController(asClass: CategoryTableViewController.self)
         categoryViewController.delegate = self
         categoryViewController.selectedCategories = categories
         let navigationViewController = UINavigationController(rootViewController: categoryViewController)
@@ -105,7 +105,7 @@ class MapViewController: ViewController {
                     present(alert, animated: true)
                     return
             }
-            let photoPopupViewController = PhotoModificationViewController.create(asClass: PhotoModificationViewController.self)
+            let photoPopupViewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
             photoPopupViewController.delegate = self
             let photo = Photo(coordinate: coordinates, image: image)
             photoPopupViewController.photo = photo

@@ -45,7 +45,7 @@ class PhotoModificationViewController: ViewController {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     @IBAction func clickChooseCategory(_ sender: Any) {
-        let pickerViewController = PickerViewController.create(asClass: PickerViewController.self)
+        let pickerViewController = PickerViewController.createController(asClass: PickerViewController.self)
         pickerViewController.delegate = self
         present(pickerViewController, animated: true)
     }
