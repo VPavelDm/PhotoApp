@@ -14,13 +14,12 @@ class CategoryButton: UIButton {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        layer.borderWidth = 3
-        let radius = frame.size.height / 2
-        layer.cornerRadius = radius
-        layer.borderColor = layer.backgroundColor
-        backgroundButtonColor = layer.backgroundColor
-        tintColor = UIColor.clear
+        initPresentation()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initPresentation()
     }
     
     func clickedButton() {
@@ -30,6 +29,15 @@ class CategoryButton: UIButton {
         } else {
             layer.backgroundColor = backgroundButtonColor
         }
+    }
+    
+    private func initPresentation() {
+        layer.borderWidth = 3
+        let radius = frame.size.height / 2
+        layer.cornerRadius = radius
+        layer.borderColor = layer.backgroundColor
+        backgroundButtonColor = layer.backgroundColor
+        tintColor = UIColor.clear
     }
 
 }
