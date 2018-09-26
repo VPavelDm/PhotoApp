@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PickerDelegate: NSObjectProtocol {
+protocol PickerDelegate: class {
     func chooseCategory(category: String)
 }

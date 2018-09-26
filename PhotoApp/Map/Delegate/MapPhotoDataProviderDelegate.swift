@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MapPhotoDataProviderDelegate: NSObjectProtocol {
+protocol MapPhotoDataProviderDelegate: class {
     func didReceivedPhotos(photos: [Photo])
     func didReceivedError(error: Error)
 }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CategoryDelegate: NSObjectProtocol {
+protocol CategoryDelegate: class {
     func choosed(categories: [Category])
 }

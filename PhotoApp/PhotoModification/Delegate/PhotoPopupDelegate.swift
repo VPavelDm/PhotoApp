@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PhotoPopupDelegate: NSObjectProtocol {
+protocol PhotoPopupDelegate: class {
     func photoAdded(photo: Photo)
     func photoUpdated(photo: Photo)
     func didReceivedError(error: Error)
