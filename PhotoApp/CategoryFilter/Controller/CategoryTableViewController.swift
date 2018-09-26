@@ -18,6 +18,7 @@ class CategoryTableViewController: UITableViewController {
             for button in buttons {
                 button.clickedButton()
             }
+            assert(buttons.count == 3, "There should be three buttons' category, if you want to add one yet, add if statement")
             if selectedCategories.contains(.nature) {
                 buttons[0].clickedButton()
             }
