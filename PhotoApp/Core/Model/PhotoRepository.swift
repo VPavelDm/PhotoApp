@@ -46,7 +46,8 @@ class PhotoRepository {
     }
     
     private func sendPhotoImage(description: [String: Any], data: Data, callback: @escaping (Error?) -> ()) {
-        let imageRef = storageRef.child(description[#keyPath(Photo.category)] as! String).child(description[#keyPath(Photo.key)] as! String)
+        let user = Auth.auth().currentUser!
+        let imageRef = storageRef.child(user.uid).child(description[#keyPath(Photo.key)] as! String)
         imageRef.putData(data, metadata: nil) { metadata, error in
             callback(error)
         }
@@ -109,8 +110,8 @@ class PhotoRepository {
     }
     
     private func createPhoto(key: String, descriptionDictionary: [String: Any], callback: @escaping (Photo) -> ()) {
-        let photoCategory = descriptionDictionary[#keyPath(Photo.category)] as! String
-        let imageRef = self.storageRef.child(photoCategory).child(key)
+        let user = Auth.auth().currentUser
+        let imageRef = self.storageRef.child(user!.uid).child(key)
         self.downloadImage(reference: imageRef) { image in
             let photo = Photo(description: descriptionDictionary, image: image)
             callback(photo)
