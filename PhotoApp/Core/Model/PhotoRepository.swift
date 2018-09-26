@@ -26,7 +26,8 @@ class PhotoRepository {
 
     func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
-        let photoDescriptionData = photo.toMap(key: photoDescriptionRef.key)
+        photo.key = photoDescriptionRef.key
+        let photoDescriptionData = photo.toMap()
         let imageRef = storageRef.child(photo.category).child(photoDescriptionRef.key)
         DispatchQueue.global(qos: .userInitiated).async {
             guard let imageData = photo.image.compress(), let fullImageData = photo.image.pngData() else { return }
@@ -53,7 +54,7 @@ class PhotoRepository {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             guard let `self` = self else { return }
             let photoDescriptionRef = self.databaseRef.child(photo.key)
-            let photoDescriptionData: [String: Any] = photo.toMap(key: photo.key)
+            let photoDescriptionData: [String: Any] = photo.toMap()
             photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
                 DispatchQueue.main.async {
                     if let error = error {
@@ -89,7 +90,7 @@ class PhotoRepository {
         let photoCategory = descriptionDictionary[#keyPath(Photo.category)] as! String
         let imageRef = self.storageRef.child(photoCategory).child(key)
         self.downloadImage(reference: imageRef) { image in
-            let photo = descriptionDictionary.createPhoto(image: image)
+            let photo = Photo(description: descriptionDictionary, image: image)
             callback(photo)
         }
     }

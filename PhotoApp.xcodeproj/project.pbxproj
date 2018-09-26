@@ -37,7 +37,6 @@
 		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
 		1061A22921481F8A006942D7 /* PhotoModificationPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22821481F8A006942D7 /* PhotoModificationPickerExtension.swift */; };
 		1087319D214BE816009DF270 /* TimelineSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1087319C214BE816009DF270 /* TimelineSearchDelegate.swift */; };
-		108FBD662153B207009FF1BE /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FBD652153B207009FF1BE /* DictionaryExtension.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
@@ -108,7 +107,6 @@
 		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
 		1061A22821481F8A006942D7 /* PhotoModificationPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationPickerExtension.swift; sourceTree = "<group>"; };
 		1087319C214BE816009DF270 /* TimelineSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineSearchDelegate.swift; sourceTree = "<group>"; };
-		108FBD652153B207009FF1BE /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109064752137DE780033B02B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				1061A2122147FD3A006942D7 /* UINavigationController.swift */,
 				109306FB214A6B9B00E73996 /* AlertExtension.swift */,
 				10C50DDE2152A256001C8918 /* StringExtension.swift */,
-				108FBD652153B207009FF1BE /* DictionaryExtension.swift */,
 				10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */,
 			);
 			path = Extension;
@@ -260,7 +257,8 @@
 		104A60DB215A837600E4CAA8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF2BA213FF40100E338DD /* PhotoRepository */,
+				10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */,
+				10CFF2AE213FE71B00E338DD /* Photo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -486,7 +484,6 @@
 		10CFF2AD213FE70300E338DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10CFF2AE213FE71B00E338DD /* Photo.swift */,
 				101C8279214BA17F00F344D5 /* PhotoPopupDataProvider.swift */,
 			);
 			path = Model;
@@ -498,14 +495,6 @@
 				10CFF2B8213FF38C00E338DD /* ViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		10CFF2BA213FF40100E338DD /* PhotoRepository */ = {
-			isa = PBXGroup;
-			children = (
-				10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */,
-			);
-			path = PhotoRepository;
 			sourceTree = "<group>";
 		};
 		10D72CE1214A83CE0020B255 /* Marker */ = {
@@ -861,7 +850,6 @@
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				1048DEF721425BEF001CED52 /* MapMKMapViewDelegate.swift in Sources */,
 				104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */,
-				108FBD662153B207009FF1BE /* DictionaryExtension.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */,
 				10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */,
