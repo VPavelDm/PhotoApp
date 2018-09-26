@@ -54,4 +54,11 @@ class CategoryTableViewController: UITableViewController {
         initNavigationBar()
     }
     
+    private func initNavigationBar() {
+        navigationItem.title = "Categories".localized()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(clickDoneButton))
+        let textAttributes = [NSAttributedString.Key.foregroundColor: view.tintColor!]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
 }
