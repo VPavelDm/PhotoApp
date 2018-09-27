@@ -14,6 +14,7 @@ class MapViewController: ViewController {
     @IBOutlet private weak var mapView: MKMapView! {
         didSet {
             mapView.delegate = self
+            mapView.showsCompass = false
         }
     }
     @IBOutlet private weak var modeButton: UIButton!
