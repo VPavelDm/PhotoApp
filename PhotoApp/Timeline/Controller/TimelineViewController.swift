@@ -63,9 +63,9 @@ class TimelineViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = FullPhotoViewController.createController(asClass: FullPhotoViewController.self)
         let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
-        viewController.photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
+        let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
+        let viewController = FullPhotoViewController.createController(photo: photo)
         present(viewController, animated: true)
     }
     

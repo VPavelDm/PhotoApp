@@ -10,7 +10,7 @@ import UIKit
 
 class FullPhotoViewController: ViewController {
     
-    @IBOutlet weak var scrollView: UIScrollView! {
+    @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
             scrollView.minimumZoomScale = 0.1
             scrollView.maximumZoomScale = 2.0
@@ -18,42 +18,42 @@ class FullPhotoViewController: ViewController {
             
         }
     }
-    @IBOutlet weak var photoImageView: UIImageView! {
+    @IBOutlet private weak var photoImageView: UIImageView! {
         didSet {
             photoImageView.image = photo.image
         }
     }
-    @IBOutlet weak var descriptionLabel: UILabel! {
+    @IBOutlet private weak var descriptionLabel: UILabel! {
         didSet {
             descriptionLabel.text = photo.photoDescription
         }
     }
-    @IBOutlet weak var dateLabel: UILabel! {
+    @IBOutlet private weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMMM dd, yyyy at hh:mm a"
             dateLabel.text = dateFormatter.string(from: photo.date)
         }
     }
-    @IBOutlet var signleTapRecognizer: UITapGestureRecognizer! {
+    @IBOutlet private var signleTapRecognizer: UITapGestureRecognizer! {
         didSet {
             signleTapRecognizer.require(toFail: doubleTapRecognizer)
         }
     }
-    @IBOutlet var doubleTapRecognizer: UITapGestureRecognizer!
-    @IBOutlet weak var header: UIView!
-    @IBOutlet weak var footer: UIView!
+    @IBOutlet private var doubleTapRecognizer: UITapGestureRecognizer!
+    @IBOutlet private weak var header: UIView!
+    @IBOutlet private weak var footer: UIView!
     
-    @IBAction func doubleTabOnPhoto(_ sender: Any) {
+    @IBAction private func doubleTabOnPhoto(_ sender: Any) {
         let newZoomScale = scrollView.zoomScale == scrollView.minimumZoomScale  ? scrollView.maximumZoomScale : scrollView.minimumZoomScale
         scrollView.setZoomScale(newZoomScale, animated: true)
     }
     
-    @IBAction func clickBackButton(_ sender: Any) {
+    @IBAction private func clickBackButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func singleTapOnView(_ sender: Any) {
+    @IBAction private func singleTapOnView(_ sender: Any) {
         header.isHidden = !header.isHidden
         footer.isHidden = !footer.isHidden
     }
@@ -62,8 +62,20 @@ class FullPhotoViewController: ViewController {
         return true
     }
     
-    var photo: Photo!
+    private var photo: Photo!
     
     private static let DATE_FORMATTER = "MMMM dd, yyyy at hh:mm a"
+    
+    static func createController(photo: Photo) -> FullPhotoViewController {
+        let viewController = FullPhotoViewController.createController(asClass: FullPhotoViewController.self)
+        viewController.photo = photo
+        return viewController
+    }
 
+}
+
+extension FullPhotoViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return photoImageView
+    }
 }

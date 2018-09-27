@@ -16,7 +16,6 @@
 		1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1031816621463D8200434511 /* UIViewControllerExtension.swift */; };
 		103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */; };
 		103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */; };
-		103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */; };
 		1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1048DF0421427EC6001CED52 /* GoogleService-Info.plist */; };
 		104DB2832148DEE30024DAC6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2822148DEE30024DAC6 /* Category.swift */; };
 		104DB2882148EBDA0024DAC6 /* TimelineCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */; };
@@ -78,7 +77,6 @@
 		1031816621463D8200434511 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullPhotoViewController.storyboard; sourceTree = "<group>"; };
 		103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
-		103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoZoomExtension.swift; sourceTree = "<group>"; };
 		1048DF0421427EC6001CED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		104DB2822148DEE30024DAC6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCategoryDelegate.swift; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 		103EE026214F73930073C8C5 /* FullPhoto */ = {
 			isa = PBXGroup;
 			children = (
-				103EE02D214F86AD0073C8C5 /* Extension */,
 				103EE02A214F7A950073C8C5 /* Controller */,
 				103EE027214F7A300073C8C5 /* View */,
 			);
@@ -214,14 +211,6 @@
 				103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		103EE02D214F86AD0073C8C5 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		104A60DB215A837600E4CAA8 /* Model */ = {
@@ -817,7 +806,6 @@
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
-				103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */,
 				101C827A214BA17F00F344D5 /* PhotoPopupDataProvider.swift in Sources */,
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
 				1061A2212148122E006942D7 /* PickerViewController.swift in Sources */,
