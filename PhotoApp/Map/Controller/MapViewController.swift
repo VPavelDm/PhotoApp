@@ -105,10 +105,8 @@ class MapViewController: ViewController {
                     present(alert, animated: true)
                     return
             }
-            let photoPopupViewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
-            photoPopupViewController.delegate = self
             let photo = Photo(coordinate: coordinates, image: image)
-            photoPopupViewController.photo = photo
+            let photoPopupViewController = PhotoModificationViewController.createController(photo: photo, delegate: self)
             
             present(photoPopupViewController, animated: true, completion: nil)
             lastKnownCoordinates = nil
@@ -174,9 +172,7 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     }
     
     func clickedMarker(photo: Photo) {
-        let viewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
-        viewController.delegate = self
-        viewController.photo = photo
+        let viewController = PhotoModificationViewController.createController(photo: photo, delegate: self)
         for annotation in mapView.selectedAnnotations {
             mapView.deselectAnnotation(annotation, animated: true)
         }

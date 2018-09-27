@@ -26,7 +26,6 @@
 		1061A2212148122E006942D7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2202148122E006942D7 /* PickerViewController.swift */; };
 		1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A22321481245006942D7 /* PickerViewController.storyboard */; };
 		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
-		1061A22921481F8A006942D7 /* PhotoModificationPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22821481F8A006942D7 /* PhotoModificationPickerExtension.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 		10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDC2152936F001C8918 /* LocationStatus.swift */; };
 		10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDE2152A256001C8918 /* StringExtension.swift */; };
 		10CFF2A4213FC46700E338DD /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A3213FC46700E338DD /* CALayerExtension.swift */; };
-		10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */; };
 		10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2AE213FE71B00E338DD /* Photo.swift */; };
 		10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2B8213FF38C00E338DD /* ViewController.swift */; };
 		10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */; };
@@ -84,7 +82,6 @@
 		1061A2202148122E006942D7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		1061A22321481245006942D7 /* PickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickerViewController.storyboard; sourceTree = "<group>"; };
 		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
-		1061A22821481F8A006942D7 /* PhotoModificationPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationPickerExtension.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109064752137DE780033B02B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,7 +101,6 @@
 		10C50DDC2152936F001C8918 /* LocationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatus.swift; sourceTree = "<group>"; };
 		10C50DDE2152A256001C8918 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		10CFF2A3213FC46700E338DD /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
-		10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatterExtension.swift; sourceTree = "<group>"; };
 		10CFF2AE213FE71B00E338DD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10CFF2B8213FF38C00E338DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10CFF2BB213FF41B00E338DD /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
@@ -162,6 +158,7 @@
 		1031816321463D2700434511 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				10CFF2A3213FC46700E338DD /* CALayerExtension.swift */,
 				1031816421463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift */,
 				1031816621463D8200434511 /* UIViewControllerExtension.swift */,
 				109306FB214A6B9B00E73996 /* AlertExtension.swift */,
@@ -364,7 +361,6 @@
 			children = (
 				10C50DC421523F89001C8918 /* Delegate */,
 				10CFF2AD213FE70300E338DD /* Model */,
-				10CFF29E213FBA9800E338DD /* Extension */,
 				10AFE78F213D43B900CB652E /* Controller */,
 				10AFE78C213D314C00CB652E /* View */,
 			);
@@ -410,16 +406,6 @@
 				10C50DDC2152936F001C8918 /* LocationStatus.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		10CFF29E213FBA9800E338DD /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				10CFF2A3213FC46700E338DD /* CALayerExtension.swift */,
-				10CFF2A5213FD3C200E338DD /* NumberFormatterExtension.swift */,
-				1061A22821481F8A006942D7 /* PhotoModificationPickerExtension.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		10CFF2AD213FE70300E338DD /* Model */ = {
@@ -815,11 +801,9 @@
 				10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */,
 				109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
-				1061A22921481F8A006942D7 /* PhotoModificationPickerExtension.swift in Sources */,
 				10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */,
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
-				10CFF2A6213FD3C200E338DD /* NumberFormatterExtension.swift in Sources */,
 				10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */,
 				109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */,
 				10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */,

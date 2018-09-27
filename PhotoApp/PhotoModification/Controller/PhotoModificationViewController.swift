@@ -10,13 +10,13 @@ import UIKit
 
 class PhotoModificationViewController: ViewController {
     
-    var photo: Photo!
+    private var photo: Photo!
     
     weak var delegate: PhotoPopupDelegate?
     
     private let dataProvider = PhotoPopupDataProvider()
     
-    @IBOutlet weak var dateLabel: UILabel! {
+    @IBOutlet private weak var dateLabel: UILabel! {
         didSet {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
@@ -24,36 +24,36 @@ class PhotoModificationViewController: ViewController {
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
-    @IBOutlet weak var categoryButton: UIButton! {
+    @IBOutlet private weak var categoryButton: UIButton! {
         didSet {
             categoryButton.setTitle(photo.category.isEmpty ? Category.default_category.rawValue : photo.category, for: .normal)
             categoryButton.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView! {
+    @IBOutlet private weak var imageView: UIImageView! {
         didSet {
             imageView.image = photo.image
         }
     }
-    @IBOutlet weak var descriptionLabel: UITextView! {
+    @IBOutlet private weak var descriptionLabel: UITextView! {
         didSet {
             descriptionLabel.text = photo.photoDescription
         }
     }
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     
-    @IBAction func clickChooseCategory(_ sender: Any) {
+    @IBAction private func clickChooseCategory(_ sender: Any) {
         let pickerViewController = PickerViewController.createController(asClass: PickerViewController.self)
         pickerViewController.delegate = self
         present(pickerViewController, animated: true)
     }
-    @IBAction func clickCancelButton(_ sender: UIButton) {
+    @IBAction private func clickCancelButton(_ sender: UIButton) {
         descriptionLabel.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func clickDoneButton(_ sender: UIButton) {
+    @IBAction private func clickDoneButton(_ sender: UIButton) {
         activityIndicator.startAnimating()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
@@ -95,6 +95,13 @@ class PhotoModificationViewController: ViewController {
     
     private static let PHOTO_POPUP_DATE_FORMATTER = "MMMM dd, yyyy - hh:mm a"
     
+    static func createController(photo: Photo, delegate: PhotoPopupDelegate) -> PhotoModificationViewController {
+        let viewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
+        viewController.photo = photo
+        viewController.delegate = delegate
+        return viewController
+    }
+    
 }
 
 extension PhotoModificationViewController: UITextViewDelegate {
@@ -103,5 +110,11 @@ extension PhotoModificationViewController: UITextViewDelegate {
             descriptionLabel.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension PhotoModificationViewController: PickerDelegate {
+    func chooseCategory(category: String) {
+        categoryButton.setTitle(category, for: .normal)
     }
 }
