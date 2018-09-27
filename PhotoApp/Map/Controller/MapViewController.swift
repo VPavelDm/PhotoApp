@@ -163,9 +163,7 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.category)
         annotationView.image = getMarkerPin(by: Category(rawValue: annotation.category)!)
-        let photoDetail = PhotoDetailView()
-        photoDetail.photo = annotation
-        photoDetail.delegate = self
+        let photoDetail = PhotoDetailView(photo: annotation, delegate: self)        
         annotationView.detailCalloutAccessoryView = photoDetail
         annotationView.canShowCallout = true
         return annotationView

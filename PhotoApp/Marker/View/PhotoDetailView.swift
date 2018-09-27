@@ -10,21 +10,17 @@ import UIKit
 
 class PhotoDetailView: UIView {
     
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var arrowImage: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var photoImage: UIImageView!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var arrowImage: UIImageView!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var photoImage: UIImageView!
     
-    var photo: Photo! {
-        didSet {
-            initFields()
-        }
-    }
+    private var photo: Photo!
     
     weak var delegate: PhotoDetailDelegate?
     
-    @IBAction func clickMarker(_ sender: Any) {
+    @IBAction private func clickMarker(_ sender: Any) {
         delegate?.clickedMarker(photo: photo)
     }
     
@@ -36,6 +32,13 @@ class PhotoDetailView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    init(photo: Photo, delegate: PhotoDetailDelegate) {
+        self.init()
+        self.photo = photo
+        self.delegate = delegate
+        initFields()
     }
     
     private func initFields() {
