@@ -8,14 +8,14 @@
 
 import Foundation
 
-class TimelinePhotoDataProvider: NSObject {
-    // Contain photos by month and year. String - date representation
-    private var photosMap: [String: [Photo]] = [:] {
+class TimelinePhotoDataProvider {
+    // Contain photos by month and year.
+    private var photosMap: [Date: [Photo]] = [:] {
         didSet {
             filteredPhotosMap = nil
         }
     }
-    private var filteredPhotosMap: [String: [Photo]]?
+    private var filteredPhotosMap: [Date: [Photo]]?
     private let repository = PhotoRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
@@ -28,23 +28,23 @@ class TimelinePhotoDataProvider: NSObject {
                 if let error = error {
                     self?.delegate?.didReceivedError(message: error.localizedDescription)
                 } else {
-                    guard let `self` = self else { return }
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
-                    for photo in photos! {
-                        if self.categories.contains(Category(rawValue: photo.category)!) {
-                            let date = dateFormatter.string(from: photo.date)
-                            if self.photosMap[date] == nil {
-                                self.photosMap[date] = [photo]
-                            } else {
-                                self.photosMap[date]! += [photo]
-                            }
-                        }
-                    }
-                    self.delegate?.didReceivedPhotos()
+                    self?.initPhotos(photos: photos ?? [Photo]())
                 }
             }
         }
+    }
+    
+    private func initPhotos(photos: [Photo]) {
+        for photo in photos {
+            if categories.contains(Category(rawValue: photo.category)!) {
+                if photosMap[photo.date] == nil {
+                    photosMap[photo.date] = [photo]
+                } else {
+                    photosMap[photo.date]! += [photo]
+                }
+            }
+        }
+        delegate?.didReceivedPhotos()
     }
     
     func getMonthAndYearCount() -> Int {
@@ -52,30 +52,34 @@ class TimelinePhotoDataProvider: NSObject {
     }
     
     func getMonthAndYear(index: Int) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
         var dates: [Date] = []
         for photo in filteredPhotosMap ?? photosMap {
-            let date = dateFormatter.date(from: photo.key)!
-            dates += [date]
+            dates += [photo.key]
         }
-        let dateToReturn = dates.sorted()[index]
-        return dateFormatter.string(from: dateToReturn)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
+        return dateFormatter.string(from: dates.sorted()[index])
     }
     
     func getPhotoCount(by monthAndYear: String) -> Int {
-        return filteredPhotosMap?[monthAndYear]!.count ?? photosMap[monthAndYear]!.count
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
+        let date = dateFormatter.date(from: monthAndYear)!
+        return filteredPhotosMap?[date]!.count ?? photosMap[date]!.count
     }
     
     func getPhoto(monthAndYear: String, index: Int) -> Photo {
-        return filteredPhotosMap?[monthAndYear]![index] ?? photosMap[monthAndYear]![index]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
+        let date = dateFormatter.date(from: monthAndYear)!
+        return filteredPhotosMap?[date]![index] ?? photosMap[date]![index]
     }
     
     func filterByHashtag(_ hashtag: String) {
         if hashtag.isEmpty {
             filteredPhotosMap = nil
         } else {
-            var resultMap: [String: [Photo]] = [:]
+            var resultMap: [Date: [Photo]] = [:]
             for (date, photos) in photosMap {
                 var resultPhotos: [Photo] = []
                 for photo in photos {

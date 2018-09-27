@@ -58,7 +58,7 @@ class PhotoModificationViewController: ViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
         photo.category = (categoryButton.titleLabel?.text)!
-        photo.date = dateFormatter.date(from: dateLabel.text!)
+        photo.date = Calendar.current.startOfDay(for: dateFormatter.date(from: dateLabel.text!) ?? Date())
         photo.photoDescription = descriptionLabel.text
         if photo.key.isEmpty {
             dataProvider.create(photo: photo) { [weak self] (photo, error) in
