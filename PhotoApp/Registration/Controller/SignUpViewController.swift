@@ -11,14 +11,14 @@ import FirebaseAuth
 
 class SignUpViewController: ViewController {
     
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet private weak var loginTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var signUpButton: UIButton!
     
     private let repository = SignUpRepository()
     
-    @IBAction func clickSignUp(_ sender: UIButton) {
+    @IBAction private func clickSignUp(_ sender: UIButton) {
         guard let login = loginTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text else {
             let alert = UIAlertController(message: "Entry login, password or confirm password text field".localized())
             present(alert, animated: true)

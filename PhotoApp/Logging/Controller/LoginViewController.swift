@@ -11,13 +11,13 @@ import FirebaseAuth
 
 class LoginViewController: ViewController {
     
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet private weak var loginTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var loginButton: UIButton!
     
     private let repository = LoginRepository()
     
-    @IBAction func clickLogin(_ sender: UIButton) {
+    @IBAction private func clickLogin(_ sender: UIButton) {
         repository.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] error in
             if let error = error {
                 let alert = UIAlertController(message: error)
@@ -29,7 +29,7 @@ class LoginViewController: ViewController {
         }
     }
     
-    @IBAction func clickSignUp(_ sender: UIButton) {
+    @IBAction private func clickSignUp(_ sender: UIButton) {
         let signUpViewController = SignUpViewController.createController(asClass: SignUpViewController.self)
         navigationController?.pushViewController(signUpViewController, animated: true)
     }

@@ -13,7 +13,7 @@ class MoreViewController: ViewController {
         
     private let repository = MoreRepository()
     
-    @IBAction func clickLogOut(_ sender: UIButton) {
+    @IBAction private func clickLogOut(_ sender: UIButton) {
         repository.signOut { [weak self] (errorMessage) in
             if let error = errorMessage {
                 self?.present(UIAlertController(title: "Sign out is failure".localized(), message: error, preferredStyle: .alert), animated: true)
