@@ -11,14 +11,14 @@ import MapKit
 
 class MapViewController: ViewController {
     
-    @IBOutlet weak var mapView: MKMapView! {
+    @IBOutlet private weak var mapView: MKMapView! {
         didSet {
             mapView.delegate = self
         }
     }
-    @IBOutlet weak var modeButton: UIButton!
+    @IBOutlet private weak var modeButton: UIButton!
     
-    @IBAction func clickCameraBtn(_ sender: UIButton) {
+    @IBAction private func clickCameraBtn(_ sender: UIButton) {
         locationManager.checkLocationService { [weak self] (status) in
             guard let `self` = self else { return }
             switch status {
@@ -34,7 +34,7 @@ class MapViewController: ViewController {
         }
     }
     
-    @IBAction func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
+    @IBAction private func longClickOnMap(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .began:
             let touchLocation = sender.location(in: mapView)
@@ -45,7 +45,7 @@ class MapViewController: ViewController {
         }
     }
     
-    @IBAction func clickChangeModeButton(_ sender: UIButton) {
+    @IBAction private func clickChangeModeButton(_ sender: UIButton) {
         if mapView.userTrackingMode == .none {
             mapView.userTrackingMode = .followWithHeading
         } else {
@@ -53,7 +53,7 @@ class MapViewController: ViewController {
         }
     }
     
-    @IBAction func clickCategoryButton(_ sender: UIButton) {
+    @IBAction private func clickCategoryButton(_ sender: UIButton) {
         let categoryViewController = CategoryTableViewController.createController(asClass: CategoryTableViewController.self)
         categoryViewController.delegate = self
         categoryViewController.selectedCategories = categories
@@ -85,8 +85,8 @@ class MapViewController: ViewController {
         }
     }
     
-    let locationManager = LocationService()
-    let photoDataProvider = MapPhotoDataProvider()
+    private let locationManager = LocationService()
+    private let photoDataProvider = MapPhotoDataProvider()
     var categories: [Category]! {
         didSet {
             activityIndicator?.startAnimating()
@@ -95,8 +95,8 @@ class MapViewController: ViewController {
             photoDataProvider.categories = categories
         }
     }
-    var lastKnownCoordinates: CLLocationCoordinate2D!
-    var photoImage: UIImage? {
+    private var lastKnownCoordinates: CLLocationCoordinate2D!
+    private var photoImage: UIImage? {
         didSet {
             guard
                 let coordinates = lastKnownCoordinates,
@@ -128,4 +128,159 @@ class MapViewController: ViewController {
         present(alertController, animated: true)
     }
     
+    private func startActionSheetsToTakeAPicture() {
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let takePictureAction = UIAlertAction(title: "Take a Picture".localized(), style: .default) { [weak self] action in
+            self?.showImagePicker(source: .camera)
+        }
+        let chooseFromLibraryAction = UIAlertAction(title: "Choose From Library".localized(), style: .default) { [weak self] action in
+            self?.showImagePicker(source: .photoLibrary)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel) { [weak self] (action) in
+            self?.lastKnownCoordinates = nil
+        }
+        
+        alert.addAction(takePictureAction)
+        alert.addAction(chooseFromLibraryAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+}
+
+extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
+    
+    private func addAnnotation(photo: Photo) {
+        if categories.contains(Category(rawValue: photo.category)!){
+            mapView.addAnnotation(photo)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Photo else {
+            return nil
+        }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotation.category)
+        annotationView.image = getMarkerPin(by: Category(rawValue: annotation.category)!)
+        let photoDetail = PhotoDetailView()
+        photoDetail.photo = annotation
+        photoDetail.delegate = self
+        annotationView.detailCalloutAccessoryView = photoDetail
+        annotationView.canShowCallout = true
+        return annotationView
+    }
+    
+    func clickedMarker(photo: Photo) {
+        let viewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
+        viewController.delegate = self
+        viewController.photo = photo
+        for annotation in mapView.selectedAnnotations {
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
+        present(viewController, animated: true)
+    }
+    
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        if mode == .none {
+            modeButton.setImage(UIImage(named: "ic_center_on_me_disable"), for: .normal)
+        } else {
+            modeButton.setImage(UIImage(named: "ic_center_on_me_selected"), for: .normal)
+        }
+    }
+    
+    private func getMarkerPin(by category: Category) -> UIImage {
+        let imageName: String
+        switch category {
+        case .nature:
+            imageName = "marker_nature"
+        case .friends:
+            imageName = "marker_friends"
+        case .default_category:
+            imageName = "marker_default"
+        }
+        return UIImage(named: imageName)!
+    }
+}
+
+extension MapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    private func showImagePicker(source: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = source
+            imagePicker.allowsEditing = false
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(message: "The \(source == .camera ? "Camera" : "PhotoLibrary") is not available on this device".localized())
+            present(alert, animated: true)
+        }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        picker.dismiss(animated: true, completion: nil)
+        photoImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+    return input.rawValue
+}
+
+extension MapViewController: CategoryDelegate {
+    func choosed(categories: [Category]) {
+        self.categories = categories
+    }
+}
+
+extension MapViewController: PhotoPopupDelegate {
+    
+    func photoAdded(photo: Photo) {
+        if categories.contains(Category(rawValue: photo.category)!){
+            addAnnotation(photo: photo)
+        }
+    }
+    
+    func photoUpdated(photo: Photo) {
+        for annotation in mapView.annotations {
+            guard let annotation = annotation as? Photo else { continue }
+            if annotation == photo {
+                mapView.removeAnnotation(annotation)
+                break
+            }
+        }
+        photoAdded(photo: photo)
+    }
+    
+    func didReceivedError(error: Error) {
+        let alert = UIAlertController(message: error.localizedDescription)
+        present(alert, animated: true)
+    }
+}
+
+extension MapViewController: MapPhotoDataProviderDelegate {
+    func didReceivedPhotos(photos: [Photo]) {
+        activityIndicator.stopAnimating()
+        mapView.removeAnnotations(mapView.annotations)
+        for photo in photos {
+            addAnnotation(photo: photo)
+        }
+    }
 }

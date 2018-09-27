@@ -17,9 +17,6 @@
 		103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */; };
 		103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */; };
 		103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */; };
-		1048DEF721425BEF001CED52 /* MapMKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF621425BEF001CED52 /* MapMKMapViewDelegate.swift */; };
-		1048DEF921425C52001CED52 /* MapImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEF821425C52001CED52 /* MapImagePickerDelegate.swift */; };
-		1048DEFF21425D1A001CED52 /* MapActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1048DEFE21425D1A001CED52 /* MapActionSheets.swift */; };
 		1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1048DF0421427EC6001CED52 /* GoogleService-Info.plist */; };
 		104DB2832148DEE30024DAC6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2822148DEE30024DAC6 /* Category.swift */; };
 		104DB2882148EBDA0024DAC6 /* TimelineCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */; };
@@ -28,7 +25,6 @@
 		1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */; };
 		1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A20F2147F2E0006942D7 /* CategoryButton.swift */; };
 		1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A21521480312006942D7 /* CategoryDelegate.swift */; };
-		1061A218214803F6006942D7 /* MapCategoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A217214803F6006942D7 /* MapCategoryDelegate.swift */; };
 		1061A2212148122E006942D7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2202148122E006942D7 /* PickerViewController.swift */; };
 		1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A22321481245006942D7 /* PickerViewController.storyboard */; };
 		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
@@ -45,10 +41,8 @@
 		10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */; };
 		10B3CCCB2154D34F00EA77AA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */; };
 		10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */; };
-		10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */; };
 		10C50DCB215243E8001C8918 /* MapPhotoDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */; };
 		10C50DCE215249BF001C8918 /* MapPhotoDataProviderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */; };
-		10C50DD021524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */; };
 		10C50DD4215281B5001C8918 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DD3215281B5001C8918 /* LocationService.swift */; };
 		10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDC2152936F001C8918 /* LocationStatus.swift */; };
 		10C50DDF2152A256001C8918 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C50DDE2152A256001C8918 /* StringExtension.swift */; };
@@ -85,9 +79,6 @@
 		103EE028214F7A440073C8C5 /* FullPhotoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullPhotoViewController.storyboard; sourceTree = "<group>"; };
 		103EE02B214F7AAB0073C8C5 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoViewController.swift; sourceTree = "<group>"; };
 		103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPhotoZoomExtension.swift; sourceTree = "<group>"; };
-		1048DEF621425BEF001CED52 /* MapMKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMKMapViewDelegate.swift; sourceTree = "<group>"; };
-		1048DEF821425C52001CED52 /* MapImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapImagePickerDelegate.swift; sourceTree = "<group>"; };
-		1048DEFE21425D1A001CED52 /* MapActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapActionSheets.swift; sourceTree = "<group>"; };
 		1048DF0421427EC6001CED52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		104DB2822148DEE30024DAC6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		104DB2872148EBDA0024DAC6 /* TimelineCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCategoryDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +87,6 @@
 		1061A2072147AC6F006942D7 /* CategoryTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		1061A20F2147F2E0006942D7 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		1061A21521480312006942D7 /* CategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDelegate.swift; sourceTree = "<group>"; };
-		1061A217214803F6006942D7 /* MapCategoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCategoryDelegate.swift; sourceTree = "<group>"; };
 		1061A2202148122E006942D7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		1061A22321481245006942D7 /* PickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickerViewController.storyboard; sourceTree = "<group>"; };
 		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
@@ -115,10 +105,8 @@
 		10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationViewController.swift; sourceTree = "<group>"; };
 		10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		10C50DC521523F9E001C8918 /* PhotoPopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPopupDelegate.swift; sourceTree = "<group>"; };
-		10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoPopupDelegateExtension.swift; sourceTree = "<group>"; };
 		10C50DCA215243E8001C8918 /* MapPhotoDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProvider.swift; sourceTree = "<group>"; };
 		10C50DCD215249BF001C8918 /* MapPhotoDataProviderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProviderDelegate.swift; sourceTree = "<group>"; };
-		10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPhotoDataProviderDelegateExtension.swift; sourceTree = "<group>"; };
 		10C50DD3215281B5001C8918 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		10C50DDC2152936F001C8918 /* LocationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatus.swift; sourceTree = "<group>"; };
 		10C50DDE2152A256001C8918 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -232,19 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				103EE02E214F86CA0073C8C5 /* FullPhotoZoomExtension.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		1048DEF321425A76001CED52 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				1048DEF621425BEF001CED52 /* MapMKMapViewDelegate.swift */,
-				1048DEF821425C52001CED52 /* MapImagePickerDelegate.swift */,
-				1048DEFE21425D1A001CED52 /* MapActionSheets.swift */,
-				1061A217214803F6006942D7 /* MapCategoryDelegate.swift */,
-				10C50DC72152423F001C8918 /* MapPhotoPopupDelegateExtension.swift */,
-				10C50DCF21524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -580,7 +555,6 @@
 			children = (
 				109B486F215B5EE600B5B11E /* Delegate */,
 				10C50DC9215243DA001C8918 /* Model */,
-				1048DEF321425A76001CED52 /* Extension */,
 				10E35CC021394B560096E8DA /* View */,
 				10E35CBF21394B4A0096E8DA /* Controller */,
 			);
@@ -841,11 +815,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
-				1048DEF721425BEF001CED52 /* MapMKMapViewDelegate.swift in Sources */,
 				104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				103EE02F214F86CA0073C8C5 /* FullPhotoZoomExtension.swift in Sources */,
-				10C50DC82152423F001C8918 /* MapPhotoPopupDelegateExtension.swift in Sources */,
 				101C827A214BA17F00F344D5 /* PhotoPopupDataProvider.swift in Sources */,
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
 				1061A2212148122E006942D7 /* PickerViewController.swift in Sources */,
@@ -859,15 +831,12 @@
 				1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */,
 				10B3CCCB2154D34F00EA77AA /* UIImageExtension.swift in Sources */,
 				10C50DD4215281B5001C8918 /* LocationService.swift in Sources */,
-				1061A218214803F6006942D7 /* MapCategoryDelegate.swift in Sources */,
 				10C50DCB215243E8001C8918 /* MapPhotoDataProvider.swift in Sources */,
 				10C50DCE215249BF001C8918 /* MapPhotoDataProviderDelegate.swift in Sources */,
-				1048DEFF21425D1A001CED52 /* MapActionSheets.swift in Sources */,
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
 				109306FC214A6B9B00E73996 /* AlertExtension.swift in Sources */,
 				1090646F2137DE770033B02B /* AppDelegate.swift in Sources */,
-				1048DEF921425C52001CED52 /* MapImagePickerDelegate.swift in Sources */,
 				104DB2832148DEE30024DAC6 /* Category.swift in Sources */,
 				1031816721463D8200434511 /* UIViewControllerExtension.swift in Sources */,
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
@@ -875,7 +844,6 @@
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
 				10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */,
 				109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */,
-				10C50DD021524A5F001C8918 /* MapPhotoDataProviderDelegateExtension.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,
 				1061A22921481F8A006942D7 /* PhotoModificationPickerExtension.swift in Sources */,
 				10CFF2AF213FE71B00E338DD /* Photo.swift in Sources */,
