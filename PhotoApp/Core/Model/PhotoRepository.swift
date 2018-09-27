@@ -27,36 +27,34 @@ class PhotoRepository {
     func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
         photo.key = photoDescriptionRef.key
-        let photoDescriptionData = photo.toMap()
         compressImage(image: photo.image) { [weak self] imageData in
-            self?.sendPhotoImage(description: photoDescriptionData, data: imageData) { [weak self] error in
-                if let error = error {
-                    callback(nil, error)
-                } else {
-                    self?.sendPhotoDescription(description: photoDescriptionData) { error in
-                        if let error = error {
-                            callback(nil, error)
-                        } else {
-                            callback(photo, error)
-                        }
-                    }
-                }
+            self?.sendPhotoImage(photo: photo, data: imageData, callback: callback)
+        }
+    }
+    
+    private func sendPhotoImage(photo: Photo, data: Data, callback: @escaping (Photo?, Error?) -> ()) {
+        let key = photo.toMap()[#keyPath(Photo.key)] as! String
+        let user = Auth.auth().currentUser!
+        let imageRef = storageRef.child(user.uid).child(key)
+        imageRef.putData(data, metadata: nil) { [weak self] metadata, error in
+            if let error = error {
+                callback(nil, error)
+            } else {
+                self?.sendPhotoDescription(photo: photo, callback: callback)
             }
         }
     }
     
-    private func sendPhotoImage(description: [String: Any], data: Data, callback: @escaping (Error?) -> ()) {
-        let user = Auth.auth().currentUser!
-        let imageRef = storageRef.child(user.uid).child(description[#keyPath(Photo.key)] as! String)
-        imageRef.putData(data, metadata: nil) { metadata, error in
-            callback(error)
-        }
-    }
-    
-    private func sendPhotoDescription(description: [String: Any], callback: @escaping (Error?) -> ()) {
-        let photoDescriptionRef = databaseRef.child(description[#keyPath(Photo.key)] as! String)
+    private func sendPhotoDescription(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
+        let description = photo.toMap()
+        let key = description[#keyPath(Photo.key)] as! String
+        let photoDescriptionRef = databaseRef.child(key)
         photoDescriptionRef.setValue(description, withCompletionBlock: { (error, dbRef) in
-            callback(error)
+            if let error = error {
+                callback(nil, error)
+            } else {
+                callback(photo, error)
+            }
         })
     }
     
