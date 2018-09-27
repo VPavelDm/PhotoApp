@@ -10,13 +10,13 @@ import Foundation
 
 class MapPhotoDataProvider: NSObject {
     
-    private let cloud = PhotoRepository()
+    private let repository = PhotoRepository()
     
     weak var delegate: MapPhotoDataProviderDelegate?
     
     var categories: [Category] = Category.getAll() {
         didSet {
-            cloud.getPhotos { [weak self] (photos, error) in
+            repository.getPhotos { [weak self] (photos, error) in
                 if let error = error {
                     self?.delegate?.didReceivedError(error: error)
                 } else {

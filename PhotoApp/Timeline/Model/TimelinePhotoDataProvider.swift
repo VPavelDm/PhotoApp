@@ -16,7 +16,7 @@ class TimelinePhotoDataProvider: NSObject {
         }
     }
     private var filteredPhotosMap: [String: [Photo]]?
-    private let cloud = PhotoRepository()
+    private let repository = PhotoRepository()
     private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
     weak var delegate: TimelinePhotoProviderDelegate?
@@ -24,7 +24,7 @@ class TimelinePhotoDataProvider: NSObject {
     var categories: [Category] = Category.getAll() {
         didSet {
             photosMap = [:]
-            cloud.getPhotos { [weak self] (photos, error) in
+            repository.getPhotos { [weak self] (photos, error) in
                 if let error = error {
                     self?.delegate?.didReceivedError(message: error.localizedDescription)
                 } else {
