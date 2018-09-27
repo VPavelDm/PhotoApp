@@ -10,9 +10,9 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
     
-    let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
-    var searchBar: UISearchBar!
-    var activityIndicator: UIActivityIndicatorView!
+    private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
+    private var searchBar: UISearchBar!
+    private var activityIndicator: UIActivityIndicatorView!
     
     var categories: [Category]! {
         didSet {
@@ -23,7 +23,7 @@ class TimelineViewController: UITableViewController {
         }
     }
     
-    @IBOutlet var photoTableView: UITableView!
+    @IBOutlet private var photoTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,4 +91,40 @@ class TimelineViewController: UITableViewController {
     
     private static let cellRowHeight = 100
 
+}
+
+extension TimelineViewController: CategoryDelegate {
+    
+    @objc func clickCategory(_ sender: UIButton) {
+        let categoryViewController = CategoryTableViewController.createController(asClass: CategoryTableViewController.self)
+        categoryViewController.delegate = self
+        categoryViewController.selectedCategories = categories
+        let navigationViewController = UINavigationController(rootViewController: categoryViewController)
+        present(navigationViewController, animated: true)
+    }
+    
+    func choosed(categories: [Category]) {
+        self.categories = categories
+    }
+}
+
+extension TimelineViewController: TimelinePhotoProviderDelegate {
+    func didReceivedPhotos() {
+        tableView.reloadData()
+        searchBar.text = ""
+        activityIndicator.stopAnimating()
+    }
+    
+    func didReceivedError(message error: String) {
+        let alert = UIAlertController(message: error)
+        present(alert, animated: true)
+    }
+}
+
+extension TimelineViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let hashtag = searchBar.text!.isEmpty ? "" : "#\(searchBar.text!)"
+        photoManager.filterByHashtag(hashtag)
+        searchBar.resignFirstResponder()
+    }
 }
