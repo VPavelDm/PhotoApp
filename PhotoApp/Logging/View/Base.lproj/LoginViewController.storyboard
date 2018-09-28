@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LXc-YV-5pA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LXc-YV-5pA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,7 +37,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJy-u7-gWV">
-                                <rect key="frame" x="168.5" y="310.5" width="38" height="30"/>
+                                <rect key="frame" x="168.5" y="324.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="clickLogin:" destination="LXc-YV-5pA" eventType="touchUpInside" id="Wkc-O6-Nmu"/>
@@ -62,9 +62,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pux-Fm-8SI">
+                                <rect key="frame" x="177.5" y="308.5" width="20" height="20"/>
+                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GJy-u7-gWV" firstAttribute="top" secondItem="pux-Fm-8SI" secondAttribute="bottom" constant="-4" id="2uq-Pb-vs0"/>
                             <constraint firstItem="xVE-Fd-O2h" firstAttribute="leading" secondItem="fj8-d1-YWO" secondAttribute="leading" constant="64" id="GgN-tA-Ikk"/>
                             <constraint firstItem="3xR-OT-rZ5" firstAttribute="leading" secondItem="xVE-Fd-O2h" secondAttribute="leading" id="JOd-RU-4X9"/>
                             <constraint firstItem="41g-QP-r6k" firstAttribute="centerX" secondItem="YpW-GG-73S" secondAttribute="centerX" id="LDi-YP-2gk"/>
@@ -72,13 +77,15 @@
                             <constraint firstItem="GJy-u7-gWV" firstAttribute="centerX" secondItem="YpW-GG-73S" secondAttribute="centerX" id="Toa-9u-V9M"/>
                             <constraint firstItem="fj8-d1-YWO" firstAttribute="bottom" secondItem="41g-QP-r6k" secondAttribute="bottom" constant="16" id="VwC-YM-ml6"/>
                             <constraint firstItem="3xR-OT-rZ5" firstAttribute="top" secondItem="xVE-Fd-O2h" secondAttribute="bottom" constant="16" id="Y2S-0y-UGS"/>
+                            <constraint firstItem="pux-Fm-8SI" firstAttribute="centerX" secondItem="fj8-d1-YWO" secondAttribute="centerX" id="ewt-9d-vDe"/>
                             <constraint firstItem="xVE-Fd-O2h" firstAttribute="centerY" secondItem="YpW-GG-73S" secondAttribute="centerY" constant="-100" id="eyO-1c-Vec"/>
-                            <constraint firstItem="GJy-u7-gWV" firstAttribute="top" secondItem="3xR-OT-rZ5" secondAttribute="bottom" constant="16" id="iZb-fF-gud"/>
+                            <constraint firstItem="GJy-u7-gWV" firstAttribute="top" secondItem="3xR-OT-rZ5" secondAttribute="bottom" constant="30" id="iZb-fF-gud"/>
                             <constraint firstItem="fj8-d1-YWO" firstAttribute="trailing" secondItem="xVE-Fd-O2h" secondAttribute="trailing" constant="64" id="rtf-Wj-nDT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fj8-d1-YWO"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="pux-Fm-8SI" id="jr1-WV-yY7"/>
                         <outlet property="loginButton" destination="GJy-u7-gWV" id="pHI-De-Azj"/>
                         <outlet property="loginTextField" destination="xVE-Fd-O2h" id="cMu-eg-2uT"/>
                         <outlet property="passwordTextField" destination="3xR-OT-rZ5" id="6WO-mL-839"/>

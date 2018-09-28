@@ -18,7 +18,9 @@ class LoginViewController: ViewController {
     private let repository = LoginRepository()
     
     @IBAction private func clickLogin(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         repository.signIn(email: loginTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] error in
+            self?.activityIndicator.stopAnimating()
             if let error = error {
                 let alert = UIAlertController(message: error)
                 self?.present(alert, animated: true, completion: nil)
