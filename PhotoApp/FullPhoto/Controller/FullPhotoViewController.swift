@@ -30,8 +30,7 @@ class FullPhotoViewController: ViewController {
     }
     @IBOutlet private weak var dateLabel: UILabel! {
         didSet {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMMM dd, yyyy at hh:mm a"
+            let dateFormatter = DateFormatter.templateMMMMddyyyyAThhmma
             dateLabel.text = dateFormatter.string(from: photo.date)
         }
     }
@@ -63,9 +62,7 @@ class FullPhotoViewController: ViewController {
     }
     
     private var photo: Photo!
-    
-    private static let DATE_FORMATTER = "MMMM dd, yyyy at hh:mm a"
-    
+
     static func createController(photo: Photo) -> FullPhotoViewController {
         let viewController = FullPhotoViewController.createController(asClass: FullPhotoViewController.self)
         viewController.photo = photo

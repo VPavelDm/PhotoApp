@@ -50,8 +50,7 @@ class TimelineViewController: UITableViewController {
         
         let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
         let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let dateFormatter = DateFormatter.templateMM_dd_yyyy
         cell.photoDateLabel.text = dateFormatter.string(from: photo.date)
         cell.photoDescriptionLabel.text = photo.photoDescription
         cell.photoImageView.image = photo.image

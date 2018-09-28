@@ -18,8 +18,7 @@ class PhotoModificationViewController: ViewController {
     
     @IBOutlet private weak var dateLabel: UILabel! {
         didSet {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
+            let dateFormatter = DateFormatter.templateMMMMddyyyyhhmma
             dateLabel.text = dateFormatter.string(from: photo.date ?? Date())
             dateLabel.layer.addBorder(edge: .bottom, color: UIColor.black, thickness: 0.7)
         }
@@ -55,8 +54,7 @@ class PhotoModificationViewController: ViewController {
     }
     @IBAction private func clickDoneButton(_ sender: UIButton) {
         activityIndicator.startAnimating()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = PhotoModificationViewController.PHOTO_POPUP_DATE_FORMATTER
+        let dateFormatter = DateFormatter.templateMMMMddyyyyhhmma
         photo.category = (categoryButton.titleLabel?.text)!
         photo.date = Calendar.current.startOfDay(for: dateFormatter.date(from: dateLabel.text!) ?? Date())
         photo.photoDescription = descriptionLabel.text
@@ -92,8 +90,6 @@ class PhotoModificationViewController: ViewController {
     override func getBottomConstraint() -> NSLayoutConstraint? {
         return bottomConstraint
     }
-    
-    private static let PHOTO_POPUP_DATE_FORMATTER = "MMMM dd, yyyy - hh:mm a"
     
     static func createController(photo: Photo, delegate: PhotoPopupDelegate) -> PhotoModificationViewController {
         let viewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
