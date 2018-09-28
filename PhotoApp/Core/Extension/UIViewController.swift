@@ -17,4 +17,11 @@ extension UIViewController {
         assert(viewController != nil, "Each ViewController must be initial")
         return viewController!
     }
+    
+    func setRootViewController(){
+        if let window = UIApplication.shared.keyWindow {
+            window.rootViewController = self
+            window.makeKeyAndVisible()
+        }
+    }
 }
