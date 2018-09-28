@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSh-FG-F8o">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSh-FG-F8o">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,31 +47,38 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-uh-MHW">
-                                <rect key="frame" x="160" y="356.5" width="55" height="30"/>
+                                <rect key="frame" x="160.5" y="370.5" width="54" height="30"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="asd:" destination="grg-Kg-HIG" eventType="touchUpInside" id="aNG-4h-FZX"/>
                                     <action selector="clickSignUp:" destination="kSh-FG-F8o" eventType="touchUpInside" id="0uc-fT-hGk"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="V4E-P9-eNT">
+                                <rect key="frame" x="177.5" y="346.5" width="20" height="20"/>
+                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YmN-e1-ZkR" firstAttribute="trailing" secondItem="7Bj-dM-6Lv" secondAttribute="trailing" id="9gH-Z2-nsg"/>
+                            <constraint firstItem="V4E-P9-eNT" firstAttribute="centerX" secondItem="Zov-W8-tGq" secondAttribute="centerX" id="AaY-7X-nsv"/>
                             <constraint firstItem="cao-U9-KI8" firstAttribute="trailing" secondItem="YmN-e1-ZkR" secondAttribute="trailing" id="B7G-Ag-C0L"/>
                             <constraint firstItem="7Bj-dM-6Lv" firstAttribute="leading" secondItem="Zov-W8-tGq" secondAttribute="leading" constant="64" id="DFK-Dj-iGO"/>
                             <constraint firstItem="YmN-e1-ZkR" firstAttribute="leading" secondItem="7Bj-dM-6Lv" secondAttribute="leading" id="MoU-QZ-0Dn"/>
+                            <constraint firstItem="VpO-uh-MHW" firstAttribute="top" secondItem="V4E-P9-eNT" secondAttribute="bottom" constant="4" id="XSr-dG-eY0"/>
                             <constraint firstItem="YmN-e1-ZkR" firstAttribute="top" secondItem="7Bj-dM-6Lv" secondAttribute="bottom" constant="16" id="bps-Zf-cvy"/>
                             <constraint firstItem="cao-U9-KI8" firstAttribute="top" secondItem="YmN-e1-ZkR" secondAttribute="bottom" constant="16" id="c8f-nr-6aN"/>
                             <constraint firstItem="cao-U9-KI8" firstAttribute="leading" secondItem="YmN-e1-ZkR" secondAttribute="leading" id="l8e-SF-yGB"/>
                             <constraint firstItem="7Bj-dM-6Lv" firstAttribute="centerY" secondItem="4ro-3L-oih" secondAttribute="centerY" constant="-100" id="lu8-MC-NOc"/>
                             <constraint firstItem="Zov-W8-tGq" firstAttribute="trailing" secondItem="7Bj-dM-6Lv" secondAttribute="trailing" constant="64" id="m12-9c-5K3"/>
                             <constraint firstItem="VpO-uh-MHW" firstAttribute="centerX" secondItem="4ro-3L-oih" secondAttribute="centerX" id="uK9-IY-4de"/>
-                            <constraint firstItem="VpO-uh-MHW" firstAttribute="top" secondItem="cao-U9-KI8" secondAttribute="bottom" constant="16" id="uZS-bs-kVI"/>
+                            <constraint firstItem="VpO-uh-MHW" firstAttribute="top" secondItem="cao-U9-KI8" secondAttribute="bottom" constant="30" id="uZS-bs-kVI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zov-W8-tGq"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="V4E-P9-eNT" id="uV2-Vy-1y4"/>
                         <outlet property="confirmPasswordTextField" destination="cao-U9-KI8" id="15i-rZ-Cox"/>
                         <outlet property="loginTextField" destination="7Bj-dM-6Lv" id="4Cq-oZ-aWi"/>
                         <outlet property="passwordTextField" destination="YmN-e1-ZkR" id="pJm-Yc-W5E"/>

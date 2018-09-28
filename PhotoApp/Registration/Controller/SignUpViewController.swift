@@ -24,6 +24,7 @@ class SignUpViewController: ViewController {
             present(alert, animated: true)
             return
         }
+        activityIndicator.startAnimating()
         repository.signUp(email: login, password: password, confirmPassword: confirmPassword) { [weak self] (errorMessage) in
             if let error = errorMessage {
                 let alert = UIAlertController(message: error)
@@ -32,6 +33,7 @@ class SignUpViewController: ViewController {
                 let tabBarViewController = TabBarViewController()
                 self?.present(tabBarViewController, animated: true, completion: nil)
             }
+            self?.activityIndicator.stopAnimating()
         }
     }
 }
