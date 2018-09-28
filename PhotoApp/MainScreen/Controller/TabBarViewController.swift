@@ -35,7 +35,7 @@ class TabBarViewController: UITabBarController {
         let timelineViewController = (viewControllers![1] as! UINavigationController).viewControllers.first as? TimelineViewController
         if item.title == map {
             mapViewController.categories = timelineViewController!.categories
-        } else {
+        } else if item.title == timeline {
             timelineViewController!.categories = mapViewController.categories
         }
     }

@@ -12,13 +12,14 @@ class TimelineViewController: UITableViewController {
     
     private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
     private var searchBar: UISearchBar!
-    private var activityIndicator: UIActivityIndicatorView!
+    private var timelineBackgroundView: TimelineBackgroundView?
     
     var categories: [Category]! {
         didSet {
-            activityIndicator?.startAnimating()
+            timelineBackgroundView?.showActivityIndicator()
             photoManager.delegate = self
             photoManager.categories = categories
+            tableView.separatorStyle = .none
             tableView.reloadData()
         }
     }
@@ -28,7 +29,7 @@ class TimelineViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBarWithCategoryButton()
-        createActivityIndicator()
+        createBackgroundView()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,11 +70,10 @@ class TimelineViewController: UITableViewController {
         present(viewController, animated: true)
     }
     
-    private func createActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: .white)
-        activityIndicator.color = UIColor.red
-        activityIndicator.startAnimating()
-        tableView.backgroundView = activityIndicator
+    private func createBackgroundView() {
+        timelineBackgroundView = TimelineBackgroundView()
+        timelineBackgroundView?.showActivityIndicator()
+        tableView.backgroundView = timelineBackgroundView
     }
     
     private func createSearchBarWithCategoryButton() {
@@ -112,7 +112,13 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
     func didReceivedPhotos() {
         tableView.reloadData()
         searchBar.text = ""
-        activityIndicator.stopAnimating()
+        let count = photoManager.getMonthAndYearCount()
+        if count > 0 {
+            tableView.separatorStyle = .singleLine
+            timelineBackgroundView?.stopActivityIndicator()
+        } else {
+            timelineBackgroundView?.showNoResultLabel()
+        }
     }
     
     func didReceivedError(message error: String) {
