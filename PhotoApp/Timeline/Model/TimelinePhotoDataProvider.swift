@@ -17,7 +17,6 @@ class TimelinePhotoDataProvider {
     }
     private var filteredPhotosMap: [Date: [Photo]]?
     private let repository = PhotoRepository()
-    private static let MONTH_AND_YEAR_FORMAT = "MMMM dd yyyy"
     
     weak var delegate: TimelinePhotoProviderDelegate?
     
@@ -56,21 +55,18 @@ class TimelinePhotoDataProvider {
         for photo in filteredPhotosMap ?? photosMap {
             dates += [photo.key]
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
+        let dateFormatter = DateFormatter.templateMM_dd_yyyy
         return dateFormatter.string(from: dates.sorted()[index])
     }
     
     func getPhotoCount(by monthAndYear: String) -> Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
+        let dateFormatter = DateFormatter.templateMM_dd_yyyy
         let date = dateFormatter.date(from: monthAndYear)!
         return filteredPhotosMap?[date]!.count ?? photosMap[date]!.count
     }
     
     func getPhoto(monthAndYear: String, index: Int) -> Photo {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = TimelinePhotoDataProvider.MONTH_AND_YEAR_FORMAT
+        let dateFormatter = DateFormatter.templateMM_dd_yyyy
         let date = dateFormatter.date(from: monthAndYear)!
         return filteredPhotosMap?[date]![index] ?? photosMap[date]![index]
     }

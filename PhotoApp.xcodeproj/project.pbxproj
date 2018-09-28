@@ -27,6 +27,7 @@
 		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
 		1084B0B5215E0A840097021F /* TimelineBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */; };
 		1084B0B7215E0AC90097021F /* TimelineBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */; };
+		1084B0B9215E1E4D0097021F /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084B0B8215E1E4D0097021F /* DataFormatter.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
 		109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109064772137DE780033B02B /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
 		1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineBackgroundView.xib; sourceTree = "<group>"; };
 		1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineBackgroundView.swift; sourceTree = "<group>"; };
+		1084B0B8215E1E4D0097021F /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109064752137DE780033B02B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				10C50DDE2152A256001C8918 /* StringExtension.swift */,
 				10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */,
 				109B4870215B6D3C00B5B11E /* UIViewController.swift */,
+				1084B0B8215E1E4D0097021F /* DataFormatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -778,6 +781,7 @@
 			files = (
 				10CFF2B9213FF38C00E338DD /* ViewController.swift in Sources */,
 				104DB28C21496B430024DAC6 /* TimelinePhotoDataProvider.swift in Sources */,
+				1084B0B9215E1E4D0097021F /* DataFormatter.swift in Sources */,
 				1019DA0321418AD600BF23D1 /* PhotoTableViewCell.swift in Sources */,
 				101C827A214BA17F00F344D5 /* PhotoPopupDataProvider.swift in Sources */,
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
