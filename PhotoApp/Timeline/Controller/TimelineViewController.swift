@@ -116,6 +116,7 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
             tableView.separatorStyle = .singleLine
             timelineBackgroundView?.stopActivityIndicator()
         } else {
+            tableView.separatorStyle = .none
             timelineBackgroundView?.showNoResultLabel()
         }
     }
@@ -129,6 +130,7 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
 extension TimelineViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let hashtag = searchBar.text!.isEmpty ? "" : "#\(searchBar.text!)"
+        timelineBackgroundView?.showActivityIndicator()
         photoManager.filterByHashtag(hashtag)
         searchBar.resignFirstResponder()
     }
