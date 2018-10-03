@@ -36,10 +36,10 @@ class TimelinePhotoDataProvider {
     private func initPhotos(photos: [Photo]) {
         for photo in photos {
             if categories.contains(Category(rawValue: photo.category)!) {
-                if photosMap[photo.date] == nil {
-                    photosMap[photo.date] = [photo]
+                if photosMap[photo.date!] == nil {
+                    photosMap[photo.date!] = [photo]
                 } else {
-                    photosMap[photo.date]! += [photo]
+                    photosMap[photo.date!]! += [photo]
                 }
             }
         }

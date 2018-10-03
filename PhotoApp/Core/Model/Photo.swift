@@ -16,7 +16,7 @@ class Photo: NSObject, MKAnnotation {
     @objc var key: String
     @objc var photoDescription: String
     @objc var category: String
-    @objc var date: Date!
+    @objc var date: Date?
     @objc var image: UIImage
     var coordinate: CLLocationCoordinate2D 
     var subtitle: String? = ""
@@ -52,7 +52,7 @@ class Photo: NSObject, MKAnnotation {
         let photoDescriptionData: [String: Any] = [#keyPath(User.uid): Auth.auth().currentUser!.uid,
                                                    #keyPath(Photo.key): self.key,
                                                    #keyPath(Photo.category): category,
-                                                   #keyPath(Photo.date): date.timeIntervalSince1970 as NSNumber,
+                                                   #keyPath(Photo.date): date!.timeIntervalSince1970 as NSNumber,
                                                    #keyPath(Photo.description): photoDescription,
                                                    Photo.latitude: coordinate.latitude,
                                                    Photo.longitude: coordinate.longitude]
