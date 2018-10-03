@@ -67,6 +67,7 @@ class MapViewController: ViewController {
         activityIndicator.startAnimating()
         let defaults = UserDefaults.standard
         categories = Category.convert(categories: defaults.array(forKey: String(describing: Category.self)) as? [String]) ?? Category.getAll()
+        mapView.userTrackingMode = .followWithHeading
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,7 +76,6 @@ class MapViewController: ViewController {
             switch status {
             case .authorized:
                 self?.mapView.showsUserLocation = true
-                self?.mapView.userTrackingMode = .followWithHeading
             case .denied:
                 self?.mapView.userTrackingMode = .none
                 self?.presentLocationSettings()
