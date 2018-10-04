@@ -37,7 +37,7 @@ class TimelineViewController: UITableViewController {
         let dateFormatter = DateFormatter.templateMM_dd_yyyy
         cell.photoDateLabel.text = dateFormatter.string(from: photo.date!)
         cell.photoDescriptionLabel.text = photo.photoDescription
-        cell.photoImageView.kf.setImage(with: photo.url, options: [.forceRefresh])
+        cell.photoImageView.kf.setImage(with: photo.url)
         
         return cell
     }
