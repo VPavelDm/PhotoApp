@@ -10,22 +10,6 @@ import UIKit
 
 class TimelineViewController: UITableViewController {
     
-    private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
-    private var searchBar: UISearchBar!
-    private var timelineBackgroundView: TimelineBackgroundView?
-    
-    var categories: [Category]! {
-        didSet {
-            timelineBackgroundView?.showActivityIndicator()
-            photoManager.delegate = self
-            photoManager.categories = categories
-            tableView.separatorStyle = .none
-            tableView.reloadData()
-        }
-    }
-    
-    @IBOutlet private var photoTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBarWithCategoryButton()
@@ -53,7 +37,7 @@ class TimelineViewController: UITableViewController {
         let dateFormatter = DateFormatter.templateMM_dd_yyyy
         cell.photoDateLabel.text = dateFormatter.string(from: photo.date!)
         cell.photoDescriptionLabel.text = photo.photoDescription
-        cell.photoImageView.kf.setImage(with: photo.url)
+        cell.photoImageView.kf.setImage(with: photo.url, options: [.forceRefresh])
         
         return cell
     }
@@ -68,6 +52,21 @@ class TimelineViewController: UITableViewController {
         let viewController = FullPhotoViewController.createController(photo: photo)
         present(viewController, animated: true)
     }
+    
+    var categories: [Category]! {
+        didSet {
+            timelineBackgroundView?.showActivityIndicator()
+            photoManager.delegate = self
+            photoManager.categories = categories
+            tableView.separatorStyle = .none
+            tableView.reloadData()
+        }
+    }
+    
+    private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
+    private var searchBar: UISearchBar!
+    private var timelineBackgroundView: TimelineBackgroundView?
+    private static let cellRowHeight = 100
     
     private func createBackgroundView() {
         timelineBackgroundView = TimelineBackgroundView()
@@ -88,7 +87,6 @@ class TimelineViewController: UITableViewController {
         self.navigationItem.titleView = searchBar
     }
     
-    private static let cellRowHeight = 100
 
 }
 
@@ -109,7 +107,6 @@ extension TimelineViewController: CategoryDelegate {
 
 extension TimelineViewController: TimelinePhotoProviderDelegate {
     func didReceivedPhotos() {
-        tableView.reloadData()
         searchBar.text = ""
         let count = photoManager.getMonthAndYearCount()
         if count > 0 {
@@ -119,6 +116,7 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
             tableView.separatorStyle = .none
             timelineBackgroundView?.showNoResultLabel()
         }
+        tableView.reloadData()
     }
     
     func didReceivedError(message error: String) {
