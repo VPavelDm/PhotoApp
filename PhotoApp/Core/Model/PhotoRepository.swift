@@ -18,6 +18,7 @@ class PhotoRepository {
     
     private let storageRef: StorageReference
     private let databaseRef: DatabaseReference
+    private lazy var user = Auth.auth().currentUser!
     
     init() {
         storageRef = Storage.storage().reference().child(PhotoRepository.rootReference)
@@ -25,18 +26,20 @@ class PhotoRepository {
     }
 
     func create(photo: Photo, image: UIImage, callback: @escaping (Photo?, Error?) -> ()) {
+        //Create node in the realtime database
         let photoDescriptionRef = databaseRef.childByAutoId()
+        //Save the key to be able to update this node
         photo.key = photoDescriptionRef.key
         compressImage(image: image) { [weak self] imageData in
-            self?.sendPhotoImage(photo: photo, data: imageData, callback: callback)
+            self?.save(photo: photo, data: imageData, callback: callback)
         }
     }
     
-    private func sendPhotoImage(photo: Photo, data: Data, callback: @escaping (Photo?, Error?) -> ()) {
+    private func save(photo: Photo, data: Data, callback: @escaping (Photo?, Error?) -> ()) {
         let key = photo.toMap()[#keyPath(Photo.key)] as! String
-        let user = Auth.auth().currentUser!
+        //Save image with the name that equals to the photo description key to identify the image
         let imageRef = storageRef.child(user.uid).child(key)
-        imageRef.putData(data, metadata: nil) { [weak self] metadata, error in
+        imageRef.putData(data, metadata: nil) { [weak self] _, error in
             if let error = error {
                 callback(nil, error)
             } else {
@@ -56,7 +59,7 @@ class PhotoRepository {
         let description = photo.toMap()
         let key = description[#keyPath(Photo.key)] as! String
         let photoDescriptionRef = databaseRef.child(key)
-        photoDescriptionRef.setValue(description, withCompletionBlock: { (error, dbRef) in
+        photoDescriptionRef.setValue(description, withCompletionBlock: { (error, _) in
             if let error = error {
                 callback(nil, error)
             } else {
@@ -75,7 +78,6 @@ class PhotoRepository {
         }
     }
     
-    // MARK: Check threads
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = self.databaseRef.child(photo.key)
         let photoDescriptionData: [String: Any] = photo.toMap()
@@ -111,8 +113,7 @@ class PhotoRepository {
     }
     
     private func createPhoto(key: String, descriptionDictionary: [String: Any], callback: @escaping (Photo) -> ()) {
-        let user = Auth.auth().currentUser
-        let imageRef = self.storageRef.child(user!.uid).child(key)
+        let imageRef = self.storageRef.child(user.uid).child(key)
         var descriptionDictionary = descriptionDictionary
         self.downloadUrl(reference: imageRef) { url in
             descriptionDictionary[#keyPath(Photo.url)] = url
