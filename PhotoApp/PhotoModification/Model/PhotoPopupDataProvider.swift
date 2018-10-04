@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 class PhotoPopupDataProvider {
     private let repository = PhotoRepository()
     
-    func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
-        repository.create(photo: photo, callback: callback)
+    func create(photo: Photo, image: UIImage, callback: @escaping (Photo?, Error?) -> ()) {
+        repository.create(photo: photo, image: image, callback: callback)
     }
     
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {

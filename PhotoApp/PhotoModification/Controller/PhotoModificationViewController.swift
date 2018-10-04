@@ -11,6 +11,7 @@ import UIKit
 class PhotoModificationViewController: ViewController {
     
     private var photo: Photo!
+    private var image: UIImage?
     
     weak var delegate: PhotoPopupDelegate?
     
@@ -32,7 +33,12 @@ class PhotoModificationViewController: ViewController {
     
     @IBOutlet private weak var imageView: UIImageView! {
         didSet {
-            imageView.image = photo.image
+            if let image = image {
+                imageView.image = image
+            } else {
+                imageView.kf.indicatorType = .activity
+                imageView.kf.setImage(with: photo.url)
+            }
         }
     }
     @IBOutlet private weak var descriptionLabel: UITextView! {
@@ -58,8 +64,8 @@ class PhotoModificationViewController: ViewController {
         photo.category = (categoryButton.titleLabel?.text)!
         photo.date = Calendar.current.startOfDay(for: dateFormatter.date(from: dateLabel.text!) ?? Date())
         photo.photoDescription = descriptionLabel.text
-        if photo.key.isEmpty {
-            dataProvider.create(photo: photo) { [weak self] (photo, error) in
+        if let image = image, photo.key.isEmpty {
+            dataProvider.create(photo: photo, image: image) { [weak self] (photo, error) in
                 if let error = error {
                     self?.delegate?.didReceivedError(error: error)
                 } else {
@@ -91,9 +97,10 @@ class PhotoModificationViewController: ViewController {
         return bottomConstraint
     }
     
-    static func createController(photo: Photo, delegate: PhotoPopupDelegate) -> PhotoModificationViewController {
+    static func createController(photo: Photo, image: UIImage?, delegate: PhotoPopupDelegate) -> PhotoModificationViewController {
         let viewController = PhotoModificationViewController.createController(asClass: PhotoModificationViewController.self)
         viewController.photo = photo
+        viewController.image = image
         viewController.delegate = delegate
         return viewController
     }

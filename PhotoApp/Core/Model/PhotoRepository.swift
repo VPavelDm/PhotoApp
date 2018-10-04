@@ -24,10 +24,10 @@ class PhotoRepository {
         databaseRef = Database.database().reference().child(PhotoRepository.rootReference)
     }
 
-    func create(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
+    func create(photo: Photo, image: UIImage, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = databaseRef.childByAutoId()
         photo.key = photoDescriptionRef.key
-        compressImage(image: photo.image) { [weak self] imageData in
+        compressImage(image: image) { [weak self] imageData in
             self?.sendPhotoImage(photo: photo, data: imageData, callback: callback)
         }
     }
@@ -40,7 +40,14 @@ class PhotoRepository {
             if let error = error {
                 callback(nil, error)
             } else {
-                self?.sendPhotoDescription(photo: photo, callback: callback)
+                imageRef.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        callback(nil, error)
+                    } else if let url = url {
+                        photo.url = url
+                        self?.sendPhotoDescription(photo: photo, callback: callback)
+                    }
+                })
             }
         }
     }
@@ -68,19 +75,15 @@ class PhotoRepository {
         }
     }
     
+    // MARK: Check threads
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            guard let `self` = self else { return }
-            let photoDescriptionRef = self.databaseRef.child(photo.key)
-            let photoDescriptionData: [String: Any] = photo.toMap()
-            photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
-                DispatchQueue.main.async {
-                    if let error = error {
-                        callback(nil, error)
-                    } else {
-                        callback(photo, error)
-                    }
-                }
+        let photoDescriptionRef = self.databaseRef.child(photo.key)
+        let photoDescriptionData: [String: Any] = photo.toMap()
+        photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
+            if let error = error {
+                callback(nil, error)
+            } else {
+                callback(photo, error)
             }
         }
     }
@@ -110,31 +113,19 @@ class PhotoRepository {
     private func createPhoto(key: String, descriptionDictionary: [String: Any], callback: @escaping (Photo) -> ()) {
         let user = Auth.auth().currentUser
         let imageRef = self.storageRef.child(user!.uid).child(key)
-        self.downloadImage(reference: imageRef) { image in
-            let photo = Photo(description: descriptionDictionary, image: image)
+        var descriptionDictionary = descriptionDictionary
+        self.downloadUrl(reference: imageRef) { url in
+            descriptionDictionary[#keyPath(Photo.url)] = url
+            let photo = Photo(description: descriptionDictionary)
             callback(photo)
         }
     }
     
-    private func downloadImage(reference imageRef: StorageReference, callback: @escaping (UIImage) -> ()) {
-        imageRef.downloadURL(completion: { [weak self] (url, error) in
+    private func downloadUrl(reference imageRef: StorageReference, callback: @escaping (URL) -> ()) {
+        imageRef.downloadURL(completion: { (url, error) in
             if let url = url {
-                self?.getData(by: url) { data in
-                    if let image = UIImage(data: data) {
-                        callback(image)
-                    }
-                }
+                callback(url)
             }
         })
-    }
-    
-    private func getData(by url: URL, callback: @escaping (Data) -> ()) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            if let imageData = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    callback(imageData)
-                }
-            }
-        }
     }
 }

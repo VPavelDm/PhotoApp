@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FullPhotoViewController: ViewController {
     
@@ -20,7 +21,7 @@ class FullPhotoViewController: ViewController {
     }
     @IBOutlet private weak var photoImageView: UIImageView! {
         didSet {
-            photoImageView.image = photo.image
+            photoImageView.kf.setImage(with: photo.url)
         }
     }
     @IBOutlet private weak var descriptionLabel: UILabel! {
