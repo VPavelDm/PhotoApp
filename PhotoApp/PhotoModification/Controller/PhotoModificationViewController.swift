@@ -64,6 +64,7 @@ class PhotoModificationViewController: ViewController {
         photo.category = (categoryButton.titleLabel?.text)!
         photo.date = Calendar.current.startOfDay(for: dateFormatter.date(from: dateLabel.text!) ?? Date())
         photo.photoDescription = descriptionLabel.text
+        // If image is setted user is trying to create photo. Other way user wants to update information
         if let image = image, photo.key.isEmpty {
             dataProvider.create(photo: photo, image: image) { [weak self] (photo, error) in
                 if let error = error {
