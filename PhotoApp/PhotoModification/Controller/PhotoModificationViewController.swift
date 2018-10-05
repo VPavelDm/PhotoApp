@@ -89,6 +89,10 @@ class PhotoModificationViewController: ViewController {
         view.isUserInteractionEnabled = false
         descriptionLabel.resignFirstResponder()
     }
+    @IBAction func clickPhotoImage(_ sender: Any) {
+        let viewController = FullPhotoViewController.createController(photo: photo)
+        present(viewController, animated: true)
+    }
     
     override func getViewToScroll() -> UIView? {
         return scrollView

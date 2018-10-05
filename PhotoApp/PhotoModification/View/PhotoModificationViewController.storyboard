@@ -24,8 +24,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTK-yt-4vY">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="288"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n2i-w6-tfA">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n2i-w6-tfA">
                                                 <rect key="frame" x="8" y="8" width="176" height="82"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="yQW-SE-W7r" appends="YES" id="jFQ-XF-bFF"/>
+                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-eJ-PZt">
                                                 <rect key="frame" x="8" y="98" width="176" height="16"/>
@@ -137,6 +141,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2a-91-sa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yQW-SE-W7r">
+                    <connections>
+                        <action selector="clickPhotoImage:" destination="7bn-7a-2yj" id="17y-Ts-TCR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-34.399999999999999" y="149.77511244377811"/>
         </scene>
