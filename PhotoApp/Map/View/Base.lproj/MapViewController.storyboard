@@ -26,21 +26,21 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moU-Zt-fZP">
-                                <rect key="frame" x="311" y="60" width="40" height="40"/>
+                                <rect key="frame" x="311" y="40" width="40" height="40"/>
                                 <state key="normal" image="ic_center_on_me_selected"/>
                                 <connections>
                                     <action selector="clickChangeModeButton:" destination="tn4-0v-tks" eventType="touchUpInside" id="3gZ-6s-IYJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-VZ-GFV">
-                                <rect key="frame" x="239" y="64.666666666666671" width="40" height="31"/>
+                                <rect key="frame" x="239" y="44.666666666666664" width="40" height="30.999999999999993"/>
                                 <state key="normal" image="ic_camera"/>
                                 <connections>
                                     <action selector="clickCameraBtn:" destination="tn4-0v-tks" eventType="touchUpInside" id="edk-YV-ZrI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-ZW-ju8">
-                                <rect key="frame" x="22" y="67" width="42" height="26"/>
+                                <rect key="frame" x="22" y="47" width="42" height="26"/>
                                 <state key="normal" image="ic_categories"/>
                                 <connections>
                                     <action selector="clickCategoryButton:" destination="tn4-0v-tks" eventType="touchUpInside" id="BQX-IA-Xv3"/>
@@ -55,7 +55,7 @@
                         <constraints>
                             <constraint firstItem="moU-Zt-fZP" firstAttribute="leading" secondItem="ZWa-Jq-TzA" secondAttribute="trailing" constant="-64" id="Aa2-Q6-e3Z"/>
                             <constraint firstItem="ZWa-Jq-TzA" firstAttribute="leading" secondItem="1ka-ZW-ju8" secondAttribute="trailing" constant="-64" id="CQL-RT-W32"/>
-                            <constraint firstItem="ZWa-Jq-TzA" firstAttribute="top" secondItem="moU-Zt-fZP" secondAttribute="bottom" constant="-100" id="P0N-eF-gbW"/>
+                            <constraint firstItem="ZWa-Jq-TzA" firstAttribute="top" secondItem="moU-Zt-fZP" secondAttribute="bottom" constant="-80" id="P0N-eF-gbW"/>
                             <constraint firstItem="1ka-ZW-ju8" firstAttribute="centerY" secondItem="3Kc-VZ-GFV" secondAttribute="centerY" id="RsN-LA-W1G"/>
                             <constraint firstItem="ZWa-Jq-TzA" firstAttribute="leading" secondItem="JVK-En-viF" secondAttribute="leading" id="cdS-Rc-3Hu"/>
                             <constraint firstItem="moU-Zt-fZP" firstAttribute="leading" secondItem="3Kc-VZ-GFV" secondAttribute="trailing" constant="32" id="jnL-14-WbV"/>
