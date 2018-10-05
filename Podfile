@@ -9,5 +9,6 @@ target 'PhotoApp' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'Kingfisher', '~> 4.0'
+  pod 'ReachabilitySwift'
 
 end

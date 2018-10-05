@@ -11,6 +11,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 import MapKit
+import Reachability
 
 class PhotoRepository {
     
@@ -19,6 +20,7 @@ class PhotoRepository {
     private let storageRef: StorageReference
     private let databaseRef: DatabaseReference
     private lazy var user = Auth.auth().currentUser!
+    private let reachability = Reachability()
     
     init() {
         storageRef = Storage.storage().reference().child(PhotoRepository.rootReference)
@@ -92,31 +94,35 @@ class PhotoRepository {
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
         var photos: [Photo] = []
-        isConnected { [weak self] (isConnected) in
-            if isConnected {
-                self?.databaseRef.removeAllObservers()
-                self?.databaseRef
-                    .queryOrdered(byChild: #keyPath(User.uid))
-                    .queryEqual(toValue: Auth.auth().currentUser!.uid)
-                    .observeSingleEvent(of: .value) { [weak self] (snapshot) in
-                        if snapshot.childrenCount == 0 {
-                            callback(photos, nil)
+        reachability?.whenReachable = { [weak self] (reachability) in
+            reachability.stopNotifier()
+            self?.databaseRef
+                .queryOrdered(byChild: #keyPath(User.uid))
+                .queryEqual(toValue: Auth.auth().currentUser!.uid)
+                .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                    if snapshot.childrenCount == 0 {
+                        callback(photos, nil)
+                    }
+                    for photoSnapshot in snapshot.children {
+                        if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
+                            self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
+                                photos += [photo]
+                                if photos.count == snapshot.childrenCount {
+                                    callback(photos, nil)
+                                }
+                            })
                         }
-                        for photoSnapshot in snapshot.children {
-                            if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
-                                self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
-                                    photos += [photo]
-                                    if photos.count == snapshot.childrenCount {
-                                        callback(photos, nil)
-                                    }
-                                })
-                            }
-                        }
-                }
-            } else {
-                let error: Error = InternetConnectionError.timeoutException
-                callback(nil, error)
+                    }
             }
+        }
+        reachability?.whenUnreachable = { _ in
+            let error = InternetConnectionError.timeoutException
+            callback(nil, error)
+        }
+        do{
+            try reachability?.startNotifier()
+        } catch {
+            print("Can't start notifier")
         }
     }
     
