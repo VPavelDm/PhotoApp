@@ -26,16 +26,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xCn-09-8uI">
-                                            <rect key="frame" x="92" y="32" width="241" height="36"/>
+                                            <rect key="frame" x="92" y="32" width="88" height="36"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu5-wp-Ujp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="241" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zX-tc-cRt">
-                                                    <rect key="frame" x="0.0" y="20.5" width="241" height="15.5"/>
+                                                    <rect key="frame" x="0.0" y="20.5" width="88" height="15.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -50,15 +50,12 @@
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="vRk-lV-P9h">
-                                            <rect key="frame" x="341" y="32" width="18" height="36"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="vRk-lV-P9h" secondAttribute="height" multiplier="1:2" id="7IX-Au-uUQ"/>
-                                            </constraints>
+                                            <rect key="frame" x="334" y="32" width="25" height="40"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="xCn-09-8uI" firstAttribute="top" secondItem="n6W-wq-wQZ" secondAttribute="top" constant="32" id="4Iw-bE-C3Q"/>
-                                        <constraint firstItem="vRk-lV-P9h" firstAttribute="leading" secondItem="xCn-09-8uI" secondAttribute="trailing" constant="8" id="9wR-fe-zOm"/>
+                                        <constraint firstItem="vRk-lV-P9h" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xCn-09-8uI" secondAttribute="trailing" constant="8" id="9wR-fe-zOm"/>
                                         <constraint firstItem="yod-HN-27x" firstAttribute="leading" secondItem="n6W-wq-wQZ" secondAttribute="leading" constant="16" id="F81-wz-gYk"/>
                                         <constraint firstItem="xCn-09-8uI" firstAttribute="leading" secondItem="yod-HN-27x" secondAttribute="trailing" constant="8" id="HTz-q0-fIZ"/>
                                         <constraint firstAttribute="bottom" secondItem="yod-HN-27x" secondAttribute="bottom" constant="16" id="Yhk-J6-SbB"/>
@@ -66,7 +63,6 @@
                                         <constraint firstAttribute="bottom" secondItem="xCn-09-8uI" secondAttribute="bottom" constant="32" id="cqa-o7-m7b"/>
                                         <constraint firstItem="vRk-lV-P9h" firstAttribute="top" secondItem="n6W-wq-wQZ" secondAttribute="top" constant="32" id="jwc-L4-ftK"/>
                                         <constraint firstItem="yod-HN-27x" firstAttribute="top" secondItem="n6W-wq-wQZ" secondAttribute="top" constant="16" id="qE1-ut-Lw3"/>
-                                        <constraint firstAttribute="bottom" secondItem="vRk-lV-P9h" secondAttribute="bottom" constant="32" id="szp-G5-yFJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
