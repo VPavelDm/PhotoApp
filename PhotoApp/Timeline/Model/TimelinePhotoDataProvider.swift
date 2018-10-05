@@ -56,7 +56,10 @@ class TimelinePhotoDataProvider {
             dates += [photo.key]
         }
         let dateFormatter = DateFormatter.templateMM_dd_yyyy
-        return dateFormatter.string(from: dates.sorted()[index])
+        dates = dates.sorted{ (first, second) -> Bool in
+            return first > second
+        }
+        return dateFormatter.string(from: dates[index])
     }
     
     func getPhotoCount(by monthAndYear: String) -> Int {
