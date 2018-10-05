@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7IB-y3-AYR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7IB-y3-AYR">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,8 +21,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCr-ZI-j6p">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="667" translatesAutoresizingMaskIntoConstraints="NO" id="4Sa-fd-nxH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="500" translatesAutoresizingMaskIntoConstraints="NO" id="4Sa-fd-nxH">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Ous-Zh-T6S" appends="YES" id="xa6-9y-KFU"/>
@@ -30,10 +30,10 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="4Sa-fd-nxH" secondAttribute="bottom" id="aUV-3o-7RP"/>
-                                    <constraint firstItem="4Sa-fd-nxH" firstAttribute="top" secondItem="OCr-ZI-j6p" secondAttribute="top" id="i20-dp-OIK"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Sa-fd-nxH" secondAttribute="trailing" id="kbu-kA-skM"/>
-                                    <constraint firstItem="4Sa-fd-nxH" firstAttribute="leading" secondItem="OCr-ZI-j6p" secondAttribute="leading" id="z0f-e8-Edf"/>
+                                    <constraint firstItem="4Sa-fd-nxH" firstAttribute="leading" secondItem="OCr-ZI-j6p" secondAttribute="leading" id="6ZV-V4-Oag"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Sa-fd-nxH" secondAttribute="bottom" id="bFL-P9-ev6"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Sa-fd-nxH" secondAttribute="trailing" id="bkx-zg-DyV"/>
+                                    <constraint firstItem="4Sa-fd-nxH" firstAttribute="top" secondItem="OCr-ZI-j6p" secondAttribute="top" id="o16-w0-Qvk"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Krn-sG-eoQ" appends="YES" id="j3Q-8R-U01"/>
@@ -69,7 +69,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYF-gf-2Rf" userLabel="Date">
-                                        <rect key="frame" x="16" y="35.666666666666629" width="343" height="20"/>
+                                        <rect key="frame" x="16" y="36.333333333333371" width="343" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -94,8 +94,8 @@
                             <constraint firstAttribute="trailing" secondItem="OCr-ZI-j6p" secondAttribute="trailing" id="TQh-Ng-4tU"/>
                             <constraint firstItem="OCr-ZI-j6p" firstAttribute="top" secondItem="6dD-Lv-XVd" secondAttribute="top" id="csc-lL-w6r"/>
                             <constraint firstAttribute="bottom" secondItem="0D7-o4-ssy" secondAttribute="bottom" id="dbK-tw-1qG"/>
-                            <constraint firstItem="0D7-o4-ssy" firstAttribute="leading" secondItem="akp-Rw-ck4" secondAttribute="leading" id="fjp-gY-5aE"/>
-                            <constraint firstItem="0D7-o4-ssy" firstAttribute="trailing" secondItem="akp-Rw-ck4" secondAttribute="trailing" id="mH2-Qh-bsZ"/>
+                            <constraint firstItem="0D7-o4-ssy" firstAttribute="leading" secondItem="6dD-Lv-XVd" secondAttribute="leading" id="fjp-gY-5aE"/>
+                            <constraint firstItem="0D7-o4-ssy" firstAttribute="trailing" secondItem="6dD-Lv-XVd" secondAttribute="trailing" id="mH2-Qh-bsZ"/>
                             <constraint firstItem="G4W-8k-ziZ" firstAttribute="trailing" secondItem="6dD-Lv-XVd" secondAttribute="trailing" id="pC2-yd-jMY"/>
                             <constraint firstItem="G4W-8k-ziZ" firstAttribute="top" secondItem="6dD-Lv-XVd" secondAttribute="top" id="xXc-Mz-rOg"/>
                             <constraint firstAttribute="bottom" secondItem="OCr-ZI-j6p" secondAttribute="bottom" id="zg5-QN-cxE"/>

@@ -13,10 +13,9 @@ class FullPhotoViewController: ViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
-            scrollView.minimumZoomScale = 0.1
             scrollView.maximumZoomScale = 2.0
+            scrollView.minimumZoomScale = scrollView.bounds.size.width / self.photoImageView.image!.size.width
             scrollView.delegate = self
-            
         }
     }
     @IBOutlet private weak var photoImageView: UIImageView! {
@@ -58,6 +57,10 @@ class FullPhotoViewController: ViewController {
         footer.isHidden = !footer.isHidden
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView.zoomScale = scrollView.minimumZoomScale
+    }
     override var prefersStatusBarHidden: Bool {
         return true
     }
