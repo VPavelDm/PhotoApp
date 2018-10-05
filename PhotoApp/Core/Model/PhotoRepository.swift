@@ -93,27 +93,9 @@ class PhotoRepository {
     }
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
-        var photos: [Photo] = []
         reachability?.whenReachable = { [weak self] (reachability) in
             reachability.stopNotifier()
-            self?.databaseRef
-                .queryOrdered(byChild: #keyPath(User.uid))
-                .queryEqual(toValue: Auth.auth().currentUser!.uid)
-                .observeSingleEvent(of: .value) { [weak self] (snapshot) in
-                    if snapshot.childrenCount == 0 {
-                        callback(photos, nil)
-                    }
-                    for photoSnapshot in snapshot.children {
-                        if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
-                            self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
-                                photos += [photo]
-                                if photos.count == snapshot.childrenCount {
-                                    callback(photos, nil)
-                                }
-                            })
-                        }
-                    }
-            }
+            self?.sendRequestToGetPhotos(callback: callback)
         }
         reachability?.whenUnreachable = { _ in
             let error = InternetConnectionError.timeoutException
@@ -123,6 +105,28 @@ class PhotoRepository {
             try reachability?.startNotifier()
         } catch {
             print("Can't start notifier")
+        }
+    }
+    
+    private func sendRequestToGetPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
+        var photos: [Photo] = []
+        databaseRef
+            .queryOrdered(byChild: #keyPath(User.uid))
+            .queryEqual(toValue: Auth.auth().currentUser!.uid)
+            .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                if snapshot.childrenCount == 0 {
+                    callback(photos, nil)
+                }
+                for photoSnapshot in snapshot.children {
+                    if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
+                        self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
+                            photos += [photo]
+                            if photos.count == snapshot.childrenCount {
+                                callback(photos, nil)
+                            }
+                        })
+                    }
+                }
         }
     }
     
