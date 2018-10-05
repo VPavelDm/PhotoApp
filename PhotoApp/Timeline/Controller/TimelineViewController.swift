@@ -39,6 +39,10 @@ class TimelineViewController: UITableViewController {
         cell.photoDescriptionLabel.text = photo.photoDescription
         cell.photoImageView.kf.setImage(with: photo.url)
         
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
     
