@@ -123,8 +123,9 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
         tableView.reloadData()
     }
     
-    func didReceivedError(message error: String) {
-        let alert = UIAlertController(message: error)
+    func didReceivedError(error: Error) {
+        timelineBackgroundView?.stopActivityIndicator()
+        let alert = UIAlertController(message: error.getErrorDescription())
         present(alert, animated: true)
     }
 }

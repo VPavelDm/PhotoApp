@@ -25,7 +25,7 @@ class TimelinePhotoDataProvider {
             photosMap = [:]
             repository.getPhotos { [weak self] (photos, error) in
                 if let error = error {
-                    self?.delegate?.didReceivedError(message: error.localizedDescription)
+                    self?.delegate?.didReceivedError(error: error)
                 } else {
                     self?.initPhotos(photos: photos ?? [Photo]())
                 }

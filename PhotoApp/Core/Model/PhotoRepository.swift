@@ -92,23 +92,42 @@ class PhotoRepository {
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
         var photos: [Photo] = []
-        databaseRef
-            .queryOrdered(byChild: #keyPath(User.uid))
-            .queryEqual(toValue: Auth.auth().currentUser!.uid)
-            .observeSingleEvent(of: .value) { [weak self] (snapshot) in
-                if snapshot.childrenCount == 0 {
-                    callback(photos, nil)
-                }
-                for photoSnapshot in snapshot.children {
-                    if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
-                        self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
-                            photos += [photo]
-                            if photos.count == snapshot.childrenCount {
-                                callback(photos, nil)
+        isConnected { [weak self] (isConnected) in
+            if isConnected {
+                self?.databaseRef.removeAllObservers()
+                self?.databaseRef
+                    .queryOrdered(byChild: #keyPath(User.uid))
+                    .queryEqual(toValue: Auth.auth().currentUser!.uid)
+                    .observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                        if snapshot.childrenCount == 0 {
+                            callback(photos, nil)
+                        }
+                        for photoSnapshot in snapshot.children {
+                            if let photoSnapshot = photoSnapshot as? DataSnapshot, let photoDescriptionDictionary = photoSnapshot.value as? [String: Any] {
+                                self?.createPhoto(key: photoSnapshot.key, descriptionDictionary: photoDescriptionDictionary, callback: { (photo) in
+                                    photos += [photo]
+                                    if photos.count == snapshot.childrenCount {
+                                        callback(photos, nil)
+                                    }
+                                })
                             }
-                        })
-                    }
+                        }
                 }
+            } else {
+                let error: Error = InternetConnectionError.timeoutException
+                callback(nil, error)
+            }
+        }
+    }
+    
+    private func isConnected(completion: @escaping (Bool) -> ()) {
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.value as? Bool ?? false {
+                completion(true)
+            } else {
+                completion(false)
+            }
         }
     }
     

@@ -25,6 +25,8 @@
 		1061A2212148122E006942D7 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A2202148122E006942D7 /* PickerViewController.swift */; };
 		1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1061A22321481245006942D7 /* PickerViewController.storyboard */; };
 		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
+		1082EE0E21677D4500F4E066 /* InternetConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1082EE0D21677D4500F4E066 /* InternetConnectionError.swift */; };
+		1082EE1121679F8500F4E066 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1082EE1021679F8500F4E066 /* Error.swift */; };
 		1084B0B5215E0A840097021F /* TimelineBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */; };
 		1084B0B7215E0AC90097021F /* TimelineBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */; };
 		1084B0B9215E1E4D0097021F /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084B0B8215E1E4D0097021F /* DataFormatter.swift */; };
@@ -83,6 +85,8 @@
 		1061A2202148122E006942D7 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		1061A22321481245006942D7 /* PickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PickerViewController.storyboard; sourceTree = "<group>"; };
 		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
+		1082EE0D21677D4500F4E066 /* InternetConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionError.swift; sourceTree = "<group>"; };
+		1082EE1021679F8500F4E066 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineBackgroundView.xib; sourceTree = "<group>"; };
 		1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineBackgroundView.swift; sourceTree = "<group>"; };
 		1084B0B8215E1E4D0097021F /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				10B3CCCA2154D34E00EA77AA /* UIImageExtension.swift */,
 				109B4870215B6D3C00B5B11E /* UIViewController.swift */,
 				1084B0B8215E1E4D0097021F /* DataFormatter.swift */,
+				1082EE1021679F8500F4E066 /* Error.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -291,6 +296,14 @@
 				1061A22621481E23006942D7 /* PickerDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		1082EE0F216786BD00F4E066 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				1082EE0D21677D4500F4E066 /* InternetConnectionError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		109064622137DE770033B02B = {
@@ -635,6 +648,7 @@
 				10C50DD22152819C001C8918 /* Service */,
 				1031816321463D2700434511 /* Extension */,
 				10CFF2B7213FF37E00E338DD /* Controller */,
+				1082EE0F216786BD00F4E066 /* Error */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -793,6 +807,7 @@
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
 				1031816521463D4300434511 /* ViewControllerKeyboardHandlerExtension.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */,
+				1082EE1121679F8500F4E066 /* Error.swift in Sources */,
 				10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */,
 				1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */,
 				10B3CCCB2154D34F00EA77AA /* UIImageExtension.swift in Sources */,
@@ -808,6 +823,7 @@
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
 				1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */,
 				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
+				1082EE0E21677D4500F4E066 /* InternetConnectionError.swift in Sources */,
 				10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */,
 				109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */,
 				10D282C62137EBB600274129 /* SignUpViewController.swift in Sources */,

@@ -10,5 +10,5 @@ import Foundation
 
 protocol TimelinePhotoProviderDelegate: class {
     func didReceivedPhotos()
-    func didReceivedError(message error: String)
+    func didReceivedError(error: Error)
 }

@@ -16,12 +16,13 @@ class MapPhotoDataProvider: NSObject {
     
     var categories: [Category]? {
         didSet {
-            guard let _ = categories else { return }
-            repository.getPhotos { [weak self] (photos, error) in
-                if let error = error {
-                    self?.delegate?.didReceivedError(error: error)
-                } else {
-                    self?.delegate?.didReceivedPhotos(photos: photos!)
+            if categories != nil {
+                repository.getPhotos { [weak self] (photos, error) in
+                    if let error = error {
+                        self?.delegate?.didReceivedError(error: error)
+                    } else {
+                        self?.delegate?.didReceivedPhotos(photos: photos!)
+                    }
                 }
             }
         }

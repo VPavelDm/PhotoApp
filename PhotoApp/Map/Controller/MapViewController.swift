@@ -265,7 +265,8 @@ extension MapViewController: PhotoPopupDelegate {
     }
     
     func didReceivedError(error: Error) {
-        let alert = UIAlertController(message: error.localizedDescription)
+        activityIndicator.stopAnimating()
+        let alert = UIAlertController(message: error.getErrorDescription())
         present(alert, animated: true)
     }
 }
