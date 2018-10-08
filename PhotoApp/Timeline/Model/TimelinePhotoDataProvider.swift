@@ -22,7 +22,6 @@ class TimelinePhotoDataProvider {
     
     var categories: [Category] = Category.getAll() {
         didSet {
-            photosMap = [:]
             repository.getPhotos { [weak self] (photos, error) in
                 if let error = error {
                     self?.delegate?.didReceivedError(error: error)
@@ -34,6 +33,7 @@ class TimelinePhotoDataProvider {
     }
     
     private func initPhotos(photos: [Photo]) {
+        photosMap = [:]
         for photo in photos {
             if categories.contains(Category(rawValue: photo.category)!) {
                 if photosMap[photo.date!] == nil {

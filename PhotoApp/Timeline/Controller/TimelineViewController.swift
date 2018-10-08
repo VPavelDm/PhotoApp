@@ -8,74 +8,39 @@
 
 import UIKit
 
-class TimelineViewController: UITableViewController {
+class TimelineViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noResultLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         createSearchBarWithCategoryButton()
-        createBackgroundView()
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return photoManager.getMonthAndYearCount()
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let month = photoManager.getMonthAndYear(index: section)
-        return photoManager.getPhotoCount(by: month)
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return photoManager.getMonthAndYear(index: section)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as! PhotoTableViewCell
-        
-        let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
-        let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
-        let dateFormatter = DateFormatter.templateMM_dd_yyyy
-        cell.photoDateLabel.text = dateFormatter.string(from: photo.date!)
-        cell.photoDescriptionLabel.text = photo.photoDescription
-        cell.photoImageView.kf.setImage(with: photo.url)
-        
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(TimelineViewController.cellRowHeight)
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
-        let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
-        let viewController = FullPhotoViewController.createController(photo: photo)
-        present(viewController, animated: true)
+        showActivityIndicator()
     }
     
     var categories: [Category]! {
         didSet {
-            timelineBackgroundView?.showActivityIndicator()
+            showActivityIndicator()
             photoManager.delegate = self
             photoManager.categories = categories
-            tableView.separatorStyle = .none
-            tableView.reloadData()
+            tableView?.separatorStyle = .none
+            tableView?.reloadData()
         }
     }
     
     private let photoManager: TimelinePhotoDataProvider = TimelinePhotoDataProvider()
     private var searchBar: UISearchBar!
-    private var timelineBackgroundView: TimelineBackgroundView?
     private static let cellRowHeight = 100
     
-    private func createBackgroundView() {
-        timelineBackgroundView = TimelineBackgroundView()
-        timelineBackgroundView?.showActivityIndicator()
-        tableView.backgroundView = timelineBackgroundView
+    private func showNoResultLabel() {
+        activityIndicator.stopAnimating()
+        noResultLabel.isHidden = false
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator?.startAnimating()
+        noResultLabel?.isHidden = true
     }
     
     private func createSearchBarWithCategoryButton() {
@@ -115,16 +80,16 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
         let count = photoManager.getMonthAndYearCount()
         if count > 0 {
             tableView.separatorStyle = .singleLine
-            timelineBackgroundView?.stopActivityIndicator()
+            activityIndicator.stopAnimating()
         } else {
             tableView.separatorStyle = .none
-            timelineBackgroundView?.showNoResultLabel()
+            showNoResultLabel()
         }
         tableView.reloadData()
     }
     
     func didReceivedError(error: Error) {
-        timelineBackgroundView?.stopActivityIndicator()
+        activityIndicator.stopAnimating()
         let alert = UIAlertController(message: error.getErrorDescription())
         present(alert, animated: true)
     }
@@ -133,8 +98,51 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
 extension TimelineViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let hashtag = searchBar.text!.isEmpty ? "" : "#\(searchBar.text!)"
-        timelineBackgroundView?.showActivityIndicator()
+        showActivityIndicator()
         photoManager.filterByHashtag(hashtag)
         searchBar.resignFirstResponder()
+    }
+}
+
+extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return photoManager.getMonthAndYearCount()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let month = photoManager.getMonthAndYear(index: section)
+        return photoManager.getPhotoCount(by: month)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return photoManager.getMonthAndYear(index: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell", for: indexPath) as! PhotoTableViewCell
+        
+        let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
+        let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
+        let dateFormatter = DateFormatter.templateMM_dd_yyyy
+        cell.photoDateLabel.text = dateFormatter.string(from: photo.date!)
+        cell.photoDescriptionLabel.text = photo.photoDescription
+        cell.photoImageView.kf.setImage(with: photo.url)
+        
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(TimelineViewController.cellRowHeight)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let monthAndYear = photoManager.getMonthAndYear(index: indexPath.section)
+        let photo = photoManager.getPhoto(monthAndYear: monthAndYear, index: indexPath.row)
+        let viewController = FullPhotoViewController.createController(photo: photo)
+        present(viewController, animated: true)
     }
 }

@@ -27,8 +27,6 @@
 		1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061A22621481E23006942D7 /* PickerDelegate.swift */; };
 		1082EE0E21677D4500F4E066 /* InternetConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1082EE0D21677D4500F4E066 /* InternetConnectionError.swift */; };
 		1082EE1121679F8500F4E066 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1082EE1021679F8500F4E066 /* Error.swift */; };
-		1084B0B5215E0A840097021F /* TimelineBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */; };
-		1084B0B7215E0AC90097021F /* TimelineBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */; };
 		1084B0B9215E1E4D0097021F /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1084B0B8215E1E4D0097021F /* DataFormatter.swift */; };
 		1090646F2137DE770033B02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1090646E2137DE770033B02B /* AppDelegate.swift */; };
 		109064762137DE780033B02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109064752137DE780033B02B /* Assets.xcassets */; };
@@ -88,8 +86,6 @@
 		1061A22621481E23006942D7 /* PickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDelegate.swift; sourceTree = "<group>"; };
 		1082EE0D21677D4500F4E066 /* InternetConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionError.swift; sourceTree = "<group>"; };
 		1082EE1021679F8500F4E066 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineBackgroundView.xib; sourceTree = "<group>"; };
-		1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineBackgroundView.swift; sourceTree = "<group>"; };
 		1084B0B8215E1E4D0097021F /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 		1090646B2137DE770033B02B /* PhotoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1090646E2137DE770033B02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -580,8 +576,6 @@
 			children = (
 				10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */,
 				1019DA0221418AD600BF23D1 /* PhotoTableViewCell.swift */,
-				1084B0B4215E0A840097021F /* TimelineBackgroundView.xib */,
-				1084B0B6215E0AC90097021F /* TimelineBackgroundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -729,7 +723,6 @@
 				109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */,
 				103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */,
 				10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */,
-				1084B0B5215E0A840097021F /* TimelineBackgroundView.xib in Resources */,
 				1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */,
 				10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */,
 				1019D9EF2140FA4400BF23D1 /* PhotoDetailView.xib in Resources */,
@@ -818,7 +811,6 @@
 				10B3CCCB2154D34F00EA77AA /* UIImage.swift in Sources */,
 				10C50DD4215281B5001C8918 /* LocationService.swift in Sources */,
 				10C50DCB215243E8001C8918 /* MapPhotoDataProvider.swift in Sources */,
-				1084B0B7215E0AC90097021F /* TimelineBackgroundView.swift in Sources */,
 				10C50DCE215249BF001C8918 /* MapPhotoDataProviderDelegate.swift in Sources */,
 				10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */,
 				109064852137E1000033B02B /* LoginViewController.swift in Sources */,
