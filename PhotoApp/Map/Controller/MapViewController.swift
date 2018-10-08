@@ -91,7 +91,6 @@ class MapViewController: ViewController {
     var categories: [Category]! {
         didSet {
             activityIndicator?.startAnimating()
-            mapView.removeAnnotations(mapView.annotations)
             photoDataProvider.delegate = self
             photoDataProvider.categories = categories
         }
