@@ -67,23 +67,25 @@ class PhotoModificationViewController: ViewController {
         // If image is setted user is trying to create photo. Other way user wants to update information
         if let image = image, photo.key.isEmpty {
             dataProvider.create(photo: photo, image: image) { [weak self] (photo, error) in
-                if let error = error {
-                    self?.delegate?.didReceivedError(error: error)
-                } else {
-                    self?.delegate?.photoAdded(photo: photo!)
+                self?.dismiss(animated: true) { [weak self] in
+                    if let error = error {
+                        self?.delegate?.didReceivedError(error: error)
+                    } else {
+                        self?.delegate?.photoAdded(photo: photo!)
+                    }
                 }
                 self?.activityIndicator.stopAnimating()
-                self?.dismiss(animated: true, completion: nil)
             }
         } else {
             dataProvider.update(photo: photo) { [weak self] (photo, error) in
-                if let error = error {
-                    self?.delegate?.didReceivedError(error: error)
-                } else {
-                    self?.delegate?.photoUpdated(photo: photo!)
+                self?.dismiss(animated: true) { [weak self] in
+                    if let error = error {
+                        self?.delegate?.didReceivedError(error: error)
+                    } else {
+                        self?.delegate?.photoUpdated(photo: photo!)
+                    }
                 }
                 self?.activityIndicator.stopAnimating()
-                self?.dismiss(animated: true, completion: nil)
             }
         }
         view.isUserInteractionEnabled = false

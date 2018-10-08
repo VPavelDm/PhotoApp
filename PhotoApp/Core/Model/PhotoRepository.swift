@@ -31,13 +31,12 @@ class PhotoRepository {
         let photoDescriptionRef = databaseRef.childByAutoId()
         //Save the key to be able to update this node
         photo.key = photoDescriptionRef.key
-        internetService.isReachability { [weak self] (error) in
-            if let error = error {
-                callback(nil, error)
-            } else {
-                self?.compressImage(image: image) { [weak self] imageData in
-                    self?.save(photo: photo, data: imageData, callback: callback)
-                }
+        let (isReachable, error) = internetService.isReachability()
+        if !isReachable, let error = error {
+            callback(nil, error)
+        } else {
+            compressImage(image: image) { [weak self] imageData in
+                self?.save(photo: photo, data: imageData, callback: callback)
             }
         }
     }
@@ -88,24 +87,23 @@ class PhotoRepository {
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = self.databaseRef.child(photo.key)
         let photoDescriptionData: [String: Any] = photo.toMap()
-        internetService.isReachability { (error) in
-            if let error = error {
-                callback(nil, error)
-            } else {
-                photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
-                    if let error = error {
-                        callback(nil, error)
-                    } else {
-                        callback(photo, error)
-                    }
+        let (isReachable, error) = internetService.isReachability()
+        if !isReachable, let error = error {
+            callback(nil, error)
+        } else {
+            photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
+                if let error = error {
+                    callback(nil, error)
+                } else {
+                    callback(photo, error)
                 }
             }
         }
     }
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
-        internetService.isReachability { [weak self] (error) in
-            if let error = error {
+        internetService.subscribe { [weak self] (isReachable, error) in
+            if !isReachable, let error = error {
                 callback(nil, error)
             } else {
                 self?.sendRequestToGetPhotos(callback: callback)

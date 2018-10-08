@@ -14,18 +14,11 @@ class InternetService {
     init() {
         reachability.whenReachable = { [weak self] _ in
             guard let `self` = self else { return }
-            self.isReachability = true
-            for (index, completion) in self.completions.enumerated() {
-                completion(nil)
-                let _ = self.completions.remove(at: index)
-            }
+            self.completion?(true, nil)
         }
         reachability.whenUnreachable = { [weak self] _ in
             guard let `self` = self else { return }
-            self.isReachability = false
-            for completion in self.completions {
-                completion(InternetConnectionError.timeoutException)
-            }
+            self.completion?(false, InternetConnectionError.timeoutException)
         }
         do{
             try reachability.startNotifier()
@@ -34,23 +27,24 @@ class InternetService {
         }
     }
     
-    func isReachability(completion: @escaping ReachabilityQuery) {
-        if let isReachability = isReachability {
-            if isReachability == false {
-                completions.append(completion)
-                completion(InternetConnectionError.timeoutException)
-            } else {
-                completion(nil)
-            }
-        } else {
-            completions.append(completion)
+    func subscribe(completion: @escaping ReachabilityQuery) {
+        self.completion = completion
+        let (isReachable, error) = isReachability()
+        completion(isReachable, error)
+    }
+    
+    func isReachability() -> (Bool, Error?) {
+        switch reachability.connection {
+        case .cellular, .wifi:
+            return (true, nil)
+        case .none:
+            return (false, InternetConnectionError.timeoutException)
         }
     }
     
-    private var isReachability: Bool?
     private let reachability = Reachability()!
-    private var completions: [ReachabilityQuery] = []
+    private var completion: ReachabilityQuery?
     
-    typealias ReachabilityQuery = (Error?) -> ()
+    typealias ReachabilityQuery = (Bool, Error?) -> ()
     
 }
