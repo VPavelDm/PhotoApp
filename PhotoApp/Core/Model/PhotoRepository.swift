@@ -11,7 +11,6 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 import MapKit
-import Reachability
 
 class PhotoRepository {
     
@@ -20,7 +19,7 @@ class PhotoRepository {
     private let storageRef: StorageReference
     private let databaseRef: DatabaseReference
     private lazy var user = Auth.auth().currentUser!
-    private let reachability = Reachability()
+    private let internetService = InternetService()
     
     init() {
         storageRef = Storage.storage().reference().child(PhotoRepository.rootReference)
@@ -32,8 +31,14 @@ class PhotoRepository {
         let photoDescriptionRef = databaseRef.childByAutoId()
         //Save the key to be able to update this node
         photo.key = photoDescriptionRef.key
-        compressImage(image: image) { [weak self] imageData in
-            self?.save(photo: photo, data: imageData, callback: callback)
+        internetService.isReachability { [weak self] (error) in
+            if let error = error {
+                callback(nil, error)
+            } else {
+                self?.compressImage(image: image) { [weak self] imageData in
+                    self?.save(photo: photo, data: imageData, callback: callback)
+                }
+            }
         }
     }
     
@@ -83,28 +88,28 @@ class PhotoRepository {
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = self.databaseRef.child(photo.key)
         let photoDescriptionData: [String: Any] = photo.toMap()
-        photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
+        internetService.isReachability { (error) in
             if let error = error {
                 callback(nil, error)
             } else {
-                callback(photo, error)
+                photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
+                    if let error = error {
+                        callback(nil, error)
+                    } else {
+                        callback(photo, error)
+                    }
+                }
             }
         }
     }
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
-        reachability?.whenReachable = { [weak self] (reachability) in
-            reachability.stopNotifier()
-            self?.sendRequestToGetPhotos(callback: callback)
-        }
-        reachability?.whenUnreachable = { _ in
-            let error = InternetConnectionError.timeoutException
-            callback(nil, error)
-        }
-        do{
-            try reachability?.startNotifier()
-        } catch {
-            print("Can't start notifier")
+        internetService.isReachability { [weak self] (error) in
+            if let error = error {
+                callback(nil, error)
+            } else {
+                self?.sendRequestToGetPhotos(callback: callback)
+            }
         }
     }
     
