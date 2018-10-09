@@ -97,9 +97,18 @@ extension TimelineViewController: TimelinePhotoProviderDelegate {
 
 extension TimelineViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let hashtag = searchBar.text!.isEmpty ? "" : "#\(searchBar.text!)"
+        var searchText = searchBar.text!
+        var hashtags: [String] = []
+        while searchText.startIndex != searchText.endIndex {
+            let endIndex = searchText.firstIndex(of: " ") ?? searchText.endIndex
+            let range = searchText.startIndex..<endIndex
+            let hashtag = String(searchText[range])
+            hashtags += ["#" + hashtag]
+            searchText.removeSubrange(range)
+            searchText = searchText.trimmingCharacters(in: .whitespaces)
+        }
         showActivityIndicator()
-        photoManager.filterByHashtag(hashtag)
+        photoManager.filterByHashtag(hashtags)
         searchBar.resignFirstResponder()
     }
 }

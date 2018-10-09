@@ -74,24 +74,37 @@ class TimelinePhotoDataProvider {
         return filteredPhotosMap?[date]![index] ?? photosMap[date]![index]
     }
     
-    func filterByHashtag(_ hashtag: String) {
-        if hashtag.isEmpty {
+    func filterByHashtag(_ hashtags: [String]) {
+        if hashtags.count == 0 {
             filteredPhotosMap = nil
         } else {
-            var resultMap: [Date: [Photo]] = [:]
-            for (date, photos) in photosMap {
-                var resultPhotos: [Photo] = []
-                for photo in photos {
-                    if photo.photoDescription.lowercased().contains(hashtag.lowercased()) {
-                        resultPhotos += [photo]
-                    }
-                }
-                if resultPhotos.count > 0 {
-                    resultMap[date] = resultPhotos
+            filteredPhotosMap = [:]
+            for hashtag in hashtags {
+                let resultMap = getPhotos(hashtag: hashtag)
+                filteredPhotosMap!.merge(resultMap) { (aPhotos, bPhotos) -> [Photo] in
+                    let aSet = Set(aPhotos)
+                    let bSet = Set(bPhotos)
+                    return Array(aSet.union(bSet))
                 }
             }
-            filteredPhotosMap = resultMap
         }
         delegate?.didReceivedPhotos()
     }
+    
+    private func getPhotos(hashtag: String) -> [Date: [Photo]] {
+        var resultMap: [Date: [Photo]] = [:]
+        for (date, photos) in photosMap {
+            var resultPhotos: [Photo] = []
+            for photo in photos {
+                if photo.photoDescription.containsWord(hashtag) {
+                    resultPhotos += [photo]
+                }
+            }
+            if resultPhotos.count > 0 {
+                resultMap[date] = resultPhotos
+            }
+        }
+        return resultMap
+    }
+    
 }

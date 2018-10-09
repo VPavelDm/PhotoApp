@@ -13,4 +13,10 @@ extension String {
     func localized() -> String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    func containsWord(_ word: String) -> Bool {
+        let words = self.lowercased().split(separator: " ")
+        let word = Substring(word.lowercased())
+        return words.contains(word)
+    }
 }
