@@ -154,4 +154,9 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
         let viewController = FullPhotoViewController.createController(photo: photo)
         present(viewController, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = cell as! PhotoTableViewCell
+        cell.photoImageView.kf.cancelDownloadTask()
+    }
 }
