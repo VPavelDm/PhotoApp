@@ -31,8 +31,7 @@ class PhotoRepository {
         let photoDescriptionRef = databaseRef.childByAutoId()
         //Save the key to be able to update this node
         photo.key = photoDescriptionRef.key
-        let (isReachable, error) = internetService.isReachability()
-        if !isReachable, let error = error {
+        if let error = internetService.isReachability() {
             callback(nil, error)
         } else {
             compressImage(image: image) { [weak self] imageData in
@@ -42,9 +41,8 @@ class PhotoRepository {
     }
     
     private func save(photo: Photo, data: Data, callback: @escaping (Photo?, Error?) -> ()) {
-        let key = photo.toMap()[#keyPath(Photo.key)] as! String
         //Save image with the name that equals to the photo description key to identify the image
-        let imageRef = storageRef.child(user.uid).child(key)
+        let imageRef = storageRef.child(user.uid).child(photo.key)
         imageRef.putData(data, metadata: nil) { [weak self] _, error in
             if let error = error {
                 callback(nil, error)
@@ -62,10 +60,8 @@ class PhotoRepository {
     }
     
     private func sendPhotoDescription(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
-        let description = photo.toMap()
-        let key = description[#keyPath(Photo.key)] as! String
-        let photoDescriptionRef = databaseRef.child(key)
-        photoDescriptionRef.setValue(description, withCompletionBlock: { (error, _) in
+        let photoDescriptionRef = databaseRef.child(photo.key)
+        photoDescriptionRef.setValue(photo.toMap(), withCompletionBlock: { (error, _) in
             if let error = error {
                 callback(nil, error)
             } else {
@@ -86,12 +82,10 @@ class PhotoRepository {
     
     func update(photo: Photo, callback: @escaping (Photo?, Error?) -> ()) {
         let photoDescriptionRef = self.databaseRef.child(photo.key)
-        let photoDescriptionData: [String: Any] = photo.toMap()
-        let (isReachable, error) = internetService.isReachability()
-        if !isReachable, let error = error {
+        if let error = internetService.isReachability() {
             callback(nil, error)
         } else {
-            photoDescriptionRef.setValue(photoDescriptionData) { (error, dbRef) in
+            photoDescriptionRef.setValue(photo.toMap()) { (error, dbRef) in
                 if let error = error {
                     callback(nil, error)
                 } else {
@@ -102,8 +96,8 @@ class PhotoRepository {
     }
     
     func getPhotos(callback: @escaping ([Photo]?, Error?) -> ()) {
-        internetService.subscribe { [weak self] (isReachable, error) in
-            if !isReachable, let error = error {
+        internetService.subscribe { [weak self] (error) in
+            if let error = error {
                 callback(nil, error)
             } else {
                 self?.sendRequestToGetPhotos(callback: callback)
@@ -130,17 +124,6 @@ class PhotoRepository {
                         })
                     }
                 }
-        }
-    }
-    
-    private func isConnected(completion: @escaping (Bool) -> ()) {
-        let connectedRef = Database.database().reference(withPath: ".info/connected")
-        connectedRef.observeSingleEvent(of: .value) { (snapshot) in
-            if snapshot.value as? Bool ?? false {
-                completion(true)
-            } else {
-                completion(false)
-            }
         }
     }
     

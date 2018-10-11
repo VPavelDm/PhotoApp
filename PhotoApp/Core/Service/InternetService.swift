@@ -13,12 +13,10 @@ class InternetService {
     
     init() {
         reachability.whenReachable = { [weak self] _ in
-            guard let `self` = self else { return }
-            self.completion?(true, nil)
+            self?.completion?(nil)
         }
         reachability.whenUnreachable = { [weak self] _ in
-            guard let `self` = self else { return }
-            self.completion?(false, InternetConnectionError.timeoutException)
+            self?.completion?(InternetConnectionError.timeoutException)
         }
         do{
             try reachability.startNotifier()
@@ -29,22 +27,21 @@ class InternetService {
     
     func subscribe(completion: @escaping ReachabilityQuery) {
         self.completion = completion
-        let (isReachable, error) = isReachability()
-        completion(isReachable, error)
+        completion(isReachability())
     }
     
-    func isReachability() -> (Bool, Error?) {
+    func isReachability() -> Error? {
         switch reachability.connection {
         case .cellular, .wifi:
-            return (true, nil)
+            return nil
         case .none:
-            return (false, InternetConnectionError.timeoutException)
+            return InternetConnectionError.timeoutException
         }
     }
     
     private let reachability = Reachability()!
     private var completion: ReachabilityQuery?
     
-    typealias ReachabilityQuery = (Bool, Error?) -> ()
+    typealias ReachabilityQuery = (Error?) -> ()
     
 }
