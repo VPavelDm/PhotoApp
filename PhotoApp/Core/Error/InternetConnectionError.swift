@@ -8,12 +8,10 @@
 
 import Foundation
 
-enum InternetConnectionError: Error {
-    case timeoutException
-    var localizedDescription: String {
-        switch self {
-        case .timeoutException:
-            return "Timeout internet connection. Re-turn wi-fi."
-        }
+class InternetConnectionError: CustomNSError {
+    private let errorMessage: String = "Timeout internet connection. Turn on Internet.".localized()
+    
+    var errorUserInfo: [String : Any] {
+        return [NSLocalizedDescriptionKey: errorMessage]
     }
 }

@@ -16,7 +16,7 @@ class InternetService {
             self?.completion?(nil)
         }
         reachability.whenUnreachable = { [weak self] _ in
-            self?.completion?(InternetConnectionError.timeoutException)
+            self?.completion?(InternetConnectionError())
         }
         do{
             try reachability.startNotifier()
@@ -35,7 +35,7 @@ class InternetService {
         case .cellular, .wifi:
             return nil
         case .none:
-            return InternetConnectionError.timeoutException
+            return InternetConnectionError()
         }
     }
     
