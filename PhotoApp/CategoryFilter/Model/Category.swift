@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Category: String {
     case nature = "NATURE"
@@ -43,5 +44,18 @@ enum Category: String {
             result += [category.rawValue]
         }
         return result
+    }
+}
+
+extension Category {
+    var categoryImage: UIImage {
+        switch self {
+        case .nature:
+            return #imageLiteral(resourceName: "marker_nature")
+        case .friends:
+            return #imageLiteral(resourceName: "marker_friends")
+        case .default_category:
+            return #imageLiteral(resourceName: "marker_default")
+        }
     }
 }

@@ -179,23 +179,14 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     
     func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
         if mode == .none {
-            modeButton.setImage(UIImage(named: "ic_center_on_me_disable"), for: .normal)
+            modeButton.setImage(#imageLiteral(resourceName: "ic_center_on_me_disable"), for: .normal)
         } else {
-            modeButton.setImage(UIImage(named: "ic_center_on_me_selected"), for: .normal)
+            modeButton.setImage(#imageLiteral(resourceName: "ic_center_on_me_selected"), for: .normal)
         }
     }
     
     private func getMarkerPin(by category: Category) -> UIImage {
-        let imageName: String
-        switch category {
-        case .nature:
-            imageName = "marker_nature"
-        case .friends:
-            imageName = "marker_friends"
-        case .default_category:
-            imageName = "marker_default"
-        }
-        return UIImage(named: imageName)!
+        return category.categoryImage
     }
 }
 
