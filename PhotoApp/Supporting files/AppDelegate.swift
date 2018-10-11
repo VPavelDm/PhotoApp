@@ -32,7 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
-protocol AppDelegateObservable {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?, window: UIWindow?)
-}
