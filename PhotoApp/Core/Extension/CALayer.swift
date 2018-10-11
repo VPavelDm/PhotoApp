@@ -12,20 +12,21 @@ import UIKit
 extension CALayer {
     
     func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
-        let border = CALayer()
         switch edge {
         case .all:
             borderWidth = thickness
             borderColor = color.cgColor
-            return
-        case .bottom: border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
-        case .top: border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
-        case .right: border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
-        case .left: border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
-        default: break
+        case .bottom:
+            initSublayer(frame: CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness), color: color)
+        case .top:
+            initSublayer(frame: CGRect(x: 0, y: 0, width: frame.width, height: thickness), color: color)
+        case .right:
+            initSublayer(frame: CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height), color: color)
+        case .left:
+            initSublayer(frame: CGRect(x: 0, y: 0, width: thickness, height: frame.height), color: color)
+        default:
+            break
         }
-        border.backgroundColor = color.cgColor
-        addSublayer(border)
     }
     
     var borderUIColor: UIColor {
@@ -36,5 +37,12 @@ extension CALayer {
         get {
             return UIColor(cgColor: self.borderColor!)
         }
+    }
+    
+    private func initSublayer(frame: CGRect, color: UIColor) {
+        let border = CALayer()
+        border.frame = frame
+        border.backgroundColor = color.cgColor
+        addSublayer(border)
     }
 }
