@@ -34,14 +34,14 @@ class TimelinePhotoDataProvider {
     
     private func initPhotos(photos: [Photo]) {
         photosMap = [:]
-        for photo in photos {
-            if categories.contains(Category(rawValue: photo.category)!) {
+        photos
+            .filter { categories.contains(Category(rawValue: $0.category)!) }
+            .forEach { photo in
                 if photosMap[photo.date!] == nil {
                     photosMap[photo.date!] = [photo]
                 } else {
                     photosMap[photo.date!]! += [photo]
                 }
-            }
         }
         delegate?.didReceivedPhotos()
     }
@@ -51,14 +51,9 @@ class TimelinePhotoDataProvider {
     }
     
     func getMonthAndYear(index: Int) -> String {
-        var dates: [Date] = []
-        for photo in filteredPhotosMap ?? photosMap {
-            dates += [photo.key]
-        }
+        let photosMap = filteredPhotosMap ?? self.photosMap
+        let dates = photosMap.map { $0.key }.sorted { $0 > $1 }
         let dateFormatter = DateFormatter.templateMM_dd_yyyy
-        dates = dates.sorted{ (first, second) -> Bool in
-            return first > second
-        }
         return dateFormatter.string(from: dates[index])
     }
     
@@ -93,13 +88,8 @@ class TimelinePhotoDataProvider {
     
     private func getPhotos(hashtag: String) -> [Date: [Photo]] {
         var resultMap: [Date: [Photo]] = [:]
-        for (date, photos) in photosMap {
-            var resultPhotos: [Photo] = []
-            for photo in photos {
-                if photo.photoDescription.containsWord(hashtag) {
-                    resultPhotos += [photo]
-                }
-            }
+        photosMap.forEach { date, photos in
+            let resultPhotos = photos.filter { $0.photoDescription.containsWord(hashtag) }
             if resultPhotos.count > 0 {
                 resultMap[date] = resultPhotos
             }
