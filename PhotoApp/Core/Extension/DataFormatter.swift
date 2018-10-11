@@ -10,20 +10,20 @@ import Foundation
 
 extension DateFormatter {
     class var templateMMMMddyyyyhhmma: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy - hh:mm a"
-        return dateFormatter
+        return DateFormatter.create(format: "MMMM dd, yyyy - hh:mm a")
     }
     
     class var templateMMMMddyyyyAThhmma: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, yyyy 'at' hh:mm a"
-        return dateFormatter
+        return DateFormatter.create(format: "MMMM dd, yyyy 'at' hh:mm a")
     }
     
     class var templateMM_dd_yyyy: DateFormatter {
+        return DateFormatter.create(format: "MM-dd-yyyy")
+    }
+    
+    private static func create(format: String) -> DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.dateFormat = format
         return dateFormatter
     }
 }
