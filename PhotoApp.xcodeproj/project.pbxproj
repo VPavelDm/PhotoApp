@@ -55,13 +55,13 @@
 		10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D282DD21380DEF00274129 /* TabBarViewController.swift */; };
 		10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CB6213937840096E8DA /* LoginRepository.swift */; };
 		10E35CBD21393DCE0096E8DA /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */; };
-		10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E35CCC21394C570096E8DA /* MoreRepository.swift */; };
 		10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D25213971370096E8DA /* LoginViewController.storyboard */; };
 		10E35D2A213971680096E8DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D2C213971680096E8DA /* Localizable.strings */; };
 		10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D31213972250096E8DA /* SignUpViewController.storyboard */; };
 		10E35D36213972660096E8DA /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D38213972660096E8DA /* MapViewController.storyboard */; };
 		10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */; };
 		10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D462139728B0096E8DA /* MoreViewController.storyboard */; };
+		10F06D3821770D4A0066E21F /* MoreRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D3721770D4A0066E21F /* MoreRepository.m */; };
 		43EF6D769072B71F5A84E388 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,7 +116,6 @@
 		10D282DD21380DEF00274129 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		10E35CB6213937840096E8DA /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		10E35CBC21393DCE0096E8DA /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
-		10E35CCC21394C570096E8DA /* MoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreRepository.swift; sourceTree = "<group>"; };
 		10E35D24213971370096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginViewController.storyboard; sourceTree = "<group>"; };
 		10E35D272139713A0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginViewController.strings; sourceTree = "<group>"; };
 		10E35D28213971530096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -135,6 +134,9 @@
 		10E35D452139728B0096E8DA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MoreViewController.storyboard; sourceTree = "<group>"; };
 		10E35D482139728D0096E8DA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MoreViewController.strings; sourceTree = "<group>"; };
 		10E35D49213972AC0096E8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MoreViewController.storyboard; sourceTree = "<group>"; };
+		10F06D3521770D4A0066E21F /* PhotoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		10F06D3621770D4A0066E21F /* MoreRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreRepository.h; sourceTree = "<group>"; };
+		10F06D3721770D4A0066E21F /* MoreRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreRepository.m; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -617,7 +619,9 @@
 		10E35CCB21394C300096E8DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10E35CCC21394C570096E8DA /* MoreRepository.swift */,
+				10F06D3621770D4A0066E21F /* MoreRepository.h */,
+				10F06D3721770D4A0066E21F /* MoreRepository.m */,
+				10F06D3521770D4A0066E21F /* PhotoApp-Bridging-Header.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -820,7 +824,6 @@
 				1019D9FE2141255B00BF23D1 /* TimelineViewController.swift in Sources */,
 				109B3CD3216B43F3003BBE62 /* InternetService.swift in Sources */,
 				1061A22721481E23006942D7 /* PickerDelegate.swift in Sources */,
-				10E35CCD21394C570096E8DA /* MoreRepository.swift in Sources */,
 				1082EE0E21677D4500F4E066 /* InternetConnectionError.swift in Sources */,
 				10CFF2BC213FF41B00E338DD /* PhotoRepository.swift in Sources */,
 				109306F4214A4FC500E73996 /* TimelinePhotoProviderDelegate.swift in Sources */,
@@ -829,6 +832,7 @@
 				10D282DE21380DEF00274129 /* TabBarViewController.swift in Sources */,
 				10D282CC2137FE7800274129 /* MapViewController.swift in Sources */,
 				10C50DC621523F9E001C8918 /* PhotoPopupDelegate.swift in Sources */,
+				10F06D3821770D4A0066E21F /* MoreRepository.m in Sources */,
 				109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */,
 				10C50DDF2152A256001C8918 /* String.swift in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
@@ -1032,6 +1036,7 @@
 			baseConfigurationReference = BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4XA83XU67;
 				INFOPLIST_FILE = PhotoApp/Info.plist;
@@ -1042,6 +1047,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vpaveldm.PhotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoApp/More/Model/PhotoApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1052,6 +1059,7 @@
 			baseConfigurationReference = A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4XA83XU67;
 				INFOPLIST_FILE = PhotoApp/Info.plist;
@@ -1062,6 +1070,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vpaveldm.PhotoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoApp/More/Model/PhotoApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
