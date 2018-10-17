@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SoundCellDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SoundTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *soundLabel;
+@property (weak, nonatomic) IBOutlet UILabel* soundLabel;
+
+@property (weak) id <SoundCellDelegate> delegate;
 
 @end
 

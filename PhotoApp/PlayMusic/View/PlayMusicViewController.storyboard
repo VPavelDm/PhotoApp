@@ -39,14 +39,14 @@
                                                     <rect key="frame" x="327" y="11.5" width="32" height="30"/>
                                                     <state key="normal" title="Stop"/>
                                                     <connections>
-                                                        <action selector="clickStopMusic:" destination="vnT-S7-rg0" eventType="touchUpInside" id="4X8-LP-gfc"/>
+                                                        <action selector="clickStopButton:" destination="8qg-b8-sH8" eventType="touchUpInside" id="Wqe-5x-63l"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fH-OP-Hgj">
                                                     <rect key="frame" x="265" y="11.5" width="30" height="30"/>
                                                     <state key="normal" title="Play"/>
                                                     <connections>
-                                                        <action selector="clickPlayMusic:" destination="vnT-S7-rg0" eventType="touchUpInside" id="wdM-qC-E78"/>
+                                                        <action selector="clickPlayButton:" destination="8qg-b8-sH8" eventType="touchUpInside" id="xM3-tp-DIW"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

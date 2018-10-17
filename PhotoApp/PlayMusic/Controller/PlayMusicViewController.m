@@ -12,13 +12,6 @@
 
 @implementation PlayMusicViewController
 
-- (IBAction)clickPlayMusic:(id)sender {
-}
-
-- (IBAction)clickStopMusic:(id)sender {
-    
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     _songDataProvider = [MusicDataProvider new];
@@ -29,6 +22,7 @@
     
     Song* song = [_songDataProvider songAt:indexPath.row];
     cell.soundLabel.text = [song name];
+    cell.delegate = self;
     
     return cell;
 }
@@ -42,6 +36,14 @@
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"PlayMusicViewController" bundle:nil];
     PlayMusicViewController* viewController = (PlayMusicViewController*)[storyboard instantiateInitialViewController];
     return viewController;
+}
+
+- (void)clickedPlayButton:(nonnull SoundTableViewCell *)cell {
+    NSLog(@"Clicked %@ cell", cell.soundLabel.text);
+}
+
+- (void)clickedStopButton:(nonnull SoundTableViewCell *)cell {
+    
 }
 
 @end

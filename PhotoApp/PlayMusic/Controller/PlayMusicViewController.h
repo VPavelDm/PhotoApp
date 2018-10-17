@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "MusicDataProvider.h"
+#import "SoundCellDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PlayMusicViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PlayMusicViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SoundCellDelegate>
 
 @property (retain) MusicDataProvider* songDataProvider;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

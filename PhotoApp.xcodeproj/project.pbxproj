@@ -159,6 +159,7 @@
 		10F06D5B217789450066E21F /* SoundTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundTableViewCell.h; sourceTree = "<group>"; };
 		10F06D5C217789450066E21F /* SoundTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundTableViewCell.m; sourceTree = "<group>"; };
 		10F06D5E217789830066E21F /* PlayMusicViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayMusicViewController.storyboard; sourceTree = "<group>"; };
+		10F06D6021778CBD0066E21F /* SoundCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundCellDelegate.h; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -681,6 +682,7 @@
 		10F06D3921771C7D0066E21F /* PlayMusic */ = {
 			isa = PBXGroup;
 			children = (
+				10F06D61217790AA0066E21F /* Delegate */,
 				10F06D5A217789240066E21F /* View */,
 				10F06D452177237F0066E21F /* Model */,
 				10F06D3E21771CC30066E21F /* Controller */,
@@ -735,6 +737,14 @@
 				10F06D5E217789830066E21F /* PlayMusicViewController.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		10F06D61217790AA0066E21F /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				10F06D6021778CBD0066E21F /* SoundCellDelegate.h */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		4F7AAE8BB7196A34F4532F7F /* Frameworks */ = {
