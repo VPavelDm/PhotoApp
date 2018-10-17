@@ -13,6 +13,7 @@ class TabBarViewController: UITabBarController {
     private let map = "Map".localized()
     private let timeline = "Timeline".localized()
     private let more = "More".localized()
+    private let music = "Music".localized()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,10 @@ class TabBarViewController: UITabBarController {
         let moreViewController = MoreViewController.createController(asClass: MoreViewController.self)
         moreViewController.tabBarItem = UITabBarItem(title: more, image: UIImage(named: "ic_more"), tag: 3)
         
-        viewControllers = [mapViewController, navigationViewController, moreViewController]
+        let playMusic = PlayMusicViewController.createController(asClass: PlayMusicViewController.self)
+        playMusic.tabBarItem = UITabBarItem(title: map, image: UIImage(named: "ic_map"), tag: 1)
+
+        viewControllers = [playMusic, navigationViewController, moreViewController]
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

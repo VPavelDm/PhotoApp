@@ -62,6 +62,15 @@
 		10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */; };
 		10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D462139728B0096E8DA /* MoreViewController.storyboard */; };
 		10F06D3821770D4A0066E21F /* MoreRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D3721770D4A0066E21F /* MoreRepository.m */; };
+		10F06D4121771CDA0066E21F /* PlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4021771CDA0066E21F /* PlayMusicViewController.m */; };
+		10F06D4B217723AC0066E21F /* MusicDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4A217723AC0066E21F /* MusicDataProvider.m */; };
+		10F06D4E217725790066E21F /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4D217725790066E21F /* Song.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		10F06D50217727110066E21F /* song4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D4F217727110066E21F /* song4.mp3 */; };
+		10F06D532177272C0066E21F /* song3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D522177272C0066E21F /* song3.mp3 */; };
+		10F06D55217727330066E21F /* song2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D54217727330066E21F /* song2.mp3 */; };
+		10F06D572177273E0066E21F /* song1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D562177273E0066E21F /* song1.mp3 */; };
+		10F06D5D217789450066E21F /* SoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D5C217789450066E21F /* SoundTableViewCell.m */; };
+		10F06D5F217789830066E21F /* PlayMusicViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D5E217789830066E21F /* PlayMusicViewController.storyboard */; };
 		43EF6D769072B71F5A84E388 /* Pods_PhotoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +146,19 @@
 		10F06D3521770D4A0066E21F /* PhotoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		10F06D3621770D4A0066E21F /* MoreRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreRepository.h; sourceTree = "<group>"; };
 		10F06D3721770D4A0066E21F /* MoreRepository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreRepository.m; sourceTree = "<group>"; };
+		10F06D3F21771CDA0066E21F /* PlayMusicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayMusicViewController.h; sourceTree = "<group>"; };
+		10F06D4021771CDA0066E21F /* PlayMusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayMusicViewController.m; sourceTree = "<group>"; };
+		10F06D49217723AC0066E21F /* MusicDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicDataProvider.h; sourceTree = "<group>"; };
+		10F06D4A217723AC0066E21F /* MusicDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicDataProvider.m; sourceTree = "<group>"; };
+		10F06D4C217725790066E21F /* Song.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Song.h; sourceTree = "<group>"; };
+		10F06D4D217725790066E21F /* Song.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
+		10F06D4F217727110066E21F /* song4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song4.mp3; sourceTree = "<group>"; };
+		10F06D522177272C0066E21F /* song3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song3.mp3; sourceTree = "<group>"; };
+		10F06D54217727330066E21F /* song2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song2.mp3; sourceTree = "<group>"; };
+		10F06D562177273E0066E21F /* song1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = song1.mp3; sourceTree = "<group>"; };
+		10F06D5B217789450066E21F /* SoundTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundTableViewCell.h; sourceTree = "<group>"; };
+		10F06D5C217789450066E21F /* SoundTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoundTableViewCell.m; sourceTree = "<group>"; };
+		10F06D5E217789830066E21F /* PlayMusicViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayMusicViewController.storyboard; sourceTree = "<group>"; };
 		72512B748CBA7C66B6D42E49 /* Pods_PhotoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0BA784FB77BDA2D5FC7D8F3 /* Pods-PhotoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.release.xcconfig"; sourceTree = "<group>"; };
 		BC6792C7A7926C4652DABEAA /* Pods-PhotoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoApp/Pods-PhotoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -327,6 +349,7 @@
 		1090646D2137DE770033B02B /* PhotoApp */ = {
 			isa = PBXGroup;
 			children = (
+				10F06D3921771C7D0066E21F /* PlayMusic */,
 				1090647A2137DE780033B02B /* Info.plist */,
 				109064802137DECB0033B02B /* Supporting files */,
 				1061A1FD2147AC27006942D7 /* CategoryFilter */,
@@ -619,9 +642,9 @@
 		10E35CCB21394C300096E8DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10F06D3521770D4A0066E21F /* PhotoApp-Bridging-Header.h */,
 				10F06D3621770D4A0066E21F /* MoreRepository.h */,
 				10F06D3721770D4A0066E21F /* MoreRepository.m */,
-				10F06D3521770D4A0066E21F /* PhotoApp-Bridging-Header.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -645,6 +668,7 @@
 		10E35CD021394E180096E8DA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				10F06D582177332E0066E21F /* Bridge */,
 				104A60DB215A837600E4CAA8 /* Model */,
 				10C50DD22152819C001C8918 /* Service */,
 				1031816321463D2700434511 /* Extension */,
@@ -652,6 +676,65 @@
 				1082EE0F216786BD00F4E066 /* Error */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		10F06D3921771C7D0066E21F /* PlayMusic */ = {
+			isa = PBXGroup;
+			children = (
+				10F06D5A217789240066E21F /* View */,
+				10F06D452177237F0066E21F /* Model */,
+				10F06D3E21771CC30066E21F /* Controller */,
+			);
+			path = PlayMusic;
+			sourceTree = "<group>";
+		};
+		10F06D3E21771CC30066E21F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10F06D3F21771CDA0066E21F /* PlayMusicViewController.h */,
+				10F06D4021771CDA0066E21F /* PlayMusicViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10F06D452177237F0066E21F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10F06D51217727190066E21F /* Songs */,
+				10F06D49217723AC0066E21F /* MusicDataProvider.h */,
+				10F06D4A217723AC0066E21F /* MusicDataProvider.m */,
+				10F06D4C217725790066E21F /* Song.h */,
+				10F06D4D217725790066E21F /* Song.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10F06D51217727190066E21F /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				10F06D562177273E0066E21F /* song1.mp3 */,
+				10F06D54217727330066E21F /* song2.mp3 */,
+				10F06D522177272C0066E21F /* song3.mp3 */,
+				10F06D4F217727110066E21F /* song4.mp3 */,
+			);
+			path = Songs;
+			sourceTree = "<group>";
+		};
+		10F06D582177332E0066E21F /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bridge;
+			sourceTree = "<group>";
+		};
+		10F06D5A217789240066E21F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10F06D5B217789450066E21F /* SoundTableViewCell.h */,
+				10F06D5C217789450066E21F /* SoundTableViewCell.m */,
+				10F06D5E217789830066E21F /* PlayMusicViewController.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4F7AAE8BB7196A34F4532F7F /* Frameworks */ = {
@@ -724,16 +807,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F06D532177272C0066E21F /* song3.mp3 in Resources */,
 				109064792137DE780033B02B /* LaunchScreen.storyboard in Resources */,
 				103EE029214F7A440073C8C5 /* FullPhotoViewController.storyboard in Resources */,
 				10E35D2F213972250096E8DA /* SignUpViewController.storyboard in Resources */,
+				10F06D572177273E0066E21F /* song1.mp3 in Resources */,
+				10F06D50217727110066E21F /* song4.mp3 in Resources */,
 				1061A22421481245006942D7 /* PickerViewController.storyboard in Resources */,
+				10F06D5F217789830066E21F /* PlayMusicViewController.storyboard in Resources */,
 				10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */,
 				1019D9EF2140FA4400BF23D1 /* PhotoDetailView.xib in Resources */,
 				1061A2082147AC6F006942D7 /* CategoryTableViewController.storyboard in Resources */,
 				10E35D36213972660096E8DA /* MapViewController.storyboard in Resources */,
 				10E35D2A213971680096E8DA /* Localizable.strings in Resources */,
 				10E35D23213971370096E8DA /* LoginViewController.storyboard in Resources */,
+				10F06D55217727330066E21F /* song2.mp3 in Resources */,
 				10AFE78E213D316300CB652E /* PhotoModificationViewController.storyboard in Resources */,
 				1048DF0521427EC6001CED52 /* GoogleService-Info.plist in Resources */,
 				10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */,
@@ -805,11 +893,14 @@
 				1061A21621480312006942D7 /* CategoryDelegate.swift in Sources */,
 				1061A2212148122E006942D7 /* PickerViewController.swift in Sources */,
 				1061A2052147AC5B006942D7 /* CategoryTableViewController.swift in Sources */,
+				10F06D5D217789450066E21F /* SoundTableViewCell.m in Sources */,
 				1019D9F12140FADC00BF23D1 /* PhotoDetailView.swift in Sources */,
 				10D282DA21380B5600274129 /* MoreViewController.swift in Sources */,
+				10F06D4121771CDA0066E21F /* PlayMusicViewController.m in Sources */,
 				1031816521463D4300434511 /* ViewControllerKeyboardHandler.swift in Sources */,
 				10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */,
 				1082EE1121679F8500F4E066 /* Error.swift in Sources */,
+				10F06D4E217725790066E21F /* Song.m in Sources */,
 				10C50DDD2152936F001C8918 /* LocationStatus.swift in Sources */,
 				1061A2102147F2E0006942D7 /* CategoryButton.swift in Sources */,
 				10B3CCCB2154D34F00EA77AA /* UIImage.swift in Sources */,
@@ -835,6 +926,7 @@
 				10F06D3821770D4A0066E21F /* MoreRepository.m in Sources */,
 				109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */,
 				10C50DDF2152A256001C8918 /* String.swift in Sources */,
+				10F06D4B217723AC0066E21F /* MusicDataProvider.m in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayer.swift in Sources */,
 				103EE02C214F7AAB0073C8C5 /* FullPhotoViewController.swift in Sources */,
