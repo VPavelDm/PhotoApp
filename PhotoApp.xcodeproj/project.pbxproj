@@ -62,8 +62,8 @@
 		10E35D3D2139727B0096E8DA /* TimelineViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D3F2139727B0096E8DA /* TimelineViewController.storyboard */; };
 		10E35D442139728B0096E8DA /* MoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10E35D462139728B0096E8DA /* MoreViewController.storyboard */; };
 		10F06D3821770D4A0066E21F /* MoreRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D3721770D4A0066E21F /* MoreRepository.m */; };
-		10F06D4121771CDA0066E21F /* PlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4021771CDA0066E21F /* PlayMusicViewController.m */; };
-		10F06D4B217723AC0066E21F /* MusicDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4A217723AC0066E21F /* MusicDataProvider.m */; };
+		10F06D4121771CDA0066E21F /* PlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4021771CDA0066E21F /* PlayMusicViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		10F06D4B217723AC0066E21F /* MusicDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4A217723AC0066E21F /* MusicDataProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		10F06D4E217725790066E21F /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F06D4D217725790066E21F /* Song.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		10F06D50217727110066E21F /* song2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D4F217727110066E21F /* song2.mp3 */; };
 		10F06D532177272C0066E21F /* song3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 10F06D522177272C0066E21F /* song3.mp3 */; };

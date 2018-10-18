@@ -14,12 +14,17 @@
 
 - (void)initWithName:(NSString *)name andFormat:(NSString *)format {
     [songName release];
-    [name retain];
     songName = name;
     
     [songFormat release];
-    [format retain];
     songFormat = format;
+}
+
+- (void)dealloc
+{
+    [songName release];
+    [songFormat release];
+    [super dealloc];
 }
 
 @end

@@ -8,6 +8,10 @@
 
 #import "PlayMusicViewController.h"
 
+@interface PlayMusicViewController ()
+@property (retain) MusicDataProvider* songDataProvider;
+@end
+
 @implementation PlayMusicViewController
 
 - (void)viewDidLoad {
@@ -19,7 +23,10 @@
     SoundTableViewCell* cell = (SoundTableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"SoundCell" forIndexPath:indexPath];
     
     Song* song = [_songDataProvider songAt:indexPath.row];
+    [song retain];
     cell.soundLabel.text = [song name];
+    [song release];
+    
     cell.delegate = self;
     
     return cell;
@@ -67,6 +74,9 @@
     [self presentViewController:audioController animated:YES completion:nil];
     [audioController setPlayer:player];
     [player play];
+    
+    [audioController release];
+    [player release];
 }
 
 @end

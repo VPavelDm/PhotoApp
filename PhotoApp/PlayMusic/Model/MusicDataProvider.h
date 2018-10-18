@@ -11,9 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MusicDataProvider : NSObject {
-    NSArray* songs;
-}
+@interface MusicDataProvider : NSObject
 
 - (Song*) songAt: (NSInteger) index;
 

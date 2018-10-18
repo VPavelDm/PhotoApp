@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel* soundLabel;
 
-@property (weak) id <SoundCellDelegate> delegate;
+@property (weak, nonatomic) id <SoundCellDelegate> delegate;
 
 @end
 
