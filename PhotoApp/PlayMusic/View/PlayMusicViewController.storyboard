@@ -81,7 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="22T-Ra-Gu4"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="uPh-50-vW5" id="Ayg-RZ-MZk"/>
+                        <outlet property="soundTableView" destination="uPh-50-vW5" id="Ayg-RZ-MZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMJ-q8-gLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

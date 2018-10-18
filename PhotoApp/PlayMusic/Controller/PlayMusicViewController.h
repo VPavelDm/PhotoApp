@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PlayMusicViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SoundCellDelegate>
 
 @property (retain) MusicDataProvider* songDataProvider;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *soundTableView;
 
 + (PlayMusicViewController*) createViewController;
 
