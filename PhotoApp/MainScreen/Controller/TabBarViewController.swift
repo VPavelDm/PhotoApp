@@ -29,9 +29,9 @@ class TabBarViewController: UITabBarController {
         moreViewController.tabBarItem = UITabBarItem(title: more, image: UIImage(named: "ic_more"), tag: 3)
         
         let playMusic = PlayMusicViewController.createController(asClass: PlayMusicViewController.self)
-        playMusic.tabBarItem = UITabBarItem(title: map, image: UIImage(named: "ic_map"), tag: 1)
+        playMusic.tabBarItem = UITabBarItem(title: music, image: UIImage(named: "ic_music"), tag: 4)
 
-        viewControllers = [playMusic, navigationViewController, moreViewController]
+        viewControllers = [mapViewController, navigationViewController, moreViewController, playMusic]
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
