@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class SoundTableViewCell;
+
 @protocol SoundCellDelegate <NSObject>
 - (void) clickedPlayButton: (SoundTableViewCell*) cell;
-- (void) clickedStopButton: (SoundTableViewCell*) cell;
 @end
 
 NS_ASSUME_NONNULL_END

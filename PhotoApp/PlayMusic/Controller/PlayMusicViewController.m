@@ -7,10 +7,6 @@
 //
 
 #import "PlayMusicViewController.h"
-#import "Song.h"
-#import "SoundTableViewCell.h"
-#import <AVFoundation/AVFoundation.h>
-#import <AVKit/AVKit.h>
 
 @implementation PlayMusicViewController
 
@@ -41,27 +37,36 @@
 }
 
 - (void)clickedPlayButton:(nonnull SoundTableViewCell *)cell {
+    Song* song = [self getSongByCell:cell];
+    NSURL* url = [self getSongURL:song];
+    [self playSongWithURL:url];
+}
+
+- (NSURL*) getSongURLByName: (NSString*) name andFormat: (NSString*) format {
+    NSString* songURL = [NSBundle.mainBundle pathForResource:name ofType:format];
+    NSURL* url = [NSURL fileURLWithPath:songURL];
+    return url;
+}
+
+- (Song*) getSongByCell: (SoundTableViewCell*) cell {
     NSIndexPath* index = [_soundTableView indexPathForCell:cell];
     Song* song = [_songDataProvider songAt:index.row];
+    return song;
+}
+
+- (NSURL*) getSongURL: (Song*) song {
     NSString* songName = [song name];
     NSString* format = [song format];
-    NSURL* url = [self songURLByName:songName andFormat:format];
-    
+    NSURL* url = [self getSongURLByName:songName andFormat:format];
+    return url;
+}
+
+- (void) playSongWithURL: (NSURL*) url {
     AVPlayer* player = [[AVPlayer alloc] initWithURL:url];
     AVPlayerViewController* audioController = [AVPlayerViewController new];
     [self presentViewController:audioController animated:YES completion:nil];
     [audioController setPlayer:player];
     [player play];
-}
-
-- (void)clickedStopButton:(nonnull SoundTableViewCell *)cell {
-    
-}
-
-- (NSURL*) songURLByName: (NSString*) name andFormat: (NSString*) format {
-    NSString* songURL = [NSBundle.mainBundle pathForResource:name ofType:format];
-    NSURL* url = [NSURL fileURLWithPath:songURL];
-    return url;
 }
 
 @end

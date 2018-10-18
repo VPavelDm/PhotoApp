@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 #import "MusicDataProvider.h"
 #import "SoundCellDelegate.h"
+#import "Song.h"
+#import "SoundTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

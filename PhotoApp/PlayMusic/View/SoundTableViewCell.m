@@ -17,11 +17,6 @@
         [_delegate clickedPlayButton:self];
     }
 }
-- (IBAction)clickStopButton:(id)sender {
-    if (_delegate) {
-        [_delegate clickedStopButton:self];
-    }
-}
 
 @end
 
