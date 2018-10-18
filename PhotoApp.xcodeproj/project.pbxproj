@@ -36,6 +36,7 @@
 		109306FC214A6B9B00E73996 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109306FB214A6B9B00E73996 /* Alert.swift */; };
 		109B3CD3216B43F3003BBE62 /* InternetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B3CD2216B43F3003BBE62 /* InternetService.swift */; };
 		109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B4870215B6D3C00B5B11E /* UIViewController.swift */; };
+		10A0F9082178A7A500870EC2 /* PhotoModificationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A0F9072178A7A500870EC2 /* PhotoModificationAnimator.swift */; };
 		10AFE78E213D316300CB652E /* PhotoModificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */; };
 		10AFE791213D43DC00CB652E /* PhotoModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */; };
 		10B3CCCB2154D34F00EA77AA /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B3CCCA2154D34E00EA77AA /* UIImage.swift */; };
@@ -105,6 +106,7 @@
 		109306FB214A6B9B00E73996 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		109B3CD2216B43F3003BBE62 /* InternetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetService.swift; sourceTree = "<group>"; };
 		109B4870215B6D3C00B5B11E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		10A0F9072178A7A500870EC2 /* PhotoModificationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationAnimator.swift; sourceTree = "<group>"; };
 		10AFE78D213D316300CB652E /* PhotoModificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoModificationViewController.storyboard; sourceTree = "<group>"; };
 		10AFE790213D43DC00CB652E /* PhotoModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModificationViewController.swift; sourceTree = "<group>"; };
 		10B3CCCA2154D34E00EA77AA /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -395,9 +397,18 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		10A0F9062178A78C00870EC2 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				10A0F9072178A7A500870EC2 /* PhotoModificationAnimator.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
 		10AFE78B213D314100CB652E /* PhotoModification */ = {
 			isa = PBXGroup;
 			children = (
+				10A0F9062178A78C00870EC2 /* Animator */,
 				10C50DC421523F89001C8918 /* Delegate */,
 				10CFF2AD213FE70300E338DD /* Model */,
 				10AFE78F213D43B900CB652E /* Controller */,
@@ -932,6 +943,7 @@
 				10F06D3821770D4A0066E21F /* MoreRepository.m in Sources */,
 				109B4871215B6D3C00B5B11E /* UIViewController.swift in Sources */,
 				10C50DDF2152A256001C8918 /* String.swift in Sources */,
+				10A0F9082178A7A500870EC2 /* PhotoModificationAnimator.swift in Sources */,
 				10F06D4B217723AC0066E21F /* MusicDataProvider.m in Sources */,
 				10E35CB7213937840096E8DA /* LoginRepository.swift in Sources */,
 				10CFF2A4213FC46700E338DD /* CALayer.swift in Sources */,
