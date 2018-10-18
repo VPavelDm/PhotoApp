@@ -134,10 +134,12 @@ extension PhotoModificationViewController: PickerDelegate {
 extension PhotoModificationViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.originFrame = selectedMarker!.convert(selectedMarker!.frame, to: nil)
+        transition.presenting = true
         return transition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return nil
+        transition.presenting = false
+        return transition
     }
 }
