@@ -36,11 +36,11 @@ class TabBarViewController: UITabBarController {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let mapViewController = viewControllers?.first as! MapViewController
-        let timelineViewController = (viewControllers![1] as! UINavigationController).viewControllers.first as? TimelineViewController
+        let timelineViewController = (viewControllers![1] as! UINavigationController).viewControllers.first as! TimelineViewController
         if item.title == map {
-            mapViewController.categories = timelineViewController!.categories
+            mapViewController.categories = timelineViewController.categories ?? mapViewController.categories
         } else if item.title == timeline {
-            timelineViewController!.categories = mapViewController.categories
+            timelineViewController.categories = mapViewController.categories ?? timelineViewController.categories
         }
     }
 
