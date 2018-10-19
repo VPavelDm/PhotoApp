@@ -22,13 +22,13 @@
 {
     self = [super init];
     if (self) {
-        Song* songOne = [[Song alloc] init];
+        Song* songOne = [Song new];
         [songOne initWithName:@"song1" andFormat:@"mp3"];
         
-        Song* songTwo = [[Song alloc] init];
+        Song* songTwo = [Song new];
         [songTwo initWithName:@"song2" andFormat:@"mp3"];
         
-        Song* songThree = [[Song alloc] init];
+        Song* songThree = [Song new];
         [songThree initWithName:@"song3" andFormat:@"mp3"];
         
         songs = [[NSArray alloc] initWithObjects:songOne, songTwo, songThree, nil];
