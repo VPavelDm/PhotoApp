@@ -13,6 +13,7 @@ class TabBarViewController: UITabBarController {
     private let map = "Map".localized()
     private let timeline = "Timeline".localized()
     private let more = "More".localized()
+    private let music = "Music".localized()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +28,19 @@ class TabBarViewController: UITabBarController {
         let moreViewController = MoreViewController.createController(asClass: MoreViewController.self)
         moreViewController.tabBarItem = UITabBarItem(title: more, image: UIImage(named: "ic_more"), tag: 3)
         
-        viewControllers = [mapViewController, navigationViewController, moreViewController]
+        let playMusic = PlayMusicViewController.createController(asClass: PlayMusicViewController.self)
+        playMusic.tabBarItem = UITabBarItem(title: music, image: UIImage(named: "ic_music"), tag: 4)
+
+        viewControllers = [mapViewController, navigationViewController, moreViewController, playMusic]
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let mapViewController = viewControllers?.first as! MapViewController
-        let timelineViewController = (viewControllers![1] as! UINavigationController).viewControllers.first as? TimelineViewController
+        let timelineViewController = (viewControllers![1] as! UINavigationController).viewControllers.first as! TimelineViewController
         if item.title == map {
-            mapViewController.categories = timelineViewController!.categories
+            mapViewController.categories = timelineViewController.categories ?? mapViewController.categories
         } else if item.title == timeline {
-            timelineViewController!.categories = mapViewController.categories
+            timelineViewController.categories = mapViewController.categories ?? timelineViewController.categories
         }
     }
 

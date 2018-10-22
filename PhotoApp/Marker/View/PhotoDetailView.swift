@@ -14,14 +14,14 @@ class PhotoDetailView: UIView {
     @IBOutlet private weak var arrowImage: UIImageView!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var photoImage: UIImageView!
+    @IBOutlet weak var photoImage: UIImageView!
     
     private var photo: Photo!
     
     weak var delegate: PhotoDetailDelegate?
     
     @IBAction private func clickMarker(_ sender: Any) {
-        delegate?.clickedMarker(photo: photo)
+        delegate?.clickedMarker(view: self, photo: photo)
     }
     
     override init(frame: CGRect) {
@@ -68,5 +68,5 @@ class PhotoDetailView: UIView {
 }
 
 protocol PhotoDetailDelegate: NSObjectProtocol {
-    func clickedMarker(photo: Photo)
+    func clickedMarker(view: UIView, photo: Photo)
 }

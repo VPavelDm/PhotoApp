@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7bn-7a-2yj">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,16 +15,16 @@
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="7bn-7a-2yj" customClass="PhotoModificationViewController" customModule="PhotoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bcg-R2-AeO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpF-wi-p2c">
-                                <rect key="frame" x="64" y="106" width="192" height="288"/>
+                                <rect key="frame" x="64" y="150" width="192" height="288"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTK-yt-4vY">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="288"/>
                                         <subviews>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n2i-w6-tfA">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n2i-w6-tfA">
                                                 <rect key="frame" x="8" y="8" width="176" height="82"/>
                                                 <gestureRecognizers/>
                                                 <connections>
@@ -136,7 +136,7 @@
                         <outlet property="categoryButton" destination="CR5-qt-fCj" id="iCu-js-VF7"/>
                         <outlet property="dateLabel" destination="R2f-eJ-PZt" id="DMV-Oq-29U"/>
                         <outlet property="descriptionLabel" destination="9cx-iM-Auv" id="RME-Em-eCm"/>
-                        <outlet property="imageView" destination="n2i-w6-tfA" id="pwf-lv-g7g"/>
+                        <outlet property="photoImageView" destination="n2i-w6-tfA" id="pwf-lv-g7g"/>
                         <outlet property="scrollView" destination="vpF-wi-p2c" id="SFI-X1-aC5"/>
                     </connections>
                 </viewController>

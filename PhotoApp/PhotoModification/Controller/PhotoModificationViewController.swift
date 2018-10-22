@@ -12,6 +12,8 @@ class PhotoModificationViewController: ViewController {
     
     private var photo: Photo!
     private var image: UIImage?
+    let transition = PhotoModificationAnimator()
+    var selectedMarker: UIImageView?
     
     weak var delegate: PhotoPopupDelegate?
     
@@ -31,13 +33,13 @@ class PhotoModificationViewController: ViewController {
         }
     }
     
-    @IBOutlet private weak var imageView: UIImageView! {
+    @IBOutlet weak var photoImageView: UIImageView! {
         didSet {
             if let image = image {
-                imageView.image = image
+                photoImageView.image = image
             } else {
-                imageView.kf.indicatorType = .activity
-                imageView.kf.setImage(with: photo.url)
+                photoImageView.kf.indicatorType = .activity
+                photoImageView.kf.setImage(with: photo.url)
             }
         }
     }
@@ -126,5 +128,18 @@ extension PhotoModificationViewController: UITextViewDelegate {
 extension PhotoModificationViewController: PickerDelegate {
     func chooseCategory(category: String) {
         categoryButton.setTitle(category, for: .normal)
+    }
+}
+
+extension PhotoModificationViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.originFrame = selectedMarker!.convert(selectedMarker!.frame, to: nil)
+        transition.presenting = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.presenting = false
+        return transition
     }
 }

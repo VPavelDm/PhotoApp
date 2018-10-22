@@ -169,9 +169,12 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
         return annotationView
     }
     
-    func clickedMarker(photo: Photo) {
+    func clickedMarker(view: UIView, photo: Photo) {
         let viewController = PhotoModificationViewController.createController(photo: photo, image: nil, delegate: self)
+        viewController.transitioningDelegate = viewController
         for annotation in mapView.selectedAnnotations {
+            let detail = view as! PhotoDetailView
+            viewController.selectedMarker = detail.photoImage
             mapView.deselectAnnotation(annotation, animated: true)
         }
         present(viewController, animated: true)

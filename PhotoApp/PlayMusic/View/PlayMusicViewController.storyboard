@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vnT-S7-rg0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Play Music View Controller-->
+        <scene sceneID="3Ga-eT-XhC">
+            <objects>
+                <viewController id="vnT-S7-rg0" customClass="PlayMusicViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jYq-NH-FyK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uPh-50-vW5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SoundCell" rowHeight="53" id="8qg-b8-sH8" customClass="SoundTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="53"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8qg-b8-sH8" id="75H-QO-ByR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Sound " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfV-M8-X3i">
+                                                    <rect key="frame" x="20" y="16" width="54" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fH-OP-Hgj">
+                                                    <rect key="frame" x="325" y="11.5" width="30" height="30"/>
+                                                    <state key="normal" title="Play"/>
+                                                    <connections>
+                                                        <action selector="clickPlayButton:" destination="8qg-b8-sH8" eventType="touchUpInside" id="xM3-tp-DIW"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VfV-M8-X3i" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="8fH-OP-Hgj" secondAttribute="leading" constant="8" symbolic="YES" id="6z9-A7-aQk"/>
+                                                <constraint firstItem="8fH-OP-Hgj" firstAttribute="centerY" secondItem="75H-QO-ByR" secondAttribute="centerY" id="EQE-xd-wmB"/>
+                                                <constraint firstItem="VfV-M8-X3i" firstAttribute="centerY" secondItem="75H-QO-ByR" secondAttribute="centerY" id="UMr-td-LnQ"/>
+                                                <constraint firstItem="VfV-M8-X3i" firstAttribute="leading" secondItem="75H-QO-ByR" secondAttribute="leading" constant="20" symbolic="YES" id="juM-Xe-BYs"/>
+                                                <constraint firstAttribute="trailing" secondItem="8fH-OP-Hgj" secondAttribute="trailing" constant="20" symbolic="YES" id="oia-j6-ov8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="soundLabel" destination="VfV-M8-X3i" id="1gq-B2-tVl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vnT-S7-rg0" id="W21-MU-KIC"/>
+                                    <outlet property="delegate" destination="vnT-S7-rg0" id="mfr-Jm-f0b"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="22T-Ra-Gu4" firstAttribute="bottom" secondItem="uPh-50-vW5" secondAttribute="bottom" id="1Kk-Hd-Ivp"/>
+                            <constraint firstItem="22T-Ra-Gu4" firstAttribute="trailing" secondItem="uPh-50-vW5" secondAttribute="trailing" id="Nxv-H9-Xvi"/>
+                            <constraint firstItem="uPh-50-vW5" firstAttribute="leading" secondItem="22T-Ra-Gu4" secondAttribute="leading" id="U3G-iV-yLc"/>
+                            <constraint firstItem="uPh-50-vW5" firstAttribute="top" secondItem="22T-Ra-Gu4" secondAttribute="top" id="UZA-Zv-bSK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="22T-Ra-Gu4"/>
+                    </view>
+                    <connections>
+                        <outlet property="soundTableView" destination="uPh-50-vW5" id="Ayg-RZ-MZk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMJ-q8-gLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="-141.67916041979012"/>
+        </scene>
+    </scenes>
+</document>
