@@ -79,4 +79,10 @@
     [player release];
 }
 
+- (void)dealloc
+{
+    [_songDataProvider release];
+    [super dealloc];
+}
+
 @end
