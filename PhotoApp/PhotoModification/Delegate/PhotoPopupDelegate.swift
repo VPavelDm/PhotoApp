@@ -11,5 +11,6 @@ import Foundation
 protocol PhotoPopupDelegate: class {
     func photoAdded(photo: Photo)
     func photoUpdated(photo: Photo)
+    func endModifyingPhoto(photo: Photo)
     func didReceivedError(error: Error)
 }

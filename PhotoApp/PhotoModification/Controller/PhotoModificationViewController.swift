@@ -58,7 +58,11 @@ class PhotoModificationViewController: ViewController {
     }
     @IBAction private func clickCancelButton(_ sender: UIButton) {
         descriptionLabel.resignFirstResponder()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) { [weak self] in
+            if let `self` = self {
+                self.delegate?.endModifyingPhoto(photo: self.photo)
+            }
+        }
     }
     @IBAction private func clickDoneButton(_ sender: UIButton) {
         activityIndicator.startAnimating()
