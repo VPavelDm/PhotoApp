@@ -172,11 +172,9 @@ extension MapViewController: MKMapViewDelegate, PhotoDetailDelegate {
     func clickedMarker(view: UIView, photo: Photo) {
         let viewController = PhotoModificationViewController.createController(photo: photo, image: nil, delegate: self)
         viewController.transitioningDelegate = viewController
-        for annotation in mapView.selectedAnnotations {
-            let detail = view as! PhotoDetailView
-            viewController.selectedMarker = detail.photoImage
-            mapView.deselectAnnotation(annotation, animated: true)
-        }
+        let detail = view as! PhotoDetailView
+        viewController.selectedMarker = detail.photoImage
+        mapView.deselectAnnotation(photo, animated: true)
         present(viewController, animated: true)
     }
     
@@ -261,6 +259,10 @@ extension MapViewController: PhotoPopupDelegate {
         activityIndicator.stopAnimating()
         let alert = UIAlertController(message: error.getErrorDescription())
         present(alert, animated: true)
+    }
+    
+    func endModifyingPhoto(photo: Photo) {
+        mapView.selectAnnotation(photo, animated: true)
     }
 }
 

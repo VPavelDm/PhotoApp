@@ -29,33 +29,39 @@ class PhotoModificationAnimator: NSObject, UIViewControllerAnimatedTransitioning
     
     private func fadeIn(containerView: UIView, using transitionContext: UIViewControllerContextTransitioning) {
         let toView = transitionContext.view(forKey: .to)!
-        let toViewController = transitionContext.viewController(forKey: .to) as! PhotoModificationViewController
-        let photoImageView = toViewController.photoImageView!
-        
-        //Initialize the image to be transferred
-        let imageView = UIImageView(image: photoImageView.image)
-        imageView.frame = originFrame
-        imageView.contentMode = .scaleAspectFit
-        imageView.clipsToBounds = true
-        
-        containerView.addSubview(toView)
-        containerView.addSubview(imageView)
-        containerView.bringSubviewToFront(imageView)
-        
-        //Get final position of image
-        let finalFrame = photoImageView.superview!.convert(photoImageView.frame, to: toView)
-        
         toView.alpha = 0.0
-        toViewController.photoImageView.alpha = 0.0
+        containerView.addSubview(toView)
         
-        UIView.animate(withDuration: duration, animations: {
-            imageView.frame = finalFrame
-            toView.alpha = 1.0
-        }, completion: {(_) in
-            imageView.removeFromSuperview()
-            toViewController.photoImageView.alpha = 1.0
-            transitionContext.completeTransition(true)
-        })
+        let toViewController = transitionContext.viewController(forKey: .to) as! PhotoModificationViewController
+        
+        transitionContext.completeTransition(true)
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            let photoImageView = toViewController.photoImageView!
+            
+            //Initialize the image to be transferred
+            let imageView = UIImageView(image: photoImageView.image)
+            imageView.frame = self.originFrame
+            imageView.contentMode = .scaleAspectFit
+            imageView.clipsToBounds = true
+            
+            containerView.addSubview(imageView)
+            containerView.bringSubviewToFront(imageView)
+            
+            //Get final position of image
+            let finalFrame = photoImageView.superview!.convert(photoImageView.frame, to: toView)
+            
+            toViewController.photoImageView.alpha = 0.0
+            
+            UIView.animate(withDuration: self.duration, animations: {
+                imageView.frame = finalFrame
+                toView.alpha = 1.0
+            }, completion: {(_) in
+                imageView.removeFromSuperview()
+                toViewController.photoImageView.alpha = 1.0
+            })
+        }
     }
     
     private func fadeOut(containerView: UIView, using transitionContext: UIViewControllerContextTransitioning) {
